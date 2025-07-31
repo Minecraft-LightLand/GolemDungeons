@@ -9,6 +9,7 @@ import dev.xkmc.modulargolems.content.config.GolemMaterial;
 import dev.xkmc.modulargolems.content.core.GolemType;
 import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
 import dev.xkmc.modulargolems.content.entity.hostile.HostileGolemRegistry;
+import dev.xkmc.modulargolems.content.item.golem.GolemHolder;
 import dev.xkmc.modulargolems.content.item.upgrade.IUpgradeItem;
 import dev.xkmc.modulargolems.content.item.upgrade.UpgradeItem;
 import net.minecraft.resources.ResourceLocation;
@@ -106,11 +107,14 @@ public class SpawnConfig extends BaseConfig {
 				}
 				if (mountEntity instanceof LivingEntity le) {
 					attachEquipments(le, r);
-					if (golem.startRiding(le))
+					if (golem.startRiding(le)) {
+						sl.addFreshEntityWithPassengers(le);
 						return le;
+					}
 				}
 			}
 		}
+		sl.addFreshEntity(golem);
 		return golem;
 	}
 
@@ -136,7 +140,7 @@ public class SpawnConfig extends BaseConfig {
 		var e = golem.create(sl);
 		var fac = HostileGolemRegistry.getFaction(faction);
 		var uuid = (fac == null ? HostileGolemRegistry.DEFAULT : fac).uuid;
-		e.updateAttributes(mats, ups, uuid);
+		e.onCreate(mats, ups, uuid);
 		return e;
 	}
 

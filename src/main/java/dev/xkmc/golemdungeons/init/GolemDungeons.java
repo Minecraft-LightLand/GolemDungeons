@@ -1,11 +1,13 @@
 package dev.xkmc.golemdungeons.init;
 
 import dev.xkmc.golemdungeons.content.config.SpawnConfig;
+import dev.xkmc.golemdungeons.content.item.SummonWandSelector;
 import dev.xkmc.golemdungeons.init.data.GDConfigGen;
+import dev.xkmc.golemdungeons.init.reg.GDItems;
+import dev.xkmc.l2itemselector.select.item.IItemSelector;
 import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.l2library.serial.config.ConfigTypeEntry;
 import dev.xkmc.l2library.serial.config.PacketHandlerWithConfig;
-import dev.xkmc.modulargolems.init.data.MGConfigGen;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
@@ -35,7 +37,7 @@ public class GolemDungeons {
 	public static final ConfigTypeEntry<SpawnConfig> SPAWN = new ConfigTypeEntry<>(HANDLER, "spawn", SpawnConfig.class);
 
 	public GolemDungeons() {
-
+		GDItems.register();
 	}
 
 	@SubscribeEvent
@@ -45,6 +47,7 @@ public class GolemDungeons {
 	@SubscribeEvent
 	public static void setup(final FMLCommonSetupEvent event) {
 		event.enqueueWork(() -> {
+			IItemSelector.register(new SummonWandSelector(loc("faction_select")));
 		});
 	}
 

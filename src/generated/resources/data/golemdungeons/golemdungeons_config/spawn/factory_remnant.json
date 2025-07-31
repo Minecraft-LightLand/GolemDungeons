@@ -514,6 +514,7 @@
       ]
     }
   ],
+  "faction": "modulargolems:default",
   "materials": {
     "modulargolems:copper": {
       "bonus": [],
