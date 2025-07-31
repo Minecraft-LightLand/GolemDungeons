@@ -1,0 +1,36 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="All rights reserved"
+[[mods]]
+modId="golemdungeons"
+version="${file.jarVersion}" #mandatory
+displayName="Golem Dungeons" #mandatory
+logoFile="golemdungeons.png" #optional
+credits="LightLand team and Nulladev Team" #optional
+authors="lcy0x1" #optional
+description='''
+This mod adds golems that can be crafted with different materials in a Tinker-like playstyle.
+'''
+[[dependencies.golemdungeons]]
+    modId="forge"
+    mandatory=true
+    versionRange="[47.1.0,)"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.golemdungeons]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20,1.21)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.golemdungeons]]
+    modId="l2library"
+    mandatory=true
+    versionRange="[2.5.3,)"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.golemdungeons]]
+    modId="modulargolems"
+    mandatory=true
+    versionRange="[2.6.0,)"
+    side="BOTH"
