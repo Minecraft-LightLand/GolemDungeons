@@ -2,7 +2,7 @@ package dev.xkmc.golemdungeons.init;
 
 import dev.xkmc.golemdungeons.content.config.SpawnConfig;
 import dev.xkmc.golemdungeons.content.faction.DungeonFactionRegistry;
-import dev.xkmc.golemdungeons.content.item.SummonWandSelector;
+import dev.xkmc.golemdungeons.content.summon.SummonWandSelector;
 import dev.xkmc.golemdungeons.init.data.GDConfigGen;
 import dev.xkmc.golemdungeons.init.reg.GDItems;
 import dev.xkmc.l2itemselector.select.item.IItemSelector;

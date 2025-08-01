@@ -2,7 +2,7 @@ package dev.xkmc.golemdungeons.init.reg;
 
 import com.tterrag.registrate.util.entry.ItemEntry;
 import com.tterrag.registrate.util.entry.RegistryEntry;
-import dev.xkmc.golemdungeons.content.item.HostileSummonWand;
+import dev.xkmc.golemdungeons.content.summon.HostileSummonWand;
 import dev.xkmc.golemdungeons.init.GolemDungeons;
 import dev.xkmc.l2itemselector.init.data.L2ISTagGen;
 import net.minecraft.world.item.CreativeModeTab;

@@ -1,16 +1,10 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
-package dev.xkmc.golemdungeons.content.item;
+package dev.xkmc.golemdungeons.content.summon;
 
 import dev.xkmc.golemdungeons.init.GolemDungeons;
 import dev.xkmc.golemdungeons.init.reg.GDItems;
 import dev.xkmc.l2itemselector.select.item.IItemSelector;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
 import java.util.ArrayList;
@@ -23,7 +17,7 @@ public class SummonWandSelector extends IItemSelector {
 	}
 
 	public boolean test(ItemStack stack) {
-		return stack.is((Item) GDItems.SUMMON.get());
+		return stack.is(GDItems.SUMMON.get());
 	}
 
 	public static List<ResourceLocation> getAll() {
