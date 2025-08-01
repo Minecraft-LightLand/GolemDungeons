@@ -1,9 +1,11 @@
 package dev.xkmc.golemdungeons.content.faction;
 
+import dev.xkmc.golemdungeons.init.reg.GDItems;
 import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.raid.Raid;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.util.Lazy;
@@ -18,6 +20,8 @@ public class IllagerFaction extends DungeonFaction {
 
 	@Override
 	public ItemStack getBanner(AbstractGolemEntity<?, ?> e, int col) {
+		if (e.getItemBySlot(EquipmentSlot.CHEST).is(GDItems.SAMURAI_CHESTPLATE.get()))
+			return ItemStack.EMPTY;
 		return BANNER.get();
 	}
 

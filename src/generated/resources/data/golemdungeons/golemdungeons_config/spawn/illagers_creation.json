@@ -9,7 +9,7 @@
               {
                 "enchantLevel": 30,
                 "stack": {
-                  "item": "modulargolems:roman_guard_chestplate"
+                  "item": "golemdungeons:samurai_golem_chestplate"
                 },
                 "weight": 100
               }
@@ -18,7 +18,7 @@
               {
                 "enchantLevel": 30,
                 "stack": {
-                  "item": "modulargolems:roman_guard_helmet"
+                  "item": "golemdungeons:samurai_golem_helmet"
                 },
                 "weight": 100
               }
@@ -27,7 +27,7 @@
               {
                 "enchantLevel": 30,
                 "stack": {
-                  "item": "modulargolems:roman_guard_shinguard"
+                  "item": "golemdungeons:samurai_golem_shinguard"
                 },
                 "weight": 100
               }

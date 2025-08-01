@@ -4,6 +4,7 @@ import dev.xkmc.golemdungeons.content.config.SpawnConfig;
 import dev.xkmc.golemdungeons.content.faction.DungeonFaction;
 import dev.xkmc.golemdungeons.content.faction.DungeonFactionRegistry;
 import dev.xkmc.golemdungeons.init.GolemDungeons;
+import dev.xkmc.golemdungeons.init.reg.GDItems;
 import dev.xkmc.l2library.serial.config.ConfigDataProvider;
 import dev.xkmc.modulargolems.init.ModularGolems;
 import dev.xkmc.modulargolems.init.material.GolemWeaponType;
@@ -141,9 +142,9 @@ public class GDConfigGen extends ConfigDataProvider {
 					.upgrade(GolemItems.DIAMOND.asItem(), 100)
 					.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_GOLEM.get())
 							.add(new SpawnConfig.EquipmentSet(100)
-									.add(EquipmentSlot.HEAD, 100, GolemItems.GOLEMGUARD_HELMET, 30)
-									.add(EquipmentSlot.CHEST, 100, GolemItems.GOLEMGUARD_CHESTPLATE, 30)
-									.add(EquipmentSlot.LEGS, 100, GolemItems.GOLEMGUARD_SHINGUARD, 30)
+									.add(EquipmentSlot.HEAD, 100, GDItems.SAMURAI_HELMET, 30)
+									.add(EquipmentSlot.CHEST, 100, GDItems.SAMURAI_CHESTPLATE, 30)
+									.add(EquipmentSlot.LEGS, 100, GDItems.SAMURAI_SHINGUARD, 30)
 							)
 					)
 					.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_GOLEM.get())
