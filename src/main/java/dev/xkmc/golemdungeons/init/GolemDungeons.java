@@ -1,6 +1,7 @@
 package dev.xkmc.golemdungeons.init;
 
 import dev.xkmc.golemdungeons.content.config.SpawnConfig;
+import dev.xkmc.golemdungeons.content.faction.DungeonFactionRegistry;
 import dev.xkmc.golemdungeons.content.item.SummonWandSelector;
 import dev.xkmc.golemdungeons.init.data.GDConfigGen;
 import dev.xkmc.golemdungeons.init.reg.GDItems;
@@ -47,6 +48,7 @@ public class GolemDungeons {
 	@SubscribeEvent
 	public static void setup(final FMLCommonSetupEvent event) {
 		event.enqueueWork(() -> {
+			DungeonFactionRegistry.register();
 			IItemSelector.register(new SummonWandSelector(loc("faction_select")));
 		});
 	}

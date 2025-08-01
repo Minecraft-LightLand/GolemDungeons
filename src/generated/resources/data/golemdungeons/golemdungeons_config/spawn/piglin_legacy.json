@@ -1,0 +1,243 @@
+{
+  "equipments": [
+    {
+      "type": "modulargolems:metal_golem",
+      "sets": [
+        {
+          "items": {
+            "CHEST": [
+              {
+                "enchantLevel": 30,
+                "stack": {
+                  "item": "modulargolems:barbaric_vanguard_chestplate"
+                },
+                "weight": 100
+              }
+            ],
+            "HEAD": [
+              {
+                "enchantLevel": 30,
+                "stack": {
+                  "item": "modulargolems:barbaric_vanguard_helmet"
+                },
+                "weight": 100
+              }
+            ],
+            "LEGS": [
+              {
+                "enchantLevel": 30,
+                "stack": {
+                  "item": "modulargolems:barbaric_vanguard_shinguard"
+                },
+                "weight": 100
+              }
+            ]
+          },
+          "weight": 100
+        }
+      ]
+    },
+    {
+      "type": "modulargolems:metal_golem",
+      "sets": [
+        {
+          "items": {
+            "MAINHAND": [
+              {
+                "enchantLevel": 30,
+                "stack": {
+                  "item": "modulargolems:netherite_golem_axe"
+                },
+                "weight": 50
+              },
+              {
+                "enchantLevel": 30,
+                "stack": {
+                  "item": "modulargolems:netherite_golem_sword"
+                },
+                "weight": 50
+              },
+              {
+                "enchantLevel": 30,
+                "stack": {
+                  "item": "modulargolems:netherite_golem_spear"
+                },
+                "weight": 50
+              }
+            ]
+          },
+          "weight": 100
+        }
+      ]
+    },
+    {
+      "type": "modulargolems:humanoid_golem",
+      "sets": [
+        {
+          "items": {
+            "CHEST": [
+              {
+                "enchantLevel": 30,
+                "stack": {
+                  "item": "minecraft:netherite_chestplate",
+                  "nbt": "{Damage:0}"
+                },
+                "weight": 100
+              }
+            ],
+            "FEET": [
+              {
+                "enchantLevel": 30,
+                "stack": {
+                  "item": "minecraft:netherite_boots",
+                  "nbt": "{Damage:0}"
+                },
+                "weight": 100
+              }
+            ],
+            "HEAD": [
+              {
+                "enchantLevel": 30,
+                "stack": {
+                  "item": "minecraft:netherite_helmet",
+                  "nbt": "{Damage:0}"
+                },
+                "weight": 100
+              }
+            ],
+            "LEGS": [
+              {
+                "enchantLevel": 30,
+                "stack": {
+                  "item": "minecraft:netherite_leggings",
+                  "nbt": "{Damage:0}"
+                },
+                "weight": 100
+              }
+            ]
+          },
+          "weight": 100
+        }
+      ]
+    },
+    {
+      "type": "modulargolems:humanoid_golem",
+      "sets": [
+        {
+          "items": {
+            "MAINHAND": [
+              {
+                "enchantLevel": 30,
+                "stack": {
+                  "item": "minecraft:netherite_axe",
+                  "nbt": "{Damage:0}"
+                },
+                "weight": 100
+              },
+              {
+                "enchantLevel": 30,
+                "stack": {
+                  "item": "minecraft:netherite_sword",
+                  "nbt": "{Damage:0}"
+                },
+                "weight": 100
+              }
+            ],
+            "OFFHAND": [
+              {
+                "enchantLevel": 30,
+                "stack": {
+                  "item": "minecraft:shield",
+                  "nbt": "{Damage:0}"
+                },
+                "weight": 100
+              }
+            ]
+          },
+          "weight": 100
+        },
+        {
+          "items": {
+            "MAINHAND": [
+              {
+                "enchantLevel": 30,
+                "stack": {
+                  "item": "minecraft:crossbow",
+                  "nbt": "{Damage:0}"
+                },
+                "weight": 100
+              }
+            ],
+            "OFFHAND": [
+              {
+                "enchantLevel": 7,
+                "stack": {
+                  "item": "minecraft:arrow"
+                },
+                "weight": 100
+              }
+            ]
+          },
+          "weight": 100
+        }
+      ]
+    }
+  ],
+  "faction": "golemdungeons:piglin_legacy",
+  "materials": {
+    "modulargolems:gold": {
+      "bonus": [
+        {
+          "chance": 100.0,
+          "upgrade": "modulargolems:speed"
+        }
+      ],
+      "weight": 100
+    },
+    "modulargolems:iron": {
+      "bonus": [],
+      "weight": 100
+    },
+    "modulargolems:netherite": {
+      "bonus": [
+        {
+          "chance": 100.0,
+          "upgrade": "modulargolems:speed"
+        }
+      ],
+      "weight": 100
+    }
+  },
+  "types": {
+    "modulargolems:humanoid_golem": {
+      "bonus": [],
+      "mountChance": 0.0,
+      "mounts": [],
+      "weight": 50
+    },
+    "modulargolems:metal_golem": {
+      "bonus": [],
+      "mountChance": 0.0,
+      "mounts": [],
+      "weight": 50
+    }
+  },
+  "upgrades": [
+    {
+      "upgrade": "modulargolems:quartz",
+      "weight": 100
+    },
+    {
+      "upgrade": "modulargolems:gold",
+      "weight": 100
+    },
+    {
+      "upgrade": "modulargolems:diamond",
+      "weight": 100
+    },
+    {
+      "upgrade": "modulargolems:netherite",
+      "weight": 100
+    }
+  ]
+}

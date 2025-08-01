@@ -59,6 +59,46 @@
       ]
     },
     {
+      "type": "modulargolems:metal_golem",
+      "sets": [
+        {
+          "items": {
+            "MAINHAND": [
+              {
+                "enchantLevel": 0,
+                "stack": {
+                  "item": "minecraft:air"
+                },
+                "weight": 100
+              },
+              {
+                "enchantLevel": 20,
+                "stack": {
+                  "item": "modulargolems:iron_golem_axe"
+                },
+                "weight": 50
+              },
+              {
+                "enchantLevel": 20,
+                "stack": {
+                  "item": "modulargolems:iron_golem_sword"
+                },
+                "weight": 50
+              },
+              {
+                "enchantLevel": 20,
+                "stack": {
+                  "item": "modulargolems:iron_golem_spear"
+                },
+                "weight": 50
+              }
+            ]
+          },
+          "weight": 100
+        }
+      ]
+    },
+    {
       "type": "modulargolems:humanoid_golem",
       "sets": [
         {
@@ -500,10 +540,9 @@
             ],
             "OFFHAND": [
               {
-                "enchantLevel": 0,
+                "enchantLevel": 7,
                 "stack": {
-                  "item": "minecraft:firework_rocket",
-                  "nbt": "{Fireworks:{Flight:3b}}"
+                  "item": "minecraft:firework_rocket"
                 },
                 "weight": 100
               }
@@ -514,7 +553,7 @@
       ]
     }
   ],
-  "faction": "modulargolems:default",
+  "faction": "golemdungeons:factory_remnant",
   "materials": {
     "modulargolems:copper": {
       "bonus": [],
@@ -538,8 +577,12 @@
     "modulargolems:dog_golem": {
       "bonus": [
         {
-          "chance": 0.699999988079071,
+          "chance": 0.75,
           "upgrade": "modulargolems:diamond"
+        },
+        {
+          "chance": 0.5,
+          "upgrade": "modulargolems:size_upgrade"
         }
       ],
       "mountChance": 0.0,
@@ -580,7 +623,7 @@
   "upgrades": [
     {
       "upgrade": "minecraft:air",
-      "weight": 140
+      "weight": 170
     },
     {
       "upgrade": "modulargolems:quartz",
@@ -596,10 +639,6 @@
     },
     {
       "upgrade": "modulargolems:diamond",
-      "weight": 30
-    },
-    {
-      "upgrade": "modulargolems:size_upgrade",
       "weight": 30
     }
   ]

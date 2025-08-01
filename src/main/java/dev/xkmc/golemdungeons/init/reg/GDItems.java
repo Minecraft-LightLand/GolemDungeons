@@ -17,7 +17,6 @@ public class GDItems {
 
 	static {
 
-
 		SUMMON = GolemDungeons.REGISTRATE.item("hostile_summon_wand", HostileSummonWand::new)
 				.properties(p -> p.stacksTo(1).rarity(Rarity.EPIC))
 				.tag(L2ISTagGen.SELECTABLE)

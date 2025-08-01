@@ -1,0 +1,316 @@
+{
+  "equipments": [
+    {
+      "type": "modulargolems:metal_golem",
+      "sets": [
+        {
+          "items": {
+            "CHEST": [
+              {
+                "enchantLevel": 30,
+                "stack": {
+                  "item": "modulargolems:roman_guard_chestplate"
+                },
+                "weight": 100
+              }
+            ],
+            "HEAD": [
+              {
+                "enchantLevel": 30,
+                "stack": {
+                  "item": "modulargolems:roman_guard_helmet"
+                },
+                "weight": 100
+              }
+            ],
+            "LEGS": [
+              {
+                "enchantLevel": 30,
+                "stack": {
+                  "item": "modulargolems:roman_guard_shinguard"
+                },
+                "weight": 100
+              }
+            ]
+          },
+          "weight": 100
+        }
+      ]
+    },
+    {
+      "type": "modulargolems:metal_golem",
+      "sets": [
+        {
+          "items": {
+            "MAINHAND": [
+              {
+                "enchantLevel": 30,
+                "stack": {
+                  "item": "modulargolems:iron_golem_axe"
+                },
+                "weight": 50
+              },
+              {
+                "enchantLevel": 30,
+                "stack": {
+                  "item": "modulargolems:iron_golem_sword"
+                },
+                "weight": 50
+              },
+              {
+                "enchantLevel": 30,
+                "stack": {
+                  "item": "modulargolems:iron_golem_spear"
+                },
+                "weight": 50
+              }
+            ]
+          },
+          "weight": 100
+        }
+      ]
+    },
+    {
+      "type": "modulargolems:humanoid_golem",
+      "sets": [
+        {
+          "items": {
+            "CHEST": [
+              {
+                "enchantLevel": 20,
+                "stack": {
+                  "item": "minecraft:diamond_chestplate",
+                  "nbt": "{Damage:0}"
+                },
+                "weight": 20
+              },
+              {
+                "enchantLevel": 30,
+                "stack": {
+                  "item": "minecraft:iron_chestplate",
+                  "nbt": "{Damage:0}"
+                },
+                "weight": 100
+              }
+            ],
+            "FEET": [
+              {
+                "enchantLevel": 20,
+                "stack": {
+                  "item": "minecraft:diamond_boots",
+                  "nbt": "{Damage:0}"
+                },
+                "weight": 20
+              },
+              {
+                "enchantLevel": 30,
+                "stack": {
+                  "item": "minecraft:iron_boots",
+                  "nbt": "{Damage:0}"
+                },
+                "weight": 100
+              }
+            ],
+            "HEAD": [
+              {
+                "enchantLevel": 20,
+                "stack": {
+                  "item": "minecraft:diamond_helmet",
+                  "nbt": "{Damage:0}"
+                },
+                "weight": 20
+              },
+              {
+                "enchantLevel": 30,
+                "stack": {
+                  "item": "minecraft:iron_helmet",
+                  "nbt": "{Damage:0}"
+                },
+                "weight": 100
+              }
+            ],
+            "LEGS": [
+              {
+                "enchantLevel": 20,
+                "stack": {
+                  "item": "minecraft:diamond_leggings",
+                  "nbt": "{Damage:0}"
+                },
+                "weight": 20
+              },
+              {
+                "enchantLevel": 30,
+                "stack": {
+                  "item": "minecraft:iron_leggings",
+                  "nbt": "{Damage:0}"
+                },
+                "weight": 100
+              }
+            ]
+          },
+          "weight": 100
+        }
+      ]
+    },
+    {
+      "type": "modulargolems:humanoid_golem",
+      "sets": [
+        {
+          "items": {
+            "MAINHAND": [
+              {
+                "enchantLevel": 30,
+                "stack": {
+                  "item": "minecraft:iron_axe",
+                  "nbt": "{Damage:0}"
+                },
+                "weight": 100
+              },
+              {
+                "enchantLevel": 30,
+                "stack": {
+                  "item": "minecraft:iron_sword",
+                  "nbt": "{Damage:0}"
+                },
+                "weight": 100
+              }
+            ],
+            "OFFHAND": [
+              {
+                "enchantLevel": 20,
+                "stack": {
+                  "item": "minecraft:shield",
+                  "nbt": "{Damage:0}"
+                },
+                "weight": 100
+              }
+            ]
+          },
+          "weight": 100
+        },
+        {
+          "items": {
+            "MAINHAND": [
+              {
+                "enchantLevel": 30,
+                "stack": {
+                  "item": "minecraft:crossbow",
+                  "nbt": "{Damage:0}"
+                },
+                "weight": 100
+              }
+            ],
+            "OFFHAND": [
+              {
+                "enchantLevel": 0,
+                "stack": {
+                  "item": "minecraft:tipped_arrow",
+                  "nbt": "{Potion:\"minecraft:poison\"}"
+                },
+                "weight": 100
+              },
+              {
+                "enchantLevel": 0,
+                "stack": {
+                  "item": "minecraft:tipped_arrow",
+                  "nbt": "{Potion:\"minecraft:slowness\"}"
+                },
+                "weight": 100
+              },
+              {
+                "enchantLevel": 0,
+                "stack": {
+                  "item": "minecraft:tipped_arrow",
+                  "nbt": "{Potion:\"minecraft:weakness\"}"
+                },
+                "weight": 100
+              },
+              {
+                "enchantLevel": 0,
+                "stack": {
+                  "item": "minecraft:tipped_arrow",
+                  "nbt": "{Potion:\"minecraft:harming\"}"
+                },
+                "weight": 100
+              }
+            ]
+          },
+          "weight": 50
+        },
+        {
+          "items": {
+            "MAINHAND": [
+              {
+                "enchantLevel": 30,
+                "stack": {
+                  "item": "minecraft:crossbow",
+                  "nbt": "{Damage:0}"
+                },
+                "weight": 100
+              }
+            ],
+            "OFFHAND": [
+              {
+                "enchantLevel": 7,
+                "stack": {
+                  "item": "minecraft:firework_rocket"
+                },
+                "weight": 100
+              }
+            ]
+          },
+          "weight": 50
+        }
+      ]
+    }
+  ],
+  "faction": "golemdungeons:illagers_creation",
+  "materials": {
+    "modulargolems:iron": {
+      "bonus": [],
+      "weight": 100
+    }
+  },
+  "types": {
+    "modulargolems:humanoid_golem": {
+      "bonus": [],
+      "mountChance": 1.0,
+      "mounts": [
+        {
+          "mount": "minecraft:horse",
+          "weight": 100
+        }
+      ],
+      "weight": 50
+    },
+    "modulargolems:metal_golem": {
+      "bonus": [],
+      "mountChance": 0.5,
+      "mounts": [
+        {
+          "mount": "minecraft:ravager",
+          "weight": 100
+        }
+      ],
+      "weight": 50
+    }
+  },
+  "upgrades": [
+    {
+      "upgrade": "modulargolems:quartz",
+      "weight": 100
+    },
+    {
+      "upgrade": "modulargolems:gold",
+      "weight": 100
+    },
+    {
+      "upgrade": "modulargolems:speed",
+      "weight": 100
+    },
+    {
+      "upgrade": "modulargolems:diamond",
+      "weight": 100
+    }
+  ]
+}

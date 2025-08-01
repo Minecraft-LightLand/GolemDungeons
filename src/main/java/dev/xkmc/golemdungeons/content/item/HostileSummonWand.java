@@ -3,6 +3,7 @@ package dev.xkmc.golemdungeons.content.item;
 import dev.xkmc.golemdungeons.init.GolemDungeons;
 import dev.xkmc.golemdungeons.init.reg.GDItems;
 import net.minecraft.nbt.Tag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionResult;
@@ -32,6 +33,11 @@ public class HostileSummonWand extends Item {
 
 	public HostileSummonWand(Properties p) {
 		super(p);
+	}
+
+	@Override
+	public Component getName(ItemStack stack) {
+		return super.getName(stack).copy().append(" - " + getId(stack));
 	}
 
 	@Override

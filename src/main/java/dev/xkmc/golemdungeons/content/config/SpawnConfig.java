@@ -8,20 +8,25 @@ import dev.xkmc.l2serial.util.Wrappers;
 import dev.xkmc.modulargolems.content.config.GolemMaterial;
 import dev.xkmc.modulargolems.content.core.GolemType;
 import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
+import dev.xkmc.modulargolems.content.entity.hostile.HostileFaction;
 import dev.xkmc.modulargolems.content.entity.hostile.HostileGolemRegistry;
-import dev.xkmc.modulargolems.content.item.golem.GolemHolder;
 import dev.xkmc.modulargolems.content.item.upgrade.IUpgradeItem;
 import dev.xkmc.modulargolems.content.item.upgrade.UpgradeItem;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.ItemLike;
 
@@ -82,6 +87,13 @@ public class SpawnConfig extends BaseConfig {
 		for (var e : equipments) {
 			equipmentTable.add(new EquipmentGroupInfo(e));
 		}
+	}
+
+	public SpawnConfig() {
+	}
+
+	public SpawnConfig(HostileFaction faction) {
+		this.faction = faction.id;
 	}
 
 	@Nullable
@@ -152,11 +164,7 @@ public class SpawnConfig extends BaseConfig {
 			for (var slot : set.get().itemTable.entrySet()) {
 				var item = slot.getValue().getRandomValue(r);
 				if (item.isEmpty()) continue;
-				var stack = item.get().stack.copy();
-				var lv = item.get().enchantLevel;
-				if (stack.isEnchantable() && lv > 0) {
-					EnchantmentHelper.enchantItem(r, stack, lv, true);
-				}
+				var stack = item.get().get(r);
 				e.setItemSlot(slot.getKey(), stack);
 			}
 		}
@@ -236,7 +244,7 @@ public class SpawnConfig extends BaseConfig {
 
 
 		public EquipmentSet add(EquipmentSlot slot, int weight, ItemLike stack, int enchantLevel) {
-			return add(slot, new EquipmentEntry(weight, stack.asItem().getDefaultInstance(), enchantLevel));
+			return add(slot, new EquipmentEntry(weight, new ItemStack(stack.asItem()), enchantLevel));
 		}
 
 		public EquipmentSet add(EquipmentSlot slot, int weight, ItemStack stack, int enchantLevel) {
@@ -248,7 +256,34 @@ public class SpawnConfig extends BaseConfig {
 	public record EquipmentEntry(int weight, ItemStack stack, int enchantLevel) {
 
 		public EquipmentEntry(int weight, Item stack) {
-			this(weight, stack.getDefaultInstance(), 0);
+			this(weight, new ItemStack(stack), 0);
+		}
+
+		public ItemStack get(RandomSource r) {
+			if (stack.is(Items.FIREWORK_ROCKET)) {
+				int n = enchantLevel <= 1 ? 1 : r.nextInt(enchantLevel) + 1;
+				return getRocket(r, Mth.clamp(n, 1, 7));
+			}
+			var ans = stack.copy();
+			if (stack.isEnchantable() && enchantLevel > 0) {
+				EnchantmentHelper.enchantItem(r, stack, enchantLevel, true);
+			}
+			return ans;
+		}
+
+		public static ItemStack getRocket(RandomSource r, int n) {
+			ItemStack ans = new ItemStack(Items.FIREWORK_ROCKET);
+			CompoundTag tag = ans.getOrCreateTagElement("Fireworks");
+			ListTag list = new ListTag();
+			for (int i = 0; i < n; i++) {
+				CompoundTag comp = new CompoundTag();
+				comp.putIntArray("Colors", List.of(DyeColor.values()[r.nextInt(16)].getFireworkColor()));
+				comp.putByte("Type", (byte) 0);
+				list.add(comp);
+			}
+			tag.putByte("Flight", (byte) 3);
+			tag.put("Explosions", list);
+			return ans;
 		}
 
 	}
