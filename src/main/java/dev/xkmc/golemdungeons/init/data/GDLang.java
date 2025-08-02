@@ -3,15 +3,17 @@ package dev.xkmc.golemdungeons.init.data;
 import com.tterrag.registrate.providers.RegistrateLangProvider;
 import dev.xkmc.modulargolems.init.ModularGolems;
 import net.minecraft.ChatFormatting;
+import net.minecraft.Util;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.resources.ResourceLocation;
 
 import javax.annotation.Nullable;
 import java.util.Locale;
 
 public enum GDLang {
 	FLAME_SWORD_ATK("tooltip.flame_sword_atk", "Deal %s extra fire damage when attacking, bypassing target armor", 1, ChatFormatting.GRAY),
-	FLAME_SWORD_LOOT("tooltip.flame_sword_loot", "Drop more golem materials when large golem slay other golems with this sword", 0, ChatFormatting.GRAY),
+	FLAME_SWORD_LOOT("tooltip.flame_sword_loot", "Drop more golem materials when metal golems slay other golems with this sword", 0, ChatFormatting.GRAY),
 
 	;
 
@@ -32,6 +34,10 @@ public enum GDLang {
 
 	public static MutableComponent getTranslate(String s) {
 		return Component.translatable(ModularGolems.MODID + "." + s);
+	}
+
+	public static Component fromTrial(ResourceLocation id) {
+		return Component.translatable(Util.makeDescriptionId("trial", id));
 	}
 
 	public MutableComponent get(Object... args) {

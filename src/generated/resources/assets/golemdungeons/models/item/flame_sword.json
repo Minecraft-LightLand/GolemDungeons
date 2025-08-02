@@ -1,5 +1,5 @@
 {
-  "parent": "golemdungeons:item/sword",
+  "parent": "modulargolems:item/sword",
   "textures": {
     "layer0": "golemdungeons:item/equipments/flame_sword"
   }

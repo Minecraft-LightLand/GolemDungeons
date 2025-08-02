@@ -6,6 +6,7 @@ import dev.xkmc.golemdungeons.content.config.RaidConfig;
 import dev.xkmc.golemdungeons.content.config.SpawnConfig;
 import dev.xkmc.golemdungeons.content.faction.DungeonFactionRegistry;
 import dev.xkmc.golemdungeons.content.summon.SummonWandSelector;
+import dev.xkmc.golemdungeons.init.data.GDConfig;
 import dev.xkmc.golemdungeons.init.data.GDConfigGen;
 import dev.xkmc.golemdungeons.init.data.GDDamageTypes;
 import dev.xkmc.golemdungeons.init.data.GDLang;
@@ -46,6 +47,7 @@ public class GolemDungeons {
 
 	public GolemDungeons() {
 		GDItems.register();
+		GDConfig.init();
 	}
 
 	@SubscribeEvent

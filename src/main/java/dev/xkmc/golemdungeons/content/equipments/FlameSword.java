@@ -12,6 +12,7 @@ import dev.xkmc.modulargolems.content.entity.metalgolem.MetalGolemEntity;
 import dev.xkmc.modulargolems.content.item.equipments.CustomDropGolemWeapon;
 import dev.xkmc.modulargolems.content.item.equipments.ExtraAttackGolemWeapon;
 import dev.xkmc.modulargolems.content.item.equipments.MetalGolemWeaponItem;
+import dev.xkmc.modulargolems.init.ModularGolems;
 import dev.xkmc.modulargolems.init.material.GolemWeaponType;
 import dev.xkmc.modulargolems.init.material.VanillaGolemWeaponMaterial;
 import net.minecraft.core.registries.Registries;
@@ -72,7 +73,7 @@ public class FlameSword extends MetalGolemWeaponItem implements ExtraAttackGolem
 		return GolemDungeons.REGISTRATE.item(id, p -> new FlameSword(material.modify(p.stacksTo(1)),
 						material.getDamage(), 0, 1, 2))
 				.model((ctx, pvd) -> pvd.getBuilder(ctx.getName())
-						.parent(new ModelFile.UncheckedModelFile(pvd.modLoc(GolemWeaponType.SWORD.model)))
+						.parent(new ModelFile.UncheckedModelFile(ModularGolems.loc(GolemWeaponType.SWORD.model)))
 						.texture("layer0", pvd.modLoc("item/equipments/" + ctx.getName())))
 				.defaultLang().register();
 	}

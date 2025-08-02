@@ -9,6 +9,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -130,6 +131,9 @@ public class EquipmentConfig extends BaseConfig {
 				if (item.isEmpty()) continue;
 				var stack = item.get().get(r);
 				e.setItemSlot(slot.getKey(), stack);
+				if (e instanceof Mob mob) {
+					mob.setDropChance(slot.getKey(), item.get().dropChance());
+				}
 			}
 		}
 	}
