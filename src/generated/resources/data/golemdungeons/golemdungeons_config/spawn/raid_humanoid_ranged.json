@@ -13,10 +13,6 @@
       "type": "modulargolems:humanoid_golem",
       "sets": [
         {
-          "target": "golemdungeons:illager_humanoid_weapon_melee",
-          "weight": 100
-        },
-        {
           "target": "golemdungeons:illager_humanoid_weapon_tipped_arrow",
           "weight": 50
         },

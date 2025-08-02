@@ -1,0 +1,56 @@
+{
+  "list": [
+    [],
+    [],
+    [],
+    [],
+    [
+      {
+        "max": 1,
+        "min": 1,
+        "target": "golemdungeons:raid_humanoid_ranged"
+      }
+    ],
+    [
+      {
+        "max": 1,
+        "min": 1,
+        "target": "golemdungeons:raid_humanoid_ranged"
+      },
+      {
+        "max": 1,
+        "min": 1,
+        "target": "golemdungeons:raid_humanoid_melee"
+      }
+    ],
+    [
+      {
+        "max": 1,
+        "min": 1,
+        "target": "golemdungeons:raid_humanoid_ranged"
+      },
+      {
+        "max": 1,
+        "min": 1,
+        "target": "golemdungeons:raid_large"
+      }
+    ],
+    [
+      {
+        "max": 2,
+        "min": 2,
+        "target": "golemdungeons:raid_humanoid_ranged"
+      },
+      {
+        "max": 1,
+        "min": 1,
+        "target": "golemdungeons:raid_humanoid_melee"
+      },
+      {
+        "max": 1,
+        "min": 1,
+        "target": "golemdungeons:raid_large"
+      }
+    ]
+  ]
+}

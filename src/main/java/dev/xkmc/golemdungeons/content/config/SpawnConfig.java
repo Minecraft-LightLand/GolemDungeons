@@ -115,13 +115,11 @@ public class SpawnConfig extends BaseConfig {
 				if (mountEntity instanceof LivingEntity le) {
 					attachEquipments(le, r);
 					if (golem.startRiding(le)) {
-						sl.addFreshEntityWithPassengers(le);
 						return le;
 					}
 				}
 			}
 		}
-		sl.addFreshEntity(golem);
 		return golem;
 	}
 

@@ -46,8 +46,10 @@ public class HostileSummonWand extends Item {
 			var id = getId(ctx.getItemInHand());
 			var entry = GolemDungeons.SPAWN.getEntry(id);
 			var e = entry.summon(sl);
-			if (e != null)
+			if (e != null) {
 				e.setPos(ctx.getClickLocation());
+				sl.addFreshEntityWithPassengers(e);
+			}
 		}
 		return InteractionResult.SUCCESS;
 	}

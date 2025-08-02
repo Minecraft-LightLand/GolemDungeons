@@ -6,6 +6,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.raid.Raid;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.util.Lazy;
@@ -29,6 +31,11 @@ public class IllagerFaction extends DungeonFaction {
 	public boolean isAlliedTo(Entity other) {
 		if (other.getType().is(EntityTypeTags.RAIDERS)) return validAlly(other);
 		return super.isAlliedTo(other);
+	}
+
+	@Override
+	public boolean hostileGolemAttacks(LivingEntity target) {
+		return super.hostileGolemAttacks(target) || target instanceof Villager vil && vil.canBeSeenAsEnemy();
 	}
 
 }

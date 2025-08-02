@@ -1,6 +1,7 @@
 package dev.xkmc.golemdungeons.init;
 
 import dev.xkmc.golemdungeons.content.config.EquipmentConfig;
+import dev.xkmc.golemdungeons.content.config.RaidConfig;
 import dev.xkmc.golemdungeons.content.config.SpawnConfig;
 import dev.xkmc.golemdungeons.content.faction.DungeonFactionRegistry;
 import dev.xkmc.golemdungeons.content.summon.SummonWandSelector;
@@ -39,6 +40,7 @@ public class GolemDungeons {
 
 	public static final ConfigTypeEntry<SpawnConfig> SPAWN = new ConfigTypeEntry<>(HANDLER, "spawn", SpawnConfig.class);
 	public static final ConfigTypeEntry<EquipmentConfig> ITEMS = new ConfigTypeEntry<>(HANDLER, "equipment", EquipmentConfig.class);
+	public static final ConfigTypeEntry<RaidConfig> RAID = new ConfigTypeEntry<>(HANDLER, "raid", RaidConfig.class);
 
 	public GolemDungeons() {
 		GDItems.register();
