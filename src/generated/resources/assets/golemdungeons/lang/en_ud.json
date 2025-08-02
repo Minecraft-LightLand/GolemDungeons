@@ -1,7 +1,10 @@
 {
+  "item.golemdungeons.flame_sword": "pɹoʍS ǝɯɐןℲ",
   "item.golemdungeons.hostile_summon_wand": "puɐM uoɯɯnS ǝןıʇsoH",
   "item.golemdungeons.samurai_golem_chestplate": "ǝʇɐןdʇsǝɥƆ ɯǝןo⅁ ıɐɹnɯɐS",
   "item.golemdungeons.samurai_golem_helmet": "ʇǝɯןǝH ɯǝןo⅁ ıɐɹnɯɐS",
   "item.golemdungeons.samurai_golem_shinguard": "pɹɐnbuıɥS ɯǝןo⅁ ıɐɹnɯɐS",
-  "itemGroup.l2library.golem_dungeons": "suoǝbunᗡ ɯǝןo⅁"
+  "itemGroup.l2library.golem_dungeons": "suoǝbunᗡ ɯǝןo⅁",
+  "modulargolems.tooltip.flame_sword_atk": "ɹoɯɹɐ ʇǝbɹɐʇ buıssɐdʎq 'buıʞɔɐʇʇɐ uǝɥʍ ǝbɐɯɐp ǝɹıɟ ɐɹʇxǝ %s ןɐǝᗡ",
+  "modulargolems.tooltip.flame_sword_loot": "pɹoʍs sıɥʇ ɥʇıʍ sɯǝןob ɹǝɥʇo ʎɐןs ɯǝןob ǝbɹɐן uǝɥʍ sןɐıɹǝʇɐɯ ɯǝןob ǝɹoɯ doɹᗡ"
 }

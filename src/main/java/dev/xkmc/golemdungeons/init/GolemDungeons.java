@@ -1,5 +1,6 @@
 package dev.xkmc.golemdungeons.init;
 
+import com.tterrag.registrate.providers.ProviderType;
 import dev.xkmc.golemdungeons.content.config.EquipmentConfig;
 import dev.xkmc.golemdungeons.content.config.RaidConfig;
 import dev.xkmc.golemdungeons.content.config.SpawnConfig;
@@ -7,6 +8,7 @@ import dev.xkmc.golemdungeons.content.faction.DungeonFactionRegistry;
 import dev.xkmc.golemdungeons.content.summon.SummonWandSelector;
 import dev.xkmc.golemdungeons.init.data.GDConfigGen;
 import dev.xkmc.golemdungeons.init.data.GDDamageTypes;
+import dev.xkmc.golemdungeons.init.data.GDLang;
 import dev.xkmc.golemdungeons.init.reg.GDItems;
 import dev.xkmc.l2itemselector.select.item.IItemSelector;
 import dev.xkmc.l2library.base.L2Registrate;
@@ -60,6 +62,7 @@ public class GolemDungeons {
 
 	@SubscribeEvent(priority = EventPriority.HIGH)
 	public static void gatherData(GatherDataEvent event) {
+		REGISTRATE.addDataGenerator(ProviderType.LANG, GDLang::genLang);
 
 		var gen = event.getGenerator();
 		var output = gen.getPackOutput();

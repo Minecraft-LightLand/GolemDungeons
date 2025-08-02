@@ -24,6 +24,14 @@
           "item": "modulargolems:netherite_golem_spear"
         },
         "weight": 50
+      },
+      {
+        "dropChance": 1.0,
+        "enchantLevel": 30,
+        "stack": {
+          "item": "golemdungeons:flame_sword"
+        },
+        "weight": 50
       }
     ]
   }

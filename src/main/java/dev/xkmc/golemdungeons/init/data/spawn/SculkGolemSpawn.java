@@ -60,8 +60,8 @@ public class SculkGolemSpawn extends AbstractGolemSpawn {
 
 			map.add(GolemDungeons.ITEMS, ITEM_SCULK_HUMANOID_BOW, new EquipmentConfig()
 					.add(EquipmentSlot.MAINHAND, 100, Items.BOW, 30)
-					.add(EquipmentSlot.OFFHAND, 50, Items.ARROW, 0)
-					.add(EquipmentSlot.OFFHAND, 50, tipped(Potions.STRONG_HARMING), 0)
+					.add(EquipmentSlot.OFFHAND, 50, Items.ARROW)
+					.add(EquipmentSlot.OFFHAND, 50, tipped(Potions.STRONG_HARMING))
 			);
 
 		}

@@ -3,9 +3,11 @@ package dev.xkmc.golemdungeons.init.reg;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import com.tterrag.registrate.util.entry.RegistryEntry;
 import dev.xkmc.golemdungeons.content.client.GDModelPaths;
+import dev.xkmc.golemdungeons.content.equipments.FlameSword;
 import dev.xkmc.golemdungeons.content.summon.HostileSummonWand;
 import dev.xkmc.l2itemselector.init.data.L2ISTagGen;
 import dev.xkmc.modulargolems.content.item.equipments.MetalGolemArmorItem;
+import dev.xkmc.modulargolems.init.material.VanillaGolemWeaponMaterial;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Rarity;
@@ -19,10 +21,13 @@ public class GDItems {
 
 	public static final ItemEntry<MetalGolemArmorItem> SAMURAI_HELMET, SAMURAI_CHESTPLATE, SAMURAI_SHINGUARD;
 
+	public static final ItemEntry<FlameSword> FLAME_SWORD;
+
 	public static final ItemEntry<HostileSummonWand> SUMMON;
 
 	static {
 
+		FLAME_SWORD = FlameSword.buildItem("flame_sword", VanillaGolemWeaponMaterial.NETHERITE);
 
 		SAMURAI_HELMET = REGISTRATE.item("samurai_golem_helmet", p -> new MetalGolemArmorItem(p.stacksTo(1),
 						ArmorItem.Type.HELMET, 9, 5, GDModelPaths.SAMURAI_HELMET))

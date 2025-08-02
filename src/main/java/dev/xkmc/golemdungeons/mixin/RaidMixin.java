@@ -2,6 +2,7 @@ package dev.xkmc.golemdungeons.mixin;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import dev.xkmc.golemdungeons.init.GolemDungeons;
+import dev.xkmc.golemdungeons.init.data.GDConfig;
 import dev.xkmc.golemdungeons.init.data.spawn.IllagerGolemSpawn;
 import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
 import net.minecraft.core.BlockPos;
@@ -52,6 +53,7 @@ public abstract class RaidMixin {
 
 	@Inject(method = "spawnGroup", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/raid/Raid;updateBossbar()V"))
 	private void golemdungeons$raidGolems(BlockPos pos, CallbackInfo ci) {
+		if (!GDConfig.COMMON.enableRaidGolems.get()) return;
 		int wave = groupsSpawned;
 		var data = GolemDungeons.RAID.getEntry(IllagerGolemSpawn.RAIDS);
 		if (data == null) return;

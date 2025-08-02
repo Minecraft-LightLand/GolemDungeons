@@ -76,10 +76,10 @@ public class IllagerGolemSpawn extends AbstractGolemSpawn {
 		);
 
 		map.add(GolemDungeons.ITEMS, ITEM_ILLAGER_HUMANOID_TIPPED, new EquipmentConfig()
-				.add(EquipmentSlot.OFFHAND, 100, tipped(Potions.LONG_POISON), 0)
-				.add(EquipmentSlot.OFFHAND, 100, tipped(Potions.STRONG_SLOWNESS), 0)
-				.add(EquipmentSlot.OFFHAND, 100, tipped(Potions.LONG_WEAKNESS), 0)
-				.add(EquipmentSlot.OFFHAND, 100, tipped(Potions.STRONG_HARMING), 0)
+				.add(EquipmentSlot.OFFHAND, 100, tipped(Potions.LONG_POISON))
+				.add(EquipmentSlot.OFFHAND, 100, tipped(Potions.STRONG_SLOWNESS))
+				.add(EquipmentSlot.OFFHAND, 100, tipped(Potions.LONG_WEAKNESS))
+				.add(EquipmentSlot.OFFHAND, 100, tipped(Potions.STRONG_HARMING))
 				.add(EquipmentSlot.MAINHAND, 100, Items.CROSSBOW, 30)
 		);
 
