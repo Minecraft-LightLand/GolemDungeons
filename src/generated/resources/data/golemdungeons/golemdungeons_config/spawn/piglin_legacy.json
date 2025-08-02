@@ -46,7 +46,7 @@
     "modulargolems:gold": {
       "bonus": [
         {
-          "chance": 100.0,
+          "chance": 1.0,
           "upgrade": "modulargolems:speed"
         }
       ],
@@ -59,7 +59,7 @@
     "modulargolems:netherite": {
       "bonus": [
         {
-          "chance": 100.0,
+          "chance": 1.0,
           "upgrade": "modulargolems:speed"
         }
       ],

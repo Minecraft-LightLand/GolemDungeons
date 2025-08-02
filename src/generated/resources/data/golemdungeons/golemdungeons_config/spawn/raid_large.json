@@ -1,0 +1,52 @@
+{
+  "equipments": [
+    {
+      "type": "modulargolems:metal_golem",
+      "sets": [
+        {
+          "target": "golemdungeons:illager_large_armor",
+          "weight": 100
+        }
+      ]
+    },
+    {
+      "type": "modulargolems:metal_golem",
+      "sets": [
+        {
+          "target": "golemdungeons:illager_large_weapon",
+          "weight": 100
+        }
+      ]
+    }
+  ],
+  "faction": "golemdungeons:illagers_creation",
+  "materials": {
+    "modulargolems:iron": {
+      "bonus": [],
+      "weight": 100
+    }
+  },
+  "types": {
+    "modulargolems:metal_golem": {
+      "bonus": [],
+      "mountChance": 1.0,
+      "mounts": [
+        {
+          "mount": "minecraft:ravager",
+          "weight": 100
+        }
+      ],
+      "weight": 50
+    }
+  },
+  "upgrades": [
+    {
+      "upgrade": "modulargolems:quartz",
+      "weight": 100
+    },
+    {
+      "upgrade": "modulargolems:gold",
+      "weight": 100
+    }
+  ]
+}

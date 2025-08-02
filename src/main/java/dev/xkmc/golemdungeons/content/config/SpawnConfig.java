@@ -228,6 +228,12 @@ public class SpawnConfig extends BaseConfig {
 		return this;
 	}
 
+
+	public SpawnConfig mat(ResourceLocation mat, int weight) {
+		materials.put(mat, new GolemMaterialEntry(weight));
+		return this;
+	}
+
 	public SpawnConfig mat(ResourceLocation mat, GolemMaterialEntry entry) {
 		materials.put(mat, entry);
 		return this;

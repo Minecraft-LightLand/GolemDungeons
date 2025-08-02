@@ -42,6 +42,8 @@ public class GDConfigGen extends ConfigDataProvider {
 	public static final ResourceLocation ITEM_ILLAGER_HUMANOID_TIPPED = GolemDungeons.loc("illager_humanoid_weapon_tipped_arrow");
 	public static final ResourceLocation ITEM_ILLAGER_HUMANOID_ROCKET = GolemDungeons.loc("illager_humanoid_weapon_rocket_crossbow");
 	public static final ResourceLocation ILLAGER_ALL = GolemDungeons.loc("illagers_creation");
+	public static final ResourceLocation RAID_HUMANOID = GolemDungeons.loc("raid_humanoid");
+	public static final ResourceLocation RAID_LARGE = GolemDungeons.loc("raid_large");
 
 	public static final ResourceLocation ITEM_PIGLIN_LARGE_ARMOR = GolemDungeons.loc("piglin_large_armor");
 	public static final ResourceLocation ITEM_PIGLIN_LARGE_WEAPON = GolemDungeons.loc("piglin_large_weapon");
@@ -172,10 +174,10 @@ public class GDConfigGen extends ConfigDataProvider {
 							.add(GolemItems.DIAMOND.get(), 0.75f)
 							.add(GolemItems.SIZE_UPGRADE.get(), 0.5f)
 					)
-					.mat(ModularGolems.loc("copper"), new SpawnConfig.GolemMaterialEntry(50))
-					.mat(ModularGolems.loc("iron"), new SpawnConfig.GolemMaterialEntry(40))
+					.mat(ModularGolems.loc("copper"), 50)
+					.mat(ModularGolems.loc("iron"), 40)
 					.mat(ModularGolems.loc("gold"), new SpawnConfig.GolemMaterialEntry(10)
-							.add(GolemItems.SPEED.get(), 1f))
+							.add(GolemItems.SPEED.get(), 1))
 					.upgrade(Items.AIR, 170)
 					.upgrade(GolemItems.QUARTZ.asItem(), 100)
 					.upgrade(GolemItems.GOLD.asItem(), 100)
@@ -251,14 +253,44 @@ public class GDConfigGen extends ConfigDataProvider {
 
 			}
 
+
+			map.add(GolemDungeons.SPAWN, RAID_HUMANOID, new SpawnConfig(DungeonFactionRegistry.ILLAGER)
+					.type(GolemTypes.TYPE_HUMANOID.get(), new SpawnConfig.GolemTypeEntry(50, 1)
+							.addMount(EntityType.HORSE, 100)
+					)
+					.mat(ModularGolems.loc("iron"), 100)
+					.upgrade(GolemItems.GOLD.asItem(), 100)
+					.upgrade(GolemItems.DIAMOND.asItem(), 100)
+					.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_HUMANOID.get())
+							.add(100, ITEM_ILLAGER_HUMANOID_ARMOR))
+					.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_HUMANOID.get())
+							.add(100, ITEM_ILLAGER_HUMANOID_MELEE)
+							.add(50, ITEM_ILLAGER_HUMANOID_TIPPED)
+							.add(50, ITEM_ILLAGER_HUMANOID_ROCKET))
+			);
+
+
+			map.add(GolemDungeons.SPAWN, RAID_LARGE, new SpawnConfig(DungeonFactionRegistry.ILLAGER)
+					.type(GolemTypes.TYPE_GOLEM.get(), new SpawnConfig.GolemTypeEntry(50, 1)
+							.addMount(EntityType.RAVAGER, 100)
+					)
+					.mat(ModularGolems.loc("iron"), 100)
+					.upgrade(GolemItems.QUARTZ.asItem(), 100)
+					.upgrade(GolemItems.GOLD.asItem(), 100)
+					.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_GOLEM.get())
+							.add(100, ITEM_ILLAGER_LARGE_ARMOR))
+					.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_GOLEM.get())
+							.add(100, ITEM_ILLAGER_LARGE_WEAPON))
+			);
+
 			map.add(GolemDungeons.SPAWN, ILLAGER_ALL, new SpawnConfig(DungeonFactionRegistry.ILLAGER)
 					.type(GolemTypes.TYPE_GOLEM.get(), new SpawnConfig.GolemTypeEntry(50, 0.5)
 							.addMount(EntityType.RAVAGER, 100)
 					)
-					.type(GolemTypes.TYPE_HUMANOID.get(), new SpawnConfig.GolemTypeEntry(50, 1)
+					.type(GolemTypes.TYPE_HUMANOID.get(), new SpawnConfig.GolemTypeEntry(50, 0.5)
 							.addMount(EntityType.HORSE, 100)
 					)
-					.mat(ModularGolems.loc("iron"), new SpawnConfig.GolemMaterialEntry(100))
+					.mat(ModularGolems.loc("iron"), 100)
 					.upgrade(GolemItems.QUARTZ.asItem(), 100)
 					.upgrade(GolemItems.GOLD.asItem(), 100)
 					.upgrade(GolemItems.SPEED.asItem(), 100)
@@ -321,11 +353,11 @@ public class GDConfigGen extends ConfigDataProvider {
 			map.add(GolemDungeons.SPAWN, PIGLIN_ALL, new SpawnConfig(DungeonFactionRegistry.PIGLIN)
 					.type(GolemTypes.TYPE_GOLEM.get(), new SpawnConfig.GolemTypeEntry(50, 0))
 					.type(GolemTypes.TYPE_HUMANOID.get(), new SpawnConfig.GolemTypeEntry(50, 0))
-					.mat(ModularGolems.loc("iron"), new SpawnConfig.GolemMaterialEntry(100))
+					.mat(ModularGolems.loc("iron"), 100)
 					.mat(ModularGolems.loc("gold"), new SpawnConfig.GolemMaterialEntry(100)
-							.add(GolemItems.SPEED.get(), 100))
+							.add(GolemItems.SPEED.get(), 1))
 					.mat(ModularGolems.loc("netherite"), new SpawnConfig.GolemMaterialEntry(100)
-							.add(GolemItems.SPEED.get(), 100))
+							.add(GolemItems.SPEED.get(), 1))
 					.upgrade(GolemItems.QUARTZ.asItem(), 100)
 					.upgrade(GolemItems.GOLD.asItem(), 100)
 					.upgrade(GolemItems.DIAMOND.asItem(), 100)
@@ -342,6 +374,7 @@ public class GDConfigGen extends ConfigDataProvider {
 			);
 		}
 
+		// sculk
 		{
 
 			// large golem
@@ -388,8 +421,8 @@ public class GDConfigGen extends ConfigDataProvider {
 					.type(GolemTypes.TYPE_GOLEM.get(), new SpawnConfig.GolemTypeEntry(50, 0))
 					.type(GolemTypes.TYPE_HUMANOID.get(), new SpawnConfig.GolemTypeEntry(50, 1)
 							.addMount(GolemTypes.ENTITY_DOG.get(), 100))
-					.mat(ModularGolems.loc("iron"), new SpawnConfig.GolemMaterialEntry(100))
-					.mat(ModularGolems.loc("sculk"), new SpawnConfig.GolemMaterialEntry(100))
+					.mat(ModularGolems.loc("iron"), 100)
+					.mat(ModularGolems.loc("sculk"), 100)
 					.upgrade(GolemItems.GOLD.asItem(), 100)
 					.upgrade(GolemItems.DIAMOND.asItem(), 100)
 					.upgrade(GolemItems.NETHERITE.asItem(), 100)
