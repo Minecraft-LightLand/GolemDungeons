@@ -1,0 +1,31 @@
+{
+  "items": {
+    "CHEST": [
+      {
+        "enchantLevel": 30,
+        "stack": {
+          "item": "modulargolems:barbaric_vanguard_chestplate"
+        },
+        "weight": 100
+      }
+    ],
+    "HEAD": [
+      {
+        "enchantLevel": 30,
+        "stack": {
+          "item": "modulargolems:barbaric_vanguard_helmet"
+        },
+        "weight": 100
+      }
+    ],
+    "LEGS": [
+      {
+        "enchantLevel": 30,
+        "stack": {
+          "item": "modulargolems:barbaric_vanguard_shinguard"
+        },
+        "weight": 100
+      }
+    ]
+  }
+}

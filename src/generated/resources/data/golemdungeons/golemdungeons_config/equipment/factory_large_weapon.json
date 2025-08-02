@@ -1,0 +1,34 @@
+{
+  "items": {
+    "MAINHAND": [
+      {
+        "enchantLevel": 0,
+        "stack": {
+          "item": "minecraft:air"
+        },
+        "weight": 100
+      },
+      {
+        "enchantLevel": 20,
+        "stack": {
+          "item": "modulargolems:iron_golem_axe"
+        },
+        "weight": 50
+      },
+      {
+        "enchantLevel": 20,
+        "stack": {
+          "item": "modulargolems:iron_golem_sword"
+        },
+        "weight": 50
+      },
+      {
+        "enchantLevel": 20,
+        "stack": {
+          "item": "modulargolems:iron_golem_spear"
+        },
+        "weight": 50
+      }
+    ]
+  }
+}

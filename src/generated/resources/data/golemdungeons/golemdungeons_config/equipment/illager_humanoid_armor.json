@@ -1,0 +1,76 @@
+{
+  "items": {
+    "CHEST": [
+      {
+        "enchantLevel": 20,
+        "stack": {
+          "item": "minecraft:diamond_chestplate",
+          "nbt": "{Damage:0}"
+        },
+        "weight": 20
+      },
+      {
+        "enchantLevel": 30,
+        "stack": {
+          "item": "minecraft:iron_chestplate",
+          "nbt": "{Damage:0}"
+        },
+        "weight": 100
+      }
+    ],
+    "FEET": [
+      {
+        "enchantLevel": 20,
+        "stack": {
+          "item": "minecraft:diamond_boots",
+          "nbt": "{Damage:0}"
+        },
+        "weight": 20
+      },
+      {
+        "enchantLevel": 30,
+        "stack": {
+          "item": "minecraft:iron_boots",
+          "nbt": "{Damage:0}"
+        },
+        "weight": 100
+      }
+    ],
+    "HEAD": [
+      {
+        "enchantLevel": 20,
+        "stack": {
+          "item": "minecraft:diamond_helmet",
+          "nbt": "{Damage:0}"
+        },
+        "weight": 20
+      },
+      {
+        "enchantLevel": 30,
+        "stack": {
+          "item": "minecraft:iron_helmet",
+          "nbt": "{Damage:0}"
+        },
+        "weight": 100
+      }
+    ],
+    "LEGS": [
+      {
+        "enchantLevel": 20,
+        "stack": {
+          "item": "minecraft:diamond_leggings",
+          "nbt": "{Damage:0}"
+        },
+        "weight": 20
+      },
+      {
+        "enchantLevel": 30,
+        "stack": {
+          "item": "minecraft:iron_leggings",
+          "nbt": "{Damage:0}"
+        },
+        "weight": 100
+      }
+    ]
+  }
+}

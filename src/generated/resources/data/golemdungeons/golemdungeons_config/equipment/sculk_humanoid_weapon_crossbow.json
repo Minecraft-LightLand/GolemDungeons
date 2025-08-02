@@ -1,0 +1,31 @@
+{
+  "items": {
+    "MAINHAND": [
+      {
+        "enchantLevel": 30,
+        "stack": {
+          "item": "minecraft:bow",
+          "nbt": "{Damage:0}"
+        },
+        "weight": 100
+      }
+    ],
+    "OFFHAND": [
+      {
+        "enchantLevel": 0,
+        "stack": {
+          "item": "minecraft:arrow"
+        },
+        "weight": 50
+      },
+      {
+        "enchantLevel": 0,
+        "stack": {
+          "item": "minecraft:tipped_arrow",
+          "nbt": "{Potion:\"minecraft:strong_harming\"}"
+        },
+        "weight": 50
+      }
+    ]
+  }
+}

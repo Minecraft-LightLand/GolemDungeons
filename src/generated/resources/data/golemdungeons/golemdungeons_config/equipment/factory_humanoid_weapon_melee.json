@@ -1,0 +1,79 @@
+{
+  "items": {
+    "MAINHAND": [
+      {
+        "enchantLevel": 10,
+        "stack": {
+          "item": "minecraft:stone_axe",
+          "nbt": "{Damage:0}"
+        },
+        "weight": 200
+      },
+      {
+        "enchantLevel": 20,
+        "stack": {
+          "item": "minecraft:stone_sword",
+          "nbt": "{Damage:0}"
+        },
+        "weight": 200
+      },
+      {
+        "enchantLevel": 10,
+        "stack": {
+          "item": "minecraft:stone_pickaxe",
+          "nbt": "{Damage:0}"
+        },
+        "weight": 100
+      },
+      {
+        "enchantLevel": 10,
+        "stack": {
+          "item": "minecraft:iron_axe",
+          "nbt": "{Damage:0}"
+        },
+        "weight": 100
+      },
+      {
+        "enchantLevel": 20,
+        "stack": {
+          "item": "minecraft:iron_sword",
+          "nbt": "{Damage:0}"
+        },
+        "weight": 100
+      },
+      {
+        "enchantLevel": 10,
+        "stack": {
+          "item": "minecraft:iron_pickaxe",
+          "nbt": "{Damage:0}"
+        },
+        "weight": 50
+      },
+      {
+        "enchantLevel": 10,
+        "stack": {
+          "item": "minecraft:trident",
+          "nbt": "{Damage:0}"
+        },
+        "weight": 150
+      }
+    ],
+    "OFFHAND": [
+      {
+        "enchantLevel": 20,
+        "stack": {
+          "item": "minecraft:shield",
+          "nbt": "{Damage:0}"
+        },
+        "weight": 100
+      },
+      {
+        "enchantLevel": 0,
+        "stack": {
+          "item": "minecraft:air"
+        },
+        "weight": 100
+      }
+    ]
+  }
+}

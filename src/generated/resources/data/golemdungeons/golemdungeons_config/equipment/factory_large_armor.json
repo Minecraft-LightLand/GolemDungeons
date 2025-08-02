@@ -1,0 +1,52 @@
+{
+  "items": {
+    "CHEST": [
+      {
+        "enchantLevel": 0,
+        "stack": {
+          "item": "minecraft:air"
+        },
+        "weight": 100
+      },
+      {
+        "enchantLevel": 20,
+        "stack": {
+          "item": "modulargolems:roman_guard_chestplate"
+        },
+        "weight": 20
+      }
+    ],
+    "HEAD": [
+      {
+        "enchantLevel": 0,
+        "stack": {
+          "item": "minecraft:air"
+        },
+        "weight": 100
+      },
+      {
+        "enchantLevel": 20,
+        "stack": {
+          "item": "modulargolems:roman_guard_helmet"
+        },
+        "weight": 20
+      }
+    ],
+    "LEGS": [
+      {
+        "enchantLevel": 0,
+        "stack": {
+          "item": "minecraft:air"
+        },
+        "weight": 100
+      },
+      {
+        "enchantLevel": 20,
+        "stack": {
+          "item": "modulargolems:roman_guard_shinguard"
+        },
+        "weight": 20
+      }
+    ]
+  }
+}

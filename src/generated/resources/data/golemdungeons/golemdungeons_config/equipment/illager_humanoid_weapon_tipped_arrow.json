@@ -1,0 +1,48 @@
+{
+  "items": {
+    "MAINHAND": [
+      {
+        "enchantLevel": 30,
+        "stack": {
+          "item": "minecraft:crossbow",
+          "nbt": "{Damage:0}"
+        },
+        "weight": 100
+      }
+    ],
+    "OFFHAND": [
+      {
+        "enchantLevel": 0,
+        "stack": {
+          "item": "minecraft:tipped_arrow",
+          "nbt": "{Potion:\"minecraft:long_poison\"}"
+        },
+        "weight": 100
+      },
+      {
+        "enchantLevel": 0,
+        "stack": {
+          "item": "minecraft:tipped_arrow",
+          "nbt": "{Potion:\"minecraft:strong_slowness\"}"
+        },
+        "weight": 100
+      },
+      {
+        "enchantLevel": 0,
+        "stack": {
+          "item": "minecraft:tipped_arrow",
+          "nbt": "{Potion:\"minecraft:long_weakness\"}"
+        },
+        "weight": 100
+      },
+      {
+        "enchantLevel": 0,
+        "stack": {
+          "item": "minecraft:tipped_arrow",
+          "nbt": "{Potion:\"minecraft:strong_harming\"}"
+        },
+        "weight": 100
+      }
+    ]
+  }
+}

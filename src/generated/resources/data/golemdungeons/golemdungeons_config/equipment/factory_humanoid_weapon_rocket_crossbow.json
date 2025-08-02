@@ -1,0 +1,23 @@
+{
+  "items": {
+    "MAINHAND": [
+      {
+        "enchantLevel": 30,
+        "stack": {
+          "item": "minecraft:crossbow",
+          "nbt": "{Damage:0}"
+        },
+        "weight": 100
+      }
+    ],
+    "OFFHAND": [
+      {
+        "enchantLevel": 7,
+        "stack": {
+          "item": "minecraft:firework_rocket"
+        },
+        "weight": 100
+      }
+    ]
+  }
+}

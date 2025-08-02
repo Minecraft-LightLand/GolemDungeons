@@ -1,0 +1,31 @@
+{
+  "items": {
+    "CHEST": [
+      {
+        "enchantLevel": 30,
+        "stack": {
+          "item": "golemdungeons:samurai_golem_chestplate"
+        },
+        "weight": 100
+      }
+    ],
+    "HEAD": [
+      {
+        "enchantLevel": 30,
+        "stack": {
+          "item": "golemdungeons:samurai_golem_helmet"
+        },
+        "weight": 100
+      }
+    ],
+    "LEGS": [
+      {
+        "enchantLevel": 30,
+        "stack": {
+          "item": "golemdungeons:samurai_golem_shinguard"
+        },
+        "weight": 100
+      }
+    ]
+  }
+}

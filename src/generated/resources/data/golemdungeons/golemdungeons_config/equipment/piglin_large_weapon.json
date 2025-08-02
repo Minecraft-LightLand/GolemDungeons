@@ -1,0 +1,27 @@
+{
+  "items": {
+    "MAINHAND": [
+      {
+        "enchantLevel": 30,
+        "stack": {
+          "item": "modulargolems:netherite_golem_axe"
+        },
+        "weight": 50
+      },
+      {
+        "enchantLevel": 30,
+        "stack": {
+          "item": "modulargolems:netherite_golem_sword"
+        },
+        "weight": 50
+      },
+      {
+        "enchantLevel": 30,
+        "stack": {
+          "item": "modulargolems:netherite_golem_spear"
+        },
+        "weight": 50
+      }
+    ]
+  }
+}

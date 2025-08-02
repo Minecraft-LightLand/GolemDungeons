@@ -1,9 +1,11 @@
 package dev.xkmc.golemdungeons.init;
 
+import dev.xkmc.golemdungeons.content.config.EquipmentConfig;
 import dev.xkmc.golemdungeons.content.config.SpawnConfig;
 import dev.xkmc.golemdungeons.content.faction.DungeonFactionRegistry;
 import dev.xkmc.golemdungeons.content.summon.SummonWandSelector;
 import dev.xkmc.golemdungeons.init.data.GDConfigGen;
+import dev.xkmc.golemdungeons.init.data.GDDamageTypes;
 import dev.xkmc.golemdungeons.init.reg.GDItems;
 import dev.xkmc.l2itemselector.select.item.IItemSelector;
 import dev.xkmc.l2library.base.L2Registrate;
@@ -36,6 +38,7 @@ public class GolemDungeons {
 	);
 
 	public static final ConfigTypeEntry<SpawnConfig> SPAWN = new ConfigTypeEntry<>(HANDLER, "spawn", SpawnConfig.class);
+	public static final ConfigTypeEntry<EquipmentConfig> ITEMS = new ConfigTypeEntry<>(HANDLER, "equipment", EquipmentConfig.class);
 
 	public GolemDungeons() {
 		GDItems.register();
@@ -55,8 +58,14 @@ public class GolemDungeons {
 
 	@SubscribeEvent(priority = EventPriority.HIGH)
 	public static void gatherData(GatherDataEvent event) {
+
 		var gen = event.getGenerator();
-		gen.addProvider(event.includeServer(), new GDConfigGen(gen));
+		var output = gen.getPackOutput();
+		var pvd = event.getLookupProvider();
+		var helper = event.getExistingFileHelper();
+		var server = event.includeServer();
+		gen.addProvider(server, new GDConfigGen(gen));
+		new GDDamageTypes(output, pvd, helper).generate(server, gen);
 	}
 
 
