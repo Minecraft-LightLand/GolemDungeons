@@ -2,6 +2,7 @@
   "items": {
     "CHEST": [
       {
+        "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
           "item": "minecraft:diamond_chestplate",
@@ -12,6 +13,7 @@
     ],
     "FEET": [
       {
+        "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
           "item": "minecraft:diamond_boots",
@@ -22,6 +24,7 @@
     ],
     "HEAD": [
       {
+        "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
           "item": "minecraft:diamond_helmet",
@@ -32,6 +35,7 @@
     ],
     "LEGS": [
       {
+        "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
           "item": "minecraft:diamond_leggings",

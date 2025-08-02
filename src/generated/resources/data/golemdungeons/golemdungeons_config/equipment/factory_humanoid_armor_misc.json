@@ -2,6 +2,7 @@
   "items": {
     "CHEST": [
       {
+        "dropChance": 0.085,
         "enchantLevel": 0,
         "stack": {
           "item": "minecraft:air"
@@ -9,6 +10,7 @@
         "weight": 100
       },
       {
+        "dropChance": 0.085,
         "enchantLevel": 10,
         "stack": {
           "item": "minecraft:diamond_chestplate",
@@ -17,6 +19,7 @@
         "weight": 20
       },
       {
+        "dropChance": 0.085,
         "enchantLevel": 15,
         "stack": {
           "item": "minecraft:iron_chestplate",
@@ -25,6 +28,7 @@
         "weight": 50
       },
       {
+        "dropChance": 0.085,
         "enchantLevel": 20,
         "stack": {
           "item": "minecraft:chainmail_chestplate",
@@ -33,6 +37,7 @@
         "weight": 50
       },
       {
+        "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
           "item": "minecraft:golden_chestplate",
@@ -43,6 +48,7 @@
     ],
     "FEET": [
       {
+        "dropChance": 0.085,
         "enchantLevel": 0,
         "stack": {
           "item": "minecraft:air"
@@ -50,6 +56,7 @@
         "weight": 100
       },
       {
+        "dropChance": 0.085,
         "enchantLevel": 10,
         "stack": {
           "item": "minecraft:diamond_boots",
@@ -58,6 +65,7 @@
         "weight": 20
       },
       {
+        "dropChance": 0.085,
         "enchantLevel": 15,
         "stack": {
           "item": "minecraft:iron_boots",
@@ -66,6 +74,7 @@
         "weight": 50
       },
       {
+        "dropChance": 0.085,
         "enchantLevel": 20,
         "stack": {
           "item": "minecraft:chainmail_boots",
@@ -74,6 +83,7 @@
         "weight": 50
       },
       {
+        "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
           "item": "minecraft:golden_boots",
@@ -84,6 +94,7 @@
     ],
     "HEAD": [
       {
+        "dropChance": 0.085,
         "enchantLevel": 0,
         "stack": {
           "item": "minecraft:air"
@@ -91,6 +102,7 @@
         "weight": 100
       },
       {
+        "dropChance": 0.085,
         "enchantLevel": 10,
         "stack": {
           "item": "minecraft:diamond_helmet",
@@ -99,6 +111,7 @@
         "weight": 20
       },
       {
+        "dropChance": 0.085,
         "enchantLevel": 15,
         "stack": {
           "item": "minecraft:iron_helmet",
@@ -107,6 +120,7 @@
         "weight": 50
       },
       {
+        "dropChance": 0.085,
         "enchantLevel": 20,
         "stack": {
           "item": "minecraft:chainmail_helmet",
@@ -115,6 +129,7 @@
         "weight": 50
       },
       {
+        "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
           "item": "minecraft:golden_helmet",
@@ -125,6 +140,7 @@
     ],
     "LEGS": [
       {
+        "dropChance": 0.085,
         "enchantLevel": 0,
         "stack": {
           "item": "minecraft:air"
@@ -132,6 +148,7 @@
         "weight": 100
       },
       {
+        "dropChance": 0.085,
         "enchantLevel": 10,
         "stack": {
           "item": "minecraft:diamond_leggings",
@@ -140,6 +157,7 @@
         "weight": 20
       },
       {
+        "dropChance": 0.085,
         "enchantLevel": 15,
         "stack": {
           "item": "minecraft:iron_leggings",
@@ -148,6 +166,7 @@
         "weight": 50
       },
       {
+        "dropChance": 0.085,
         "enchantLevel": 20,
         "stack": {
           "item": "minecraft:chainmail_leggings",
@@ -156,6 +175,7 @@
         "weight": 50
       },
       {
+        "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
           "item": "minecraft:golden_leggings",

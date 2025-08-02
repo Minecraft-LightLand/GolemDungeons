@@ -43,19 +43,42 @@ public class EquipmentConfig extends BaseConfig {
 		return add(slot, new EquipmentEntry(weight, stack.asItem()));
 	}
 
+	public EquipmentConfig add(EquipmentSlot slot, int weight, ItemStack stack) {
+		return add(slot, new EquipmentEntry(weight, stack));
+	}
 
 	public EquipmentConfig add(EquipmentSlot slot, int weight, ItemLike stack, int enchantLevel) {
-		return add(slot, new EquipmentEntry(weight, new ItemStack(stack.asItem()), enchantLevel));
+		return add(slot, new EquipmentEntry(weight, stack.asItem(), enchantLevel));
+	}
+
+	public EquipmentConfig add(EquipmentSlot slot, int weight, ItemLike stack, int enchantLevel, float dropChance) {
+		return add(slot, new EquipmentEntry(weight, new ItemStack(stack.asItem()), enchantLevel, dropChance));
 	}
 
 	public EquipmentConfig add(EquipmentSlot slot, int weight, ItemStack stack, int enchantLevel) {
 		return add(slot, new EquipmentEntry(weight, stack, enchantLevel));
 	}
 
-	public record EquipmentEntry(int weight, ItemStack stack, int enchantLevel) {
+	public EquipmentConfig add(EquipmentSlot slot, int weight, ItemStack stack, int enchantLevel, float dropChance) {
+		return add(slot, new EquipmentEntry(weight, stack, enchantLevel, dropChance));
+	}
+
+	public record EquipmentEntry(int weight, ItemStack stack, int enchantLevel, float dropChance) {
 
 		public EquipmentEntry(int weight, Item stack) {
-			this(weight, new ItemStack(stack), 0);
+			this(weight, new ItemStack(stack));
+		}
+
+		public EquipmentEntry(int weight, ItemStack stack) {
+			this(weight, stack, 0);
+		}
+
+		public EquipmentEntry(int weight, Item stack, int level) {
+			this(weight, new ItemStack(stack), level);
+		}
+
+		public EquipmentEntry(int weight, ItemStack stack, int level) {
+			this(weight, stack, level, 0.085f);
 		}
 
 		public ItemStack get(RandomSource r) {
@@ -91,7 +114,7 @@ public class EquipmentConfig extends BaseConfig {
 
 		private final Map<EquipmentSlot, SimpleWeightedRandomList<EquipmentEntry>> itemTable = new LinkedHashMap<>();
 
-		private EquipmentSetInfo(LinkedHashMap<EquipmentSlot, ArrayList<EquipmentConfig.EquipmentEntry>> items) {
+		private EquipmentSetInfo(LinkedHashMap<EquipmentSlot, ArrayList<EquipmentEntry>> items) {
 			for (var ent : items.entrySet()) {
 				var builder = SimpleWeightedRandomList.<EquipmentEntry>builder();
 				for (var e : ent.getValue())

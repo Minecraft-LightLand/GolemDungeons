@@ -112,17 +112,17 @@ public class FactoryGolemSpawn extends AbstractGolemSpawn {
 			);
 
 			map.add(GolemDungeons.ITEMS, ITEM_FACTORY_HUMANOID_TIPPED, new EquipmentConfig()
-					.add(EquipmentSlot.OFFHAND, 100, tipped(Potions.POISON), 0)
-					.add(EquipmentSlot.OFFHAND, 100, tipped(Potions.SLOWNESS), 0)
-					.add(EquipmentSlot.OFFHAND, 100, tipped(Potions.WEAKNESS), 0)
-					.add(EquipmentSlot.OFFHAND, 100, tipped(Potions.HARMING), 0)
+					.add(EquipmentSlot.OFFHAND, 100, tipped(Potions.POISON))
+					.add(EquipmentSlot.OFFHAND, 100, tipped(Potions.SLOWNESS))
+					.add(EquipmentSlot.OFFHAND, 100, tipped(Potions.WEAKNESS))
+					.add(EquipmentSlot.OFFHAND, 100, tipped(Potions.HARMING))
 					.add(EquipmentSlot.MAINHAND, 100, Items.BOW, 10)
 					.add(EquipmentSlot.MAINHAND, 100, Items.CROSSBOW, 10)
 			);
 
 			map.add(GolemDungeons.ITEMS, ITEM_FACTORY_HUMANOID_ROCKET, new EquipmentConfig()
 					.add(EquipmentSlot.MAINHAND, 100, Items.CROSSBOW, 30)
-					.add(EquipmentSlot.OFFHAND, 100, Items.FIREWORK_ROCKET, 7)
+					.add(EquipmentSlot.OFFHAND, 100, Items.FIREWORK_ROCKET, 7, 0)
 			);
 		}
 

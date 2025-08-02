@@ -2,6 +2,7 @@
   "items": {
     "MAINHAND": [
       {
+        "dropChance": 0.085,
         "enchantLevel": 10,
         "stack": {
           "item": "minecraft:stone_axe",
@@ -10,6 +11,7 @@
         "weight": 200
       },
       {
+        "dropChance": 0.085,
         "enchantLevel": 20,
         "stack": {
           "item": "minecraft:stone_sword",
@@ -18,6 +20,7 @@
         "weight": 200
       },
       {
+        "dropChance": 0.085,
         "enchantLevel": 10,
         "stack": {
           "item": "minecraft:stone_pickaxe",
@@ -26,6 +29,7 @@
         "weight": 100
       },
       {
+        "dropChance": 0.085,
         "enchantLevel": 10,
         "stack": {
           "item": "minecraft:iron_axe",
@@ -34,6 +38,7 @@
         "weight": 100
       },
       {
+        "dropChance": 0.085,
         "enchantLevel": 20,
         "stack": {
           "item": "minecraft:iron_sword",
@@ -42,6 +47,7 @@
         "weight": 100
       },
       {
+        "dropChance": 0.085,
         "enchantLevel": 10,
         "stack": {
           "item": "minecraft:iron_pickaxe",
@@ -50,6 +56,7 @@
         "weight": 50
       },
       {
+        "dropChance": 0.085,
         "enchantLevel": 10,
         "stack": {
           "item": "minecraft:trident",
@@ -60,6 +67,7 @@
     ],
     "OFFHAND": [
       {
+        "dropChance": 0.085,
         "enchantLevel": 20,
         "stack": {
           "item": "minecraft:shield",
@@ -68,6 +76,7 @@
         "weight": 100
       },
       {
+        "dropChance": 0.085,
         "enchantLevel": 0,
         "stack": {
           "item": "minecraft:air"

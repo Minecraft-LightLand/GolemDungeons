@@ -2,6 +2,7 @@
   "items": {
     "MAINHAND": [
       {
+        "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
           "item": "minecraft:netherite_axe",
@@ -10,6 +11,7 @@
         "weight": 100
       },
       {
+        "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
           "item": "minecraft:netherite_sword",
@@ -20,6 +22,7 @@
     ],
     "OFFHAND": [
       {
+        "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
           "item": "minecraft:shield",

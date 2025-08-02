@@ -2,6 +2,7 @@
   "items": {
     "MAINHAND": [
       {
+        "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
           "item": "minecraft:crossbow",
@@ -12,6 +13,7 @@
     ],
     "OFFHAND": [
       {
+        "dropChance": 0.085,
         "enchantLevel": 0,
         "stack": {
           "item": "minecraft:tipped_arrow",
@@ -20,6 +22,7 @@
         "weight": 100
       },
       {
+        "dropChance": 0.085,
         "enchantLevel": 0,
         "stack": {
           "item": "minecraft:tipped_arrow",
@@ -28,6 +31,7 @@
         "weight": 100
       },
       {
+        "dropChance": 0.085,
         "enchantLevel": 0,
         "stack": {
           "item": "minecraft:tipped_arrow",
@@ -36,6 +40,7 @@
         "weight": 100
       },
       {
+        "dropChance": 0.085,
         "enchantLevel": 0,
         "stack": {
           "item": "minecraft:tipped_arrow",

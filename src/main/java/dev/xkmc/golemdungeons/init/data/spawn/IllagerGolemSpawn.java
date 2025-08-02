@@ -43,9 +43,9 @@ public class IllagerGolemSpawn extends AbstractGolemSpawn {
 
 	private static void addLarge(ConfigDataProvider.Collector map) {
 		map.add(GolemDungeons.ITEMS, ITEM_ILLAGER_LARGE_ARMOR, new EquipmentConfig()
-				.add(EquipmentSlot.HEAD, 100, GDItems.SAMURAI_HELMET, 30)
-				.add(EquipmentSlot.CHEST, 100, GDItems.SAMURAI_CHESTPLATE, 30)
-				.add(EquipmentSlot.LEGS, 100, GDItems.SAMURAI_SHINGUARD, 30)
+				.add(EquipmentSlot.HEAD, 100, GDItems.SAMURAI_HELMET, 30, 0.5f)
+				.add(EquipmentSlot.CHEST, 100, GDItems.SAMURAI_CHESTPLATE, 30, 0.5f)
+				.add(EquipmentSlot.LEGS, 100, GDItems.SAMURAI_SHINGUARD, 30, 0.5f)
 		);
 
 		map.add(GolemDungeons.ITEMS, ITEM_ILLAGER_LARGE_WEAPON, new EquipmentConfig()

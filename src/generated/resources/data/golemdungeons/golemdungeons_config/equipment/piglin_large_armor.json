@@ -2,6 +2,7 @@
   "items": {
     "CHEST": [
       {
+        "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
           "item": "modulargolems:barbaric_vanguard_chestplate"
@@ -11,6 +12,7 @@
     ],
     "HEAD": [
       {
+        "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
           "item": "modulargolems:barbaric_vanguard_helmet"
@@ -20,6 +22,7 @@
     ],
     "LEGS": [
       {
+        "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
           "item": "modulargolems:barbaric_vanguard_shinguard"
