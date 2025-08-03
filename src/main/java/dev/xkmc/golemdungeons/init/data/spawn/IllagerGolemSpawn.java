@@ -1,8 +1,8 @@
 package dev.xkmc.golemdungeons.init.data.spawn;
 
 import dev.xkmc.golemdungeons.content.config.EquipmentConfig;
-import dev.xkmc.golemdungeons.content.config.TrialConfig;
 import dev.xkmc.golemdungeons.content.config.SpawnConfig;
+import dev.xkmc.golemdungeons.content.config.TrialConfig;
 import dev.xkmc.golemdungeons.content.faction.DungeonFactionRegistry;
 import dev.xkmc.golemdungeons.init.GolemDungeons;
 import dev.xkmc.golemdungeons.init.reg.GDItems;
@@ -171,6 +171,10 @@ public class IllagerGolemSpawn extends AbstractGolemSpawn {
 				.add(of(RAID_HUMANOID_RANGED, 2),
 						of(RAID_HUMANOID_MELEE, 1),
 						of(RAID_LARGE, 1))
+				.add(of(RAID_HUMANOID_RANGED, 2),
+						of(RAID_HUMANOID_MELEE, 2),
+						of(RAID_LARGE, 2),
+						of(ILLAGER_ALL, 3))
 		);
 	}
 

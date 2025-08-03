@@ -154,5 +154,7 @@
         "target": "golemdungeons:factory_remnant"
       }
     ]
-  ]
+  ],
+  "reward": "golemdungeons:trial_reward/factory_remnant",
+  "spawnCost": 300
 }

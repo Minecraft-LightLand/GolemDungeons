@@ -1,5 +1,6 @@
 package dev.xkmc.golemdungeons.content.summon;
 
+import dev.xkmc.golemdungeons.content.config.TrialConfig;
 import dev.xkmc.golemdungeons.init.GolemDungeons;
 import dev.xkmc.golemdungeons.init.data.GDLang;
 import dev.xkmc.l2library.base.tile.BaseBlockEntity;
@@ -11,13 +12,15 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.bossevents.CustomBossEvent;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.loot.LootParams;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.util.FakePlayer;
 import org.jetbrains.annotations.Nullable;
@@ -172,8 +175,15 @@ public class GolemTrialBlockEntity extends BaseBlockEntity implements TickableBl
 	}
 
 	@Override
-	public void complete(ServerLevel level, long time) {
+	public void complete(ServerLevel level, TrialConfig config, long time) {
 		level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(STATE, VICTORY));
+		if (config.reward == null) return;
+		var loot = level.getServer().getLootData().getLootTable(config.reward);
+		var params = new LootParams.Builder(level)
+				.withParameter(LootContextParams.ORIGIN, Vec3.atCenterOf(getBlockPos()))
+				.create(LootContextParamSets.CHEST);
+		var list = loot.getRandomItems(params);
+		for (var stack : list) Block.popResource(level, getBlockPos().above(), stack);
 	}
 
 	@Override
@@ -203,4 +213,9 @@ public class GolemTrialBlockEntity extends BaseBlockEntity implements TickableBl
 		return e.isAlive() && e.level() == level && e.distanceToSqr(Vec3.atCenterOf(getBlockPos())) < 48 * 48;
 	}
 
+	@Override
+	public void setRemoved() {
+		stop();
+		super.setRemoved();
+	}
 }

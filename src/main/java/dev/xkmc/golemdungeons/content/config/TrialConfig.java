@@ -1,11 +1,13 @@
 package dev.xkmc.golemdungeons.content.config;
 
+import dev.xkmc.golemdungeons.init.data.spawn.FactoryGolemSpawn;
 import dev.xkmc.l2library.serial.config.BaseConfig;
 import dev.xkmc.l2library.serial.config.CollectType;
 import dev.xkmc.l2library.serial.config.ConfigCollect;
 import dev.xkmc.l2serial.serialization.SerialClass;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,8 +19,25 @@ public class TrialConfig extends BaseConfig {
 	@SerialClass.SerialField
 	public final List<ArrayList<WaveEntry>> list = new ArrayList<>();
 
+	@SerialClass.SerialField
+	public int spawnCost = 1000;
+
+	@Nullable
+	@SerialClass.SerialField
+	public ResourceLocation reward;
+
 	public TrialConfig add(WaveEntry... entries) {
 		list.add(new ArrayList<>(List.of(entries)));
+		return this;
+	}
+
+	public TrialConfig setCost(int cost) {
+		spawnCost = cost;
+		return this;
+	}
+
+	public TrialConfig setReward(ResourceLocation loot) {
+		this.reward = loot;
 		return this;
 	}
 

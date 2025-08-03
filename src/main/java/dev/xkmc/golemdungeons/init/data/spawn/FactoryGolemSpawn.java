@@ -1,10 +1,11 @@
 package dev.xkmc.golemdungeons.init.data.spawn;
 
 import dev.xkmc.golemdungeons.content.config.EquipmentConfig;
-import dev.xkmc.golemdungeons.content.config.TrialConfig;
 import dev.xkmc.golemdungeons.content.config.SpawnConfig;
+import dev.xkmc.golemdungeons.content.config.TrialConfig;
 import dev.xkmc.golemdungeons.content.faction.DungeonFactionRegistry;
 import dev.xkmc.golemdungeons.init.GolemDungeons;
+import dev.xkmc.golemdungeons.init.data.GDLootGen;
 import dev.xkmc.l2library.serial.config.ConfigDataProvider;
 import dev.xkmc.modulargolems.init.ModularGolems;
 import dev.xkmc.modulargolems.init.material.GolemWeaponType;
@@ -244,7 +245,7 @@ public class FactoryGolemSpawn extends AbstractGolemSpawn {
 
 		// trial
 		{
-			map.add(GolemDungeons.TRIAL, FACTORY_ALL, new TrialConfig()
+			map.add(GolemDungeons.TRIAL, FACTORY_ALL, new TrialConfig().setCost(300).setReward(GDLootGen.FACTORY)
 					.add(of(LARGE_1, 1))
 					.add(of(LARGE_1, 1),
 							of(HUMANOID_BASIC, 2))

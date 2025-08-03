@@ -5,6 +5,7 @@ import dev.xkmc.golemdungeons.content.config.SpawnConfig;
 import dev.xkmc.golemdungeons.content.config.TrialConfig;
 import dev.xkmc.golemdungeons.content.faction.DungeonFactionRegistry;
 import dev.xkmc.golemdungeons.init.GolemDungeons;
+import dev.xkmc.golemdungeons.init.data.GDLootGen;
 import dev.xkmc.golemdungeons.init.reg.GDItems;
 import dev.xkmc.l2library.serial.config.ConfigDataProvider;
 import dev.xkmc.modulargolems.init.ModularGolems;
@@ -116,7 +117,7 @@ public class PiglinGolemSpawn extends AbstractGolemSpawn {
 
 		// trial
 		{
-			map.add(GolemDungeons.TRIAL, PIGLIN_ALL, new TrialConfig()
+			map.add(GolemDungeons.TRIAL, PIGLIN_ALL, new TrialConfig().setReward(GDLootGen.PIGLIN)
 					.add(of(HUMANOID_MELEE, 1))
 					.add(of(LARGE, 1),
 							of(HUMANOID_RANGED, 1))

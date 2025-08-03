@@ -75,5 +75,7 @@
         "target": "golemdungeons:piglin_legacy"
       }
     ]
-  ]
+  ],
+  "reward": "golemdungeons:trial_reward/piglin_legacy",
+  "spawnCost": 1000
 }

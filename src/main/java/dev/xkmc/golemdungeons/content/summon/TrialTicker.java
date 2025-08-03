@@ -1,5 +1,6 @@
 package dev.xkmc.golemdungeons.content.summon;
 
+import dev.xkmc.golemdungeons.content.config.TrialConfig;
 import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
@@ -15,10 +16,10 @@ public interface TrialTicker {
 
 	boolean isValidTracked(Entity golem);
 
-	void complete(ServerLevel level, long time);
+	void complete(ServerLevel level, TrialConfig config, long time);
 
 	boolean isOnGoing();
 
-	void configureGolem(AbstractGolemEntity<?,?> golem, int mobIndex);
+	void configureGolem(AbstractGolemEntity<?, ?> golem, int mobIndex);
 
 }

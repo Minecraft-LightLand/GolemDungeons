@@ -19,7 +19,7 @@ import java.util.UUID;
 @SerialClass
 public class TrialData {
 
-	private static final int WAVE_DELAY = 40, SUMMON_DELAY = 10, COMPLETE_DELAY = 60, COST = 1000;
+	private static final int WAVE_DELAY = 40, SUMMON_DELAY = 10, COMPLETE_DELAY = 60;
 
 	@SerialClass.SerialField
 	private final List<UUID> trialGolems = new ArrayList<>();
@@ -54,11 +54,11 @@ public class TrialData {
 			update = tickSummon(config, be, level, time);
 		} else if (trialGolems.isEmpty()) { // wave complete
 			if (wave >= config.list.size()) { // no more waves
+				be.complete(level, config, time); // drop bonus
 				id = null;
 				config = null;
 				totalHealth = 0;
 				nextAction = time + COMPLETE_DELAY;
-				be.complete(level, time); // drop bonus
 				return true;
 			}
 			initWave(config, be, level, time); // init wave
@@ -99,7 +99,7 @@ public class TrialData {
 							be.configureGolem(golem, mobIndex);
 						}
 					}
-					be.addCost(COST, time);
+					be.addCost(config.spawnCost, time);
 					be.configureEntity(e, mobIndex);
 					level.addFreshEntityWithPassengers(e);
 					mobIndex++;
