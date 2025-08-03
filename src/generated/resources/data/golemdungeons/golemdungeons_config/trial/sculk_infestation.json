@@ -1,0 +1,79 @@
+{
+  "list": [
+    [
+      {
+        "max": 1,
+        "min": 1,
+        "target": "golemdungeons:sculk_humanoid_melee"
+      }
+    ],
+    [
+      {
+        "max": 1,
+        "min": 1,
+        "target": "golemdungeons:sculk_large_1"
+      },
+      {
+        "max": 1,
+        "min": 1,
+        "target": "golemdungeons:sculk_humanoid_ranged"
+      }
+    ],
+    [
+      {
+        "max": 1,
+        "min": 1,
+        "target": "golemdungeons:sculk_large_1"
+      },
+      {
+        "max": 1,
+        "min": 1,
+        "target": "golemdungeons:sculk_humanoid_melee"
+      },
+      {
+        "max": 2,
+        "min": 2,
+        "target": "golemdungeons:sculk_humanoid_ranged"
+      }
+    ],
+    [
+      {
+        "max": 2,
+        "min": 2,
+        "target": "golemdungeons:sculk_large_1"
+      },
+      {
+        "max": 2,
+        "min": 2,
+        "target": "golemdungeons:sculk_humanoid_melee"
+      },
+      {
+        "max": 2,
+        "min": 2,
+        "target": "golemdungeons:sculk_humanoid_ranged"
+      }
+    ],
+    [
+      {
+        "max": 3,
+        "min": 3,
+        "target": "golemdungeons:sculk_large_1"
+      },
+      {
+        "max": 2,
+        "min": 2,
+        "target": "golemdungeons:sculk_humanoid_melee"
+      },
+      {
+        "max": 2,
+        "min": 2,
+        "target": "golemdungeons:sculk_humanoid_ranged"
+      },
+      {
+        "max": 5,
+        "min": 5,
+        "target": "golemdungeons:sculk_infestation"
+      }
+    ]
+  ]
+}

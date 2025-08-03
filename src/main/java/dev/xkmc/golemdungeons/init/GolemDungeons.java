@@ -2,7 +2,7 @@ package dev.xkmc.golemdungeons.init;
 
 import com.tterrag.registrate.providers.ProviderType;
 import dev.xkmc.golemdungeons.content.config.EquipmentConfig;
-import dev.xkmc.golemdungeons.content.config.RaidConfig;
+import dev.xkmc.golemdungeons.content.config.TrialConfig;
 import dev.xkmc.golemdungeons.content.config.SpawnConfig;
 import dev.xkmc.golemdungeons.content.faction.DungeonFactionRegistry;
 import dev.xkmc.golemdungeons.content.summon.SummonWandSelector;
@@ -38,12 +38,12 @@ public class GolemDungeons {
 	public static final IEventBus MOD_BUS = FMLJavaModLoadingContext.get().getModEventBus();
 
 	public static final PacketHandlerWithConfig HANDLER = new PacketHandlerWithConfig(
-			new ResourceLocation(GolemDungeons.MODID, "main"), 2
+			new ResourceLocation(GolemDungeons.MODID, "main"), 1
 	);
 
 	public static final ConfigTypeEntry<SpawnConfig> SPAWN = new ConfigTypeEntry<>(HANDLER, "spawn", SpawnConfig.class);
 	public static final ConfigTypeEntry<EquipmentConfig> ITEMS = new ConfigTypeEntry<>(HANDLER, "equipment", EquipmentConfig.class);
-	public static final ConfigTypeEntry<RaidConfig> RAID = new ConfigTypeEntry<>(HANDLER, "raid", RaidConfig.class);
+	public static final ConfigTypeEntry<TrialConfig> TRIAL = new ConfigTypeEntry<>(HANDLER, "trial", TrialConfig.class);
 
 	public GolemDungeons() {
 		GDItems.register();

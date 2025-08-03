@@ -1,6 +1,7 @@
 package dev.xkmc.golemdungeons.content.summon;
 
 import dev.xkmc.golemdungeons.init.GolemDungeons;
+import dev.xkmc.golemdungeons.init.data.GDLang;
 import dev.xkmc.golemdungeons.init.reg.GDItems;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
@@ -37,7 +38,12 @@ public class HostileSummonWand extends Item {
 
 	@Override
 	public Component getName(ItemStack stack) {
-		return super.getName(stack).copy().append(" - " + getId(stack));
+		var id = getId(stack);
+		var config = GolemDungeons.SPAWN.getEntry(id);
+		var target = config.targetTrial;
+		if (target != null)
+			return GDLang.fromTrial(target);
+		return super.getName(stack);
 	}
 
 	@Override
@@ -45,10 +51,15 @@ public class HostileSummonWand extends Item {
 		if (ctx.getLevel() instanceof ServerLevel sl) {
 			var id = getId(ctx.getItemInHand());
 			var entry = GolemDungeons.SPAWN.getEntry(id);
-			var e = entry.summon(sl);
-			if (e != null) {
-				e.setPos(ctx.getClickLocation());
-				sl.addFreshEntityWithPassengers(e);
+			if (ctx.getLevel().getBlockEntity(ctx.getClickedPos()) instanceof GolemTrialBlockEntity be) {
+				if (entry.targetTrial != null && GolemDungeons.TRIAL.getEntry(entry.targetTrial) != null)
+					be.setTrial(entry.targetTrial);
+			} else {
+				var e = entry.summon(sl);
+				if (e != null) {
+					e.setPos(ctx.getClickLocation());
+					sl.addFreshEntityWithPassengers(e);
+				}
 			}
 		}
 		return InteractionResult.SUCCESS;

@@ -1,8 +1,10 @@
 package dev.xkmc.golemdungeons.init.data.spawn;
 
+import dev.xkmc.golemdungeons.content.config.TrialConfig;
 import dev.xkmc.modulargolems.init.material.GolemWeaponType;
 import dev.xkmc.modulargolems.init.material.VanillaGolemWeaponMaterial;
 import dev.xkmc.modulargolems.init.registrate.GolemItems;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potion;
@@ -16,6 +18,14 @@ public class AbstractGolemSpawn {
 
 	public static ItemStack tipped(Potion potion) {
 		return PotionUtils.setPotion(Items.TIPPED_ARROW.getDefaultInstance(), potion);
+	}
+
+	public static TrialConfig.WaveEntry of(ResourceLocation target, int min, int max) {
+		return new TrialConfig.WaveEntry(target, min, max);
+	}
+
+	public static TrialConfig.WaveEntry of(ResourceLocation target, int num) {
+		return of(target, num, num);
 	}
 
 }

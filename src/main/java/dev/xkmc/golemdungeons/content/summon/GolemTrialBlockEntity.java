@@ -5,11 +5,17 @@ import dev.xkmc.golemdungeons.init.data.GDLang;
 import dev.xkmc.l2library.base.tile.BaseBlockEntity;
 import dev.xkmc.l2modularblock.tile_api.TickableBlockEntity;
 import dev.xkmc.l2serial.serialization.SerialClass;
+import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.bossevents.CustomBossEvent;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
@@ -19,6 +25,9 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+
+import static dev.xkmc.golemdungeons.content.summon.GolemTrialBlock.STATE;
+import static dev.xkmc.golemdungeons.content.summon.GolemTrialBlock.State.*;
 
 @SerialClass
 public class GolemTrialBlockEntity extends BaseBlockEntity implements TickableBlockEntity, TrialTicker {
@@ -50,7 +59,6 @@ public class GolemTrialBlockEntity extends BaseBlockEntity implements TickableBl
 	public void tick() {
 		if (!(level instanceof ServerLevel sl)) return;
 		long time = level.getGameTime();
-		var pos = getBlockPos();
 		if (!trialPlayer.isEmpty()) {
 			if (trial == null) {
 				stop();
@@ -58,8 +66,7 @@ public class GolemTrialBlockEntity extends BaseBlockEntity implements TickableBl
 			}
 			boolean change = trialPlayer.removeIf(e -> {
 				var player = level.getPlayerByUUID(e);
-				return player == null || player.level() != level || !player.isAlive() ||
-						pos.distSqr(player.blockPosition()) > 48 * 48;
+				return player == null || player.isSpectator() || !isValidTracked(player);
 			});
 			if (change) {
 				setChanged();
@@ -83,17 +90,19 @@ public class GolemTrialBlockEntity extends BaseBlockEntity implements TickableBl
 			}
 		}
 		if (trial == null) return;
-		if (time % (trialPlayer.isEmpty() ? 20 : 5) == 0) return;
-		var config = GolemDungeons.RAID.getEntry(trial);
+		if (trialPlayer.isEmpty() && time % 20 != 0) return;
+		if (getBlockState().getValue(STATE) == CHARGING) {
+			if (lastCost + lastTime < time)
+				level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(STATE, IDLE));
+		}
+		var config = GolemDungeons.TRIAL.getEntry(trial);
 		if (config == null) return;
 		if (trialPlayer.isEmpty()) {
 			if (time - lastTime < lastCost) return;
-			var center = Vec3.atCenterOf(pos);
 			List<ServerPlayer> players = new ArrayList<>();
 			for (var pl : level.players()) {
-				if (pl.isCreative() || pl.isSpectator()) continue;
-				if (pl instanceof FakePlayer) continue;
-				if (pl.isAlive() && pl.distanceToSqr(center) <= 24 * 24 && pl instanceof ServerPlayer sp) {
+				if (!isValidPlayer(pl)) continue;
+				if (pl instanceof ServerPlayer sp) {
 					players.add(sp);
 				}
 			}
@@ -106,19 +115,16 @@ public class GolemTrialBlockEntity extends BaseBlockEntity implements TickableBl
 			bar = new CustomBossEvent(trial, GDLang.fromTrial(trial));
 			bar.setPlayers(players);
 			data.start(this, time, trial, config);
+			level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(STATE, ACTIVATED));
 			sync();
 			setChanged();
-		} else {
-			var center = Vec3.atCenterOf(pos);
+		} else if (time % 5 == 0) {
 			boolean added = false;
 			for (var pl : level.players()) {
-				if (pl.isCreative() || pl.isSpectator()) continue;
-				if (pl instanceof FakePlayer) continue;
+				if (!isValidPlayer(pl)) continue;
 				if (trialPlayer.contains(pl.getUUID())) continue;
-				if (pl.isAlive() && pl.distanceToSqr(center) <= 24 * 24) {
-					trialPlayer.add(pl.getUUID());
-					added = true;
-				}
+				trialPlayer.add(pl.getUUID());
+				added = true;
 			}
 			if (added) {
 				List<ServerPlayer> players = new ArrayList<>();
@@ -132,6 +138,8 @@ public class GolemTrialBlockEntity extends BaseBlockEntity implements TickableBl
 			sync();
 			setChanged();
 		}
+		if (bar != null)
+			data.updateBar(bar, sl, time);
 	}
 
 	public void setTrial(ResourceLocation id) {
@@ -152,13 +160,47 @@ public class GolemTrialBlockEntity extends BaseBlockEntity implements TickableBl
 	}
 
 	public void stop() {
-		if (level instanceof ServerLevel sl)
+		if (level instanceof ServerLevel sl) {
 			data.stop(sl, this);
+			level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(STATE, CHARGING));
+		}
 		trialPlayer.clear();
 		if (bar != null) bar.removeAllPlayers();
 		bar = null;
 		sync();
 		setChanged();
+	}
+
+	@Override
+	public void complete(ServerLevel level, long time) {
+		level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(STATE, VICTORY));
+	}
+
+	@Override
+	public void configureEntity(LivingEntity e, int index) {
+		e.setPos(Vec3.atCenterOf(getBlockPos().above()).add(
+				e.getRandom().nextGaussian(), 0, e.getRandom().nextGaussian()
+		));
+	}
+
+	@Override
+	public void configureGolem(AbstractGolemEntity<?, ?> golem, int mobIndex) {
+	}
+
+	@Override
+	public boolean isOnGoing() {
+		return !trialPlayer.isEmpty();
+	}
+
+	private boolean isValidPlayer(Player pl) {
+		if (pl.isCreative() || pl.isSpectator()) return false;
+		if (pl instanceof FakePlayer) return false;
+		return pl.isAlive() && pl.distanceToSqr(Vec3.atCenterOf(getBlockPos())) <= 24 * 24;
+	}
+
+	@Override
+	public boolean isValidTracked(Entity e) {
+		return e.isAlive() && e.level() == level && e.distanceToSqr(Vec3.atCenterOf(getBlockPos())) < 48 * 48;
 	}
 
 }

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "golemdungeons:block/golem_spawner_charging"
+  }
+}

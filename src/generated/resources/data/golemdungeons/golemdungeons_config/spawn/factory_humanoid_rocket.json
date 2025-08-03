@@ -1,55 +1,17 @@
 {
   "equipments": [
     {
-      "type": "modulargolems:metal_golem",
-      "sets": [
-        {
-          "target": "golemdungeons:factory_large_armor",
-          "weight": 100
-        }
-      ]
-    },
-    {
-      "type": "modulargolems:metal_golem",
-      "sets": [
-        {
-          "target": "golemdungeons:factory_large_weapon",
-          "weight": 100
-        }
-      ]
-    },
-    {
       "type": "modulargolems:humanoid_golem",
       "sets": [
-        {
-          "target": "golemdungeons:factory_humanoid_armor_misc",
-          "weight": 100
-        },
         {
           "target": "golemdungeons:factory_humanoid_armor_chain",
           "weight": 20
-        },
-        {
-          "target": "golemdungeons:factory_humanoid_armor_gold",
-          "weight": 20
         }
       ]
     },
     {
       "type": "modulargolems:humanoid_golem",
       "sets": [
-        {
-          "target": "golemdungeons:factory_humanoid_weapon_melee",
-          "weight": 100
-        },
-        {
-          "target": "golemdungeons:factory_humanoid_weapon_bow",
-          "weight": 30
-        },
-        {
-          "target": "golemdungeons:factory_humanoid_weapon_tipped_arrow",
-          "weight": 50
-        },
         {
           "target": "golemdungeons:factory_humanoid_weapon_rocket_crossbow",
           "weight": 20
@@ -77,7 +39,6 @@
       "weight": 40
     }
   },
-  "targetTrial": "golemdungeons:factory_remnant",
   "types": {
     "modulargolems:dog_golem": {
       "bonus": [
@@ -92,7 +53,7 @@
       ],
       "mountChance": 0.0,
       "mounts": [],
-      "weight": 30
+      "weight": 0
     },
     "modulargolems:humanoid_golem": {
       "bonus": [],
@@ -112,17 +73,6 @@
         }
       ],
       "weight": 40
-    },
-    "modulargolems:metal_golem": {
-      "bonus": [
-        {
-          "chance": 0.5,
-          "upgrade": "modulargolems:speed"
-        }
-      ],
-      "mountChance": 0.0,
-      "mounts": [],
-      "weight": 30
     }
   },
   "upgradeChance": [

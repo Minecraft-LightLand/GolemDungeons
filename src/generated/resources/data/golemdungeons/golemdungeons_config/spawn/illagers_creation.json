@@ -52,6 +52,7 @@
       "weight": 100
     }
   },
+  "targetTrial": "golemdungeons:illagers_creation",
   "types": {
     "modulargolems:humanoid_golem": {
       "bonus": [],
@@ -76,6 +77,12 @@
       "weight": 50
     }
   },
+  "upgradeChance": [
+    1.0,
+    0.7,
+    0.5,
+    0.5
+  ],
   "upgrades": [
     {
       "upgrade": "modulargolems:quartz",

@@ -1,10 +1,20 @@
 {
+  "block.golemdungeons.golem_spawner": "Golem Spawner",
   "item.golemdungeons.flame_sword": "Flame Sword",
   "item.golemdungeons.hostile_summon_wand": "Hostile Summon Wand",
   "item.golemdungeons.samurai_golem_chestplate": "Samurai Golem Chestplate",
   "item.golemdungeons.samurai_golem_helmet": "Samurai Golem Helmet",
   "item.golemdungeons.samurai_golem_shinguard": "Samurai Golem Shinguard",
   "itemGroup.l2library.golem_dungeons": "Golem Dungeons",
+  "modulargolems.bar.charging": "Charging",
+  "modulargolems.bar.progress": "%s Remaining",
+  "modulargolems.bar.summoning": "Summoning",
+  "modulargolems.bar.victory": "Victory",
+  "modulargolems.bar.wave": " - Wave %s: ",
   "modulargolems.tooltip.flame_sword_atk": "Deal %s extra fire damage when attacking, bypassing target armor",
-  "modulargolems.tooltip.flame_sword_loot": "Drop more golem materials when large golem slay other golems with this sword"
+  "modulargolems.tooltip.flame_sword_loot": "Drop more golem materials when metal golems slay other golems with this sword",
+  "trial.golemdungeons.factory_remnant": "Factory Remnant",
+  "trial.golemdungeons.illagers_creation": "Illagers' Creations",
+  "trial.golemdungeons.piglin_legacy": "Piglin Legacy",
+  "trial.golemdungeons.sculk_infestation": "Sculk Infestation"
 }

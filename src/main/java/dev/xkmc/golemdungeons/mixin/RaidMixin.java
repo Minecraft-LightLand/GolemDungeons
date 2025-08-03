@@ -55,7 +55,7 @@ public abstract class RaidMixin {
 	private void golemdungeons$raidGolems(BlockPos pos, CallbackInfo ci) {
 		if (!GDConfig.COMMON.enableRaidGolems.get()) return;
 		int wave = groupsSpawned;
-		var data = GolemDungeons.RAID.getEntry(IllagerGolemSpawn.RAIDS);
+		var data = GolemDungeons.TRIAL.getEntry(IllagerGolemSpawn.RAIDS);
 		if (data == null) return;
 		if (wave >= data.list.size()) wave = data.list.size() - 1;
 		if (wave < 0) return;

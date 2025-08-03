@@ -52,6 +52,7 @@
       "weight": 100
     }
   },
+  "targetTrial": "golemdungeons:sculk_infestation",
   "types": {
     "modulargolems:humanoid_golem": {
       "bonus": [],
@@ -71,9 +72,15 @@
       "weight": 50
     }
   },
+  "upgradeChance": [
+    1.0,
+    1.0,
+    0.7,
+    0.7
+  ],
   "upgrades": [
     {
-      "upgrade": "modulargolems:gold",
+      "upgrade": "modulargolems:enchanted_gold",
       "weight": 100
     },
     {

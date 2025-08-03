@@ -1,13 +1,20 @@
 package dev.xkmc.golemdungeons.init.reg;
 
+import com.tterrag.registrate.util.entry.BlockEntityEntry;
+import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import com.tterrag.registrate.util.entry.RegistryEntry;
 import dev.xkmc.golemdungeons.content.client.GDModelPaths;
 import dev.xkmc.golemdungeons.content.equipments.FlameSword;
+import dev.xkmc.golemdungeons.content.summon.GolemTrialBlock;
+import dev.xkmc.golemdungeons.content.summon.GolemTrialBlockEntity;
 import dev.xkmc.golemdungeons.content.summon.HostileSummonWand;
 import dev.xkmc.l2itemselector.init.data.L2ISTagGen;
+import dev.xkmc.l2modularblock.BlockProxy;
+import dev.xkmc.l2modularblock.DelegateBlock;
 import dev.xkmc.modulargolems.content.item.equipments.MetalGolemArmorItem;
 import dev.xkmc.modulargolems.init.material.VanillaGolemWeaponMaterial;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Rarity;
@@ -24,6 +31,9 @@ public class GDItems {
 	public static final ItemEntry<FlameSword> FLAME_SWORD;
 
 	public static final ItemEntry<HostileSummonWand> SUMMON;
+
+	public static final BlockEntry<DelegateBlock> SPAWNER;
+	public static final BlockEntityEntry<GolemTrialBlockEntity> BE_SPAWNER;
 
 	static {
 
@@ -45,6 +55,18 @@ public class GDItems {
 		SUMMON = REGISTRATE.item("hostile_summon_wand", HostileSummonWand::new)
 				.properties(p -> p.stacksTo(1).rarity(Rarity.EPIC))
 				.tag(L2ISTagGen.SELECTABLE)
+				.register();
+
+		SPAWNER = REGISTRATE.block("golem_spawner", p -> DelegateBlock.newBaseBlock(p,
+						BlockProxy.HORIZONTAL, new GolemTrialBlock(), GolemTrialBlock.TE))
+				.properties(p -> p.strength(50, 1200).requiresCorrectToolForDrops().noLootTable())
+				.blockstate(GolemTrialBlock::buildStates)
+				.simpleItem()
+				.tag(BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.NEEDS_DIAMOND_TOOL)
+				.register();
+
+		BE_SPAWNER = REGISTRATE.blockEntity("golem_spawner", GolemTrialBlockEntity::new)
+				.validBlock(SPAWNER)
 				.register();
 	}
 

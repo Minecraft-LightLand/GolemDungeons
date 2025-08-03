@@ -4,6 +4,7 @@ import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
 import dev.xkmc.modulargolems.content.entity.hostile.HostileFaction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 
 public class DungeonFaction extends HostileFaction {
@@ -21,4 +22,10 @@ public class DungeonFaction extends HostileFaction {
 		return true;
 	}
 
+	@Override
+	public boolean hostileGolemAttacks(LivingEntity target) {
+		if (target.getTags().contains("HostileGolemTarget"))
+			return true;
+		return super.hostileGolemAttacks(target);
+	}
 }

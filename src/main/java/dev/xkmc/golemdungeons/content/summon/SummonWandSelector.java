@@ -23,7 +23,7 @@ public class SummonWandSelector extends IItemSelector {
 	public static List<ResourceLocation> getAll() {
 		var all = GolemDungeons.SPAWN.getAll();
 		var ans = new ArrayList<ResourceLocation>();
-		for (var e : all) ans.add(e.getID());
+		for (var e : all) if (e.targetTrial != null) ans.add(e.getID());
 		return ans;
 	}
 
@@ -39,7 +39,7 @@ public class SummonWandSelector extends IItemSelector {
 	public List<ItemStack> getList() {
 		var all = GolemDungeons.SPAWN.getAll();
 		var ans = new ArrayList<ItemStack>();
-		for (var e : all) ans.add(HostileSummonWand.of(e.getID()));
+		for (var e : all) if (e.targetTrial != null) ans.add(HostileSummonWand.of(e.getID()));
 		return ans;
 	}
 

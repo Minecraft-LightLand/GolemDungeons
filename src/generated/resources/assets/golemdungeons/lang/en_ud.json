@@ -1,10 +1,20 @@
 {
+  "block.golemdungeons.golem_spawner": "ɹǝuʍɐdS ɯǝןo⅁",
   "item.golemdungeons.flame_sword": "pɹoʍS ǝɯɐןℲ",
   "item.golemdungeons.hostile_summon_wand": "puɐM uoɯɯnS ǝןıʇsoH",
   "item.golemdungeons.samurai_golem_chestplate": "ǝʇɐןdʇsǝɥƆ ɯǝןo⅁ ıɐɹnɯɐS",
   "item.golemdungeons.samurai_golem_helmet": "ʇǝɯןǝH ɯǝןo⅁ ıɐɹnɯɐS",
   "item.golemdungeons.samurai_golem_shinguard": "pɹɐnbuıɥS ɯǝןo⅁ ıɐɹnɯɐS",
   "itemGroup.l2library.golem_dungeons": "suoǝbunᗡ ɯǝןo⅁",
+  "modulargolems.bar.charging": "buıbɹɐɥƆ",
+  "modulargolems.bar.progress": "buıuıɐɯǝᴚ %s",
+  "modulargolems.bar.summoning": "buıuoɯɯnS",
+  "modulargolems.bar.victory": "ʎɹoʇɔıΛ",
+  "modulargolems.bar.wave": " :%s ǝʌɐM - ",
   "modulargolems.tooltip.flame_sword_atk": "ɹoɯɹɐ ʇǝbɹɐʇ buıssɐdʎq 'buıʞɔɐʇʇɐ uǝɥʍ ǝbɐɯɐp ǝɹıɟ ɐɹʇxǝ %s ןɐǝᗡ",
-  "modulargolems.tooltip.flame_sword_loot": "pɹoʍs sıɥʇ ɥʇıʍ sɯǝןob ɹǝɥʇo ʎɐןs ɯǝןob ǝbɹɐן uǝɥʍ sןɐıɹǝʇɐɯ ɯǝןob ǝɹoɯ doɹᗡ"
+  "modulargolems.tooltip.flame_sword_loot": "pɹoʍs sıɥʇ ɥʇıʍ sɯǝןob ɹǝɥʇo ʎɐןs sɯǝןob ןɐʇǝɯ uǝɥʍ sןɐıɹǝʇɐɯ ɯǝןob ǝɹoɯ doɹᗡ",
+  "trial.golemdungeons.factory_remnant": "ʇuɐuɯǝᴚ ʎɹoʇɔɐℲ",
+  "trial.golemdungeons.illagers_creation": "suoıʇɐǝɹƆ ,sɹǝbɐןןI",
+  "trial.golemdungeons.piglin_legacy": "ʎɔɐbǝꞀ uıןbıԀ",
+  "trial.golemdungeons.sculk_infestation": "uoıʇɐʇsǝɟuI ʞןnɔS"
 }

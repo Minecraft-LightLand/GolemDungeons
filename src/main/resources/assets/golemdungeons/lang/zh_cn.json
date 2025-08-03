@@ -1,0 +1,20 @@
+{
+	"block.golemdungeons.golem_spawner": "傀儡试炼核心",
+	"item.golemdungeons.flame_sword": "炽焰剑",
+	"item.golemdungeons.hostile_summon_wand": "敌对傀儡选择器",
+	"item.golemdungeons.samurai_golem_chestplate": "武士护甲",
+	"item.golemdungeons.samurai_golem_helmet": "武士头盔",
+	"item.golemdungeons.samurai_golem_shinguard": "武士护腿",
+	"itemGroup.l2library.golem_dungeons": "傀儡地牢",
+	"modulargolems.bar.charging": "充能中",
+	"modulargolems.bar.progress": "剩余%s个",
+	"modulargolems.bar.summoning": "召唤中",
+	"modulargolems.bar.victory": "试炼胜利",
+	"modulargolems.bar.wave": " - 波次 %s: ",
+	"modulargolems.tooltip.flame_sword_atk": "近战攻击造成额外的%s火焰魔法伤害",
+	"modulargolems.tooltip.flame_sword_loot": "大傀儡持此武器击杀其他傀儡后掉落更多的傀儡制作材料",
+	"trial.golemdungeons.factory_remnant": "废弃工厂",
+	"trial.golemdungeons.illagers_creation": "灾厄造物",
+	"trial.golemdungeons.piglin_legacy": "猪灵旧部",
+	"trial.golemdungeons.sculk_infestation": "幽匿侵蚀"
+}

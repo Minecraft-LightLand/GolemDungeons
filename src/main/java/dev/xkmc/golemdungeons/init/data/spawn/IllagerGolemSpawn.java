@@ -1,7 +1,7 @@
 package dev.xkmc.golemdungeons.init.data.spawn;
 
 import dev.xkmc.golemdungeons.content.config.EquipmentConfig;
-import dev.xkmc.golemdungeons.content.config.RaidConfig;
+import dev.xkmc.golemdungeons.content.config.TrialConfig;
 import dev.xkmc.golemdungeons.content.config.SpawnConfig;
 import dev.xkmc.golemdungeons.content.faction.DungeonFactionRegistry;
 import dev.xkmc.golemdungeons.init.GolemDungeons;
@@ -20,12 +20,12 @@ import net.minecraft.world.item.alchemy.Potions;
 
 public class IllagerGolemSpawn extends AbstractGolemSpawn {
 
-	public static final ResourceLocation ITEM_ILLAGER_LARGE_ARMOR = GolemDungeons.loc("illager_large_armor");
-	public static final ResourceLocation ITEM_ILLAGER_LARGE_WEAPON = GolemDungeons.loc("illager_large_weapon");
-	public static final ResourceLocation ITEM_ILLAGER_HUMANOID_ARMOR = GolemDungeons.loc("illager_humanoid_armor");
-	public static final ResourceLocation ITEM_ILLAGER_HUMANOID_MELEE = GolemDungeons.loc("illager_humanoid_weapon_melee");
-	public static final ResourceLocation ITEM_ILLAGER_HUMANOID_TIPPED = GolemDungeons.loc("illager_humanoid_weapon_tipped_arrow");
-	public static final ResourceLocation ITEM_ILLAGER_HUMANOID_ROCKET = GolemDungeons.loc("illager_humanoid_weapon_rocket_crossbow");
+	public static final ResourceLocation ITEM_LARGE_ARMOR = GolemDungeons.loc("illager_large_armor");
+	public static final ResourceLocation ITEM_LARGE_WEAPON = GolemDungeons.loc("illager_large_weapon");
+	public static final ResourceLocation ITEM_HUMANOID_ARMOR = GolemDungeons.loc("illager_humanoid_armor");
+	public static final ResourceLocation ITEM_HUMANOID_MELEE = GolemDungeons.loc("illager_humanoid_weapon_melee");
+	public static final ResourceLocation ITEM_HUMANOID_TIPPED = GolemDungeons.loc("illager_humanoid_weapon_tipped_arrow");
+	public static final ResourceLocation ITEM_HUMANOID_ROCKET = GolemDungeons.loc("illager_humanoid_weapon_rocket_crossbow");
 
 	public static final ResourceLocation ILLAGER_ALL = GolemDungeons.loc("illagers_creation");
 	public static final ResourceLocation RAID_HUMANOID_MELEE = GolemDungeons.loc("raid_humanoid_melee");
@@ -42,13 +42,13 @@ public class IllagerGolemSpawn extends AbstractGolemSpawn {
 	}
 
 	private static void addLarge(ConfigDataProvider.Collector map) {
-		map.add(GolemDungeons.ITEMS, ITEM_ILLAGER_LARGE_ARMOR, new EquipmentConfig()
+		map.add(GolemDungeons.ITEMS, ITEM_LARGE_ARMOR, new EquipmentConfig()
 				.add(EquipmentSlot.HEAD, 100, GDItems.SAMURAI_HELMET, 30, 0.5f)
 				.add(EquipmentSlot.CHEST, 100, GDItems.SAMURAI_CHESTPLATE, 30, 0.5f)
 				.add(EquipmentSlot.LEGS, 100, GDItems.SAMURAI_SHINGUARD, 30, 0.5f)
 		);
 
-		map.add(GolemDungeons.ITEMS, ITEM_ILLAGER_LARGE_WEAPON, new EquipmentConfig()
+		map.add(GolemDungeons.ITEMS, ITEM_LARGE_WEAPON, new EquipmentConfig()
 				.add(EquipmentSlot.MAINHAND, 50, getWeapon(VanillaGolemWeaponMaterial.IRON, GolemWeaponType.AXE), 30)
 				.add(EquipmentSlot.MAINHAND, 50, getWeapon(VanillaGolemWeaponMaterial.IRON, GolemWeaponType.SWORD), 30)
 				.add(EquipmentSlot.MAINHAND, 50, getWeapon(VanillaGolemWeaponMaterial.IRON, GolemWeaponType.SPEAR), 30)
@@ -58,7 +58,7 @@ public class IllagerGolemSpawn extends AbstractGolemSpawn {
 
 	private static void addHumanoid(ConfigDataProvider.Collector map) {
 
-		map.add(GolemDungeons.ITEMS, ITEM_ILLAGER_HUMANOID_ARMOR, new EquipmentConfig()
+		map.add(GolemDungeons.ITEMS, ITEM_HUMANOID_ARMOR, new EquipmentConfig()
 				.add(EquipmentSlot.HEAD, 20, Items.DIAMOND_HELMET, 20)
 				.add(EquipmentSlot.CHEST, 20, Items.DIAMOND_CHESTPLATE, 20)
 				.add(EquipmentSlot.LEGS, 20, Items.DIAMOND_LEGGINGS, 20)
@@ -69,13 +69,13 @@ public class IllagerGolemSpawn extends AbstractGolemSpawn {
 				.add(EquipmentSlot.FEET, 100, Items.IRON_BOOTS, 30)
 		);
 
-		map.add(GolemDungeons.ITEMS, ITEM_ILLAGER_HUMANOID_MELEE, new EquipmentConfig()
+		map.add(GolemDungeons.ITEMS, ITEM_HUMANOID_MELEE, new EquipmentConfig()
 				.add(EquipmentSlot.MAINHAND, 100, Items.IRON_AXE, 30)
 				.add(EquipmentSlot.MAINHAND, 100, Items.IRON_SWORD, 30)
 				.add(EquipmentSlot.OFFHAND, 100, Items.SHIELD, 30)
 		);
 
-		map.add(GolemDungeons.ITEMS, ITEM_ILLAGER_HUMANOID_TIPPED, new EquipmentConfig()
+		map.add(GolemDungeons.ITEMS, ITEM_HUMANOID_TIPPED, new EquipmentConfig()
 				.add(EquipmentSlot.OFFHAND, 100, tipped(Potions.LONG_POISON))
 				.add(EquipmentSlot.OFFHAND, 100, tipped(Potions.STRONG_SLOWNESS))
 				.add(EquipmentSlot.OFFHAND, 100, tipped(Potions.LONG_WEAKNESS))
@@ -83,7 +83,7 @@ public class IllagerGolemSpawn extends AbstractGolemSpawn {
 				.add(EquipmentSlot.MAINHAND, 100, Items.CROSSBOW, 30)
 		);
 
-		map.add(GolemDungeons.ITEMS, ITEM_ILLAGER_HUMANOID_ROCKET, new EquipmentConfig()
+		map.add(GolemDungeons.ITEMS, ITEM_HUMANOID_ROCKET, new EquipmentConfig()
 				.add(EquipmentSlot.MAINHAND, 100, Items.CROSSBOW, 30)
 				.add(EquipmentSlot.OFFHAND, 100, Items.FIREWORK_ROCKET, 10)
 		);
@@ -98,10 +98,11 @@ public class IllagerGolemSpawn extends AbstractGolemSpawn {
 				.mat(ModularGolems.loc("iron"), 100)
 				.upgrade(GolemItems.GOLD.asItem(), 100)
 				.upgrade(GolemItems.DIAMOND.asItem(), 100)
+				.upgradeChance(1, 0.7, 0.5, 0.5)
 				.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_HUMANOID.get())
-						.add(100, ITEM_ILLAGER_HUMANOID_ARMOR))
+						.add(100, ITEM_HUMANOID_ARMOR))
 				.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_HUMANOID.get())
-						.add(100, ITEM_ILLAGER_HUMANOID_MELEE))
+						.add(100, ITEM_HUMANOID_MELEE))
 		);
 
 		map.add(GolemDungeons.SPAWN, RAID_HUMANOID_RANGED, new SpawnConfig(DungeonFactionRegistry.ILLAGER)
@@ -111,11 +112,12 @@ public class IllagerGolemSpawn extends AbstractGolemSpawn {
 				.mat(ModularGolems.loc("iron"), 100)
 				.upgrade(GolemItems.GOLD.asItem(), 100)
 				.upgrade(GolemItems.DIAMOND.asItem(), 100)
+				.upgradeChance(1, 0.7, 0.5, 0.5)
 				.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_HUMANOID.get())
-						.add(100, ITEM_ILLAGER_HUMANOID_ARMOR))
+						.add(100, ITEM_HUMANOID_ARMOR))
 				.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_HUMANOID.get())
-						.add(50, ITEM_ILLAGER_HUMANOID_TIPPED)
-						.add(50, ITEM_ILLAGER_HUMANOID_ROCKET))
+						.add(50, ITEM_HUMANOID_TIPPED)
+						.add(50, ITEM_HUMANOID_ROCKET))
 		);
 
 
@@ -126,13 +128,14 @@ public class IllagerGolemSpawn extends AbstractGolemSpawn {
 				.mat(ModularGolems.loc("iron"), 100)
 				.upgrade(GolemItems.QUARTZ.asItem(), 100)
 				.upgrade(GolemItems.GOLD.asItem(), 100)
+				.upgradeChance(1, 0.7, 0.5, 0.5)
 				.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_GOLEM.get())
-						.add(100, ITEM_ILLAGER_LARGE_ARMOR))
+						.add(100, ITEM_LARGE_ARMOR))
 				.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_GOLEM.get())
-						.add(100, ITEM_ILLAGER_LARGE_WEAPON))
+						.add(100, ITEM_LARGE_WEAPON))
 		);
 
-		map.add(GolemDungeons.SPAWN, ILLAGER_ALL, new SpawnConfig(DungeonFactionRegistry.ILLAGER)
+		map.add(GolemDungeons.SPAWN, ILLAGER_ALL, new SpawnConfig(DungeonFactionRegistry.ILLAGER).asTrialKey(ILLAGER_ALL)
 				.type(GolemTypes.TYPE_GOLEM.get(), new SpawnConfig.GolemTypeEntry(50, 0.5)
 						.addMount(EntityType.RAVAGER, 100)
 				)
@@ -144,29 +147,30 @@ public class IllagerGolemSpawn extends AbstractGolemSpawn {
 				.upgrade(GolemItems.GOLD.asItem(), 100)
 				.upgrade(GolemItems.SPEED.asItem(), 100)
 				.upgrade(GolemItems.DIAMOND.asItem(), 100)
+				.upgradeChance(1, 0.7, 0.5, 0.5)
 				.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_GOLEM.get())
-						.add(100, ITEM_ILLAGER_LARGE_ARMOR))
+						.add(100, ITEM_LARGE_ARMOR))
 				.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_GOLEM.get())
-						.add(100, ITEM_ILLAGER_LARGE_WEAPON))
+						.add(100, ITEM_LARGE_WEAPON))
 				.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_HUMANOID.get())
-						.add(100, ITEM_ILLAGER_HUMANOID_ARMOR))
+						.add(100, ITEM_HUMANOID_ARMOR))
 				.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_HUMANOID.get())
-						.add(100, ITEM_ILLAGER_HUMANOID_MELEE)
-						.add(50, ITEM_ILLAGER_HUMANOID_TIPPED)
-						.add(50, ITEM_ILLAGER_HUMANOID_ROCKET))
+						.add(100, ITEM_HUMANOID_MELEE)
+						.add(50, ITEM_HUMANOID_TIPPED)
+						.add(50, ITEM_HUMANOID_ROCKET))
 		);
 	}
 
 	private static void addRaid(ConfigDataProvider.Collector map) {
-		map.add(GolemDungeons.RAID, RAIDS, new RaidConfig().add().add().add().add()
-				.add(new RaidConfig.WaveEntry(RAID_HUMANOID_RANGED, 1, 1))
-				.add(new RaidConfig.WaveEntry(RAID_HUMANOID_RANGED, 1, 1),
-						new RaidConfig.WaveEntry(RAID_HUMANOID_MELEE, 1, 1))
-				.add(new RaidConfig.WaveEntry(RAID_HUMANOID_RANGED, 1, 1),
-						new RaidConfig.WaveEntry(RAID_LARGE, 1, 1))
-				.add(new RaidConfig.WaveEntry(RAID_HUMANOID_RANGED, 2, 2),
-						new RaidConfig.WaveEntry(RAID_HUMANOID_MELEE, 1, 1),
-						new RaidConfig.WaveEntry(RAID_LARGE, 1, 1))
+		map.add(GolemDungeons.TRIAL, RAIDS, new TrialConfig().add().add().add().add()
+				.add(of(RAID_HUMANOID_RANGED, 1))
+				.add(of(RAID_HUMANOID_RANGED, 1),
+						of(RAID_HUMANOID_MELEE, 1))
+				.add(of(RAID_HUMANOID_RANGED, 1),
+						of(RAID_LARGE, 1))
+				.add(of(RAID_HUMANOID_RANGED, 2),
+						of(RAID_HUMANOID_MELEE, 1),
+						of(RAID_LARGE, 1))
 		);
 	}
 

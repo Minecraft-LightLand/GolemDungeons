@@ -11,6 +11,7 @@ import dev.xkmc.modulargolems.content.core.GolemType;
 import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
 import dev.xkmc.modulargolems.content.entity.hostile.HostileFaction;
 import dev.xkmc.modulargolems.content.entity.hostile.HostileGolemRegistry;
+import dev.xkmc.modulargolems.content.item.golem.GolemHolder;
 import dev.xkmc.modulargolems.content.item.upgrade.IUpgradeItem;
 import dev.xkmc.modulargolems.content.item.upgrade.UpgradeItem;
 import net.minecraft.resources.ResourceLocation;
@@ -49,6 +50,13 @@ public class SpawnConfig extends BaseConfig {
 	@ConfigCollect(CollectType.COLLECT)
 	@SerialClass.SerialField
 	public final List<UpgradeEntry> upgrades = new ArrayList<>();
+
+	@Nullable
+	@SerialClass.SerialField
+	public ResourceLocation targetTrial = null;
+
+	@SerialClass.SerialField
+	public double[] upgradeChance = {1d, 0.5d, 0.5d, 0.5d};
 
 	private SimpleWeightedRandomList<GolemTypeInfo> typeTable;
 	private SimpleWeightedRandomList<ResourceLocation> matTable;
@@ -123,6 +131,35 @@ public class SpawnConfig extends BaseConfig {
 		return golem;
 	}
 
+	private boolean fitsOn(
+			ArrayList<GolemMaterial> mats, ArrayList<IUpgradeItem> upgrades,
+			GolemHolder<?, ?> holder, UpgradeItem upgrade
+	) {
+		if (!upgrade.fitsOn(holder.getEntityType())) return false;
+		var copy = new ArrayList<>(upgrades);
+		copy.add(upgrade);
+		int remaining = holder.getRemaining(mats, copy);
+		if (remaining < 0) return false;
+		var map = GolemMaterial.collectModifiers(mats, upgrades);
+		for (var e : upgrade.get()) {
+			if (map.getOrDefault(e.mod(), 0) >= e.mod().maxLevel) return false;
+		}
+		return true;
+	}
+
+	private ArrayList<IUpgradeItem> validate(
+			ArrayList<GolemMaterial> mats, ArrayList<IUpgradeItem> upgrades,
+			GolemHolder<?, ?> holder
+	) {
+		ArrayList<IUpgradeItem> ans = new ArrayList<>();
+		for (var e : upgrades) {
+			if (e instanceof UpgradeItem item && fitsOn(mats, ans, holder, item)) {
+				ans.add(item);
+			}
+		}
+		return ans;
+	}
+
 	@Nullable
 	private AbstractGolemEntity<?, ?> createGolem(ServerLevel sl, GolemType<?, ?> golem, RandomSource r) {
 		var ups = new ArrayList<IUpgradeItem>();
@@ -137,9 +174,12 @@ public class SpawnConfig extends BaseConfig {
 					ups.add(item);
 			}
 		}
-		if (ups.size() < max) {
+		var holder = GolemType.getGolemHolder(golem);
+		ups = validate(mats, ups, holder);
+		for (double prob : upgradeChance) {
+			if (r.nextFloat() > prob) break;
 			var up = upTable.getRandomValue(r);
-			if (up.isPresent() && up.get().upgrade instanceof IUpgradeItem item)
+			if (up.isPresent() && up.get().upgrade instanceof UpgradeItem item && fitsOn(mats, ups, holder, item))
 				ups.add(item);
 		}
 		var e = golem.create(sl);
@@ -226,7 +266,6 @@ public class SpawnConfig extends BaseConfig {
 		return this;
 	}
 
-
 	public SpawnConfig mat(ResourceLocation mat, int weight) {
 		materials.put(mat, new GolemMaterialEntry(weight));
 		return this;
@@ -244,6 +283,16 @@ public class SpawnConfig extends BaseConfig {
 
 	public SpawnConfig upgrade(Item upgrade, int weight) {
 		upgrades.add(new UpgradeEntry(weight, upgrade));
+		return this;
+	}
+
+	public SpawnConfig asTrialKey(ResourceLocation trial) {
+		targetTrial = trial;
+		return this;
+	}
+
+	public SpawnConfig upgradeChance(double... chance) {
+		this.upgradeChance = chance;
 		return this;
 	}
 
