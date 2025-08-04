@@ -1,6 +1,8 @@
 package dev.xkmc.golemdungeons.init.data;
 
 import com.tterrag.registrate.providers.RegistrateLangProvider;
+import dev.xkmc.golemdungeons.compat.cataclysm.HarbingerFaction;
+import dev.xkmc.golemdungeons.compat.cataclysm.HarbingerGolemSpawn;
 import dev.xkmc.golemdungeons.init.data.spawn.FactoryGolemSpawn;
 import dev.xkmc.golemdungeons.init.data.spawn.IllagerGolemSpawn;
 import dev.xkmc.golemdungeons.init.data.spawn.PiglinGolemSpawn;
@@ -67,5 +69,6 @@ public enum GDLang {
 		pvd.add(Util.makeDescriptionId("trial", PiglinGolemSpawn.PIGLIN_ALL), "Piglin Legacy");
 		pvd.add(Util.makeDescriptionId("trial", SculkGolemSpawn.SCULK_ALL), "Sculk Infestation");
 		pvd.add(Util.makeDescriptionId("trial", IllagerGolemSpawn.ILLAGER_ALL), "Illagers' Creations");
+		pvd.add(Util.makeDescriptionId("trial", HarbingerGolemSpawn.HARBINGER_ALL), "Harbinger's Revenge");
 	}
 }

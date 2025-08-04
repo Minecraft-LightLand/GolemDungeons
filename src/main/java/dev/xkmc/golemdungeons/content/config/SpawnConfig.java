@@ -21,6 +21,8 @@ import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.TamableAnimal;
+import net.minecraft.world.entity.animal.horse.Horse;
 import net.minecraft.world.item.Item;
 
 import javax.annotation.Nullable;
@@ -119,6 +121,9 @@ public class SpawnConfig extends BaseConfig {
 					mountEntity = createGolem(sl, mountGolem, r);
 				} else {
 					mountEntity = mountType.create(sl);
+					if (mountEntity instanceof Horse animal){
+						animal.setTamed(true);
+					}
 				}
 				if (mountEntity instanceof LivingEntity le) {
 					attachEquipments(le, r);

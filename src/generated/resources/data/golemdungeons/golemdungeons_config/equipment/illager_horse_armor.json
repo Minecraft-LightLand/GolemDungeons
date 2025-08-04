@@ -1,0 +1,14 @@
+{
+  "items": {
+    "CHEST": [
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 0,
+        "stack": {
+          "item": "minecraft:iron_horse_armor"
+        },
+        "weight": 100
+      }
+    ]
+  }
+}

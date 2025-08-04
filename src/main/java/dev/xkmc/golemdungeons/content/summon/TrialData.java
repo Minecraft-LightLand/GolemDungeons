@@ -3,6 +3,7 @@ package dev.xkmc.golemdungeons.content.summon;
 import dev.xkmc.golemdungeons.content.config.TrialConfig;
 import dev.xkmc.golemdungeons.init.GolemDungeons;
 import dev.xkmc.golemdungeons.init.data.GDLang;
+import dev.xkmc.golemdungeons.util.GolemUtils;
 import dev.xkmc.l2serial.serialization.SerialClass;
 import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
 import net.minecraft.resources.ResourceLocation;
@@ -101,7 +102,7 @@ public class TrialData {
 					}
 					be.addCost(config.spawnCost, time);
 					be.configureEntity(e, mobIndex);
-					level.addFreshEntityWithPassengers(e);
+					GolemUtils.recursiveAdd(level, e);
 					mobIndex++;
 					nextAction = time + SUMMON_DELAY;
 				}

@@ -1,0 +1,15 @@
+{
+  "items": {
+    "MAINHAND": [
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 0,
+        "stack": {
+          "item": "cataclysm:laser_gatling",
+          "nbt": "{Damage:0}"
+        },
+        "weight": 50
+      }
+    ]
+  }
+}

@@ -4,6 +4,7 @@ import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import dev.xkmc.golemdungeons.init.GolemDungeons;
 import dev.xkmc.golemdungeons.init.data.GDConfig;
 import dev.xkmc.golemdungeons.init.data.spawn.IllagerGolemSpawn;
+import dev.xkmc.golemdungeons.util.GolemUtils;
 import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -70,7 +71,7 @@ public abstract class RaidMixin {
 				joinRaid(wave, raider, pos, false);
 			} else {
 				le.setPos(Vec3.atBottomCenterOf(pos));
-				level.addFreshEntityWithPassengers(le);
+				GolemUtils.recursiveAdd(level, le);
 			}
 			if (leader != null) {
 				if (!(le instanceof AbstractGolemEntity<?, ?>)) {

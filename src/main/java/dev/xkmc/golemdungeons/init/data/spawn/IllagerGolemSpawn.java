@@ -15,6 +15,7 @@ import dev.xkmc.modulargolems.init.registrate.GolemTypes;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.HorseArmorItem;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
 
@@ -26,6 +27,7 @@ public class IllagerGolemSpawn extends AbstractGolemSpawn {
 	public static final ResourceLocation ITEM_HUMANOID_MELEE = GolemDungeons.loc("illager_humanoid_weapon_melee");
 	public static final ResourceLocation ITEM_HUMANOID_TIPPED = GolemDungeons.loc("illager_humanoid_weapon_tipped_arrow");
 	public static final ResourceLocation ITEM_HUMANOID_ROCKET = GolemDungeons.loc("illager_humanoid_weapon_rocket_crossbow");
+	public static final ResourceLocation ITEM_HORSE_ARMOR = GolemDungeons.loc("illager_horse_armor");
 
 	public static final ResourceLocation ILLAGER_ALL = GolemDungeons.loc("illagers_creation");
 	public static final ResourceLocation RAID_HUMANOID_MELEE = GolemDungeons.loc("raid_humanoid_melee");
@@ -88,6 +90,10 @@ public class IllagerGolemSpawn extends AbstractGolemSpawn {
 				.add(EquipmentSlot.OFFHAND, 100, Items.FIREWORK_ROCKET, 10)
 		);
 
+		map.add(GolemDungeons.ITEMS, ITEM_HORSE_ARMOR, new EquipmentConfig()
+				.add(EquipmentSlot.CHEST, 100, Items.IRON_HORSE_ARMOR)
+		);
+
 	}
 
 	private static void addSpawn(ConfigDataProvider.Collector map) {
@@ -103,6 +109,8 @@ public class IllagerGolemSpawn extends AbstractGolemSpawn {
 						.add(100, ITEM_HUMANOID_ARMOR))
 				.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_HUMANOID.get())
 						.add(100, ITEM_HUMANOID_MELEE))
+				.equipments(new SpawnConfig.EquipmentGroup(EntityType.HORSE)
+						.add(100, ITEM_HORSE_ARMOR))
 		);
 
 		map.add(GolemDungeons.SPAWN, RAID_HUMANOID_RANGED, new SpawnConfig(DungeonFactionRegistry.ILLAGER)
@@ -118,6 +126,8 @@ public class IllagerGolemSpawn extends AbstractGolemSpawn {
 				.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_HUMANOID.get())
 						.add(50, ITEM_HUMANOID_TIPPED)
 						.add(50, ITEM_HUMANOID_ROCKET))
+				.equipments(new SpawnConfig.EquipmentGroup(EntityType.HORSE)
+						.add(100, ITEM_HORSE_ARMOR))
 		);
 
 
@@ -158,6 +168,8 @@ public class IllagerGolemSpawn extends AbstractGolemSpawn {
 						.add(100, ITEM_HUMANOID_MELEE)
 						.add(50, ITEM_HUMANOID_TIPPED)
 						.add(50, ITEM_HUMANOID_ROCKET))
+				.equipments(new SpawnConfig.EquipmentGroup(EntityType.HORSE)
+						.add(100, ITEM_HORSE_ARMOR))
 		);
 	}
 

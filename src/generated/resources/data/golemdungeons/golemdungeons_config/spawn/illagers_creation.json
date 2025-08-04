@@ -43,6 +43,15 @@
           "weight": 50
         }
       ]
+    },
+    {
+      "type": "minecraft:horse",
+      "sets": [
+        {
+          "target": "golemdungeons:illager_horse_armor",
+          "weight": 100
+        }
+      ]
     }
   ],
   "faction": "golemdungeons:illagers_creation",

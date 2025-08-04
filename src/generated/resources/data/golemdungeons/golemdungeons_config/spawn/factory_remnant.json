@@ -1,6 +1,24 @@
 {
   "equipments": [
     {
+      "type": "minecraft:horse",
+      "sets": [
+        {
+          "target": "golemdungeons:factory_horse_armor",
+          "weight": 20
+        }
+      ]
+    },
+    {
+      "type": "minecraft:skeleton_horse",
+      "sets": [
+        {
+          "target": "golemdungeons:factory_horse_armor",
+          "weight": 20
+        }
+      ]
+    },
+    {
       "type": "modulargolems:metal_golem",
       "sets": [
         {
@@ -92,7 +110,7 @@
       ],
       "mountChance": 0.0,
       "mounts": [],
-      "weight": 30
+      "weight": 0
     },
     "modulargolems:humanoid_golem": {
       "bonus": [],

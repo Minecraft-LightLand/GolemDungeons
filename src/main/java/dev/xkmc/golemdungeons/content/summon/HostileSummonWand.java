@@ -3,6 +3,7 @@ package dev.xkmc.golemdungeons.content.summon;
 import dev.xkmc.golemdungeons.init.GolemDungeons;
 import dev.xkmc.golemdungeons.init.data.GDLang;
 import dev.xkmc.golemdungeons.init.reg.GDItems;
+import dev.xkmc.golemdungeons.util.GolemUtils;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -58,7 +59,7 @@ public class HostileSummonWand extends Item {
 				var e = entry.summon(sl);
 				if (e != null) {
 					e.setPos(ctx.getClickLocation());
-					sl.addFreshEntityWithPassengers(e);
+					GolemUtils.recursiveAdd(sl, e);
 				}
 			}
 		}
