@@ -49,6 +49,7 @@
   "materials": {
     "cataclysm:witherite": {
       "bonus": [],
+      "forbid": [],
       "weight": 100
     }
   },

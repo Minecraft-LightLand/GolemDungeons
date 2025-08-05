@@ -1,5 +1,6 @@
 package dev.xkmc.golemdungeons.init.data.spawn;
 
+import dev.xkmc.golemdungeons.content.config.SpawnConfig;
 import dev.xkmc.golemdungeons.content.config.TrialConfig;
 import dev.xkmc.modulargolems.init.material.GolemWeaponType;
 import dev.xkmc.modulargolems.init.material.VanillaGolemWeaponMaterial;
@@ -26,6 +27,12 @@ public class AbstractGolemSpawn {
 
 	public static TrialConfig.WaveEntry of(ResourceLocation target, int num) {
 		return of(target, num, num);
+	}
+
+	public static SpawnConfig.GolemMaterialEntry noArm(int weight) {
+		return new SpawnConfig.GolemMaterialEntry(weight)
+				.ban(GolemItems.GOLEM_ARM.get())
+				.ban(GolemItems.HUMANOID_ARMS.get());
 	}
 
 }

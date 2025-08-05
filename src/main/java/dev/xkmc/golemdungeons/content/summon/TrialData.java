@@ -93,6 +93,8 @@ public class TrialData {
 			if (target != null) {
 				var e = target.summon(level);
 				if (e != null) {
+					be.addCost(config.spawnCost, time);
+					be.configureEntity(e, mobIndex);
 					for (var le : e.getSelfAndPassengers().toList()) {
 						if (le instanceof AbstractGolemEntity<?, ?> golem) {
 							totalHealth += golem.getMaxHealth();
@@ -100,8 +102,6 @@ public class TrialData {
 							be.configureGolem(golem, mobIndex);
 						}
 					}
-					be.addCost(config.spawnCost, time);
-					be.configureEntity(e, mobIndex);
 					GolemUtils.recursiveAdd(level, e);
 					mobIndex++;
 					nextAction = time + SUMMON_DELAY;

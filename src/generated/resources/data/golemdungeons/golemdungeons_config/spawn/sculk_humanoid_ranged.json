@@ -23,10 +23,12 @@
   "materials": {
     "modulargolems:iron": {
       "bonus": [],
+      "forbid": [],
       "weight": 100
     },
     "modulargolems:sculk": {
       "bonus": [],
+      "forbid": [],
       "weight": 100
     }
   },

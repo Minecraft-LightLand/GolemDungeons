@@ -54,6 +54,10 @@
           "upgrade": "modulargolems:fire_immune"
         }
       ],
+      "forbid": [
+        "modulargolems:metal_golem_arm",
+        "modulargolems:humanoid_golem_arms"
+      ],
       "weight": 100
     },
     "modulargolems:iron": {
@@ -63,6 +67,7 @@
           "upgrade": "modulargolems:fire_immune"
         }
       ],
+      "forbid": [],
       "weight": 100
     },
     "modulargolems:netherite": {
@@ -72,6 +77,7 @@
           "upgrade": "modulargolems:speed"
         }
       ],
+      "forbid": [],
       "weight": 100
     }
   },

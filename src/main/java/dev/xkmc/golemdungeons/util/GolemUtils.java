@@ -8,6 +8,7 @@ public class GolemUtils {
 	public static void recursiveAdd(ServerLevel level, Entity e) {
 		level.addFreshEntity(e);
 		for (var x : e.getPassengers()) {
+			x.setPos(e.position());
 			recursiveAdd(level, x);
 		}
 	}

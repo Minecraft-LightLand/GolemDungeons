@@ -58,6 +58,7 @@
   "materials": {
     "modulargolems:iron": {
       "bonus": [],
+      "forbid": [],
       "weight": 100
     }
   },

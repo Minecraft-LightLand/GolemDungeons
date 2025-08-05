@@ -12,6 +12,7 @@ import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
 import dev.xkmc.modulargolems.content.entity.hostile.HostileFaction;
 import dev.xkmc.modulargolems.content.entity.hostile.HostileGolemRegistry;
 import dev.xkmc.modulargolems.content.item.golem.GolemHolder;
+import dev.xkmc.modulargolems.content.item.golem.GolemPart;
 import dev.xkmc.modulargolems.content.item.upgrade.IUpgradeItem;
 import dev.xkmc.modulargolems.content.item.upgrade.UpgradeItem;
 import net.minecraft.resources.ResourceLocation;
@@ -21,7 +22,6 @@ import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.TamableAnimal;
 import net.minecraft.world.entity.animal.horse.Horse;
 import net.minecraft.world.item.Item;
 
@@ -61,7 +61,7 @@ public class SpawnConfig extends BaseConfig {
 	public double[] upgradeChance = {1d, 0.5d, 0.5d, 0.5d};
 
 	private SimpleWeightedRandomList<GolemTypeInfo> typeTable;
-	private SimpleWeightedRandomList<ResourceLocation> matTable;
+	private Map<GolemPart<?, ?>, SimpleWeightedRandomList<ResourceLocation>> matTable = new LinkedHashMap<>();
 	private SimpleWeightedRandomList<UpgradeEntry> upTable;
 	private List<EquipmentGroupInfo> equipmentTable;
 
@@ -73,13 +73,17 @@ public class SpawnConfig extends BaseConfig {
 				typeList.add(new GolemTypeInfo(ent.getKey(), ent.getValue()), ent.getValue().weight());
 		}
 		typeTable = typeList.build();
-
-		var matList = SimpleWeightedRandomList.<ResourceLocation>builder();
-		for (var ent : materials.entrySet()) {
-			if (ent.getValue().weight() > 0)
-				matList.add(ent.getKey(), ent.getValue().weight());
+		for (var item : GolemType.GOLEM_TYPE_TO_ITEM.values()) {
+			for (var part : item.getEntityType().values()) {
+				var matList = SimpleWeightedRandomList.<ResourceLocation>builder();
+				for (var ent : materials.entrySet()) {
+					if (ent.getValue().weight() > 0 && !ent.getValue().forbid.contains(item)) {
+						matList.add(ent.getKey(), ent.getValue().weight());
+					}
+				}
+				matTable.put(part.toItem(), matList.build());
+			}
 		}
-		matTable = matList.build();
 
 		var upList = SimpleWeightedRandomList.<UpgradeEntry>builder();
 		for (var e : upgrades) {
@@ -121,7 +125,7 @@ public class SpawnConfig extends BaseConfig {
 					mountEntity = createGolem(sl, mountGolem, r);
 				} else {
 					mountEntity = mountType.create(sl);
-					if (mountEntity instanceof Horse animal){
+					if (mountEntity instanceof Horse animal) {
 						animal.setTamed(true);
 					}
 				}
@@ -171,7 +175,7 @@ public class SpawnConfig extends BaseConfig {
 		var mats = new ArrayList<GolemMaterial>();
 		int max = golem.values().length;
 		for (var p : golem.values()) {
-			var mat = matTable.getRandomValue(r);
+			var mat = matTable.get(p.toItem()).getRandomValue(r);
 			if (mat.isEmpty()) return null;
 			mats.add(p.toItem().parseMaterial(mat.get()));
 			for (var b : materials.get(mat.get()).bonus) {
@@ -236,10 +240,15 @@ public class SpawnConfig extends BaseConfig {
 
 	}
 
-	public record GolemMaterialEntry(int weight, ArrayList<UpgradeBonus> bonus) {
+	public record GolemMaterialEntry(int weight, ArrayList<Item> forbid, ArrayList<UpgradeBonus> bonus) {
 
 		public GolemMaterialEntry(int weight) {
-			this(weight, new ArrayList<>());
+			this(weight, new ArrayList<>(), new ArrayList<>());
+		}
+
+		public GolemMaterialEntry ban(GolemPart<?, ?> part) {
+			forbid.add(part);
+			return this;
 		}
 
 		public GolemMaterialEntry add(UpgradeItem upgrade, double chance) {

@@ -154,7 +154,7 @@ public class FactoryGolemSpawn extends AbstractGolemSpawn {
 					.type(GolemTypes.TYPE_GOLEM.get(), new SpawnConfig.GolemTypeEntry(30, 0))
 					.mat(ModularGolems.loc("copper"), 60)
 					.mat(ModularGolems.loc("iron"), 20)
-					.mat(ModularGolems.loc("gold"), new SpawnConfig.GolemMaterialEntry(20))
+					.mat(ModularGolems.loc("gold"), noArm(20))
 			);
 
 
@@ -162,7 +162,7 @@ public class FactoryGolemSpawn extends AbstractGolemSpawn {
 					.type(GolemTypes.TYPE_GOLEM.get(), new SpawnConfig.GolemTypeEntry(30, 0))
 					.mat(ModularGolems.loc("copper"), 50)
 					.mat(ModularGolems.loc("iron"), 40)
-					.mat(ModularGolems.loc("gold"), new SpawnConfig.GolemMaterialEntry(10)
+					.mat(ModularGolems.loc("gold"), noArm(10)
 							.add(GolemItems.SPEED.get(), 1))
 					.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_GOLEM.get())
 							.add(100, ITEM_LARGE_ARMOR))
@@ -188,7 +188,7 @@ public class FactoryGolemSpawn extends AbstractGolemSpawn {
 					.type(GolemTypes.TYPE_HUMANOID.get(), new SpawnConfig.GolemTypeEntry(40, 0))
 					.mat(ModularGolems.loc("copper"), 50)
 					.mat(ModularGolems.loc("iron"), 40)
-					.mat(ModularGolems.loc("gold"), new SpawnConfig.GolemMaterialEntry(10))
+					.mat(ModularGolems.loc("gold"), noArm(10))
 			);
 
 			map.add(GolemDungeons.SPAWN, HUMANOID_MELEE, createBaseHumanoid()
@@ -282,7 +282,7 @@ public class FactoryGolemSpawn extends AbstractGolemSpawn {
 		return new SpawnConfig(DungeonFactionRegistry.REMNANT)
 				.mat(ModularGolems.loc("copper"), 50)
 				.mat(ModularGolems.loc("iron"), 40)
-				.mat(ModularGolems.loc("gold"), new SpawnConfig.GolemMaterialEntry(10)
+				.mat(ModularGolems.loc("gold"), noArm(10)
 						.add(GolemItems.SPEED.get(), 1))
 				.upgrade(Items.AIR, 170)
 				.upgrade(GolemItems.QUARTZ.asItem(), 100)

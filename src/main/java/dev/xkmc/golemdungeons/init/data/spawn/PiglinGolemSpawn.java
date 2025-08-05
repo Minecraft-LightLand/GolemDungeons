@@ -140,7 +140,7 @@ public class PiglinGolemSpawn extends AbstractGolemSpawn {
 		return new SpawnConfig(DungeonFactionRegistry.PIGLIN)
 				.mat(ModularGolems.loc("iron"), new SpawnConfig.GolemMaterialEntry(100)
 						.add(GolemItems.FIRE_IMMUNE.get(), 1))
-				.mat(ModularGolems.loc("gold"), new SpawnConfig.GolemMaterialEntry(100)
+				.mat(ModularGolems.loc("gold"), noArm(100)
 						.add(GolemItems.SPEED.get(), 1)
 						.add(GolemItems.FIRE_IMMUNE.get(), 1))
 				.mat(ModularGolems.loc("netherite"), new SpawnConfig.GolemMaterialEntry(100)

@@ -23,6 +23,7 @@
   "materials": {
     "modulargolems:copper": {
       "bonus": [],
+      "forbid": [],
       "weight": 50
     },
     "modulargolems:gold": {
@@ -32,10 +33,15 @@
           "upgrade": "modulargolems:speed"
         }
       ],
+      "forbid": [
+        "modulargolems:metal_golem_arm",
+        "modulargolems:humanoid_golem_arms"
+      ],
       "weight": 10
     },
     "modulargolems:iron": {
       "bonus": [],
+      "forbid": [],
       "weight": 40
     }
   },

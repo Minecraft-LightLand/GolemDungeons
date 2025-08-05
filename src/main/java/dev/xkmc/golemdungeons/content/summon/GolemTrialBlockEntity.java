@@ -215,7 +215,10 @@ public class GolemTrialBlockEntity extends BaseBlockEntity implements TickableBl
 
 	@Override
 	public void setRemoved() {
-		stop();
+		if (level instanceof ServerLevel sl) {
+			data.stop(sl, this);
+		}
+		if (bar != null) bar.removeAllPlayers();
 		super.setRemoved();
 	}
 }
