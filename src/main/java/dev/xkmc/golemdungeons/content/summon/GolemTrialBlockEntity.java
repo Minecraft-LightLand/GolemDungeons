@@ -4,9 +4,11 @@ import dev.xkmc.golemdungeons.content.config.TrialConfig;
 import dev.xkmc.golemdungeons.init.GolemDungeons;
 import dev.xkmc.golemdungeons.init.data.GDLang;
 import dev.xkmc.l2library.base.tile.BaseBlockEntity;
+import dev.xkmc.l2modularblock.BlockProxy;
 import dev.xkmc.l2modularblock.tile_api.TickableBlockEntity;
 import dev.xkmc.l2serial.serialization.SerialClass;
 import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
+import dev.xkmc.modulargolems.content.item.card.PathRecordCard;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.bossevents.CustomBossEvent;
@@ -16,6 +18,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootParams;
@@ -56,6 +59,41 @@ public class GolemTrialBlockEntity extends BaseBlockEntity implements TickableBl
 
 	public GolemTrialBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
 		super(type, pos, state);
+	}
+
+	public void setSummonPos(List<PathRecordCard.Pos> list) {
+		var self = getBlockPos();
+		var dir = getBlockState().getValue(BlockProxy.HORIZONTAL_FACING);
+		var rot = switch (dir) {
+			case WEST -> Rotation.CLOCKWISE_90;
+			case EAST -> Rotation.COUNTERCLOCKWISE_90;
+			case SOUTH -> Rotation.CLOCKWISE_180;
+			default -> Rotation.NONE;
+		};
+		targets.clear();
+		for (var e : list) {
+			if (e.pos().distSqr(self) > 48 * 48) continue;
+			var diff = e.pos().subtract(self).rotate(rot);
+			targets.add(diff);
+		}
+		sync();
+		setChanged();
+	}
+
+	public List<BlockPos> getTargets() {
+		var self = getBlockPos();
+		var dir = getBlockState().getValue(BlockProxy.HORIZONTAL_FACING);
+		var rot = switch (dir) {
+			case WEST -> Rotation.COUNTERCLOCKWISE_90;
+			case EAST -> Rotation.CLOCKWISE_90;
+			case SOUTH -> Rotation.CLOCKWISE_180;
+			default -> Rotation.NONE;
+		};
+		var ans = new ArrayList<BlockPos>();
+		for (var e : targets) {
+			ans.add(e.rotate(rot).offset(self));
+		}
+		return ans;
 	}
 
 	@Override
@@ -188,7 +226,23 @@ public class GolemTrialBlockEntity extends BaseBlockEntity implements TickableBl
 
 	@Override
 	public void configureEntity(LivingEntity e, int index) {
-		e.setPos(Vec3.atCenterOf(getBlockPos().above()).add(
+		var self = getBlockPos();
+		var dir = getBlockState().getValue(BlockProxy.HORIZONTAL_FACING);
+		var rot = switch (dir) {
+			case WEST -> Rotation.COUNTERCLOCKWISE_90;
+			case EAST -> Rotation.CLOCKWISE_90;
+			case SOUTH -> Rotation.CLOCKWISE_180;
+			default -> Rotation.NONE;
+		};
+		var pos = targets.isEmpty() ? self.above() : targets.get(index % targets.size()).rotate(rot).offset(self);
+		for (int x = -1; x <= 1; x++) {
+			for (int z = -1; z <= 1; z++) {
+				for (int y = 0; y <= 2; y++) {
+					e.level().removeBlock(pos.offset(x, y, z), false);
+				}
+			}
+		}
+		e.setPos(Vec3.atCenterOf(pos).add(
 				e.getRandom().nextGaussian(), 0, e.getRandom().nextGaussian()
 		));
 	}
@@ -221,4 +275,5 @@ public class GolemTrialBlockEntity extends BaseBlockEntity implements TickableBl
 		if (bar != null) bar.removeAllPlayers();
 		super.setRemoved();
 	}
+
 }

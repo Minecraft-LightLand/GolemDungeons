@@ -46,7 +46,8 @@ public class GolemTrialBlock implements CreateBlockStateBlockMethod, DefaultStat
 		pvd.horizontalBlock(ctx.get(), state -> {
 			var s = state.getValue(STATE);
 			String suffix = s == State.IDLE ? "" : ("_" + s.getSerializedName());
-			return pvd.models().cubeAll("block/" + ctx.getName() + suffix, pvd.modLoc("block/" + ctx.getName() + suffix));
+			return pvd.models().cubeAll("block/" + ctx.getName() + suffix, pvd.modLoc("block/" + ctx.getName() + suffix))
+					.renderType("cutout");
 		});
 	}
 

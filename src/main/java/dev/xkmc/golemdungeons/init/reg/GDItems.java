@@ -8,6 +8,7 @@ import dev.xkmc.golemdungeons.content.client.GDModelPaths;
 import dev.xkmc.golemdungeons.content.equipments.FlameSword;
 import dev.xkmc.golemdungeons.content.summon.GolemTrialBlock;
 import dev.xkmc.golemdungeons.content.summon.GolemTrialBlockEntity;
+import dev.xkmc.golemdungeons.content.summon.GolemTrialRenderer;
 import dev.xkmc.golemdungeons.content.summon.HostileSummonWand;
 import dev.xkmc.l2itemselector.init.data.L2ISTagGen;
 import dev.xkmc.l2modularblock.BlockProxy;
@@ -67,6 +68,7 @@ public class GDItems {
 
 		BE_SPAWNER = REGISTRATE.blockEntity("golem_spawner", GolemTrialBlockEntity::new)
 				.validBlock(SPAWNER)
+				.renderer(() -> GolemTrialRenderer::new)
 				.register();
 	}
 
