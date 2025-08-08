@@ -6,7 +6,8 @@
 	"refmap": "golemdungeons.refmap.json",
 	"mixins": [
 		"HarbingerMixin",
-		"RaidMixin"
+		"RaidMixin",
+		"WardenMixin"
 	],
 	"client": [
 	],

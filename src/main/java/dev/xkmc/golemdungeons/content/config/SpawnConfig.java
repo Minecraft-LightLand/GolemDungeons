@@ -15,6 +15,7 @@ import dev.xkmc.modulargolems.content.item.golem.GolemHolder;
 import dev.xkmc.modulargolems.content.item.golem.GolemPart;
 import dev.xkmc.modulargolems.content.item.upgrade.IUpgradeItem;
 import dev.xkmc.modulargolems.content.item.upgrade.UpgradeItem;
+import dev.xkmc.modulargolems.content.modifier.special.BaseRangedAttackGoal;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -195,6 +196,11 @@ public class SpawnConfig extends BaseConfig {
 		var fac = HostileGolemRegistry.getFaction(faction);
 		var uuid = (fac == null ? HostileGolemRegistry.DEFAULT : fac).uuid;
 		e.onCreate(mats, ups, uuid);
+		for (var goal : e.goalSelector.getAvailableGoals()) {
+			if (goal.getGoal() instanceof BaseRangedAttackGoal ranged) {
+				ranged.setInitialDelay(e.getRandom().nextInt(100));
+			}
+		}
 		return e;
 	}
 
