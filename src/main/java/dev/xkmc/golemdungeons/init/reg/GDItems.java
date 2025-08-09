@@ -68,7 +68,7 @@ public class GDItems {
 
 		SPAWNER = REGISTRATE.block("golem_spawner", p -> DelegateBlock.newBaseBlock(p,
 						BlockProxy.HORIZONTAL, new GolemTrialBlock(), GolemTrialBlock.TE))
-				.properties(p -> p.strength(50, 1200).requiresCorrectToolForDrops().noLootTable())
+				.properties(p -> p.noOcclusion().strength(50, 1200).requiresCorrectToolForDrops().noLootTable())
 				.blockstate(GolemTrialBlock::buildStates)
 				.simpleItem()
 				.tag(BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.NEEDS_DIAMOND_TOOL)

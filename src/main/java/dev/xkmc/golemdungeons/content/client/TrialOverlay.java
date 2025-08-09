@@ -22,7 +22,7 @@ public class TrialOverlay implements IGuiOverlay {
 		if (!(level.getBlockEntity(bhit.getBlockPos()) instanceof GolemTrialBlockEntity tile)) return;
 		var text = tile.getText(player);
 		if (text.isEmpty()) return;
-		new OverlayUtil(g, (int) (sw * 0.7), (int) (sh * 0.5), 0)
+		new OverlayUtil(g, (int) (sw * 0.7), (int) (sh * 0.5), sw / 4)
 				.renderLongText(gui.getFont(), text);
 	}
 

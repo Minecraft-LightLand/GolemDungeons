@@ -1,0 +1,50 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "golemdungeons:sculk_factory/pillar/pillar_front_1",
+        "processors": "golemdungeons:sculk_factory",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "golemdungeons:sculk_factory/pillar/pillar_front_2",
+        "processors": "golemdungeons:sculk_factory",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "golemdungeons:sculk_factory/pillar/pillar_front_3",
+        "processors": "golemdungeons:sculk_factory",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "golemdungeons:sculk_factory/pillar/pillar_back_1",
+        "processors": "golemdungeons:sculk_factory",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "golemdungeons:sculk_factory/pillar/pillar_back_2",
+        "processors": "golemdungeons:sculk_factory",
+        "projection": "rigid"
+      },
+      "weight": 1
+    }
+  ],
+  "fallback": "minecraft:empty"
+}

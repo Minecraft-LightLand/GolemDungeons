@@ -9,6 +9,8 @@ import dev.xkmc.golemdungeons.content.config.TrialConfig;
 import dev.xkmc.golemdungeons.content.faction.DungeonFactionRegistry;
 import dev.xkmc.golemdungeons.content.item.SummonWandSelector;
 import dev.xkmc.golemdungeons.init.data.*;
+import dev.xkmc.golemdungeons.init.data.structure.GDBiomeTagsProvider;
+import dev.xkmc.golemdungeons.init.data.structure.GDStructureGen;
 import dev.xkmc.golemdungeons.init.reg.GDItems;
 import dev.xkmc.l2itemselector.select.item.IItemSelector;
 import dev.xkmc.l2library.base.L2Registrate;
@@ -81,6 +83,8 @@ public class GolemDungeons {
 		var helper = event.getExistingFileHelper();
 		var server = event.includeServer();
 		gen.addProvider(server, new GDConfigGen(gen));
+		gen.addProvider(server, new GDStructureGen(output, pvd));
+		gen.addProvider(server, new GDBiomeTagsProvider(output, pvd, helper));
 		new GDDamageTypes(output, pvd, helper).generate(server, gen);
 	}
 
