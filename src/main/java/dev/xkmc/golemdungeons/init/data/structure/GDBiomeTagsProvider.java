@@ -22,6 +22,7 @@ public final class GDBiomeTagsProvider extends BiomeTagsProvider {
 	@Override
 	protected void addTags(HolderLookup.Provider pvd) {
 		tag(GDStructureGen.SCULK_FACTORY.biomes()).add(Biomes.DEEP_DARK);
+		tag(GDStructureGen.PIGLIN_FACTORY.biomes()).add(Biomes.CRIMSON_FOREST);
 	}
 
 	public static TagKey<Biome> asTag(String name) {

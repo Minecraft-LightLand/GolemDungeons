@@ -1,6 +1,7 @@
 package dev.xkmc.golemdungeons.init.data;
 
 import com.tterrag.registrate.providers.loot.RegistrateLootTableProvider;
+import dev.xkmc.golemdungeons.init.GolemDungeons;
 import dev.xkmc.golemdungeons.init.data.spawn.FactoryGolemSpawn;
 import dev.xkmc.golemdungeons.init.data.spawn.PiglinGolemSpawn;
 import dev.xkmc.golemdungeons.init.data.spawn.SculkGolemSpawn;
@@ -21,10 +22,12 @@ public class GDLootGen {
 	public static final ResourceLocation SCULK = SculkGolemSpawn.SCULK_ALL.withPrefix("trial_reward/");
 
 
-	public static final ResourceLocation SCULK_ROOT = SculkGolemSpawn.SCULK_ALL.withPrefix("sculk_factory/root");
-	public static final ResourceLocation SCULK_CRANE = SculkGolemSpawn.SCULK_ALL.withPrefix("sculk_factory/crane");
-	public static final ResourceLocation SCULK_HEART_CHEST = SculkGolemSpawn.SCULK_ALL.withPrefix("sculk_factory/heart_chest");
-	public static final ResourceLocation SCULK_HEART_BARREL = SculkGolemSpawn.SCULK_ALL.withPrefix("sculk_factory/heart_barrel");
+	public static final ResourceLocation SCULK_ROOT = GolemDungeons.loc("sculk_factory/root");
+	public static final ResourceLocation SCULK_CRANE =GolemDungeons.loc("sculk_factory/crane");
+	public static final ResourceLocation SCULK_HEART_CHEST = GolemDungeons.loc("sculk_factory/heart_chest");
+	public static final ResourceLocation SCULK_HEART_BARREL = GolemDungeons.loc("sculk_factory/heart_barrel");
+
+	public static final ResourceLocation PIGLIN_CHEST = GolemDungeons.loc("piglin_factory/root");
 
 	public static void genLoot(RegistrateLootTableProvider pvd) {
 		{
@@ -175,6 +178,31 @@ public class GDLootGen {
 									.add(LootTableTemplate.getItem(Items.SCULK,6,8))
 							)
 							.withPool(LootPool.lootPool()
+									.add(LootTableTemplate.getItem(GDItems.TRIAL_MEDAL.get(),1))
+							)
+			));
+		}
+
+		{
+
+			pvd.addLootAction(LootContextParamSets.CHEST, sub -> sub.accept(PIGLIN_CHEST,
+					LootTable.lootTable()
+							.withPool(LootTableTemplate.getPool(3, 1)
+									.add(LootTableTemplate.getItem(GolemItems.GOLEM_TEMPLATE.get(),4,8))
+									.add(LootTableTemplate.getItem(GolemItems.EMPTY_UPGRADE.get(),4,8))
+							)
+							.withPool(LootTableTemplate.getPool(3, 1)
+									.add(LootTableTemplate.getItem(Items.NETHERITE_INGOT,1,2))
+									.add(LootTableTemplate.getItem(Items.NETHERITE_SCRAP,4,8))
+									.add(LootTableTemplate.getItem(Items.ANCIENT_DEBRIS,4,8))
+									.add(LootTableTemplate.getItem(Items.GOLD_INGOT,16,24))
+							)
+							.withPool(LootPool.lootPool()
+									.add(LootTableTemplate.getItem(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE,1,3))
+							)
+							.withPool(LootPool.lootPool()
+									.add(LootTableTemplate.getItem(Items.NETHERITE_INGOT,1))
+									.add(LootTableTemplate.getItem(Items.ENCHANTED_GOLDEN_APPLE,1))
 									.add(LootTableTemplate.getItem(GDItems.TRIAL_MEDAL.get(),1))
 							)
 			));

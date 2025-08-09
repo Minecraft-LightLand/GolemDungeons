@@ -10,27 +10,7 @@
         {
           "block_entity_modifier": {
             "type": "minecraft:append_loot",
-            "loot_table": "golemdungeons:sculk_factory/heart_barrel"
-          },
-          "input_predicate": {
-            "block": "minecraft:barrel",
-            "predicate_type": "minecraft:block_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "minecraft:barrel",
-            "Properties": {
-              "facing": "north",
-              "open": "false"
-            }
-          }
-        },
-        {
-          "block_entity_modifier": {
-            "type": "minecraft:append_loot",
-            "loot_table": "golemdungeons:sculk_factory/heart_chest"
+            "loot_table": "golemdungeons:piglin_factory/root"
           },
           "input_predicate": {
             "block": "minecraft:chest",

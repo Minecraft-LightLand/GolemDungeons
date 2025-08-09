@@ -62,6 +62,15 @@ public class GolemTrialBlockEntity extends BaseBlockEntity implements TickableBl
 		super(type, pos, state);
 	}
 
+
+	public void clearCharging() {
+		if (level != null && getBlockState().getValue(STATE) == CHARGING) {
+			lastCost = 0;
+			level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(STATE, IDLE));
+		}
+	}
+
+
 	public void setSummonPos(List<PathRecordCard.Pos> list) {
 		var self = getBlockPos();
 		var dir = getBlockState().getValue(BlockProxy.HORIZONTAL_FACING);

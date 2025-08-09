@@ -74,7 +74,7 @@ public class GDStructureGen extends DatapackBuiltinEntriesProvider {
 
 	}
 
-	public static final GDStructure SCULK_FACTORY;
+	public static final GDStructure SCULK_FACTORY, PIGLIN_FACTORY;
 
 	private static final List<GDStructure> STRUCTURES = new ArrayList<>();
 
@@ -97,7 +97,16 @@ public class GDStructureGen extends DatapackBuiltinEntriesProvider {
 				GenerationStep.Decoration.UNDERGROUND_DECORATION, TerrainAdjustment.BEARD_BOX
 		);
 
+
+		PIGLIN_FACTORY = new GDStructure(GolemDungeons.loc("piglin_factory"), 24, 8,
+				List.of(new ProtectedBlockProcessor(BlockTags.FEATURES_CANNOT_REPLACE)),
+				List.of(singlePiece("piglin_factory").with(injectData(Blocks.CHEST, GDLootGen.PIGLIN_CHEST))
+				), Map.of(), ConstantHeight.of(VerticalAnchor.absolute(33)),
+				GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.NONE
+		);
+
 		STRUCTURES.add(SCULK_FACTORY);
+		STRUCTURES.add(PIGLIN_FACTORY);
 	}
 
 	private static GDPiece singlePiece(String str) {
@@ -121,7 +130,7 @@ public class GDStructureGen extends DatapackBuiltinEntriesProvider {
 						var poolId = e.id().withSuffix("/" + pool.id());
 						if (!pool.processors().isEmpty()) {
 							var merged = new ArrayList<>(e.processors());
-							merged.addAll(e.processors());
+							merged.addAll(pool.processors());
 							ctx.register(ResourceKey.create(Registries.PROCESSOR_LIST, poolId),
 									new StructureProcessorList(merged));
 						}
