@@ -6,10 +6,11 @@ import com.tterrag.registrate.util.entry.ItemEntry;
 import com.tterrag.registrate.util.entry.RegistryEntry;
 import dev.xkmc.golemdungeons.content.client.GDModelPaths;
 import dev.xkmc.golemdungeons.content.equipments.FlameSword;
-import dev.xkmc.golemdungeons.content.summon.GolemTrialBlock;
-import dev.xkmc.golemdungeons.content.summon.GolemTrialBlockEntity;
-import dev.xkmc.golemdungeons.content.summon.GolemTrialRenderer;
-import dev.xkmc.golemdungeons.content.summon.HostileSummonWand;
+import dev.xkmc.golemdungeons.content.item.TrialMedal;
+import dev.xkmc.golemdungeons.content.spawner.GolemTrialBlock;
+import dev.xkmc.golemdungeons.content.spawner.GolemTrialBlockEntity;
+import dev.xkmc.golemdungeons.content.spawner.GolemTrialRenderer;
+import dev.xkmc.golemdungeons.content.item.HostileSummonWand;
 import dev.xkmc.l2itemselector.init.data.L2ISTagGen;
 import dev.xkmc.l2modularblock.BlockProxy;
 import dev.xkmc.l2modularblock.DelegateBlock;
@@ -18,6 +19,7 @@ import dev.xkmc.modulargolems.init.material.VanillaGolemWeaponMaterial;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 
 import static dev.xkmc.golemdungeons.init.GolemDungeons.REGISTRATE;
@@ -26,6 +28,8 @@ public class GDItems {
 
 	public static final RegistryEntry<CreativeModeTab> TAB = REGISTRATE.buildL2CreativeTab(
 			"golem_dungeons", "Golem Dungeons", b -> b.icon(GDItems.SUMMON::asStack));
+
+	public static final ItemEntry<TrialMedal> TRIAL_MEDAL;
 
 	public static final ItemEntry<MetalGolemArmorItem> SAMURAI_HELMET, SAMURAI_CHESTPLATE, SAMURAI_SHINGUARD;
 
@@ -37,6 +41,10 @@ public class GDItems {
 	public static final BlockEntityEntry<GolemTrialBlockEntity> BE_SPAWNER;
 
 	static {
+
+		TRIAL_MEDAL = REGISTRATE.item("trial_medal", TrialMedal::new)
+				.properties(p -> p.rarity(Rarity.EPIC).stacksTo(16).fireResistant())
+				.register();
 
 		FLAME_SWORD = FlameSword.buildItem("flame_sword", VanillaGolemWeaponMaterial.NETHERITE);
 

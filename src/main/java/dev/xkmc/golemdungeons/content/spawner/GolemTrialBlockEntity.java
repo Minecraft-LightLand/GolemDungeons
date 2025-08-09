@@ -1,4 +1,4 @@
-package dev.xkmc.golemdungeons.content.summon;
+package dev.xkmc.golemdungeons.content.spawner;
 
 import dev.xkmc.golemdungeons.content.config.TrialConfig;
 import dev.xkmc.golemdungeons.init.GolemDungeons;
@@ -10,6 +10,7 @@ import dev.xkmc.l2serial.serialization.SerialClass;
 import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
 import dev.xkmc.modulargolems.content.item.card.PathRecordCard;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.bossevents.CustomBossEvent;
 import net.minecraft.server.level.ServerLevel;
@@ -32,8 +33,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import static dev.xkmc.golemdungeons.content.summon.GolemTrialBlock.STATE;
-import static dev.xkmc.golemdungeons.content.summon.GolemTrialBlock.State.*;
+import static dev.xkmc.golemdungeons.content.spawner.GolemTrialBlock.STATE;
+import static dev.xkmc.golemdungeons.content.spawner.GolemTrialBlock.State.*;
 
 @SerialClass
 public class GolemTrialBlockEntity extends BaseBlockEntity implements TickableBlockEntity, TrialTicker {
@@ -274,6 +275,25 @@ public class GolemTrialBlockEntity extends BaseBlockEntity implements TickableBl
 		}
 		if (bar != null) bar.removeAllPlayers();
 		super.setRemoved();
+	}
+
+	public List<Component> getText(Player player) {
+		var ans = new ArrayList<Component>();
+		if (trial != null && player.getAbilities().instabuild) {
+			ans.add(GDLang.fromTrial(trial));
+		}
+		var state = getBlockState().getValue(STATE);
+		if (state == CHARGING) {
+			long time = player.level().getGameTime();
+			long since = time - lastTime;
+			long remain = lastCost - since;
+			if (remain > 0) {
+				long sec = remain / 20;
+				String str = "%d:%02d".formatted(sec / 60, sec % 60);
+				ans.add(GDLang.CHARGE_TIME.get(str));
+			}
+		}
+		return ans;
 	}
 
 }

@@ -1,7 +1,6 @@
 package dev.xkmc.golemdungeons.init.data;
 
 import dev.xkmc.golemdungeons.compat.cataclysm.CataclysmFactions;
-import dev.xkmc.golemdungeons.compat.cataclysm.HarbingerGolemSpawn;
 import dev.xkmc.golemdungeons.init.data.spawn.FactoryGolemSpawn;
 import dev.xkmc.golemdungeons.init.data.spawn.IllagerGolemSpawn;
 import dev.xkmc.golemdungeons.init.data.spawn.PiglinGolemSpawn;

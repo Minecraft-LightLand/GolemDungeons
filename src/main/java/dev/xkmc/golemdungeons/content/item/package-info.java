@@ -1,7 +1,7 @@
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
 
-package dev.xkmc.golemdungeons.content.summon;
+package dev.xkmc.golemdungeons.content.item;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 

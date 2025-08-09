@@ -1,5 +1,6 @@
-package dev.xkmc.golemdungeons.content.summon;
+package dev.xkmc.golemdungeons.content.item;
 
+import dev.xkmc.golemdungeons.content.spawner.GolemTrialBlockEntity;
 import dev.xkmc.golemdungeons.init.GolemDungeons;
 import dev.xkmc.golemdungeons.init.data.GDLang;
 import dev.xkmc.golemdungeons.init.reg.GDItems;

@@ -163,6 +163,17 @@
             }
           ],
           "name": "minecraft:nether_star"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": 1.0,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "golemdungeons:trial_medal"
         }
       ],
       "rolls": 1.0

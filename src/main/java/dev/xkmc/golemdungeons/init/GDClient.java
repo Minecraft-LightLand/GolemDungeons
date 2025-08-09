@@ -1,10 +1,12 @@
 package dev.xkmc.golemdungeons.init;
 
 import dev.xkmc.golemdungeons.content.client.EvilArmors;
+import dev.xkmc.golemdungeons.content.client.TrialOverlay;
 import dev.xkmc.modulargolems.content.client.armor.GolemEquipmentModels;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
+import net.minecraftforge.client.gui.overlay.VanillaGuiOverlay;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -18,6 +20,7 @@ public class GDClient {
 
 	@SubscribeEvent
 	public static void registerOverlays(RegisterGuiOverlaysEvent event) {
+		event.registerAbove(VanillaGuiOverlay.CROSSHAIR.id(), "trial", new TrialOverlay());
 	}
 
 	@SubscribeEvent

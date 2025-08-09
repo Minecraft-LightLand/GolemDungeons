@@ -1,0 +1,34 @@
+{
+  "items": {
+    "CHEST": [
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 30,
+        "stack": {
+          "item": "modulargolems:monstrosity_chestplate"
+        },
+        "weight": 100
+      }
+    ],
+    "HEAD": [
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 30,
+        "stack": {
+          "item": "modulargolems:monstrosity_helmet"
+        },
+        "weight": 100
+      }
+    ],
+    "LEGS": [
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 30,
+        "stack": {
+          "item": "modulargolems:monstrosity_shinguard"
+        },
+        "weight": 100
+      }
+    ]
+  }
+}

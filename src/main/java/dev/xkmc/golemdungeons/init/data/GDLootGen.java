@@ -4,6 +4,7 @@ import com.tterrag.registrate.providers.loot.RegistrateLootTableProvider;
 import dev.xkmc.golemdungeons.init.data.spawn.FactoryGolemSpawn;
 import dev.xkmc.golemdungeons.init.data.spawn.PiglinGolemSpawn;
 import dev.xkmc.golemdungeons.init.data.spawn.SculkGolemSpawn;
+import dev.xkmc.golemdungeons.init.reg.GDItems;
 import dev.xkmc.l2library.util.data.LootTableTemplate;
 import dev.xkmc.modulargolems.init.registrate.GolemItems;
 import net.minecraft.resources.ResourceLocation;
@@ -44,7 +45,10 @@ public class GDLootGen {
 								.add(LootTableTemplate.getItem(Items.DIAMOND, 3, 6))
 						)
 						.withPool(LootPool.lootPool()
+								.add(LootTableTemplate.getItem(Items.GOLD_INGOT, 12, 16))
+								.add(LootTableTemplate.getItem(Items.GOLDEN_APPLE, 4, 6))
 								.add(LootTableTemplate.getItem(Items.ENCHANTED_GOLDEN_APPLE, 1))
+								.add(LootTableTemplate.getItem(GDItems.TRIAL_MEDAL.get(), 1))
 						)
 		));
 
@@ -72,6 +76,7 @@ public class GDLootGen {
 						.withPool(LootPool.lootPool()
 								.add(LootTableTemplate.getItem(Items.WITHER_SKELETON_SKULL, 4, 8))
 								.add(LootTableTemplate.getItem(Items.NETHER_STAR, 1))
+								.add(LootTableTemplate.getItem(GDItems.TRIAL_MEDAL.get(), 1))
 						)
 		));
 
@@ -88,6 +93,7 @@ public class GDLootGen {
 						)
 						.withPool(LootPool.lootPool()
 								.add(LootTableTemplate.getItem(Items.ENCHANTED_GOLDEN_APPLE, 3, 6))
+								.add(LootTableTemplate.getItem(GDItems.TRIAL_MEDAL.get(), 1))
 						)
 		));
 	}

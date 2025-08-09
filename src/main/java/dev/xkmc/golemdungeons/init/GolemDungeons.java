@@ -7,7 +7,7 @@ import dev.xkmc.golemdungeons.content.config.EquipmentConfig;
 import dev.xkmc.golemdungeons.content.config.SpawnConfig;
 import dev.xkmc.golemdungeons.content.config.TrialConfig;
 import dev.xkmc.golemdungeons.content.faction.DungeonFactionRegistry;
-import dev.xkmc.golemdungeons.content.summon.SummonWandSelector;
+import dev.xkmc.golemdungeons.content.item.SummonWandSelector;
 import dev.xkmc.golemdungeons.init.data.*;
 import dev.xkmc.golemdungeons.init.reg.GDItems;
 import dev.xkmc.l2itemselector.select.item.IItemSelector;

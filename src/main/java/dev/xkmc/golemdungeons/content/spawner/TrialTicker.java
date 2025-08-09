@@ -1,4 +1,4 @@
-package dev.xkmc.golemdungeons.content.summon;
+package dev.xkmc.golemdungeons.content.spawner;
 
 import dev.xkmc.golemdungeons.content.config.TrialConfig;
 import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;

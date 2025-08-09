@@ -1,0 +1,12 @@
+{
+  "list": [
+    [
+      {
+        "max": 4,
+        "min": 4,
+        "target": "cataclysm:monstrosity_large"
+      }
+    ]
+  ],
+  "spawnCost": 1000
+}

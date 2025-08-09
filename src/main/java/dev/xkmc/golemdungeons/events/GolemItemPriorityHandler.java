@@ -1,6 +1,6 @@
 package dev.xkmc.golemdungeons.events;
 
-import dev.xkmc.golemdungeons.content.summon.GolemTrialBlockEntity;
+import dev.xkmc.golemdungeons.content.spawner.GolemTrialBlockEntity;
 import dev.xkmc.golemdungeons.init.GolemDungeons;
 import dev.xkmc.modulargolems.content.item.card.PathRecordCard;
 import dev.xkmc.modulargolems.init.registrate.GolemItems;

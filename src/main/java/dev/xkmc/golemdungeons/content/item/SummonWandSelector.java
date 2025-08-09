@@ -1,4 +1,4 @@
-package dev.xkmc.golemdungeons.content.summon;
+package dev.xkmc.golemdungeons.content.item;
 
 import dev.xkmc.golemdungeons.init.GolemDungeons;
 import dev.xkmc.golemdungeons.init.reg.GDItems;

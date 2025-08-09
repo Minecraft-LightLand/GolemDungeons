@@ -1,6 +1,7 @@
-package dev.xkmc.golemdungeons.compat.cataclysm;
+package dev.xkmc.golemdungeons.compat.cataclysm.data;
 
 import com.github.L_Ender.cataclysm.init.ModItems;
+import dev.xkmc.golemdungeons.compat.cataclysm.CataclysmFactions;
 import dev.xkmc.golemdungeons.content.config.EquipmentConfig;
 import dev.xkmc.golemdungeons.content.config.SpawnConfig;
 import dev.xkmc.golemdungeons.content.config.TrialConfig;

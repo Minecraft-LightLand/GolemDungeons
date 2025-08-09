@@ -1,8 +1,7 @@
 package dev.xkmc.golemdungeons.init.data;
 
 import com.tterrag.registrate.providers.RegistrateLangProvider;
-import dev.xkmc.golemdungeons.compat.cataclysm.HarbingerFaction;
-import dev.xkmc.golemdungeons.compat.cataclysm.HarbingerGolemSpawn;
+import dev.xkmc.golemdungeons.compat.cataclysm.data.HarbingerGolemSpawn;
 import dev.xkmc.golemdungeons.init.data.spawn.FactoryGolemSpawn;
 import dev.xkmc.golemdungeons.init.data.spawn.IllagerGolemSpawn;
 import dev.xkmc.golemdungeons.init.data.spawn.PiglinGolemSpawn;
@@ -20,6 +19,9 @@ import java.util.Locale;
 public enum GDLang {
 	FLAME_SWORD_ATK("tooltip.flame_sword_atk", "Deal %s extra fire damage when attacking, bypassing target armor", 1, ChatFormatting.GRAY),
 	FLAME_SWORD_LOOT("tooltip.flame_sword_loot", "Drop more golem materials when metal golems slay other golems with this sword", 0, ChatFormatting.GRAY),
+	TRIAL_MEDAL("tooltip.trial_medal.spawner", "Right click golem spawner to charge them immediately", 0, ChatFormatting.GRAY),
+	TRIAL_MEDAL_CATA("tooltip.trial_medal.cata", "Right click Cataclysm boss spawner to summon boss with golem reinforcement", 0, ChatFormatting.GRAY),
+	CHARGE_TIME("tooltip.charge_time", "Charging: %s", 1, ChatFormatting.GRAY),
 
 	BAR_WAVE("bar.wave", " - Wave %s: ", 1, null),
 	BAR_VICTORY("bar.victory", "Victory", 0, null),
