@@ -26,10 +26,10 @@ public class SculkGolemSpawn extends AbstractGolemSpawn {
 	public static final ResourceLocation ITEM_HUMANOID_BOW = GolemDungeons.loc("sculk_humanoid_weapon_crossbow");
 
 	public static final ResourceLocation SCULK_ALL = GolemDungeons.loc("sculk_infestation");
-
 	public static final ResourceLocation LARGE = GolemDungeons.loc("sculk_large_1");
 	public static final ResourceLocation HUMANOID_MELEE = GolemDungeons.loc("sculk_humanoid_melee");
 	public static final ResourceLocation HUMANOID_RANGED = GolemDungeons.loc("sculk_humanoid_ranged");
+	public static final ResourceLocation SCULK_BETTER = GolemDungeons.loc("sculk_full");
 
 	public static void add(ConfigDataProvider.Collector map) {
 
@@ -117,6 +117,21 @@ public class SculkGolemSpawn extends AbstractGolemSpawn {
 							.add(100, ITEM_HUMANOID_MELEE)
 							.add(100, ITEM_HUMANOID_BOW))
 			);
+
+			map.add(GolemDungeons.SPAWN, SCULK_BETTER, createBetter()
+					.type(GolemTypes.TYPE_GOLEM.get(), new SpawnConfig.GolemTypeEntry(50, 0))
+					.type(GolemTypes.TYPE_HUMANOID.get(), new SpawnConfig.GolemTypeEntry(50, 1)
+							.addMount(GolemTypes.ENTITY_DOG.get(), 100))
+					.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_GOLEM.get())
+							.add(100, ITEM_LARGE_ARMOR))
+					.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_GOLEM.get())
+							.add(100, ITEM_LARGE_WEAPON))
+					.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_HUMANOID.get())
+							.add(100, ITEM_HUMANOID_ARMOR))
+					.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_HUMANOID.get())
+							.add(100, ITEM_HUMANOID_MELEE)
+							.add(100, ITEM_HUMANOID_BOW))
+			);
 		}
 
 		// trial
@@ -134,7 +149,9 @@ public class SculkGolemSpawn extends AbstractGolemSpawn {
 					.add(of(LARGE, 3),
 							of(HUMANOID_MELEE, 2),
 							of(HUMANOID_RANGED, 2),
-							of(SCULK_ALL, 5))
+							of(SCULK_ALL, 3),
+							of(SCULK_BETTER, 2))
+					.add(of(SCULK_BETTER, 16))
 			);
 		}
 	}
@@ -142,6 +159,15 @@ public class SculkGolemSpawn extends AbstractGolemSpawn {
 	private static SpawnConfig createBase() {
 		return new SpawnConfig(DungeonFactionRegistry.SCULK)
 				.mat(ModularGolems.loc("iron"), 100)
+				.mat(ModularGolems.loc("sculk"), 100)
+				.upgrade(GolemItems.ENCHANTED_GOLD.asItem(), 100)
+				.upgrade(GolemItems.DIAMOND.asItem(), 100)
+				.upgrade(GolemItems.NETHERITE.asItem(), 100)
+				.upgradeChance(1, 1, 0.7, 0.7);
+	}
+
+	private static SpawnConfig createBetter() {
+		return new SpawnConfig(DungeonFactionRegistry.SCULK)
 				.mat(ModularGolems.loc("sculk"), 100)
 				.upgrade(GolemItems.ENCHANTED_GOLD.asItem(), 100)
 				.upgrade(GolemItems.DIAMOND.asItem(), 100)

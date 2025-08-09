@@ -70,9 +70,21 @@
         "target": "golemdungeons:sculk_humanoid_ranged"
       },
       {
-        "max": 5,
-        "min": 5,
+        "max": 3,
+        "min": 3,
         "target": "golemdungeons:sculk_infestation"
+      },
+      {
+        "max": 2,
+        "min": 2,
+        "target": "golemdungeons:sculk_full"
+      }
+    ],
+    [
+      {
+        "max": 16,
+        "min": 16,
+        "target": "golemdungeons:sculk_full"
       }
     ]
   ],

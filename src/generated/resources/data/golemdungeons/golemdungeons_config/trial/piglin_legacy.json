@@ -74,6 +74,38 @@
         "min": 5,
         "target": "golemdungeons:piglin_legacy"
       }
+    ],
+    [
+      {
+        "max": 3,
+        "min": 3,
+        "target": "golemdungeons:piglin_large_1"
+      },
+      {
+        "max": 2,
+        "min": 2,
+        "target": "golemdungeons:piglin_legacy"
+      },
+      {
+        "max": 2,
+        "min": 2,
+        "target": "golemdungeons:piglin_humanoid_ranged"
+      },
+      {
+        "max": 3,
+        "min": 3,
+        "target": "golemdungeons:piglin_legacy"
+      },
+      {
+        "max": 2,
+        "min": 2,
+        "target": "golemdungeons:piglin_humanoid_melee"
+      },
+      {
+        "max": 2,
+        "min": 2,
+        "target": "golemdungeons:piglin_humanoid_ranged"
+      }
     ]
   ],
   "reward": "golemdungeons:trial_reward/piglin_legacy",

@@ -152,7 +152,7 @@ public class GolemTrialBlockEntity extends BaseBlockEntity implements TickableBl
 			if (time - lastTime < lastCost) return;
 			List<ServerPlayer> players = new ArrayList<>();
 			for (var pl : level.players()) {
-				if (!isValidPlayer(pl)) continue;
+				if (!isTriggeringPlayer(pl)) continue;
 				if (pl instanceof ServerPlayer sp) {
 					players.add(sp);
 				}
@@ -264,6 +264,12 @@ public class GolemTrialBlockEntity extends BaseBlockEntity implements TickableBl
 	@Override
 	public boolean isOnGoing() {
 		return !trialPlayer.isEmpty();
+	}
+
+	private boolean isTriggeringPlayer(Player pl) {
+		if (pl.isCreative() || pl.isSpectator()) return false;
+		if (pl instanceof FakePlayer) return false;
+		return pl.isAlive() && pl.distanceToSqr(Vec3.atCenterOf(getBlockPos())) <= 8 * 8;
 	}
 
 	private boolean isValidPlayer(Player pl) {

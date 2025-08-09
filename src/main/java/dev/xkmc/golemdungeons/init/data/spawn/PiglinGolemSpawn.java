@@ -131,6 +131,12 @@ public class PiglinGolemSpawn extends AbstractGolemSpawn {
 							of(HUMANOID_MELEE, 2),
 							of(HUMANOID_RANGED, 2),
 							of(PIGLIN_ALL, 5))
+					.add(of(LARGE, 3),
+							of(PIGLIN_ALL, 2),
+							of(HUMANOID_RANGED, 2),
+							of(PIGLIN_ALL, 3),
+							of(HUMANOID_MELEE, 2),
+							of(HUMANOID_RANGED, 2))
 			);
 		}
 
