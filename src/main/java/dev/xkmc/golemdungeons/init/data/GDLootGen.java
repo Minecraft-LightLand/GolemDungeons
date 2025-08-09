@@ -132,7 +132,7 @@ public class GDLootGen {
 									.add(LootTableTemplate.getItem(Items.DIAMOND,1,3))
 							)
 							.withPool(LootPool.lootPool()
-									.add(LootTableTemplate.getItem(Items.SCULK,1,3))
+									.add(LootTableTemplate.getItem(Items.ECHO_SHARD,1,3))
 							)
 			));
 
@@ -144,7 +144,7 @@ public class GDLootGen {
 									.add(LootTableTemplate.getItem(Items.IRON_INGOT,16,32))
 							)
 							.withPool(LootPool.lootPool()
-									.add(LootTableTemplate.getItem(Items.SCULK,1,3))
+									.add(LootTableTemplate.getItem(Items.ECHO_SHARD,1,3))
 							)
 			));
 
@@ -163,7 +163,7 @@ public class GDLootGen {
 									.add(LootTableTemplate.getItem(Items.DIAMOND,1,3))
 							)
 							.withPool(LootPool.lootPool()
-									.add(LootTableTemplate.getItem(Items.SCULK,4,6))
+									.add(LootTableTemplate.getItem(Items.ECHO_SHARD,4,6))
 							)
 			));
 
@@ -175,7 +175,7 @@ public class GDLootGen {
 									.add(LootTableTemplate.getItem(Items.DIAMOND,1,3))
 							)
 							.withPool(LootPool.lootPool()
-									.add(LootTableTemplate.getItem(Items.SCULK,6,8))
+									.add(LootTableTemplate.getItem(Items.ECHO_SHARD,6,8))
 							)
 							.withPool(LootPool.lootPool()
 									.add(LootTableTemplate.getItem(GDItems.TRIAL_MEDAL.get(),1))

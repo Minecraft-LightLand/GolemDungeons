@@ -21,12 +21,17 @@ public class PiglinFaction extends DungeonFaction {
 		ItemStack stack = new ItemStack(Items.BLACK_BANNER);
 		CompoundTag comp = new CompoundTag();
 		ListTag list = new BannerPattern.Builder()
-				.addPattern(BannerPatterns.STRAIGHT_CROSS, DyeColor.YELLOW)
-				.addPattern(BannerPatterns.HALF_HORIZONTAL_MIRROR, DyeColor.BLACK)
-				.addPattern(BannerPatterns.CREEPER, DyeColor.YELLOW)
-				.addPattern(BannerPatterns.CURLY_BORDER, DyeColor.YELLOW)
-				.addPattern(BannerPatterns.STRIPE_TOP, DyeColor.BLACK)
+				.addPattern(BannerPatterns.STRIPE_SMALL, DyeColor.YELLOW)
+				.addPattern(BannerPatterns.BRICKS, DyeColor.GRAY)
+				.addPattern(BannerPatterns.CURLY_BORDER, DyeColor.BLACK)
+				.addPattern(BannerPatterns.TRIANGLES_BOTTOM, DyeColor.RED)
+				.addPattern(BannerPatterns.TRIANGLES_BOTTOM, DyeColor.ORANGE)
+				.addPattern(BannerPatterns.TRIANGLES_TOP, DyeColor.ORANGE)
+				.addPattern(BannerPatterns.PIGLIN, DyeColor.RED)
+				.addPattern(BannerPatterns.GRADIENT_UP, DyeColor.ORANGE)
+				.addPattern(BannerPatterns.GRADIENT, DyeColor.ORANGE)
 				.addPattern(BannerPatterns.BORDER, DyeColor.BLACK)
+				.addPattern(BannerPatterns.PIGLIN, DyeColor.YELLOW)
 				.toListTag();
 		comp.put("Patterns", list);
 		BlockItem.setBlockEntityData(stack, BlockEntityType.BANNER, comp);
