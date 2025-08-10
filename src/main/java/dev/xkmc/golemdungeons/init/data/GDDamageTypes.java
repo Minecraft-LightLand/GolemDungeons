@@ -16,12 +16,17 @@ import java.util.concurrent.CompletableFuture;
 public class GDDamageTypes extends DamageTypeAndTagsGen {
 
 	public static final ResourceKey<DamageType> FLAME = createDamage("flame_attack");
+	public static final ResourceKey<DamageType> ECHO = createDamage("echo_attack");
 
 	public GDDamageTypes(PackOutput output, CompletableFuture<HolderLookup.Provider> pvd, ExistingFileHelper helper) {
 		super(output, pvd, helper, GolemDungeons.MODID);
-		new DamageTypeHolder(FLAME, new DamageType("flame_attack", 0.1f))
+		new DamageTypeHolder(FLAME, new DamageType("in_fire", 0.1f))
 				.add(DamageTypeTags.IS_FIRE, L2DamageTypes.MAGIC,
 						DamageTypeTags.BYPASSES_COOLDOWN, DamageTypeTags.BYPASSES_ARMOR);
+
+		new DamageTypeHolder(ECHO, new DamageType("sonic_boom", 0.1f))
+				.add(L2DamageTypes.MAGIC, DamageTypeTags.BYPASSES_COOLDOWN, DamageTypeTags.BYPASSES_ARMOR)
+				.add(L2DamageTypes.BYPASS_MAGIC);
 	}
 
 	private static ResourceKey<DamageType> createDamage(String id) {

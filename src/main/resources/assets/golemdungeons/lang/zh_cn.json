@@ -3,6 +3,7 @@
 	"block.golemdungeons.golem_spawner": "傀儡试炼核心",
 	"item.golemdungeons.trial_medal": "傀儡试炼奖章",
 	"item.golemdungeons.flame_sword": "炽焰剑",
+	"item.golemdungeons.sculk_golem_scythe": "渊鸣骨镰",
 	"item.golemdungeons.hostile_summon_wand": "敌对傀儡选择器",
 	"item.golemdungeons.samurai_golem_chestplate": "武士护甲",
 	"item.golemdungeons.samurai_golem_helmet": "武士头盔",
@@ -14,6 +15,7 @@
 	"modulargolems.bar.wave": " - 波次 %s: ",
 	"modulargolems.tooltip.flame_sword_atk": "近战攻击造成额外的%s火焰魔法伤害",
 	"modulargolems.tooltip.flame_sword_loot": "大傀儡持此武器击杀其他傀儡后掉落更多的傀儡制作材料",
+	"modulargolems.tooltip.sculk_scythe_atk": "攻击制造小音爆造成%s攻击伤害的范围音爆伤害",
 	"modulargolems.tooltip.charge_time": "充能中: %s",
 	"modulargolems.tooltip.trial_medal.cata": "右键灾变boss重生笼召唤附带傀儡增援的boss",
 	"modulargolems.tooltip.trial_medal.spawner": "右键充能中的傀儡试炼核心使其瞬间充能完成",
@@ -21,5 +23,6 @@
 	"trial.golemdungeons.illagers_creation": "灾厄造物",
 	"trial.golemdungeons.piglin_legacy": "猪灵旧部",
 	"trial.golemdungeons.sculk_infestation": "幽匿侵蚀",
-	"trial.cataclysm.harbingers_revenge": "先驱者的复仇"
+	"trial.cataclysm.harbingers_revenge": "先驱者的复仇",
+	"trial.cataclysm.monstrosity_expanded": "下界合金增援"
 }

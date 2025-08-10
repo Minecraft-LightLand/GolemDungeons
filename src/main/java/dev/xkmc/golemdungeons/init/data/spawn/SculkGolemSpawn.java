@@ -6,6 +6,7 @@ import dev.xkmc.golemdungeons.content.config.TrialConfig;
 import dev.xkmc.golemdungeons.content.faction.DungeonFactionRegistry;
 import dev.xkmc.golemdungeons.init.GolemDungeons;
 import dev.xkmc.golemdungeons.init.data.GDLootGen;
+import dev.xkmc.golemdungeons.init.reg.GDItems;
 import dev.xkmc.l2library.serial.config.ConfigDataProvider;
 import dev.xkmc.modulargolems.init.ModularGolems;
 import dev.xkmc.modulargolems.init.material.GolemWeaponType;
@@ -21,6 +22,7 @@ public class SculkGolemSpawn extends AbstractGolemSpawn {
 
 	public static final ResourceLocation ITEM_LARGE_ARMOR = GolemDungeons.loc("sculk_large_armor");
 	public static final ResourceLocation ITEM_LARGE_WEAPON = GolemDungeons.loc("sculk_large_weapon");
+	public static final ResourceLocation ITEM_LARGE_WEAPON_BETTER = GolemDungeons.loc("sculk_large_weapon_better");
 	public static final ResourceLocation ITEM_HUMANOID_ARMOR = GolemDungeons.loc("sculk_humanoid_armor");
 	public static final ResourceLocation ITEM_HUMANOID_MELEE = GolemDungeons.loc("sculk_humanoid_weapon_melee");
 	public static final ResourceLocation ITEM_HUMANOID_BOW = GolemDungeons.loc("sculk_humanoid_weapon_crossbow");
@@ -45,6 +47,11 @@ public class SculkGolemSpawn extends AbstractGolemSpawn {
 					.add(EquipmentSlot.MAINHAND, 50, getWeapon(VanillaGolemWeaponMaterial.DIAMOND, GolemWeaponType.AXE), 30)
 					.add(EquipmentSlot.MAINHAND, 50, getWeapon(VanillaGolemWeaponMaterial.DIAMOND, GolemWeaponType.SWORD), 30)
 					.add(EquipmentSlot.MAINHAND, 50, getWeapon(VanillaGolemWeaponMaterial.DIAMOND, GolemWeaponType.SPEAR), 30)
+			);
+
+			map.add(GolemDungeons.ITEMS, ITEM_LARGE_WEAPON_BETTER, new EquipmentConfig()
+					.add(EquipmentSlot.MAINHAND, 50, getWeapon(VanillaGolemWeaponMaterial.DIAMOND, GolemWeaponType.AXE), 30)
+					.add(EquipmentSlot.MAINHAND, 50, GDItems.SCULK_SCYTHE.get(), 30, 1)
 			);
 
 		}
@@ -125,7 +132,7 @@ public class SculkGolemSpawn extends AbstractGolemSpawn {
 					.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_GOLEM.get())
 							.add(100, ITEM_LARGE_ARMOR))
 					.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_GOLEM.get())
-							.add(100, ITEM_LARGE_WEAPON))
+							.add(100, ITEM_LARGE_WEAPON_BETTER))
 					.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_HUMANOID.get())
 							.add(100, ITEM_HUMANOID_ARMOR))
 					.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_HUMANOID.get())

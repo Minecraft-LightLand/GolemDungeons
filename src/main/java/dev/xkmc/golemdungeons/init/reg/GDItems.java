@@ -6,11 +6,12 @@ import com.tterrag.registrate.util.entry.ItemEntry;
 import com.tterrag.registrate.util.entry.RegistryEntry;
 import dev.xkmc.golemdungeons.content.client.GDModelPaths;
 import dev.xkmc.golemdungeons.content.equipments.FlameSword;
+import dev.xkmc.golemdungeons.content.equipments.SculkScythe;
+import dev.xkmc.golemdungeons.content.item.HostileSummonWand;
 import dev.xkmc.golemdungeons.content.item.TrialMedal;
 import dev.xkmc.golemdungeons.content.spawner.GolemTrialBlock;
 import dev.xkmc.golemdungeons.content.spawner.GolemTrialBlockEntity;
 import dev.xkmc.golemdungeons.content.spawner.GolemTrialRenderer;
-import dev.xkmc.golemdungeons.content.item.HostileSummonWand;
 import dev.xkmc.l2itemselector.init.data.L2ISTagGen;
 import dev.xkmc.l2modularblock.BlockProxy;
 import dev.xkmc.l2modularblock.DelegateBlock;
@@ -19,7 +20,6 @@ import dev.xkmc.modulargolems.init.material.VanillaGolemWeaponMaterial;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 
 import static dev.xkmc.golemdungeons.init.GolemDungeons.REGISTRATE;
@@ -34,6 +34,7 @@ public class GDItems {
 	public static final ItemEntry<MetalGolemArmorItem> SAMURAI_HELMET, SAMURAI_CHESTPLATE, SAMURAI_SHINGUARD;
 
 	public static final ItemEntry<FlameSword> FLAME_SWORD;
+	public static final ItemEntry<SculkScythe> SCULK_SCYTHE;
 
 	public static final ItemEntry<HostileSummonWand> SUMMON;
 
@@ -47,6 +48,7 @@ public class GDItems {
 				.register();
 
 		FLAME_SWORD = FlameSword.buildItem("flame_sword", VanillaGolemWeaponMaterial.NETHERITE);
+		SCULK_SCYTHE = SculkScythe.buildItem("sculk_golem_scythe", VanillaGolemWeaponMaterial.NETHERITE);
 
 		SAMURAI_HELMET = REGISTRATE.item("samurai_golem_helmet", p -> new MetalGolemArmorItem(p.stacksTo(1),
 						ArmorItem.Type.HELMET, 9, 5, GDModelPaths.SAMURAI_HELMET))

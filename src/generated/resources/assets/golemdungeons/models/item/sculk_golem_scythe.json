@@ -1,0 +1,6 @@
+{
+  "parent": "modulargolems:item/battle_axe",
+  "textures": {
+    "layer0": "golemdungeons:item/equipments/sculk_golem_scythe"
+  }
+}

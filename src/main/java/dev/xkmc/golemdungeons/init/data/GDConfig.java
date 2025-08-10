@@ -20,6 +20,7 @@ public class GDConfig {
 		public final ForgeConfigSpec.BooleanValue enableRaidGolems;
 		public final ForgeConfigSpec.DoubleValue flameSwordDamage;
 		public final ForgeConfigSpec.DoubleValue flameSwordLoot;
+		public final ForgeConfigSpec.DoubleValue sculkScytheDamage;
 
 		Common(ForgeConfigSpec.Builder builder) {
 			enableRaidGolems = builder.comment("Enable adding hostile golems to raids")
@@ -29,6 +30,8 @@ public class GDConfig {
 					.defineInRange("flameSwordDamage", 0.25, 0, 1);
 			flameSwordLoot = builder.comment("Flame sword material loot as percentage of crafting cost")
 					.defineInRange("flameSwordLoot", 0.33, 0, 1);
+			sculkScytheDamage = builder.comment("Sculk Scythe extra damage as percentage original attack")
+					.defineInRange("sculkScytheDamage", 0.25, 0, 1);
 		}
 
 	}

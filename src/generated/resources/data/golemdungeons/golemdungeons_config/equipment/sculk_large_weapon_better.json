@@ -1,0 +1,22 @@
+{
+  "items": {
+    "MAINHAND": [
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 30,
+        "stack": {
+          "item": "modulargolems:diamond_golem_axe"
+        },
+        "weight": 50
+      },
+      {
+        "dropChance": 1.0,
+        "enchantLevel": 30,
+        "stack": {
+          "item": "golemdungeons:sculk_golem_scythe"
+        },
+        "weight": 50
+      }
+    ]
+  }
+}
