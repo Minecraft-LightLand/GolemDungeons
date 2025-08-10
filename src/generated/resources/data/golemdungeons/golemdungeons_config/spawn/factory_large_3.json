@@ -4,7 +4,7 @@
       "type": "modulargolems:metal_golem",
       "sets": [
         {
-          "target": "golemdungeons:factory_large_armor",
+          "target": "golemdungeons:factory_large_armor_better",
           "weight": 100
         }
       ]
@@ -13,7 +13,7 @@
       "type": "modulargolems:metal_golem",
       "sets": [
         {
-          "target": "golemdungeons:factory_large_weapon",
+          "target": "golemdungeons:factory_large_weapon_better",
           "weight": 100
         }
       ]

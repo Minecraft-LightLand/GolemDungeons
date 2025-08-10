@@ -8,10 +8,12 @@ import dev.xkmc.golemdungeons.content.config.SpawnConfig;
 import dev.xkmc.golemdungeons.content.config.TrialConfig;
 import dev.xkmc.golemdungeons.content.faction.DungeonFactionRegistry;
 import dev.xkmc.golemdungeons.content.item.SummonWandSelector;
+import dev.xkmc.golemdungeons.events.GDAttackListener;
 import dev.xkmc.golemdungeons.init.data.*;
 import dev.xkmc.golemdungeons.init.data.structure.GDBiomeTagsProvider;
 import dev.xkmc.golemdungeons.init.data.structure.GDStructureGen;
 import dev.xkmc.golemdungeons.init.reg.GDItems;
+import dev.xkmc.l2damagetracker.contents.attack.AttackEventHandler;
 import dev.xkmc.l2itemselector.select.item.IItemSelector;
 import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.l2library.serial.config.ConfigTypeEntry;
@@ -52,6 +54,7 @@ public class GolemDungeons {
 	public GolemDungeons() {
 		GDItems.register();
 		GDConfig.init();
+		AttackEventHandler.register(3513, new GDAttackListener());
 		if (ModList.get().isLoaded(CataDispatch.MODID)) {
 			MinecraftForge.EVENT_BUS.register(CataclysmEventHandler.class);
 		}

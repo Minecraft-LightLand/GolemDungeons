@@ -45,7 +45,7 @@ public class PiglinGolemSpawn extends AbstractGolemSpawn {
 					.add(EquipmentSlot.MAINHAND, 50, getWeapon(VanillaGolemWeaponMaterial.NETHERITE, GolemWeaponType.AXE), 30)
 					.add(EquipmentSlot.MAINHAND, 50, getWeapon(VanillaGolemWeaponMaterial.NETHERITE, GolemWeaponType.SWORD), 30)
 					.add(EquipmentSlot.MAINHAND, 50, getWeapon(VanillaGolemWeaponMaterial.NETHERITE, GolemWeaponType.SPEAR), 30)
-					.add(EquipmentSlot.MAINHAND, 50, GDItems.FLAME_SWORD.get(), 30, 1)
+					.add(EquipmentSlot.MAINHAND, 50, GDItems.FLAME_SWORD.get(), 30, 2)
 			);
 
 		}
@@ -118,6 +118,7 @@ public class PiglinGolemSpawn extends AbstractGolemSpawn {
 		// trial
 		{
 			map.add(GolemDungeons.TRIAL, PIGLIN_ALL, new TrialConfig().setReward(GDLootGen.PIGLIN)
+							.setCost(400)
 					.add(of(HUMANOID_MELEE, 1))
 					.add(of(LARGE, 1),
 							of(HUMANOID_RANGED, 1))

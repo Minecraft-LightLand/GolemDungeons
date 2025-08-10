@@ -52,7 +52,7 @@
   "types": {
     "modulargolems:humanoid_golem": {
       "bonus": [],
-      "mountChance": 1.0,
+      "mountChance": 2.0,
       "mounts": [
         {
           "mount": "modulargolems:dog_golem",

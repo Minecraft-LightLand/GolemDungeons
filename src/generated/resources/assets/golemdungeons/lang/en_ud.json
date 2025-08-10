@@ -1,5 +1,6 @@
 {
   "block.golemdungeons.golem_spawner": "ɹǝuʍɐdS ɯǝןo⅁",
+  "item.golemdungeons.ancient_forge": "ǝbɹoℲ ʇuǝıɔuⱯ",
   "item.golemdungeons.flame_sword": "pɹoʍS ǝɯɐןℲ",
   "item.golemdungeons.hostile_summon_wand": "puɐM uoɯɯnS ǝןıʇsoH",
   "item.golemdungeons.samurai_golem_chestplate": "ǝʇɐןdʇsǝɥƆ ɯǝןo⅁ ıɐɹnɯɐS",
@@ -13,6 +14,7 @@
   "modulargolems.bar.summoning": "buıuoɯɯnS",
   "modulargolems.bar.victory": "ʎɹoʇɔıΛ",
   "modulargolems.bar.wave": " :%s ǝʌɐM - ",
+  "modulargolems.tooltip.ancient_forge_atk": "ɹoɯɹɐ ssɐdʎq ǝbɐɯɐp ǝǝןǝW",
   "modulargolems.tooltip.charge_time": "%s :buıbɹɐɥƆ",
   "modulargolems.tooltip.flame_sword_atk": "ɹoɯɹɐ ʇǝbɹɐʇ buıssɐdʎq 'buıʞɔɐʇʇɐ uǝɥʍ ǝbɐɯɐp ǝɹıɟ ɐɹʇxǝ %s ןɐǝᗡ",
   "modulargolems.tooltip.flame_sword_loot": "pɹoʍs sıɥʇ ɥʇıʍ sɯǝןob ɹǝɥʇo ʎɐןs sɯǝןob ןɐʇǝɯ uǝɥʍ sןɐıɹǝʇɐɯ ɯǝןob ǝɹoɯ doɹᗡ",

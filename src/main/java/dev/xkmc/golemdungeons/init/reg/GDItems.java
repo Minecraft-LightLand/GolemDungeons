@@ -5,6 +5,7 @@ import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import com.tterrag.registrate.util.entry.RegistryEntry;
 import dev.xkmc.golemdungeons.content.client.GDModelPaths;
+import dev.xkmc.golemdungeons.content.equipments.AncientForge;
 import dev.xkmc.golemdungeons.content.equipments.FlameSword;
 import dev.xkmc.golemdungeons.content.equipments.SculkScythe;
 import dev.xkmc.golemdungeons.content.item.HostileSummonWand;
@@ -33,6 +34,7 @@ public class GDItems {
 
 	public static final ItemEntry<MetalGolemArmorItem> SAMURAI_HELMET, SAMURAI_CHESTPLATE, SAMURAI_SHINGUARD;
 
+	public static final ItemEntry<AncientForge> ANCIENT_FORGE;
 	public static final ItemEntry<FlameSword> FLAME_SWORD;
 	public static final ItemEntry<SculkScythe> SCULK_SCYTHE;
 
@@ -47,6 +49,7 @@ public class GDItems {
 				.properties(p -> p.rarity(Rarity.EPIC).stacksTo(16).fireResistant())
 				.register();
 
+		ANCIENT_FORGE = AncientForge.buildItem("ancient_forge", VanillaGolemWeaponMaterial.IRON);
 		FLAME_SWORD = FlameSword.buildItem("flame_sword", VanillaGolemWeaponMaterial.NETHERITE);
 		SCULK_SCYTHE = SculkScythe.buildItem("sculk_golem_scythe", VanillaGolemWeaponMaterial.NETHERITE);
 

@@ -19,6 +19,10 @@
         {
           "type": "minecraft:item",
           "name": "modulargolems:cauldron"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "modulargolems:talented"
         }
       ],
       "rolls": 3.0
@@ -28,7 +32,18 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "modulargolems:talented"
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 18.0,
+                "min": 12.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:echo_shard"
         }
       ],
       "rolls": 1.0

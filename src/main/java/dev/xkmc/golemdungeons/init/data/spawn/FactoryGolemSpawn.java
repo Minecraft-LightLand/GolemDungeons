@@ -6,6 +6,7 @@ import dev.xkmc.golemdungeons.content.config.TrialConfig;
 import dev.xkmc.golemdungeons.content.faction.DungeonFactionRegistry;
 import dev.xkmc.golemdungeons.init.GolemDungeons;
 import dev.xkmc.golemdungeons.init.data.GDLootGen;
+import dev.xkmc.golemdungeons.init.reg.GDItems;
 import dev.xkmc.l2library.serial.config.ConfigDataProvider;
 import dev.xkmc.modulargolems.init.ModularGolems;
 import dev.xkmc.modulargolems.init.material.GolemWeaponType;
@@ -21,7 +22,9 @@ import net.minecraft.world.item.alchemy.Potions;
 public class FactoryGolemSpawn extends AbstractGolemSpawn {
 
 	public static final ResourceLocation ITEM_LARGE_ARMOR = GolemDungeons.loc("factory_large_armor");
+	public static final ResourceLocation ITEM_LARGE_ARMOR_BETTER = GolemDungeons.loc("factory_large_armor_better");
 	public static final ResourceLocation ITEM_LARGE_WEAPON = GolemDungeons.loc("factory_large_weapon");
+	public static final ResourceLocation ITEM_LARGE_WEAPON_BETTER = GolemDungeons.loc("factory_large_weapon_better");
 	public static final ResourceLocation ITEM_HUMANOID_ARMOR_MISC = GolemDungeons.loc("factory_humanoid_armor_misc");
 	public static final ResourceLocation ITEM_HUMANOID_ARMOR_CHAIN = GolemDungeons.loc("factory_humanoid_armor_chain");
 	public static final ResourceLocation ITEM_HUMANOID_ARMOR_GOLD = GolemDungeons.loc("factory_humanoid_armor_gold");
@@ -61,7 +64,22 @@ public class FactoryGolemSpawn extends AbstractGolemSpawn {
 					.add(EquipmentSlot.MAINHAND, 50, getWeapon(VanillaGolemWeaponMaterial.IRON, GolemWeaponType.AXE), 20)
 					.add(EquipmentSlot.MAINHAND, 50, getWeapon(VanillaGolemWeaponMaterial.IRON, GolemWeaponType.SWORD), 20)
 					.add(EquipmentSlot.MAINHAND, 50, getWeapon(VanillaGolemWeaponMaterial.IRON, GolemWeaponType.SPEAR), 20)
+			);
 
+			map.add(GolemDungeons.ITEMS, ITEM_LARGE_ARMOR_BETTER, new EquipmentConfig()
+					.add(EquipmentSlot.HEAD, 50, Items.AIR)
+					.add(EquipmentSlot.HEAD, 100, GolemItems.GOLEMGUARD_HELMET, 20)
+					.add(EquipmentSlot.CHEST, 50, Items.AIR)
+					.add(EquipmentSlot.CHEST, 100, GolemItems.GOLEMGUARD_CHESTPLATE, 20)
+					.add(EquipmentSlot.LEGS, 50, Items.AIR)
+					.add(EquipmentSlot.LEGS, 100, GolemItems.GOLEMGUARD_SHINGUARD, 20)
+			);
+
+			map.add(GolemDungeons.ITEMS, ITEM_LARGE_WEAPON_BETTER, new EquipmentConfig()
+					.add(EquipmentSlot.MAINHAND, 50, getWeapon(VanillaGolemWeaponMaterial.IRON, GolemWeaponType.AXE), 20)
+					.add(EquipmentSlot.MAINHAND, 50, getWeapon(VanillaGolemWeaponMaterial.IRON, GolemWeaponType.SWORD), 20)
+					.add(EquipmentSlot.MAINHAND, 50, getWeapon(VanillaGolemWeaponMaterial.IRON, GolemWeaponType.SPEAR), 20)
+					.add(EquipmentSlot.MAINHAND, 50, GDItems.ANCIENT_FORGE.get(), 20, 2)
 			);
 		}
 
@@ -176,9 +194,9 @@ public class FactoryGolemSpawn extends AbstractGolemSpawn {
 							.add(GolemItems.SPEED.get(), 0.5f)
 					)
 					.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_GOLEM.get())
-							.add(100, ITEM_LARGE_ARMOR))
+							.add(100, ITEM_LARGE_ARMOR_BETTER))
 					.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_GOLEM.get())
-							.add(100, ITEM_LARGE_WEAPON))
+							.add(100, ITEM_LARGE_WEAPON_BETTER))
 			);
 		}
 
@@ -228,9 +246,9 @@ public class FactoryGolemSpawn extends AbstractGolemSpawn {
 							.add(GolemItems.SPEED.get(), 0.5f)
 					)
 					.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_GOLEM.get())
-							.add(100, ITEM_LARGE_ARMOR))
+							.add(100, ITEM_LARGE_ARMOR_BETTER))
 					.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_GOLEM.get())
-							.add(100, ITEM_LARGE_WEAPON))
+							.add(100, ITEM_LARGE_WEAPON_BETTER))
 					.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_HUMANOID.get())
 							.add(100, ITEM_HUMANOID_ARMOR_MISC)
 							.add(20, ITEM_HUMANOID_ARMOR_CHAIN)
@@ -245,7 +263,7 @@ public class FactoryGolemSpawn extends AbstractGolemSpawn {
 
 		// trial
 		{
-			map.add(GolemDungeons.TRIAL, FACTORY_ALL, new TrialConfig().setCost(300).setReward(GDLootGen.FACTORY)
+			map.add(GolemDungeons.TRIAL, FACTORY_ALL, new TrialConfig().setCost(200).setReward(GDLootGen.FACTORY)
 					.add(of(LARGE_1, 1))
 					.add(of(LARGE_1, 1),
 							of(HUMANOID_BASIC, 2))

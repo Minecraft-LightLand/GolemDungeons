@@ -1,5 +1,6 @@
 {
   "block.golemdungeons.golem_spawner": "Golem Spawner",
+  "item.golemdungeons.ancient_forge": "Ancient Forge",
   "item.golemdungeons.flame_sword": "Flame Sword",
   "item.golemdungeons.hostile_summon_wand": "Hostile Summon Wand",
   "item.golemdungeons.samurai_golem_chestplate": "Samurai Golem Chestplate",
@@ -13,6 +14,7 @@
   "modulargolems.bar.summoning": "Summoning",
   "modulargolems.bar.victory": "Victory",
   "modulargolems.bar.wave": " - Wave %s: ",
+  "modulargolems.tooltip.ancient_forge_atk": "Melee damage bypass armor",
   "modulargolems.tooltip.charge_time": "Charging: %s",
   "modulargolems.tooltip.flame_sword_atk": "Deal %s extra fire damage when attacking, bypassing target armor",
   "modulargolems.tooltip.flame_sword_loot": "Drop more golem materials when metal golems slay other golems with this sword",

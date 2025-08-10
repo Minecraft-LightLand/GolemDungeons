@@ -3,33 +3,33 @@
     "MAINHAND": [
       {
         "dropChance": 0.085,
-        "enchantLevel": 30,
+        "enchantLevel": 20,
         "stack": {
-          "item": "modulargolems:netherite_golem_axe"
+          "item": "modulargolems:iron_golem_axe"
         },
         "weight": 50
       },
       {
         "dropChance": 0.085,
-        "enchantLevel": 30,
+        "enchantLevel": 20,
         "stack": {
-          "item": "modulargolems:netherite_golem_sword"
+          "item": "modulargolems:iron_golem_sword"
         },
         "weight": 50
       },
       {
         "dropChance": 0.085,
-        "enchantLevel": 30,
+        "enchantLevel": 20,
         "stack": {
-          "item": "modulargolems:netherite_golem_spear"
+          "item": "modulargolems:iron_golem_spear"
         },
         "weight": 50
       },
       {
         "dropChance": 2.0,
-        "enchantLevel": 30,
+        "enchantLevel": 20,
         "stack": {
-          "item": "golemdungeons:flame_sword"
+          "item": "golemdungeons:ancient_forge"
         },
         "weight": 50
       }

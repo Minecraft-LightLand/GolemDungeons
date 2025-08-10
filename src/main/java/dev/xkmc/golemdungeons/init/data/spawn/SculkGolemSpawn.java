@@ -127,7 +127,7 @@ public class SculkGolemSpawn extends AbstractGolemSpawn {
 
 			map.add(GolemDungeons.SPAWN, SCULK_BETTER, createBetter()
 					.type(GolemTypes.TYPE_GOLEM.get(), new SpawnConfig.GolemTypeEntry(50, 0))
-					.type(GolemTypes.TYPE_HUMANOID.get(), new SpawnConfig.GolemTypeEntry(50, 1)
+					.type(GolemTypes.TYPE_HUMANOID.get(), new SpawnConfig.GolemTypeEntry(50, 2)
 							.addMount(GolemTypes.ENTITY_DOG.get(), 100))
 					.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_GOLEM.get())
 							.add(100, ITEM_LARGE_ARMOR))
@@ -144,6 +144,7 @@ public class SculkGolemSpawn extends AbstractGolemSpawn {
 		// trial
 		{
 			map.add(GolemDungeons.TRIAL, SCULK_ALL, new TrialConfig().setReward(GDLootGen.SCULK)
+					.setCost(400)
 					.add(of(HUMANOID_MELEE, 1))
 					.add(of(LARGE, 1),
 							of(HUMANOID_RANGED, 1))
