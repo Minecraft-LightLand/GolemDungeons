@@ -1,0 +1,46 @@
+package dev.xkmc.golemdungeons.init.data;
+
+import com.tterrag.registrate.providers.RegistrateRecipeProvider;
+import com.tterrag.registrate.util.DataIngredient;
+import dev.xkmc.golemdungeons.init.reg.GDItems;
+import net.minecraft.advancements.critereon.InventoryChangeTrigger;
+import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+
+import java.util.function.BiFunction;
+
+public class GDRecipeGen {
+
+	public static void genRecipe(RegistrateRecipeProvider pvd) {
+		unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, GDItems.EYE_OF_CRIMSON_FACTORY.get())::unlockedBy, GDItems.MEDAL_OF_CONQUEROR.get())
+				.pattern(" A ").pattern("BEB").pattern(" C ")
+				.define('A', GDItems.MEDAL_OF_CONQUEROR)
+				.define('E', Items.ENDER_EYE)
+				.define('B', Items.BLAZE_POWDER)
+				.define('C', Items.NETHERITE_SCRAP)
+				.save(pvd);
+
+		unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, GDItems.EYE_OF_SCULK_FACTORY.get())::unlockedBy, GDItems.MEDAL_OF_CONQUEROR.get())
+				.pattern(" A ").pattern("BEB").pattern(" C ")
+				.define('A', GDItems.MEDAL_OF_CONQUEROR)
+				.define('E', Items.ENDER_EYE)
+				.define('B', Items.SCULK)
+				.define('C', Items.DIAMOND)
+				.save(pvd);
+
+		unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, GDItems.TRIAL_MEDAL.get())::unlockedBy, GDItems.MEDAL_OF_CONQUEROR.get())
+				.pattern("DAD").pattern("ARA").pattern("DAD")
+				.define('A', GDItems.MEDAL_OF_CONQUEROR)
+				.define('R', Items.REDSTONE_BLOCK)
+				.define('D', Items.DIAMOND)
+				.save(pvd);
+	}
+
+	public static <T> T unlock(RegistrateRecipeProvider pvd, BiFunction<String, InventoryChangeTrigger.TriggerInstance, T> func, Item item) {
+		return func.apply("has_" + pvd.safeName(item), DataIngredient.items(item).getCritereon(pvd));
+	}
+
+
+}

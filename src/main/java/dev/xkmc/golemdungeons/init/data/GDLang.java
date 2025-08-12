@@ -26,6 +26,11 @@ public enum GDLang {
 	TRIAL_MEDAL_CATA("tooltip.trial_medal.cata", "Right click Cataclysm boss spawner to summon boss with golem reinforcement", 0, ChatFormatting.GRAY),
 	CHARGE_TIME("tooltip.charge_time", "Charging: %s", 1, ChatFormatting.GRAY),
 
+	LOCATE_ABANDONED("tooltip.locate_abandoned", "Locates the Abandoned Golem Factory", 0, ChatFormatting.GRAY),
+	LOCATE_CRIMSON("tooltip.locate_crimson", "Locates the Piglin Golem Factory in Crimson Forest", 0, ChatFormatting.GRAY),
+	LOCATE_SCULK("tooltip.locate_sculk", "Locates the Sculk Infested Golem Factory in Deep Dark", 0, ChatFormatting.GRAY),
+
+
 	BAR_WAVE("bar.wave", " - Wave %s: ", 1, null),
 	BAR_VICTORY("bar.victory", "Victory", 0, null),
 	BAR_CHARGING("bar.charging", "Charging", 0, null),

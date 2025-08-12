@@ -12,6 +12,7 @@ import dev.xkmc.golemdungeons.events.GDAttackListener;
 import dev.xkmc.golemdungeons.init.data.*;
 import dev.xkmc.golemdungeons.init.data.structure.GDBiomeTagsProvider;
 import dev.xkmc.golemdungeons.init.data.structure.GDStructureGen;
+import dev.xkmc.golemdungeons.init.data.structure.GDStructureTagsProvider;
 import dev.xkmc.golemdungeons.init.reg.GDItems;
 import dev.xkmc.l2damagetracker.contents.attack.AttackEventHandler;
 import dev.xkmc.l2itemselector.select.item.IItemSelector;
@@ -79,15 +80,18 @@ public class GolemDungeons {
 	public static void gatherData(GatherDataEvent event) {
 		REGISTRATE.addDataGenerator(ProviderType.LANG, GDLang::genLang);
 		REGISTRATE.addDataGenerator(ProviderType.LOOT, GDLootGen::genLoot);
+		REGISTRATE.addDataGenerator(ProviderType.RECIPE, GDRecipeGen::genRecipe);
 
 		var gen = event.getGenerator();
 		var output = gen.getPackOutput();
 		var pvd = event.getLookupProvider();
 		var helper = event.getExistingFileHelper();
 		var server = event.includeServer();
+		GDStructureGen reg = new GDStructureGen(output, pvd);
 		gen.addProvider(server, new GDConfigGen(gen));
-		gen.addProvider(server, new GDStructureGen(output, pvd));
+		gen.addProvider(server, reg);
 		gen.addProvider(server, new GDBiomeTagsProvider(output, pvd, helper));
+		gen.addProvider(server, new GDStructureTagsProvider(output, reg.getRegistryProvider(), helper));
 		new GDDamageTypes(output, pvd, helper).generate(server, gen);
 	}
 

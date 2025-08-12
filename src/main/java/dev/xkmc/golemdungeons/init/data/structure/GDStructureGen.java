@@ -20,6 +20,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.GenerationStep;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.heightproviders.ConstantHeight;
 import net.minecraft.world.level.levelgen.heightproviders.HeightProvider;
@@ -38,10 +39,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.rule.blockent
 import net.minecraftforge.common.data.DatapackBuiltinEntriesProvider;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.CompletableFuture;
 
 public class GDStructureGen extends DatapackBuiltinEntriesProvider {
@@ -51,11 +49,19 @@ public class GDStructureGen extends DatapackBuiltinEntriesProvider {
 			List<StructureProcessor> processors,
 			List<GDPiece> pools,
 			Map<MobCategory, StructureSpawnOverride> spawns,
-			HeightProvider height,
+			Optional<Heightmap.Types> heightMap, HeightProvider height,
 			GenerationStep.Decoration step, TerrainAdjustment beard) {
 
 		public TagKey<Biome> biomes() {
 			return TagKey.create(Registries.BIOME, id.withPrefix("has_structure/"));
+		}
+
+		public TagKey<Structure> asTag() {
+			return TagKey.create(Registries.STRUCTURE, id);
+		}
+
+		public ResourceKey<Structure> asKey() {
+			return ResourceKey.create(Registries.STRUCTURE, id);
 		}
 
 	}
@@ -74,7 +80,7 @@ public class GDStructureGen extends DatapackBuiltinEntriesProvider {
 
 	}
 
-	public static final GDStructure SCULK_FACTORY, PIGLIN_FACTORY;
+	public static final GDStructure ABANDONED_FACTORY, PIGLIN_FACTORY, SCULK_FACTORY;
 
 	private static final List<GDStructure> STRUCTURES = new ArrayList<>();
 
@@ -93,7 +99,8 @@ public class GDStructureGen extends DatapackBuiltinEntriesProvider {
 						singlePiece("sculpture"), singlePiece("pile"), singlePiece("side_path"),
 						folder("pillar", "pillar_front_1", "pillar_front_2", "pillar_front_3",
 								"pillar_back_1", "pillar_back_2")
-				), Map.of(), ConstantHeight.of(VerticalAnchor.absolute(-27)),
+				), Map.of(),
+				Optional.empty(), ConstantHeight.of(VerticalAnchor.absolute(-27)),
 				GenerationStep.Decoration.UNDERGROUND_DECORATION, TerrainAdjustment.BEARD_BOX
 		);
 
@@ -101,12 +108,22 @@ public class GDStructureGen extends DatapackBuiltinEntriesProvider {
 		PIGLIN_FACTORY = new GDStructure(GolemDungeons.loc("piglin_factory"), 24, 8,
 				List.of(new ProtectedBlockProcessor(BlockTags.FEATURES_CANNOT_REPLACE)),
 				List.of(singlePiece("piglin_factory").with(injectData(Blocks.CHEST, GDLootGen.PIGLIN_CHEST))
-				), Map.of(), ConstantHeight.of(VerticalAnchor.absolute(33)),
+				), Map.of(),
+				Optional.empty(), ConstantHeight.of(VerticalAnchor.absolute(33)),
+				GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.BEARD_BOX
+		);
+
+		ABANDONED_FACTORY = new GDStructure(GolemDungeons.loc("abandoned_factory"), 24, 8,
+				List.of(new ProtectedBlockProcessor(BlockTags.FEATURES_CANNOT_REPLACE)),
+				List.of(singlePiece("abandoned_factory").with(injectData(Blocks.CHEST, GDLootGen.PIGLIN_CHEST))//TODO
+				), Map.of(),
+				Optional.of(Heightmap.Types.WORLD_SURFACE_WG), ConstantHeight.of(VerticalAnchor.top()),
 				GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.BEARD_BOX
 		);
 
 		STRUCTURES.add(SCULK_FACTORY);
 		STRUCTURES.add(PIGLIN_FACTORY);
+		//TODO STRUCTURES.add(ABANDONED_FACTORY);
 	}
 
 	private static GDPiece singlePiece(String str) {
@@ -166,7 +183,7 @@ public class GDStructureGen extends DatapackBuiltinEntriesProvider {
 							.getOrThrow(ResourceKey.create(Registries.TEMPLATE_POOL, start));
 					ctx.register(ResourceKey.create(Registries.STRUCTURE, e.id()), new JigsawStructure(
 							new Structure.StructureSettings(biome, e.spawns(), e.step(), e.beard()),
-							pool, 7, e.height(), false)
+							pool, Optional.empty(), 7, e.height(), false, e.heightMap(), 80)
 					);
 				}
 			})

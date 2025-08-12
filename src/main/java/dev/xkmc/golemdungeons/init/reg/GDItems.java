@@ -9,10 +9,13 @@ import dev.xkmc.golemdungeons.content.equipments.AncientForge;
 import dev.xkmc.golemdungeons.content.equipments.FlameSword;
 import dev.xkmc.golemdungeons.content.equipments.SculkScythe;
 import dev.xkmc.golemdungeons.content.item.HostileSummonWand;
+import dev.xkmc.golemdungeons.content.item.StructureEye;
 import dev.xkmc.golemdungeons.content.item.TrialMedal;
 import dev.xkmc.golemdungeons.content.spawner.GolemTrialBlock;
 import dev.xkmc.golemdungeons.content.spawner.GolemTrialBlockEntity;
 import dev.xkmc.golemdungeons.content.spawner.GolemTrialRenderer;
+import dev.xkmc.golemdungeons.init.data.GDLang;
+import dev.xkmc.golemdungeons.init.data.structure.GDStructureGen;
 import dev.xkmc.l2itemselector.init.data.L2ISTagGen;
 import dev.xkmc.l2modularblock.BlockProxy;
 import dev.xkmc.l2modularblock.DelegateBlock;
@@ -21,6 +24,7 @@ import dev.xkmc.modulargolems.init.material.VanillaGolemWeaponMaterial;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 
 import static dev.xkmc.golemdungeons.init.GolemDungeons.REGISTRATE;
@@ -30,7 +34,11 @@ public class GDItems {
 	public static final RegistryEntry<CreativeModeTab> TAB = REGISTRATE.buildL2CreativeTab(
 			"golem_dungeons", "Golem Dungeons", b -> b.icon(GDItems.SUMMON::asStack));
 
+	public static final ItemEntry<StructureEye> EYE_OF_CRIMSON_FACTORY;
+	public static final ItemEntry<StructureEye> EYE_OF_SCULK_FACTORY;
+
 	public static final ItemEntry<TrialMedal> TRIAL_MEDAL;
+	public static final ItemEntry<Item> MEDAL_OF_CONQUEROR;
 
 	public static final ItemEntry<MetalGolemArmorItem> SAMURAI_HELMET, SAMURAI_CHESTPLATE, SAMURAI_SHINGUARD;
 
@@ -45,8 +53,24 @@ public class GDItems {
 
 	static {
 
+		EYE_OF_CRIMSON_FACTORY = REGISTRATE.item("eye_of_crimson_factory", p ->
+						new StructureEye(p, GDStructureGen.PIGLIN_FACTORY.asTag(), GDLang.LOCATE_CRIMSON::get))
+				.properties(p -> p.rarity(Rarity.RARE).stacksTo(16).fireResistant())
+				.lang("Eye of Crimson Factory")
+				.register();
+
+		EYE_OF_SCULK_FACTORY = REGISTRATE.item("eye_of_sculk_factory", p ->
+						new StructureEye(p, GDStructureGen.SCULK_FACTORY.asTag(), GDLang.LOCATE_SCULK::get))
+				.properties(p -> p.rarity(Rarity.RARE).stacksTo(16).fireResistant())
+				.lang("Eye of Sculk Factory")
+				.register();
+
 		TRIAL_MEDAL = REGISTRATE.item("trial_medal", TrialMedal::new)
-				.properties(p -> p.rarity(Rarity.EPIC).stacksTo(16).fireResistant())
+				.properties(p -> p.rarity(Rarity.RARE).stacksTo(16).fireResistant())
+				.register();
+
+		MEDAL_OF_CONQUEROR = REGISTRATE.item("medal_of_conqueror", Item::new)
+				.properties(p -> p.rarity(Rarity.RARE).stacksTo(16).fireResistant())
 				.register();
 
 		ANCIENT_FORGE = AncientForge.buildItem("ancient_forge", VanillaGolemWeaponMaterial.IRON);
