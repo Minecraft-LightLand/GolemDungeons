@@ -18,6 +18,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -26,7 +27,9 @@ import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.FakePlayer;
+import net.minecraftforge.items.ItemHandlerHelper;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -230,7 +233,22 @@ public class GolemTrialBlockEntity extends BaseBlockEntity implements TickableBl
 		var params = new LootParams.Builder(level)
 				.withParameter(LootContextParams.ORIGIN, Vec3.atCenterOf(getBlockPos()))
 				.create(LootContextParamSets.CHEST);
-		var list = loot.getRandomItems(params);
+		List<ItemStack> list = loot.getRandomItems(params);
+		var be = level.getBlockEntity(getBlockPos().above());
+		if (be != null) {
+			var opt = be.getCapability(ForgeCapabilities.ITEM_HANDLER).resolve();
+			if (opt.isPresent()) {
+				var ans = new ArrayList<ItemStack>();
+				var cap = opt.get();
+				for (var stack : list) {
+					var remain = ItemHandlerHelper.insertItem(cap, stack, false);
+					if (!remain.isEmpty()) {
+						ans.add(remain);
+					}
+				}
+				list = ans;
+			}
+		}
 		for (var stack : list) Block.popResource(level, getBlockPos().above(), stack);
 	}
 
