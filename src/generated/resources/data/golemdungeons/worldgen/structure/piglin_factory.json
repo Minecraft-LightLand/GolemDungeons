@@ -9,5 +9,6 @@
   },
   "start_pool": "golemdungeons:piglin_factory/piglin_factory",
   "step": "surface_structures",
+  "terrain_adaptation": "beard_box",
   "use_expansion_hack": false
 }

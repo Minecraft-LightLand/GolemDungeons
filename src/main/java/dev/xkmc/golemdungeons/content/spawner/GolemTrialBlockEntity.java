@@ -252,9 +252,10 @@ public class GolemTrialBlockEntity extends BaseBlockEntity implements TickableBl
 				}
 			}
 		}
-		e.setPos(Vec3.atCenterOf(pos).add(
-				e.getRandom().nextGaussian(), 0, e.getRandom().nextGaussian()
-		));
+		var vec = Vec3.atCenterOf(pos);
+		if (targets.size() <= 1)
+			vec = vec.add(e.getRandom().nextGaussian(), 0, e.getRandom().nextGaussian());
+		e.setPos(vec);
 	}
 
 	@Override

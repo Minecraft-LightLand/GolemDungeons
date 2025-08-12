@@ -102,7 +102,7 @@ public class GDStructureGen extends DatapackBuiltinEntriesProvider {
 				List.of(new ProtectedBlockProcessor(BlockTags.FEATURES_CANNOT_REPLACE)),
 				List.of(singlePiece("piglin_factory").with(injectData(Blocks.CHEST, GDLootGen.PIGLIN_CHEST))
 				), Map.of(), ConstantHeight.of(VerticalAnchor.absolute(33)),
-				GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.NONE
+				GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.BEARD_BOX
 		);
 
 		STRUCTURES.add(SCULK_FACTORY);
