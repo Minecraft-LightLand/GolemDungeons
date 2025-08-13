@@ -1,11 +1,9 @@
 package dev.xkmc.golemdungeons.init.data.structure;
 
-import com.mojang.datafixers.util.Either;
 import com.mojang.datafixers.util.Pair;
 import dev.xkmc.golemdungeons.init.GolemDungeons;
 import dev.xkmc.golemdungeons.init.data.GDLootGen;
 import net.minecraft.core.Direction;
-import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
@@ -30,7 +28,6 @@ import net.minecraft.world.level.levelgen.structure.StructureSpawnOverride;
 import net.minecraft.world.level.levelgen.structure.TerrainAdjustment;
 import net.minecraft.world.level.levelgen.structure.placement.RandomSpreadStructurePlacement;
 import net.minecraft.world.level.levelgen.structure.placement.RandomSpreadType;
-import net.minecraft.world.level.levelgen.structure.pools.SinglePoolElement;
 import net.minecraft.world.level.levelgen.structure.pools.StructurePoolElement;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import net.minecraft.world.level.levelgen.structure.structures.JigsawStructure;
@@ -47,7 +44,7 @@ public class GDStructureGen extends DatapackBuiltinEntriesProvider {
 	public record GDStructure(
 			ResourceLocation id, int spacing, int separation,
 			List<StructureProcessor> processors,
-			List<GDPiece> pools,
+			List<GDPieceData> pools,
 			Map<MobCategory, StructureSpawnOverride> spawns,
 			Optional<Heightmap.Types> heightMap, HeightProvider height,
 			GenerationStep.Decoration step, TerrainAdjustment beard) {
@@ -62,20 +59,6 @@ public class GDStructureGen extends DatapackBuiltinEntriesProvider {
 
 		public ResourceKey<Structure> asKey() {
 			return ResourceKey.create(Registries.STRUCTURE, id);
-		}
-
-	}
-
-	public record GDPiece(String id, List<String> pool, List<StructureProcessor> processors) {
-
-		public GDPiece with(StructureProcessor... processors) {
-			this.processors.addAll(List.of(processors));
-			return this;
-		}
-
-		public GDPiece with(ProcessorRule... processors) {
-			this.processors.add(new RuleProcessor(List.of(processors)));
-			return this;
 		}
 
 	}
@@ -99,6 +82,7 @@ public class GDStructureGen extends DatapackBuiltinEntriesProvider {
 						singlePiece("sculpture"), singlePiece("pile"), singlePiece("side_path"),
 						folder("pillar", "pillar_front_1", "pillar_front_2", "pillar_front_3",
 								"pillar_back_1", "pillar_back_2")
+								.custom(ElementFactory.fatBox(2))
 				), Map.of(),
 				Optional.empty(), ConstantHeight.of(VerticalAnchor.absolute(-27)),
 				GenerationStep.Decoration.UNDERGROUND_DECORATION, TerrainAdjustment.BEARD_BOX
@@ -126,17 +110,16 @@ public class GDStructureGen extends DatapackBuiltinEntriesProvider {
 		//TODO STRUCTURES.add(ABANDONED_FACTORY);
 	}
 
-	private static GDPiece singlePiece(String str) {
-		return new GDPiece(str, List.of(str), new ArrayList<>());
+	private static GDPieceData singlePiece(String str) {
+		return new GDPieceData(str, List.of(str));
 	}
 
-	private static GDPiece folder(String str, String... items) {
+	private static GDPieceData folder(String str, String... items) {
 		for (int i = 0; i < items.length; i++) {
 			items[i] = str + "/" + items[i];
 		}
-		return new GDPiece(str, List.of(items), new ArrayList<>());
+		return new GDPieceData(str, List.of(items));
 	}
-
 
 	private static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
 			.add(Registries.PROCESSOR_LIST, ctx -> {
@@ -167,8 +150,7 @@ public class GDStructureGen extends DatapackBuiltinEntriesProvider {
 										.getOrThrow(ResourceKey.create(Registries.PROCESSOR_LIST, poolId));
 						List<Pair<StructurePoolElement, Integer>> pieces = new ArrayList<>();
 						for (var elem : pool.pool()) {
-							pieces.add(Pair.of(new SinglePiece(e.id.withSuffix("/" + elem),
-									processors, StructureTemplatePool.Projection.RIGID), 1));
+							pieces.add(Pair.of(pool.factory().create(e.id.withSuffix("/" + elem), processors), 1));
 						}
 						ctx.register(ResourceKey.create(Registries.TEMPLATE_POOL, poolId),
 								new StructureTemplatePool(empty, pieces));
@@ -213,14 +195,6 @@ public class GDStructureGen extends DatapackBuiltinEntriesProvider {
 		var state = block.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, dir);
 		return new ProcessorRule(new BlockStateMatchTest(state), AlwaysTrueTest.INSTANCE, PosAlwaysTrueTest.INSTANCE,
 				state, new AppendLoot(table));
-	}
-
-	private static class SinglePiece extends SinglePoolElement {
-
-		protected SinglePiece(ResourceLocation template, Holder<StructureProcessorList> list, StructureTemplatePool.Projection proj) {
-			super(Either.left(template), list, proj);
-		}
-
 	}
 
 }

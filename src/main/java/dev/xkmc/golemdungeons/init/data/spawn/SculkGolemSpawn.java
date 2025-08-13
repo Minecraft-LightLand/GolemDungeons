@@ -146,7 +146,7 @@ public class SculkGolemSpawn extends AbstractGolemSpawn {
 		// trial
 		{
 			map.add(GolemDungeons.TRIAL, SCULK_ALL, new TrialConfig().setReward(GDLootGen.SCULK)
-					.setCost(400).setTriggerRange(12, -2, 8)
+					.setCost(400).setTriggerRange(16, -2, 8)
 					.add(of(HUMANOID_MELEE, 1))
 					.add(of(LARGE, 1),
 							of(HUMANOID_RANGED, 1))

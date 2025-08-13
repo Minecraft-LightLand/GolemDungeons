@@ -55,7 +55,7 @@ public class GolemTrialBlockEntity extends BaseBlockEntity implements TickableBl
 
 	@Nullable
 	@SerialClass.SerialField
-	private ResourceLocation trial = null;
+	public ResourceLocation trial = null;
 
 	@SerialClass.SerialField
 	private long lastCost, lastTime;

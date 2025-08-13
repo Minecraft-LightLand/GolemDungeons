@@ -5,6 +5,7 @@
 	"compatibilityLevel": "JAVA_17",
 	"refmap": "golemdungeons.refmap.json",
 	"mixins": [
+		"BeardifierMixin",
 		"RaidMixin",
 		"WardenMixin",
 		"cataclysm.AltarOfFireBlockEntityMixin",

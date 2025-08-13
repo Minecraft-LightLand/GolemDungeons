@@ -55,7 +55,8 @@ public class TrialConfig extends BaseConfig {
 
 	public boolean isInRange(Player pl, BlockPos pos) {
 		var diff = pl.position().subtract(Vec3.atCenterOf(pos));
-		if (diff.horizontalDistance() > triggerRange) return false;
+		if (Math.abs(diff.x()) > triggerRange) return false;
+		if (Math.abs(diff.z()) > triggerRange) return false;
 		return diff.y > minY && diff.y < maxY;
 	}
 
