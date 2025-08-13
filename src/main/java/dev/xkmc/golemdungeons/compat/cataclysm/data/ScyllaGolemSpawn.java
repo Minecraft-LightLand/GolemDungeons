@@ -18,7 +18,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 public class ScyllaGolemSpawn extends AbstractGolemSpawn {
 
 	public static final ResourceLocation ITEM_WEAPON = loc("scylla_weapon");
-	public static final ResourceLocation SCYLLA_ALL = loc("heavenly_storm");
+	public static final ResourceLocation ALL = loc("heavenly_storm");
 	public static final ResourceLocation LARGE = loc("scylla_large");
 	public static final ResourceLocation HUMANOID = loc("scylla_humanoid");
 
@@ -53,7 +53,7 @@ public class ScyllaGolemSpawn extends AbstractGolemSpawn {
 							.add(100, ITEM_WEAPON))
 			);
 
-			map.add(GolemDungeons.SPAWN, SCYLLA_ALL, createBase().asTrialKey(SCYLLA_ALL)
+			map.add(GolemDungeons.SPAWN, ALL, createBase().asTrialKey(ALL)
 					.type(GolemTypes.TYPE_GOLEM.get(), new SpawnConfig.GolemTypeEntry(50, 0))
 					.type(GolemTypes.TYPE_HUMANOID.get(), new SpawnConfig.GolemTypeEntry(50, 1)
 							.addMount(GolemTypes.ENTITY_DOG.get(), 100))
@@ -70,7 +70,7 @@ public class ScyllaGolemSpawn extends AbstractGolemSpawn {
 
 		// trial
 		{
-			map.add(GolemDungeons.TRIAL, SCYLLA_ALL, new TrialConfig()
+			map.add(GolemDungeons.TRIAL, ALL, new TrialConfig()
 					.add(of(LARGE, 2), of(HUMANOID, 2))
 			);
 		}

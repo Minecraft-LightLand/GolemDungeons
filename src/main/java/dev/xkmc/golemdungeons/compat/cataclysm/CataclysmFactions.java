@@ -38,15 +38,15 @@ public class CataclysmFactions {
 	public static final List<CataBossEntry> BOSSES = new ArrayList<>();
 
 	public static void register() {
-		BOSSES.add(new CataBossEntry(ModItems.MECH_EYE::get, HarbingerGolemSpawn.HARBINGER_ALL,
+		BOSSES.add(new CataBossEntry(ModItems.MECH_EYE::get, HarbingerGolemSpawn.ALL,
 				The_Harbinger_Entity.class, CataclysmFactions.HARBINGER));
-		BOSSES.add(new CataBossEntry(ModItems.MONSTROUS_EYE::get, MonstrosityGolemSpawn.MONSTROSITY_ALL,
+		BOSSES.add(new CataBossEntry(ModItems.MONSTROUS_EYE::get, MonstrosityGolemSpawn.ALL,
 				Netherite_Monstrosity_Entity.class, CataclysmFactions.MONSTROSITY));
-		BOSSES.add(new CataBossEntry(ModItems.VOID_EYE::get, EnderGuardianGolemSpawn.ENDER_GUARDIAN_ALL,
+		BOSSES.add(new CataBossEntry(ModItems.VOID_EYE::get, EnderGuardianGolemSpawn.ALL,
 				Ender_Guardian_Entity.class, CataclysmFactions.ENDER_GUARDIAN));
-		BOSSES.add(ENTRY_IGNIS = new CataBossEntry(ModItems.FLAME_EYE::get, IgnisGolemSpawn.IGNIS_ALL,
+		BOSSES.add(ENTRY_IGNIS = new CataBossEntry(ModItems.FLAME_EYE::get, IgnisGolemSpawn.ALL,
 				Ignis_Entity.class, CataclysmFactions.IGNIS));
-		BOSSES.add(new CataBossEntry(ModItems.STORM_EYE::get, ScyllaGolemSpawn.SCYLLA_ALL,
+		BOSSES.add(new CataBossEntry(ModItems.STORM_EYE::get, ScyllaGolemSpawn.ALL,
 				Scylla_Entity.class, CataclysmFactions.SCYLLA));
 	}
 

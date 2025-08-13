@@ -4,8 +4,11 @@ import dev.xkmc.l2library.serial.config.BaseConfig;
 import dev.xkmc.l2library.serial.config.CollectType;
 import dev.xkmc.l2library.serial.config.ConfigCollect;
 import dev.xkmc.l2serial.serialization.SerialClass;
+import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -48,6 +51,12 @@ public class TrialConfig extends BaseConfig {
 	public TrialConfig setReward(ResourceLocation loot) {
 		this.reward = loot;
 		return this;
+	}
+
+	public boolean isInRange(Player pl, BlockPos pos) {
+		var diff = pl.position().subtract(Vec3.atCenterOf(pos));
+		if (diff.horizontalDistance() > triggerRange) return false;
+		return diff.y > minY && diff.y < maxY;
 	}
 
 	public record WaveEntry(ResourceLocation target, int min, int max) {

@@ -22,7 +22,7 @@ public class MonstrosityGolemSpawn extends AbstractGolemSpawn {
 
 	public static final ResourceLocation ITEM_LARGE_ARMOR = loc("monstrosity_large_armor");
 	public static final ResourceLocation ITEM_LARGE = loc("monstrosity_large_weapon");
-	public static final ResourceLocation MONSTROSITY_ALL = loc("monstrosity_expanded");
+	public static final ResourceLocation ALL = loc("monstrosity_expanded");
 	public static final ResourceLocation LARGE = loc("monstrosity_large");
 
 	public static void add(ConfigDataProvider.Collector map) {
@@ -53,7 +53,7 @@ public class MonstrosityGolemSpawn extends AbstractGolemSpawn {
 							.add(100, ITEM_LARGE))
 			);
 
-			map.add(GolemDungeons.SPAWN, MONSTROSITY_ALL, createBase().asTrialKey(MONSTROSITY_ALL)
+			map.add(GolemDungeons.SPAWN, ALL, createBase().asTrialKey(ALL)
 					.type(GolemTypes.TYPE_GOLEM.get(), new SpawnConfig.GolemTypeEntry(50, 0))
 					.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_GOLEM.get())
 							.add(100, ITEM_LARGE_ARMOR))
@@ -64,7 +64,7 @@ public class MonstrosityGolemSpawn extends AbstractGolemSpawn {
 
 		// trial
 		{
-			map.add(GolemDungeons.TRIAL, MONSTROSITY_ALL, new TrialConfig().add(of(LARGE, 4)));
+			map.add(GolemDungeons.TRIAL, ALL, new TrialConfig().add(of(LARGE, 4)));
 		}
 	}
 

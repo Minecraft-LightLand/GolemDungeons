@@ -11,6 +11,8 @@ import dev.xkmc.golemdungeons.content.faction.DungeonFactionRegistry;
 import dev.xkmc.golemdungeons.content.item.SummonWandSelector;
 import dev.xkmc.golemdungeons.events.GDAttackListener;
 import dev.xkmc.golemdungeons.init.data.*;
+import dev.xkmc.golemdungeons.init.data.advancement.GDAdvGen;
+import dev.xkmc.golemdungeons.init.data.advancement.GDTriggers;
 import dev.xkmc.golemdungeons.init.data.structure.GDBiomeTagsProvider;
 import dev.xkmc.golemdungeons.init.data.structure.GDStructureGen;
 import dev.xkmc.golemdungeons.init.data.structure.GDStructureTagsProvider;
@@ -55,6 +57,7 @@ public class GolemDungeons {
 
 	public GolemDungeons() {
 		GDItems.register();
+		GDTriggers.register();
 		GDConfig.init();
 		AttackEventHandler.register(3513, new GDAttackListener());
 		if (ModList.get().isLoaded(CataDispatch.MODID)) {
@@ -84,6 +87,7 @@ public class GolemDungeons {
 		REGISTRATE.addDataGenerator(ProviderType.LANG, GDLang::genLang);
 		REGISTRATE.addDataGenerator(ProviderType.LOOT, GDLootGen::genLoot);
 		REGISTRATE.addDataGenerator(ProviderType.RECIPE, GDRecipeGen::genRecipe);
+		REGISTRATE.addDataGenerator(ProviderType.ADVANCEMENT, GDAdvGen::genAdv);
 
 		var gen = event.getGenerator();
 		var output = gen.getPackOutput();

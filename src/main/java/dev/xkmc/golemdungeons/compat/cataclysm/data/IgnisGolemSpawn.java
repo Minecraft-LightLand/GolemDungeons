@@ -8,7 +8,6 @@ import dev.xkmc.golemdungeons.content.config.TrialConfig;
 import dev.xkmc.golemdungeons.init.GolemDungeons;
 import dev.xkmc.golemdungeons.init.data.spawn.AbstractGolemSpawn;
 import dev.xkmc.golemdungeons.init.data.spawn.PiglinGolemSpawn;
-import dev.xkmc.golemdungeons.init.data.spawn.SculkGolemSpawn;
 import dev.xkmc.l2library.serial.config.ConfigDataProvider;
 import dev.xkmc.modulargolems.compat.materials.cataclysm.CataDispatch;
 import dev.xkmc.modulargolems.init.registrate.GolemItems;
@@ -22,7 +21,7 @@ public class IgnisGolemSpawn extends AbstractGolemSpawn {
 	public static final ResourceLocation ITEM_HUMANOID_WEAPON = loc("ignis_humanoid_weapon");
 	public static final ResourceLocation ITEM_HUMANOID_ARMOR = loc("ignis_humanoid_armor");
 
-	public static final ResourceLocation IGNIS_ALL = loc("resurgent_flame");
+	public static final ResourceLocation ALL = loc("resurgent_flame");
 	public static final ResourceLocation LARGE = loc("ignis_large");
 	public static final ResourceLocation HUMANOID = loc("ignis_humanoid");
 
@@ -68,7 +67,7 @@ public class IgnisGolemSpawn extends AbstractGolemSpawn {
 							.add(100, ITEM_HUMANOID_WEAPON))
 			);
 
-			map.add(GolemDungeons.SPAWN, IGNIS_ALL, createBase().asTrialKey(IGNIS_ALL)
+			map.add(GolemDungeons.SPAWN, ALL, createBase().asTrialKey(ALL)
 					.type(GolemTypes.TYPE_GOLEM.get(), new SpawnConfig.GolemTypeEntry(50, 0))
 					.type(GolemTypes.TYPE_HUMANOID.get(), new SpawnConfig.GolemTypeEntry(50, 1)
 							.addMount(GolemTypes.ENTITY_DOG.get(), 100))
@@ -85,7 +84,7 @@ public class IgnisGolemSpawn extends AbstractGolemSpawn {
 
 		// trial
 		{
-			map.add(GolemDungeons.TRIAL, IGNIS_ALL, new TrialConfig()
+			map.add(GolemDungeons.TRIAL, ALL, new TrialConfig()
 					.add(of(LARGE, 2), of(HUMANOID, 2))
 			);
 		}

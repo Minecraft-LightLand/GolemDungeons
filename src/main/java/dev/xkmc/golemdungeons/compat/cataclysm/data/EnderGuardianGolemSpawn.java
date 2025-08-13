@@ -18,7 +18,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 public class EnderGuardianGolemSpawn extends AbstractGolemSpawn {
 
 	public static final ResourceLocation ITEM_WEAPON = loc("ender_guardian_weapon");
-	public static final ResourceLocation ENDER_GUARDIAN_ALL = loc("meknight_of_the_end");
+	public static final ResourceLocation ALL = loc("meknight_of_the_end");
 	public static final ResourceLocation LARGE = loc("ender_guardian_large");
 	public static final ResourceLocation HUMANOID = loc("ender_guardian_humanoid");
 
@@ -53,7 +53,7 @@ public class EnderGuardianGolemSpawn extends AbstractGolemSpawn {
 							.add(100, ITEM_WEAPON))
 			);
 
-			map.add(GolemDungeons.SPAWN, ENDER_GUARDIAN_ALL, createBase().asTrialKey(ENDER_GUARDIAN_ALL)
+			map.add(GolemDungeons.SPAWN, ALL, createBase().asTrialKey(ALL)
 					.type(GolemTypes.TYPE_GOLEM.get(), new SpawnConfig.GolemTypeEntry(50, 0))
 					.type(GolemTypes.TYPE_HUMANOID.get(), new SpawnConfig.GolemTypeEntry(50, 1)
 							.addMount(GolemTypes.ENTITY_DOG.get(), 100))
@@ -70,7 +70,7 @@ public class EnderGuardianGolemSpawn extends AbstractGolemSpawn {
 
 		// trial
 		{
-			map.add(GolemDungeons.TRIAL, ENDER_GUARDIAN_ALL, new TrialConfig()
+			map.add(GolemDungeons.TRIAL, ALL, new TrialConfig()
 					.add(of(LARGE, 2), of(HUMANOID, 2))
 			);
 		}

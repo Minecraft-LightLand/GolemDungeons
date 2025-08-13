@@ -30,6 +30,7 @@ public class HostileSummonWand extends Item {
 	public static ItemStack of(ResourceLocation rl) {
 		var ans = GDItems.SUMMON.asStack();
 		ans.getOrCreateTag().putString(KEY_FACTION, rl.toString());
+		ans.getOrCreateTag().putString(KEY_MOD, rl.getNamespace());
 		return ans;
 	}
 

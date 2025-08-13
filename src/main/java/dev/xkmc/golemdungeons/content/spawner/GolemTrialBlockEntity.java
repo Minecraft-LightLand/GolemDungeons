@@ -3,6 +3,7 @@ package dev.xkmc.golemdungeons.content.spawner;
 import dev.xkmc.golemdungeons.content.config.TrialConfig;
 import dev.xkmc.golemdungeons.init.GolemDungeons;
 import dev.xkmc.golemdungeons.init.data.GDLang;
+import dev.xkmc.golemdungeons.init.data.advancement.GDTriggers;
 import dev.xkmc.l2library.base.tile.BaseBlockEntity;
 import dev.xkmc.l2modularblock.BlockProxy;
 import dev.xkmc.l2modularblock.tile_api.TickableBlockEntity;
@@ -228,6 +229,12 @@ public class GolemTrialBlockEntity extends BaseBlockEntity implements TickableBl
 
 	@Override
 	public void complete(ServerLevel level, TrialConfig config, long time) {
+		for (var id : trialPlayer) {
+			var pl = level.getPlayerByUUID(id);
+			if (pl instanceof ServerPlayer sp) {
+				GDTriggers.COMPLETE.trigger(sp, config.getID());
+			}
+		}
 		level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(STATE, VICTORY));
 		if (config.reward == null) return;
 		var loot = level.getServer().getLootData().getLootTable(config.reward);
@@ -290,9 +297,7 @@ public class GolemTrialBlockEntity extends BaseBlockEntity implements TickableBl
 		if (pl.isCreative() || pl.isSpectator()) return false;
 		if (pl instanceof FakePlayer) return false;
 		if (!pl.isAlive()) return false;
-		var diff = pl.position().subtract(Vec3.atCenterOf(getBlockPos()));
-		if (diff.horizontalDistance() > config.triggerRange) return false;
-		return diff.y > config.minY && diff.y < config.maxY;
+		return config.isInRange(pl, getBlockPos());
 	}
 
 	private boolean isValidPlayer(Player pl) {

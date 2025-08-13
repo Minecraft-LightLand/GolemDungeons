@@ -1,0 +1,38 @@
+{
+  "criteria": {
+    "0": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "golemdungeons:trial_medal"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "golemdungeons:textures/gui/advancements/backgrounds/dungeons.png",
+    "description": {
+      "translate": "advancements.golemdungeons.advancements.dungeons.visit_abandoned_factory.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "golemdungeons:trial_medal"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "advancements.golemdungeons.advancements.dungeons.visit_abandoned_factory.title"
+    }
+  },
+  "requirements": [
+    [
+      "0"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

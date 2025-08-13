@@ -27,7 +27,7 @@ public class HarbingerGolemSpawn extends AbstractGolemSpawn {
 	public static final ResourceLocation ITEM_LASER = loc("witherite_laser");
 	public static final ResourceLocation ITEM_LARGE = loc("witherite_large_weapon");
 
-	public static final ResourceLocation HARBINGER_ALL = loc("harbingers_revenge");
+	public static final ResourceLocation ALL = loc("harbingers_revenge");
 
 	public static final ResourceLocation LARGE = loc("witherite_large");
 	public static final ResourceLocation HUMANOID_SHREDDER = loc("witherite_humanoid_shredder");
@@ -108,7 +108,7 @@ public class HarbingerGolemSpawn extends AbstractGolemSpawn {
 							.add(100, ITEM_LASER))
 			);
 
-			map.add(GolemDungeons.SPAWN, HARBINGER_ALL, createBase().asTrialKey(HARBINGER_ALL)
+			map.add(GolemDungeons.SPAWN, ALL, createBase().asTrialKey(ALL)
 					.type(GolemTypes.TYPE_GOLEM.get(), new SpawnConfig.GolemTypeEntry(50, 0))
 					.type(GolemTypes.TYPE_HUMANOID.get(), new SpawnConfig.GolemTypeEntry(50, 1)
 							.addMount(GolemTypes.ENTITY_DOG.get(), 100))
@@ -127,7 +127,7 @@ public class HarbingerGolemSpawn extends AbstractGolemSpawn {
 
 		// trial
 		{
-			map.add(GolemDungeons.TRIAL, HARBINGER_ALL, new TrialConfig()
+			map.add(GolemDungeons.TRIAL, ALL, new TrialConfig()
 					.add(of(LARGE, 1), of(HUMANOID_SHREDDER, 1), of(HUMANOID_CANNON, 1), of(HUMANOID_LASER, 1))
 			);
 		}
