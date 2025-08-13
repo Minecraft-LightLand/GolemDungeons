@@ -88,6 +88,9 @@
       }
     ]
   ],
+  "maxY": 8,
+  "minY": -2,
   "reward": "golemdungeons:trial_reward/sculk_infestation",
-  "spawnCost": 400
+  "spawnCost": 400,
+  "triggerRange": 12
 }

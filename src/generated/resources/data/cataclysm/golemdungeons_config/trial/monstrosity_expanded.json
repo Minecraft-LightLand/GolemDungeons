@@ -8,5 +8,8 @@
       }
     ]
   ],
-  "spawnCost": 1000
+  "maxY": 6,
+  "minY": -4,
+  "spawnCost": 1000,
+  "triggerRange": 12
 }

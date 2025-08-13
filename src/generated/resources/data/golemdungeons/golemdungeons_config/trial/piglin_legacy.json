@@ -108,6 +108,9 @@
       }
     ]
   ],
+  "maxY": 6,
+  "minY": -6,
   "reward": "golemdungeons:trial_reward/piglin_legacy",
-  "spawnCost": 400
+  "spawnCost": 400,
+  "triggerRange": 10
 }

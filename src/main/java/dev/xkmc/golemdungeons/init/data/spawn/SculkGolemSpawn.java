@@ -51,6 +51,8 @@ public class SculkGolemSpawn extends AbstractGolemSpawn {
 
 			map.add(GolemDungeons.ITEMS, ITEM_LARGE_WEAPON_BETTER, new EquipmentConfig()
 					.add(EquipmentSlot.MAINHAND, 50, getWeapon(VanillaGolemWeaponMaterial.DIAMOND, GolemWeaponType.AXE), 30)
+					.add(EquipmentSlot.MAINHAND, 50, getWeapon(VanillaGolemWeaponMaterial.DIAMOND, GolemWeaponType.SWORD), 30)
+					.add(EquipmentSlot.MAINHAND, 50, getWeapon(VanillaGolemWeaponMaterial.DIAMOND, GolemWeaponType.SPEAR), 30)
 					.add(EquipmentSlot.MAINHAND, 50, GDItems.SCULK_SCYTHE.get(), 30, 1)
 			);
 
@@ -144,7 +146,7 @@ public class SculkGolemSpawn extends AbstractGolemSpawn {
 		// trial
 		{
 			map.add(GolemDungeons.TRIAL, SCULK_ALL, new TrialConfig().setReward(GDLootGen.SCULK)
-					.setCost(400)
+					.setCost(400).setTriggerRange(12, -2, 8)
 					.add(of(HUMANOID_MELEE, 1))
 					.add(of(LARGE, 1),
 							of(HUMANOID_RANGED, 1))

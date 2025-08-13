@@ -155,6 +155,9 @@
       }
     ]
   ],
+  "maxY": 8,
+  "minY": -2,
   "reward": "golemdungeons:trial_reward/factory_remnant",
-  "spawnCost": 200
+  "spawnCost": 200,
+  "triggerRange": 12
 }

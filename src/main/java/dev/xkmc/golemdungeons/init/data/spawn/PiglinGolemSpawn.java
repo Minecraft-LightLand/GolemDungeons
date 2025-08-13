@@ -118,7 +118,7 @@ public class PiglinGolemSpawn extends AbstractGolemSpawn {
 		// trial
 		{
 			map.add(GolemDungeons.TRIAL, PIGLIN_ALL, new TrialConfig().setReward(GDLootGen.PIGLIN)
-							.setCost(400)
+					.setCost(400).setTriggerRange(10, -6, 6)
 					.add(of(HUMANOID_MELEE, 1))
 					.add(of(LARGE, 1),
 							of(HUMANOID_RANGED, 1))

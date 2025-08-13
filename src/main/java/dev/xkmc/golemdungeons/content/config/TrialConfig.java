@@ -1,6 +1,5 @@
 package dev.xkmc.golemdungeons.content.config;
 
-import dev.xkmc.golemdungeons.init.data.spawn.FactoryGolemSpawn;
 import dev.xkmc.l2library.serial.config.BaseConfig;
 import dev.xkmc.l2library.serial.config.CollectType;
 import dev.xkmc.l2library.serial.config.ConfigCollect;
@@ -22,6 +21,9 @@ public class TrialConfig extends BaseConfig {
 	@SerialClass.SerialField
 	public int spawnCost = 1000;
 
+	@SerialClass.SerialField
+	public int triggerRange = 12, minY = -4, maxY = 6;
+
 	@Nullable
 	@SerialClass.SerialField
 	public ResourceLocation reward;
@@ -33,6 +35,13 @@ public class TrialConfig extends BaseConfig {
 
 	public TrialConfig setCost(int cost) {
 		spawnCost = cost;
+		return this;
+	}
+
+	public TrialConfig setTriggerRange(int range, int minY, int maxY) {
+		this.triggerRange = range;
+		this.minY = minY;
+		this.maxY = maxY;
 		return this;
 	}
 

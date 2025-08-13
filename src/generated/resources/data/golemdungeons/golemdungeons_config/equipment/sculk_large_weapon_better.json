@@ -10,6 +10,22 @@
         "weight": 50
       },
       {
+        "dropChance": 0.085,
+        "enchantLevel": 30,
+        "stack": {
+          "item": "modulargolems:diamond_golem_sword"
+        },
+        "weight": 50
+      },
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 30,
+        "stack": {
+          "item": "modulargolems:diamond_golem_spear"
+        },
+        "weight": 50
+      },
+      {
         "dropChance": 1.0,
         "enchantLevel": 30,
         "stack": {
