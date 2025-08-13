@@ -48,7 +48,7 @@ public class GolemTrialRenderer implements BlockEntityRenderer<GolemTrialBlockEn
 	) {
 		float offset = 1f / 32;
 		BlockOutliner.renderCube(pose, vc,
-				box.getX() + offset-1, box.getY() + offset, box.getZ() + offset-1,
+				box.getX() + offset - 1, box.getY() + offset, box.getZ() + offset - 1,
 				box.getX() + 2 - offset, box.getY() + 3 - offset, box.getZ() + 2 - offset,
 				pos, color);
 	}

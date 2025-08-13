@@ -27,7 +27,7 @@ import java.util.List;
 public abstract class RaidMixin {
 
 	@Unique
-	private List<AbstractGolemEntity<?, ?>> golemdungeons$golemRaiders = new LinkedList<>();
+	private final List<AbstractGolemEntity<?, ?>> golemdungeons$golemRaiders = new LinkedList<>();
 
 	@Shadow
 	private int groupsSpawned;

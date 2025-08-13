@@ -2,7 +2,6 @@ package dev.xkmc.golemdungeons.content.config;
 
 import dev.xkmc.l2library.serial.config.BaseConfig;
 import dev.xkmc.l2serial.serialization.SerialClass;
-import dev.xkmc.modulargolems.content.item.equipments.MetalGolemArmorItem;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.util.Mth;
@@ -11,7 +10,10 @@ import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.ItemLike;
 

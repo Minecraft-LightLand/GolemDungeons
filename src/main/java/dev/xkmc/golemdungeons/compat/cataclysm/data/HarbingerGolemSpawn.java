@@ -135,7 +135,7 @@ public class HarbingerGolemSpawn extends AbstractGolemSpawn {
 
 	private static SpawnConfig createBase() {
 		return new SpawnConfig(CataclysmFactions.HARBINGER)
-				.mat(loc( "witherite"), 100)
+				.mat(loc("witherite"), 100)
 				.upgrade(GolemItems.ENCHANTED_GOLD.asItem(), 100)
 				.upgrade(GolemItems.NETHERITE.asItem(), 100)
 				.upgradeChance(1, 1, 0.7, 0.7);

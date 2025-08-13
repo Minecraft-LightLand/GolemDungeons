@@ -62,7 +62,7 @@ public class SpawnConfig extends BaseConfig {
 	public double[] upgradeChance = {1d, 0.5d, 0.5d, 0.5d};
 
 	private SimpleWeightedRandomList<GolemTypeInfo> typeTable;
-	private Map<GolemPart<?, ?>, SimpleWeightedRandomList<ResourceLocation>> matTable = new LinkedHashMap<>();
+	private final Map<GolemPart<?, ?>, SimpleWeightedRandomList<ResourceLocation>> matTable = new LinkedHashMap<>();
 	private SimpleWeightedRandomList<UpgradeEntry> upTable;
 	private List<EquipmentGroupInfo> equipmentTable;
 
