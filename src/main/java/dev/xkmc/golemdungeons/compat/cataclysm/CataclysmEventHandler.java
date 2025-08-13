@@ -1,14 +1,22 @@
 package dev.xkmc.golemdungeons.compat.cataclysm;
 
 import com.github.L_Ender.cataclysm.blockentities.Boss_Respawn_Spawner_Block_Entity;
+import com.github.L_Ender.cataclysm.init.ModBlocks;
+import com.github.L_Ender.cataclysm.init.ModEntities;
+import com.github.L_Ender.cataclysm.init.ModItems;
+import dev.xkmc.golemdungeons.init.data.GDLang;
 import dev.xkmc.golemdungeons.init.reg.GDItems;
 import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
 import dev.xkmc.modulargolems.content.entity.hostile.HostileGolemRegistry;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.entity.EntityTypeTest;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
+import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
@@ -44,6 +52,20 @@ public class CataclysmEventHandler {
 						golem.setLeader(leader);
 					}
 				}
+			}
+		}
+	}
+
+	@SubscribeEvent
+	public static void onTooltip(ItemTooltipEvent event) {
+		ItemStack stack = event.getItemStack();
+		if (stack.is(ModItems.BURNING_ASHES.get())) {
+			var tag = stack.getTag();
+			if (tag != null && tag.contains("GolemMedal")) {
+				event.getToolTip().add(GDLang.OFFERING_CATA.get(
+						ModBlocks.ALTAR_OF_FIRE.get().asItem().getDefaultInstance().getHoverName(),
+						Component.translatable(ModEntities.IGNIS.get().getDescriptionId()).withStyle(ChatFormatting.GOLD)
+				));
 			}
 		}
 	}

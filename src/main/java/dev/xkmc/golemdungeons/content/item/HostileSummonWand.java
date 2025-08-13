@@ -1,5 +1,6 @@
 package dev.xkmc.golemdungeons.content.item;
 
+import com.tterrag.registrate.util.CreativeModeTabModifier;
 import dev.xkmc.golemdungeons.content.spawner.GolemTrialBlockEntity;
 import dev.xkmc.golemdungeons.init.GolemDungeons;
 import dev.xkmc.golemdungeons.init.data.GDLang;
@@ -14,28 +15,44 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 
+import java.util.LinkedHashSet;
+
 public class HostileSummonWand extends Item {
 
-	private static final String KEY = "SummonFaction";
+	private static final String KEY_FACTION = "SummonFaction";
+	private static final String KEY_MOD = "FactionMod";
 
 	public static ItemStack of(ResourceLocation rl) {
 		var ans = GDItems.SUMMON.asStack();
-		ans.getOrCreateTag().putString(KEY, rl.toString());
+		ans.getOrCreateTag().putString(KEY_FACTION, rl.toString());
 		return ans;
 	}
 
 	public static ResourceLocation getId(ItemStack stack) {
 		var root = stack.getTag();
-		if (root != null && root.contains(KEY, Tag.TAG_STRING)) {
-			var ans = ResourceLocation.tryParse(root.getString(KEY));
+		if (root != null && root.contains(KEY_FACTION, Tag.TAG_STRING)) {
+			var ans = ResourceLocation.tryParse(root.getString(KEY_FACTION));
 			if (ans != null && GolemDungeons.SPAWN.getEntry(ans) != null) return ans;
 		}
-		return SummonWandSelector.getAll().get(0);
+		return SummonWandSelector.getAll(getModid(stack)).get(0);
 
 	}
 
 	public HostileSummonWand(Properties p) {
 		super(p);
+	}
+
+	public static String getModid(ItemStack stack) {
+		var root = stack.getTag();
+		if (root != null && root.contains(KEY_MOD, Tag.TAG_STRING)) {
+			var ans = root.getString(KEY_MOD);
+			for (var e : GolemDungeons.SPAWN.getAll()) {
+				if (e.getID().getNamespace().equals(ans)) {
+					return ans;
+				}
+			}
+		}
+		return GolemDungeons.MODID;
 	}
 
 	@Override
@@ -66,4 +83,18 @@ public class HostileSummonWand extends Item {
 		}
 		return InteractionResult.SUCCESS;
 	}
+
+	public void fillItemCategory(CreativeModeTabModifier x) {
+		LinkedHashSet<String> set = new LinkedHashSet<>();
+		set.add(GolemDungeons.MODID);
+		for (var e : GolemDungeons.SPAWN.getAll()) {
+			set.add(e.getID().getNamespace());
+		}
+		for (var id : set) {
+			var stack = getDefaultInstance();
+			stack.getOrCreateTag().putString(KEY_MOD, id);
+			x.accept(stack);
+		}
+	}
+
 }

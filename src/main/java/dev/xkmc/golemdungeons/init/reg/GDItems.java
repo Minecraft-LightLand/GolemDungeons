@@ -92,6 +92,7 @@ public class GDItems {
 
 		SUMMON = REGISTRATE.item("hostile_summon_wand", HostileSummonWand::new)
 				.properties(p -> p.stacksTo(1).rarity(Rarity.EPIC))
+				.transform(e -> e.tab(TAB.getKey(), x -> e.getEntry().fillItemCategory(x)))
 				.tag(L2ISTagGen.SELECTABLE)
 				.register();
 

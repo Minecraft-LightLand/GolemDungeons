@@ -1,13 +1,13 @@
 package dev.xkmc.golemdungeons.compat.cataclysm;
 
+import com.github.L_Ender.cataclysm.entity.AnimationMonster.BossMonsters.Ender_Guardian_Entity;
+import com.github.L_Ender.cataclysm.entity.AnimationMonster.BossMonsters.Ignis_Entity;
 import com.github.L_Ender.cataclysm.entity.AnimationMonster.BossMonsters.The_Harbinger_Entity;
 import com.github.L_Ender.cataclysm.entity.InternalAnimationMonster.IABossMonsters.NewNetherite_Monstrosity.Netherite_Monstrosity_Entity;
+import com.github.L_Ender.cataclysm.entity.InternalAnimationMonster.IABossMonsters.Scylla.Scylla_Entity;
 import com.github.L_Ender.cataclysm.init.ModItems;
-import dev.xkmc.golemdungeons.compat.cataclysm.data.HarbingerGolemSpawn;
-import dev.xkmc.golemdungeons.compat.cataclysm.data.MonstrosityGolemSpawn;
-import dev.xkmc.golemdungeons.compat.cataclysm.factions.HarbingerFaction;
-import dev.xkmc.golemdungeons.compat.cataclysm.factions.MonstrosityFaction;
-import dev.xkmc.l2library.serial.config.ConfigDataProvider;
+import com.github.L_Ender.cataclysm.init.ModTag;
+import dev.xkmc.golemdungeons.compat.cataclysm.data.*;
 import dev.xkmc.modulargolems.compat.materials.cataclysm.CataDispatch;
 import dev.xkmc.modulargolems.content.entity.hostile.HostileFaction;
 import dev.xkmc.modulargolems.content.entity.hostile.HostileGolemRegistry;
@@ -19,10 +19,22 @@ import java.util.List;
 public class CataclysmFactions {
 
 	public static final HostileFaction HARBINGER = HostileGolemRegistry.register(
-			new HarbingerFaction(new ResourceLocation(CataDispatch.MODID, "harbinger")));
+			new TaggedBossFaction(new ResourceLocation(CataDispatch.MODID, "harbinger"), ModTag.TEAM_THE_HARBINGER));
 
 	public static final HostileFaction MONSTROSITY = HostileGolemRegistry.register(
-			new MonstrosityFaction(new ResourceLocation(CataDispatch.MODID, "monstrosity")));
+			new TaggedBossFaction(new ResourceLocation(CataDispatch.MODID, "monstrosity"), ModTag.TEAM_MONSTROSITY));
+
+	public static final HostileFaction ENDER_GUARDIAN = HostileGolemRegistry.register(
+			new TaggedBossFaction(new ResourceLocation(CataDispatch.MODID, "ender_guardian"), ModTag.TEAM_ENDER_GUARDIAN));
+
+	public static final HostileFaction IGNIS = HostileGolemRegistry.register(
+			new TaggedBossFaction(new ResourceLocation(CataDispatch.MODID, "ignis"), ModTag.TEAM_IGNIS));
+
+	public static final HostileFaction SCYLLA = HostileGolemRegistry.register(
+			new TaggedBossFaction(new ResourceLocation(CataDispatch.MODID, "scylla"), ModTag.TEAM_SCYLLA));
+
+	public static CataBossEntry ENTRY_IGNIS;
+
 	public static final List<CataBossEntry> BOSSES = new ArrayList<>();
 
 	public static void register() {
@@ -30,11 +42,12 @@ public class CataclysmFactions {
 				The_Harbinger_Entity.class, CataclysmFactions.HARBINGER));
 		BOSSES.add(new CataBossEntry(ModItems.MONSTROUS_EYE::get, MonstrosityGolemSpawn.MONSTROSITY_ALL,
 				Netherite_Monstrosity_Entity.class, CataclysmFactions.MONSTROSITY));
-	}
-
-	public static void genSpawn(ConfigDataProvider.Collector map) {
-		HarbingerGolemSpawn.add(map);
-		MonstrosityGolemSpawn.add(map);
+		BOSSES.add(new CataBossEntry(ModItems.VOID_EYE::get, EnderGuardianGolemSpawn.ENDER_GUARDIAN_ALL,
+				Ender_Guardian_Entity.class, CataclysmFactions.ENDER_GUARDIAN));
+		BOSSES.add(ENTRY_IGNIS = new CataBossEntry(ModItems.FLAME_EYE::get, IgnisGolemSpawn.IGNIS_ALL,
+				Ignis_Entity.class, CataclysmFactions.IGNIS));
+		BOSSES.add(new CataBossEntry(ModItems.STORM_EYE::get, ScyllaGolemSpawn.SCYLLA_ALL,
+				Scylla_Entity.class, CataclysmFactions.SCYLLA));
 	}
 
 }

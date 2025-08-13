@@ -1,6 +1,6 @@
 package dev.xkmc.golemdungeons.init.data;
 
-import dev.xkmc.golemdungeons.compat.cataclysm.CataclysmFactions;
+import dev.xkmc.golemdungeons.compat.cataclysm.data.CataclysmCompatData;
 import dev.xkmc.golemdungeons.init.data.spawn.FactoryGolemSpawn;
 import dev.xkmc.golemdungeons.init.data.spawn.IllagerGolemSpawn;
 import dev.xkmc.golemdungeons.init.data.spawn.PiglinGolemSpawn;
@@ -22,7 +22,7 @@ public class GDConfigGen extends ConfigDataProvider {
 		PiglinGolemSpawn.add(map);
 		SculkGolemSpawn.add(map);
 		if (ModList.get().isLoaded(CataDispatch.MODID)) {
-			CataclysmFactions.genSpawn(map);
+			CataclysmCompatData.genSpawn(map);
 		}
 	}
 

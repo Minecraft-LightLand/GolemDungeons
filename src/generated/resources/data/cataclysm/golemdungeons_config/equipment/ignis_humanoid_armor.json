@@ -1,0 +1,48 @@
+{
+  "items": {
+    "CHEST": [
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 30,
+        "stack": {
+          "item": "cataclysm:ignitium_chestplate",
+          "nbt": "{Damage:0}"
+        },
+        "weight": 50
+      }
+    ],
+    "FEET": [
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 30,
+        "stack": {
+          "item": "cataclysm:ignitium_boots",
+          "nbt": "{Damage:0}"
+        },
+        "weight": 50
+      }
+    ],
+    "HEAD": [
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 30,
+        "stack": {
+          "item": "cataclysm:ignitium_helmet",
+          "nbt": "{Damage:0}"
+        },
+        "weight": 50
+      }
+    ],
+    "LEGS": [
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 30,
+        "stack": {
+          "item": "cataclysm:ignitium_leggings",
+          "nbt": "{Damage:0}"
+        },
+        "weight": 50
+      }
+    ]
+  }
+}

@@ -2,12 +2,15 @@ package dev.xkmc.golemdungeons.init.data;
 
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import com.tterrag.registrate.util.DataIngredient;
+import dev.xkmc.golemdungeons.compat.cataclysm.data.CataclysmCompatData;
 import dev.xkmc.golemdungeons.init.reg.GDItems;
+import dev.xkmc.modulargolems.compat.materials.cataclysm.CataDispatch;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraftforge.fml.ModList;
 
 import java.util.function.BiFunction;
 
@@ -36,6 +39,11 @@ public class GDRecipeGen {
 				.define('R', Items.REDSTONE_BLOCK)
 				.define('D', Items.DIAMOND)
 				.save(pvd);
+
+		if (ModList.get().isLoaded(CataDispatch.MODID)) {
+			CataclysmCompatData.genRecipe(pvd);
+		}
+
 	}
 
 	public static <T> T unlock(RegistrateRecipeProvider pvd, BiFunction<String, InventoryChangeTrigger.TriggerInstance, T> func, Item item) {

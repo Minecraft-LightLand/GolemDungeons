@@ -1,0 +1,20 @@
+{
+  "list": [
+    [
+      {
+        "max": 2,
+        "min": 2,
+        "target": "cataclysm:ignis_large"
+      },
+      {
+        "max": 2,
+        "min": 2,
+        "target": "cataclysm:ignis_humanoid"
+      }
+    ]
+  ],
+  "maxY": 6,
+  "minY": -4,
+  "spawnCost": 1000,
+  "triggerRange": 12
+}

@@ -1,0 +1,22 @@
+{
+  "items": {
+    "MAINHAND": [
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 0,
+        "stack": {
+          "item": "cataclysm:astrape"
+        },
+        "weight": 50
+      },
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 0,
+        "stack": {
+          "item": "cataclysm:ceraunus"
+        },
+        "weight": 50
+      }
+    ]
+  }
+}

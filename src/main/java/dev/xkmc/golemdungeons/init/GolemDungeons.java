@@ -3,6 +3,7 @@ package dev.xkmc.golemdungeons.init;
 import com.tterrag.registrate.providers.ProviderType;
 import dev.xkmc.golemdungeons.compat.cataclysm.CataclysmEventHandler;
 import dev.xkmc.golemdungeons.compat.cataclysm.CataclysmFactions;
+import dev.xkmc.golemdungeons.compat.cataclysm.CataclysmModEventHandler;
 import dev.xkmc.golemdungeons.content.config.EquipmentConfig;
 import dev.xkmc.golemdungeons.content.config.SpawnConfig;
 import dev.xkmc.golemdungeons.content.config.TrialConfig;
@@ -58,6 +59,7 @@ public class GolemDungeons {
 		AttackEventHandler.register(3513, new GDAttackListener());
 		if (ModList.get().isLoaded(CataDispatch.MODID)) {
 			MinecraftForge.EVENT_BUS.register(CataclysmEventHandler.class);
+			FMLJavaModLoadingContext.get().getModEventBus().register(CataclysmModEventHandler.class);
 		}
 	}
 
@@ -69,9 +71,10 @@ public class GolemDungeons {
 	public static void setup(final FMLCommonSetupEvent event) {
 		event.enqueueWork(() -> {
 			DungeonFactionRegistry.register();
-			IItemSelector.register(new SummonWandSelector(loc("faction_select")));
+			IItemSelector.register(new SummonWandSelector(GolemDungeons.MODID));
 			if (ModList.get().isLoaded(CataDispatch.MODID)) {
 				CataclysmFactions.register();
+				IItemSelector.register(new SummonWandSelector(CataDispatch.MODID));
 			}
 		});
 	}

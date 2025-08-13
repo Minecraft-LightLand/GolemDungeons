@@ -1,4 +1,4 @@
-package dev.xkmc.golemdungeons.mixin;
+package dev.xkmc.golemdungeons.mixin.cataclysm;
 
 import dev.xkmc.golemdungeons.compat.cataclysm.CataclysmFactions;
 import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
