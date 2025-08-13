@@ -2,6 +2,7 @@ package dev.xkmc.golemdungeons.init.data;
 
 import com.tterrag.registrate.providers.RegistrateLangProvider;
 import dev.xkmc.golemdungeons.compat.cataclysm.data.CataclysmCompatData;
+import dev.xkmc.golemdungeons.init.GolemDungeons;
 import dev.xkmc.golemdungeons.init.data.spawn.FactoryGolemSpawn;
 import dev.xkmc.golemdungeons.init.data.spawn.IllagerGolemSpawn;
 import dev.xkmc.golemdungeons.init.data.spawn.PiglinGolemSpawn;
@@ -27,6 +28,11 @@ public enum GDLang {
 	TRIAL_MEDAL_CATA("tooltip.trial_medal.cata", "Right click Cataclysm boss spawner to summon boss with golem reinforcement", 0, ChatFormatting.GRAY),
 	OFFERING_CATA("tooltip.offering.cata", "Offer to [%s] to summon %s with golem reinforcement", 2, ChatFormatting.GRAY),
 	CHARGE_TIME("tooltip.charge_time", "Charging: %s", 1, ChatFormatting.GRAY),
+	WAND_USAGE("tooltip.wand.usage", "Scroll to select Faction", 0, ChatFormatting.GRAY),
+	WAND_MODID("tooltip.wand.modid", "Faction Category: %s", 1, ChatFormatting.GRAY),
+	WAND_FACTION("tooltip.wand.faction", "Selected: %s", 1, ChatFormatting.GRAY),
+	WAND_BLOCK("tooltip.wand.block", "Right click ground to summon a random golem in the facton.", 0, ChatFormatting.GRAY),
+	WAND_TRIAL("tooltip.wand.trial", "Right click Golem Spawner to set trial to spawn.", 0, ChatFormatting.GRAY),
 
 	LOCATE_ABANDONED("tooltip.locate_abandoned", "Locates the Abandoned Golem Factory", 0, ChatFormatting.GRAY),
 	LOCATE_CRIMSON("tooltip.locate_crimson", "Locates the Piglin Golem Factory in Crimson Forest", 0, ChatFormatting.GRAY),
@@ -81,6 +87,8 @@ public enum GDLang {
 		pvd.add(Util.makeDescriptionId("trial", PiglinGolemSpawn.PIGLIN_ALL), "Piglin Legacy");
 		pvd.add(Util.makeDescriptionId("trial", SculkGolemSpawn.SCULK_ALL), "Sculk Infestation");
 		pvd.add(Util.makeDescriptionId("trial", IllagerGolemSpawn.ILLAGER_ALL), "Illagers' Creations");
+
+		pvd.add("trial_selector." + GolemDungeons.MODID, "Golem Dungeons");
 
 		if (ModList.get().isLoaded(CataDispatch.MODID)) {
 			CataclysmCompatData.genLang(pvd);

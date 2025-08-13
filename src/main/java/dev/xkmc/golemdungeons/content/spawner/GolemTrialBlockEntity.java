@@ -26,6 +26,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.FakePlayer;
@@ -331,6 +332,11 @@ public class GolemTrialBlockEntity extends BaseBlockEntity implements TickableBl
 			}
 		}
 		return ans;
+	}
+
+	@Override
+	public AABB getRenderBoundingBox() {
+		return super.getRenderBoundingBox().inflate(48);
 	}
 
 }

@@ -35,6 +35,8 @@ public class CataclysmCompatData {
 	}
 
 	public static void genLang(RegistrateLangProvider pvd) {
+		pvd.add("trial_selector." + CataDispatch.MODID, "Cataclysm Reinforcements");
+
 		pvd.add(Util.makeDescriptionId("trial", HarbingerGolemSpawn.HARBINGER_ALL), "Harbinger's Revenge");
 		pvd.add(Util.makeDescriptionId("trial", MonstrosityGolemSpawn.MONSTROSITY_ALL), "Netherite Reinforcement");
 		pvd.add(Util.makeDescriptionId("trial", EnderGuardianGolemSpawn.ENDER_GUARDIAN_ALL), "Meknight of the End");

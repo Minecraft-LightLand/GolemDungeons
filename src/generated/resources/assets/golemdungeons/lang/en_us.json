@@ -28,6 +28,11 @@
   "modulargolems.tooltip.sculk_scythe_atk": "On hit, create sonic burst dealing sonic damage at %s of attack damage",
   "modulargolems.tooltip.trial_medal.cata": "Right click Cataclysm boss spawner to summon boss with golem reinforcement",
   "modulargolems.tooltip.trial_medal.spawner": "Right click golem spawner to charge them immediately",
+  "modulargolems.tooltip.wand.block": "Right click ground to summon a random golem in the facton.",
+  "modulargolems.tooltip.wand.faction": "Selected: %s",
+  "modulargolems.tooltip.wand.modid": "Faction Category: %s",
+  "modulargolems.tooltip.wand.trial": "Right click Golem Spawner to set trial to spawn.",
+  "modulargolems.tooltip.wand.usage": "Scroll to select Faction",
   "trial.cataclysm.harbingers_revenge": "Harbinger's Revenge",
   "trial.cataclysm.heavenly_storm": "Heavenly Storm",
   "trial.cataclysm.meknight_of_the_end": "Meknight of the End",
@@ -36,5 +41,7 @@
   "trial.golemdungeons.factory_remnant": "Factory Remnant",
   "trial.golemdungeons.illagers_creation": "Illagers' Creations",
   "trial.golemdungeons.piglin_legacy": "Piglin Legacy",
-  "trial.golemdungeons.sculk_infestation": "Sculk Infestation"
+  "trial.golemdungeons.sculk_infestation": "Sculk Infestation",
+  "trial_selector.cataclysm": "Cataclysm Reinforcements",
+  "trial_selector.golemdungeons": "Golem Dungeons"
 }
