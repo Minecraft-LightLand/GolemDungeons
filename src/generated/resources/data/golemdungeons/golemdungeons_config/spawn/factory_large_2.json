@@ -53,11 +53,5 @@
       "weight": 30
     }
   },
-  "upgradeChance": [
-    1.0,
-    0.5,
-    0.5,
-    0.5
-  ],
   "upgrades": []
 }

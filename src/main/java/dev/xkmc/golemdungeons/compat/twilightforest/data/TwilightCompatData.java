@@ -6,12 +6,12 @@ import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import dev.xkmc.golemdungeons.compat.twilightforest.TwilightGDRegistry;
 import dev.xkmc.golemdungeons.init.data.GDRecipeGen;
 import dev.xkmc.golemdungeons.init.data.advancement.TrialCompleteTrigger;
+import dev.xkmc.golemdungeons.init.reg.GDItems;
 import dev.xkmc.l2library.serial.advancements.AdvancementGenerator;
 import dev.xkmc.l2library.serial.advancements.CriterionBuilder;
 import dev.xkmc.l2library.serial.advancements.ModLoadedAdv;
 import dev.xkmc.l2library.serial.config.ConfigDataProvider;
 import dev.xkmc.l2library.serial.recipe.ConditionalRecipeWrapper;
-import dev.xkmc.modulargolems.compat.materials.cataclysm.CataDispatch;
 import dev.xkmc.modulargolems.compat.materials.twilightforest.TFDispatch;
 import net.minecraft.Util;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -62,9 +62,10 @@ public class TwilightCompatData {
 				.save(ConditionalRecipeWrapper.mod(pvd, TFDispatch.MODID));
 
 		GDRecipeGen.unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, TwilightGDRegistry.GIANT_FIERY_SWORD.get())::unlockedBy,
-						TwilightGDRegistry.GIANT_FIERY_INGOT.get()).pattern("I").pattern("I").pattern("L")
+						TwilightGDRegistry.GIANT_FIERY_INGOT.get()).pattern("SIS").pattern("SIS").pattern(" L ")
 				.define('I', TwilightGDRegistry.GIANT_FIERY_INGOT.get())
 				.define('L', Blocks.NETHERITE_BLOCK)
+				.define('S', GDItems.FLAME_SWORD.get())
 				.save(ConditionalRecipeWrapper.mod(pvd, TFDispatch.MODID));
 
 	}
@@ -82,7 +83,7 @@ public class TwilightCompatData {
 				.add(new ModLoadedAdv(TFDispatch.MODID))
 				.create("craft_fiery_giant_sword", TwilightGDRegistry.GIANT_FIERY_SWORD.get(),
 						CriterionBuilder.item(TwilightGDRegistry.GIANT_FIERY_SWORD.get()),
-						"Twilight Verdun", "Craft the Fiery Giant Sword")
+						"Grinder Warfare of Twilight", "Craft the Fiery Giant Sword")
 				.add(new ModLoadedAdv(TFDispatch.MODID));
 	}
 

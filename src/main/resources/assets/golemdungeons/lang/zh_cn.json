@@ -18,7 +18,7 @@
 	"item.golemdungeons.giant_ironwood_ingot": "巨人铁木锭",
 	"item.golemdungeons.giant_ironwood_sword": "巨人铁木剑",
 	"item.golemdungeons.giant_knightmetal_ingot": "巨人骑士锭",
-	"item.golemdungeons.giant_knightmetal_sword": "巨人骑士剑",,
+	"item.golemdungeons.giant_knightmetal_sword": "巨人骑士剑",
 	"modulargolems.bar.charging": "充能中",
 	"modulargolems.bar.progress": "剩余%s个",
 	"modulargolems.bar.summoning": "召唤中",
@@ -76,7 +76,7 @@
 	"advancements.golemdungeons.advancements.dungeons.summon_scylla_golem.description": "召唤带有傀儡增援的斯库拉",
 	"advancements.golemdungeons.advancements.dungeons.summon_scylla_golem.title": "天水风暴",
 	"advancements.golemdungeons.advancements.dungeons.craft_fiery_giant_sword.description": "合成巨人炽铁剑",
-	"advancements.golemdungeons.advancements.dungeons.craft_fiery_giant_sword.title": "暮色的凡尔登绞肉机",
+	"advancements.golemdungeons.advancements.dungeons.craft_fiery_giant_sword.title": "暮色绞肉机",
 	"advancements.golemdungeons.advancements.dungeons.defeat_twilight_dungeon.description": "战胜暮色侵略试炼",
 	"advancements.golemdungeons.advancements.dungeons.defeat_twilight_dungeon.title": "被封印的侵略者"
 }

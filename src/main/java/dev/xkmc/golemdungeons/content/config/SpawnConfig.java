@@ -35,6 +35,8 @@ import java.util.Map;
 @SerialClass
 public class SpawnConfig extends BaseConfig {
 
+	private static final double[] DEF_CHANCE = {1d, 0.5d, 0.5d, 0.5d};
+
 	@SerialClass.SerialField
 	public ResourceLocation faction = HostileGolemRegistry.DEFAULT.id;
 
@@ -59,7 +61,7 @@ public class SpawnConfig extends BaseConfig {
 	public ResourceLocation targetTrial = null;
 
 	@SerialClass.SerialField
-	public double[] upgradeChance = {1d, 0.5d, 0.5d, 0.5d};
+	public double[] upgradeChance;
 
 	private SimpleWeightedRandomList<GolemTypeInfo> typeTable;
 	private final Map<GolemPart<?, ?>, SimpleWeightedRandomList<ResourceLocation>> matTable = new LinkedHashMap<>();
@@ -68,6 +70,7 @@ public class SpawnConfig extends BaseConfig {
 
 	@SerialClass.OnInject
 	public void onInject() {
+		if (upgradeChance == null) upgradeChance = DEF_CHANCE;
 		var typeList = SimpleWeightedRandomList.<GolemTypeInfo>builder();
 		for (var ent : types.entrySet()) {
 			if (ent.getValue().weight() > 0)
@@ -143,9 +146,9 @@ public class SpawnConfig extends BaseConfig {
 
 	private boolean fitsOn(
 			ArrayList<GolemMaterial> mats, ArrayList<IUpgradeItem> upgrades,
-			GolemHolder<?, ?> holder, UpgradeItem upgrade
+			GolemHolder<?, ?> holder, IUpgradeItem upgrade
 	) {
-		if (!upgrade.fitsOn(holder.getEntityType())) return false;
+		if (upgrade instanceof UpgradeItem item && !item.fitsOn(holder.getEntityType())) return false;
 		var copy = new ArrayList<>(upgrades);
 		copy.add(upgrade);
 		int remaining = holder.getRemaining(mats, copy);
@@ -163,7 +166,7 @@ public class SpawnConfig extends BaseConfig {
 	) {
 		ArrayList<IUpgradeItem> ans = new ArrayList<>();
 		for (var e : upgrades) {
-			if (e instanceof UpgradeItem item && !fitsOn(mats, ans, holder, item))
+			if (!fitsOn(mats, ans, holder, e))
 				continue;
 			ans.add(e);
 		}
@@ -189,8 +192,11 @@ public class SpawnConfig extends BaseConfig {
 		for (double prob : upgradeChance) {
 			if (r.nextFloat() > prob) break;
 			var up = upTable.getRandomValue(r);
-			if (up.isPresent() && up.get().upgrade instanceof UpgradeItem item && fitsOn(mats, ups, holder, item))
+			if (up.isPresent() && up.get().upgrade instanceof IUpgradeItem item) {
+				if (!fitsOn(mats, ups, holder, item))
+					continue;
 				ups.add(item);
+			}
 		}
 		var e = golem.create(sl);
 		var fac = HostileGolemRegistry.getFaction(faction);

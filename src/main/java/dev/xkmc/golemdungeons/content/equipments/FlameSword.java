@@ -37,9 +37,13 @@ public class FlameSword extends MetalGolemWeaponItem implements ExtraAttackGolem
 		super(properties, attackDamage, percentAttack, range, sweep);
 	}
 
+	protected Double getDamage() {
+		return GDConfig.COMMON.flameSwordDamage.get();
+	}
+
 	@Override
 	public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> list, TooltipFlag flag) {
-		int perc = (int) Math.round(100 * GDConfig.COMMON.flameSwordDamage.get());
+		int perc = (int) Math.round(100 * getDamage());
 		list.add(GDLang.FLAME_SWORD_ATK.get(Component.literal(perc + "%")));
 		list.add(GDLang.FLAME_SWORD_LOOT.get());
 		super.appendHoverText(stack, level, list, flag);
@@ -63,7 +67,7 @@ public class FlameSword extends MetalGolemWeaponItem implements ExtraAttackGolem
 		if (target instanceof LivingEntity le) {
 			var source = self.level().registryAccess().registryOrThrow(Registries.DAMAGE_TYPE)
 					.getHolderOrThrow(GDDamageTypes.FLAME);
-			return le.hurt(new DamageSource(source, self), v * GDConfig.COMMON.flameSwordDamage.get().floatValue());
+			return le.hurt(new DamageSource(source, self), v * getDamage().floatValue());
 		}
 		return false;
 	}

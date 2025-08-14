@@ -13,12 +13,15 @@
     },
     "L": {
       "item": "minecraft:netherite_block"
+    },
+    "S": {
+      "item": "golemdungeons:flame_sword"
     }
   },
   "pattern": [
-    "I",
-    "I",
-    "L"
+    "SIS",
+    "SIS",
+    " L "
   ],
   "result": {
     "item": "golemdungeons:giant_fiery_sword"
