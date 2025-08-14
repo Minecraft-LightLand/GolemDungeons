@@ -13,7 +13,6 @@ import dev.xkmc.l2library.serial.advancements.CriterionBuilder;
 import dev.xkmc.modulargolems.compat.materials.cataclysm.CataDispatch;
 import net.minecraft.advancements.critereon.LocationPredicate;
 import net.minecraft.advancements.critereon.PlayerTrigger;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.fml.ModList;
 
 public class GDAdvGen {
@@ -22,21 +21,21 @@ public class GDAdvGen {
 		AdvancementGenerator gen = new AdvancementGenerator(pvd, GolemDungeons.MODID);
 
 		var root = gen.new TabBuilder("dungeons")
-				.root("visit_abandoned_factory", GDItems.TRIAL_MEDAL.get(),
-						CriterionBuilder.item(GDItems.TRIAL_MEDAL.get()),//TODO
+				.root("visit_abandoned_factory", GDItems.EYE_OF_ANCIENT_FACTORY.get(),
+						CriterionBuilder.one(PlayerTrigger.TriggerInstance.located(LocationPredicate.inStructure(GDStructureGen.ABANDONED_FACTORY.asKey()))),
 						"Remnant of History", "Visit Abandoned Golem Factory");
 		var defeat = root.create("defeat_abandoned_factory", GDItems.ANCIENT_FORGE.get(),
 				CriterionBuilder.one(TrialCompleteTrigger.ins(FactoryGolemSpawn.FACTORY_ALL)),
 				"Mechanical Warfare", "Defeat Trial of Abandoned Factory");
 
-		defeat.create("visit_piglin_factory", Blocks.GILDED_BLACKSTONE.asItem(),
+		defeat.create("visit_piglin_factory", GDItems.EYE_OF_CRIMSON_FACTORY.asItem(),
 						CriterionBuilder.one(PlayerTrigger.TriggerInstance.located(LocationPredicate.inStructure(GDStructureGen.PIGLIN_FACTORY.asKey()))),
 						"Ancient War Machine", "Visit Piglin Golem Factory")
 				.create("defeat_piglin_factory", GDItems.FLAME_SWORD.get(),
 						CriterionBuilder.one(TrialCompleteTrigger.ins(PiglinGolemSpawn.PIGLIN_ALL)),
 						"Legacy of Golden Time", "Defeat Trial of Piglin Legacy");
 
-		defeat.create("visit_sculk_factory", Blocks.SCULK.asItem(),
+		defeat.create("visit_sculk_factory", GDItems.EYE_OF_SCULK_FACTORY.asItem(),
 						CriterionBuilder.one(PlayerTrigger.TriggerInstance.located(LocationPredicate.inStructure(GDStructureGen.SCULK_FACTORY.asKey()))),
 						"Infested Laboratory", "Visit Sculk Infested Golem Factory")
 				.create("defeat_sculk_factory", GDItems.SCULK_SCYTHE.get(),

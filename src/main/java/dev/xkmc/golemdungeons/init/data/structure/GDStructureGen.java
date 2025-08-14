@@ -63,7 +63,7 @@ public class GDStructureGen extends DatapackBuiltinEntriesProvider {
 	private static final List<GDStructure> STRUCTURES = new ArrayList<>();
 
 	static {
-		SCULK_FACTORY = new GDStructure(GolemDungeons.loc("sculk_factory"), 48, 16,
+		SCULK_FACTORY = new GDStructure(GolemDungeons.loc("sculk_factory"), 32, 12,
 				List.of(new ProtectedBlockProcessor(BlockTags.FEATURES_CANNOT_REPLACE)),
 				List.of(singlePiece("root").custom(ElementFactory.thickBox(22))
 								.loot(injectData(Blocks.CHEST, GDLootGen.SCULK_ROOT)),
@@ -89,7 +89,7 @@ public class GDStructureGen extends DatapackBuiltinEntriesProvider {
 		);
 
 
-		PIGLIN_FACTORY = new GDStructure(GolemDungeons.loc("piglin_factory"), 48, 16,
+		PIGLIN_FACTORY = new GDStructure(GolemDungeons.loc("piglin_factory"), 32, 12,
 				List.of(new ProtectedBlockProcessor(BlockTags.FEATURES_CANNOT_REPLACE)),
 				List.of(singlePiece("piglin_factory").loot(injectData(Blocks.CHEST, GDLootGen.PIGLIN_CHEST))
 				), Map.of(),

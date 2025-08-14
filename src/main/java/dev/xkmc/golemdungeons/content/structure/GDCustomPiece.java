@@ -17,7 +17,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 
 import java.util.Optional;
 
-public class GDCustomPiece extends SinglePoolElement {
+public class GDCustomPiece extends GDSimplePiece {
 
 	public static final Codec<GDCustomPiece> CODEC = RecordCodecBuilder.create((i) -> i.group(
 			templateCodec(),

@@ -26,7 +26,7 @@
     "frame": "task",
     "hidden": false,
     "icon": {
-      "item": "minecraft:sculk"
+      "item": "golemdungeons:eye_of_sculk_factory"
     },
     "show_toast": true,
     "title": {

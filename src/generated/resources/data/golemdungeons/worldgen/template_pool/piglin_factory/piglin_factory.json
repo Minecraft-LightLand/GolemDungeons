@@ -2,7 +2,7 @@
   "elements": [
     {
       "element": {
-        "element_type": "minecraft:single_pool_element",
+        "element_type": "golemdungeons:no_liquid",
         "location": "golemdungeons:piglin_factory/piglin_factory",
         "processors": "golemdungeons:piglin_factory/piglin_factory",
         "projection": "rigid"
