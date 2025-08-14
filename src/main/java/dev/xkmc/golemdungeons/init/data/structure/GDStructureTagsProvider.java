@@ -22,7 +22,7 @@ public final class GDStructureTagsProvider extends StructureTagsProvider {
 	protected void addTags(HolderLookup.Provider pvd) {
 		tag(GDStructureGen.SCULK_FACTORY.asTag()).add(GDStructureGen.SCULK_FACTORY.asKey());
 		tag(GDStructureGen.PIGLIN_FACTORY.asTag()).add(GDStructureGen.PIGLIN_FACTORY.asKey());
-		//TODO
+		tag(GDStructureGen.ABANDONED_FACTORY.asTag()).add(GDStructureGen.ABANDONED_FACTORY.asKey());
 	}
 
 	public static TagKey<Biome> asTag(String name) {

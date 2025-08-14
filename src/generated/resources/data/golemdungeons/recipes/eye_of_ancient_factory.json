@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "modulargolems:metal_golem_template"
+    },
+    "B": {
+      "item": "minecraft:copper_block"
+    },
+    "C": {
+      "item": "minecraft:oxidized_copper"
+    },
+    "E": {
+      "item": "minecraft:ender_eye"
+    }
+  },
+  "pattern": [
+    " A ",
+    "BEB",
+    " C "
+  ],
+  "result": {
+    "item": "golemdungeons:eye_of_ancient_factory"
+  },
+  "show_notification": true
+}

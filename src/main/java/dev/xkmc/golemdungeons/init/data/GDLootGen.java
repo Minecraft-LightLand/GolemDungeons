@@ -29,6 +29,12 @@ public class GDLootGen {
 
 	public static final ResourceLocation PIGLIN_CHEST = GolemDungeons.loc("piglin_factory/root");
 
+	public static final ResourceLocation FACTORY_ROOM_CHEST = GolemDungeons.loc("abandoned_factory/room_chest");
+	public static final ResourceLocation FACTORY_ROOM_BARREL = GolemDungeons.loc("abandoned_factory/room_barrel");
+	public static final ResourceLocation FACTORY_ROOM_GRAVEL = GolemDungeons.loc("abandoned_factory/room_gravel");
+	public static final ResourceLocation FACTORY_END_CHEST = GolemDungeons.loc("abandoned_factory/end_chest");
+	public static final ResourceLocation FACTORY_END_GRAVEL = GolemDungeons.loc("abandoned_factory/end_gravel");
+
 	public static void genLoot(RegistrateLootTableProvider pvd) {
 		{
 			pvd.addLootAction(LootContextParamSets.CHEST, sub -> sub.accept(FACTORY,
@@ -211,6 +217,79 @@ public class GDLootGen {
 							)
 			));
 		}
+
+		{
+
+			pvd.addLootAction(LootContextParamSets.CHEST, sub -> sub.accept(FACTORY_ROOM_CHEST,
+					LootTable.lootTable()
+							.withPool(LootTableTemplate.getPool(3, 1)
+									.add(LootTableTemplate.getItem(GolemItems.GOLEM_TEMPLATE.get(), 4, 8))
+									.add(LootTableTemplate.getItem(GolemItems.EMPTY_UPGRADE.get(), 4, 8))
+							)
+							.withPool(LootTableTemplate.getPool(4, 1)
+									.add(LootTableTemplate.getItem(Items.AMETHYST_SHARD, 8, 16))
+									.add(LootTableTemplate.getItem(Items.COPPER_INGOT, 8, 16))
+									.add(LootTableTemplate.getItem(Items.IRON_INGOT, 4, 8))
+							)
+			));
+
+			pvd.addLootAction(LootContextParamSets.CHEST, sub -> sub.accept(FACTORY_ROOM_BARREL,
+					LootTable.lootTable()
+							.withPool(LootTableTemplate.getPool(4, 1)
+									.add(LootTableTemplate.getItem(Items.CLAY_BALL, 4, 8))
+									.add(LootTableTemplate.getItem(Items.COAL, 4, 8))
+									.add(LootTableTemplate.getItem(Items.FLINT, 4, 8))
+							)
+							.withPool(LootPool.lootPool()
+									.add(LootTableTemplate.getItem(Items.COBWEB, 6, 12))
+							)
+			));
+
+			pvd.addLootAction(LootContextParamSets.CHEST, sub -> sub.accept(FACTORY_END_CHEST,
+					LootTable.lootTable()
+							.withPool(LootTableTemplate.getPool(4, 1)
+									.add(LootTableTemplate.getItem(Items.CLAY_BALL, 4, 8))
+									.add(LootTableTemplate.getItem(Items.COAL, 4, 8))
+									.add(LootTableTemplate.getItem(Items.FLINT, 4, 8))
+							)
+							.withPool(LootTableTemplate.getPool(2, 1)
+									.add(LootTableTemplate.getItem(Items.AMETHYST_SHARD, 6, 12))
+									.add(LootTableTemplate.getItem(Items.COPPER_INGOT, 6, 12))
+									.add(LootTableTemplate.getItem(Items.IRON_INGOT, 3, 6))
+							)
+			));
+
+			pvd.addLootAction(LootContextParamSets.CHEST, sub -> sub.accept(FACTORY_ROOM_GRAVEL,
+					LootTable.lootTable()
+							.withPool(LootPool.lootPool()
+									.add(LootItem.lootTableItem(Items.AMETHYST_SHARD))
+									.add(LootItem.lootTableItem(Items.GOLD_INGOT))
+									.add(LootItem.lootTableItem(Items.IRON_INGOT))
+									.add(LootItem.lootTableItem(Items.COPPER_INGOT))
+									.add(LootItem.lootTableItem(Items.CLAY_BALL))
+									.add(LootItem.lootTableItem(Items.ENCHANTED_GOLDEN_APPLE))
+									.add(LootItem.lootTableItem(Items.GOLDEN_APPLE))
+									.add(LootItem.lootTableItem(Items.DIAMOND))
+									.add(LootItem.lootTableItem(Items.EMERALD))
+									.add(LootItem.lootTableItem(Items.TORCHFLOWER_SEEDS))
+									.add(LootItem.lootTableItem(Items.PITCHER_POD))
+							)
+			));
+
+			pvd.addLootAction(LootContextParamSets.CHEST, sub -> sub.accept(FACTORY_END_GRAVEL,
+					LootTable.lootTable()
+							.withPool(LootPool.lootPool()
+									.add(LootItem.lootTableItem(Items.AMETHYST_SHARD))
+									.add(LootItem.lootTableItem(Items.GOLD_INGOT))
+									.add(LootItem.lootTableItem(Items.IRON_INGOT))
+									.add(LootItem.lootTableItem(Items.COPPER_INGOT))
+									.add(LootItem.lootTableItem(Items.CLAY_BALL))
+									.add(LootItem.lootTableItem(Items.TORCHFLOWER_SEEDS))
+									.add(LootItem.lootTableItem(Items.PITCHER_POD))
+							)
+			));
+		}
+
 	}
 
 }

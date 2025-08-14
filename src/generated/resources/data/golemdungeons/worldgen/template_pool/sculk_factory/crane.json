@@ -2,10 +2,12 @@
   "elements": [
     {
       "element": {
-        "element_type": "minecraft:single_pool_element",
+        "element_type": "golemdungeons:custom_beard",
+        "horizontal_expansion": 2,
         "location": "golemdungeons:sculk_factory/crane",
         "processors": "golemdungeons:sculk_factory/crane",
-        "projection": "rigid"
+        "projection": "rigid",
+        "terrain_adjustment": "beard_box"
       },
       "weight": 1
     }

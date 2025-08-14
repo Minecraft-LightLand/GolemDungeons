@@ -15,6 +15,8 @@ import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorList;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 
+import java.util.Optional;
+
 public class GDCustomPiece extends SinglePoolElement {
 
 	public static final Codec<GDCustomPiece> CODEC = RecordCodecBuilder.create((i) -> i.group(
@@ -22,30 +24,32 @@ public class GDCustomPiece extends SinglePoolElement {
 			processorsCodec(),
 			projectionCodec(),
 			TerrainAdjustment.CODEC.fieldOf("terrain_adjustment").forGetter(e -> e.adj),
-			Codec.INT.fieldOf("horizontal_expansion").forGetter(e -> e.xzMargin)
+			Codec.INT.fieldOf("horizontal_expansion").forGetter(e -> e.xzMargin),
+			Codec.INT.optionalFieldOf("thickness").forGetter(e -> e.fixHeight == 0 ? Optional.empty() : Optional.of(e.fixHeight))
 	).apply(i, GDCustomPiece::new));
 
 
 	private final TerrainAdjustment adj;
-	private final int xzMargin;
+	private final int xzMargin, fixHeight;
 
 	protected GDCustomPiece(
 			Either<ResourceLocation, StructureTemplate> id,
 			Holder<StructureProcessorList> list,
 			StructureTemplatePool.Projection proj,
-			TerrainAdjustment adj, int xz) {
+			TerrainAdjustment adj, int xz, Optional<Integer> fixHeight) {
 		super(id, list, proj);
 		this.adj = adj;
 		this.xzMargin = xz;
+		this.fixHeight = fixHeight.orElse(0);
 	}
 
 	public GDCustomPiece(
 			ResourceLocation template,
 			Holder<StructureProcessorList> list,
 			StructureTemplatePool.Projection proj,
-			TerrainAdjustment adj, int xz
+			TerrainAdjustment adj, int xz, int fixHeight
 	) {
-		this(Either.left(template), list, proj, adj, xz);
+		this(Either.left(template), list, proj, adj, xz, Optional.of(fixHeight));
 	}
 
 	public StructurePoolElementType<?> getType() {
@@ -56,7 +60,7 @@ public class GDCustomPiece extends SinglePoolElement {
 		var box = piece.getBoundingBox();
 		return new BoundingBox(
 				box.minX() - xzMargin, box.minY(), box.minZ() - xzMargin,
-				box.maxX() + xzMargin, box.maxY(), box.maxZ() + xzMargin
+				box.maxX() + xzMargin, Math.max(box.minY() + fixHeight, box.maxY()), box.maxZ() + xzMargin
 		);
 	}
 

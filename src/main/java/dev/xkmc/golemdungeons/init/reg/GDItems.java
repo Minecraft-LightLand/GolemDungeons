@@ -34,6 +34,7 @@ public class GDItems {
 	public static final RegistryEntry<CreativeModeTab> TAB = REGISTRATE.buildL2CreativeTab(
 			"golem_dungeons", "Golem Dungeons", b -> b.icon(GDItems.SUMMON::asStack));
 
+	public static final ItemEntry<StructureEye> EYE_OF_ANCIENT_FACTORY;
 	public static final ItemEntry<StructureEye> EYE_OF_CRIMSON_FACTORY;
 	public static final ItemEntry<StructureEye> EYE_OF_SCULK_FACTORY;
 
@@ -52,6 +53,12 @@ public class GDItems {
 	public static final BlockEntityEntry<GolemTrialBlockEntity> BE_SPAWNER;
 
 	static {
+
+		EYE_OF_ANCIENT_FACTORY = REGISTRATE.item("eye_of_ancient_factory", p ->
+						new StructureEye(p, GDStructureGen.ABANDONED_FACTORY.asTag(), GDLang.LOCATE_ABANDONED::get))
+				.properties(p -> p.rarity(Rarity.RARE).stacksTo(16))
+				.lang("Eye of Ancient Factory")
+				.register();
 
 		EYE_OF_CRIMSON_FACTORY = REGISTRATE.item("eye_of_crimson_factory", p ->
 						new StructureEye(p, GDStructureGen.PIGLIN_FACTORY.asTag(), GDLang.LOCATE_CRIMSON::get))

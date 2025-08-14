@@ -264,7 +264,7 @@ public class FactoryGolemSpawn extends AbstractGolemSpawn {
 		// trial
 		{
 			map.add(GolemDungeons.TRIAL, FACTORY_ALL, new TrialConfig().setReward(GDLootGen.FACTORY)
-					.setCost(200).setTriggerRange(12, -2, 8)
+					.setCost(200).setTriggerRange(22, -5, 16)
 					.add(of(LARGE_1, 1))
 					.add(of(LARGE_1, 1),
 							of(HUMANOID_BASIC, 2))

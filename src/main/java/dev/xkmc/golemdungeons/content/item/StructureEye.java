@@ -52,10 +52,6 @@ public class StructureEye extends Item {
 				//e.surviveAfterDeath = true;
 				level.gameEvent(GameEvent.PROJECTILE_SHOOT, e.position(), GameEvent.Context.of(player));
 				level.addFreshEntity(e);
-				if (player instanceof ServerPlayer) {
-					CriteriaTriggers.USED_ENDER_EYE.trigger((ServerPlayer) player, blockpos);
-				}
-
 				level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ENDER_EYE_LAUNCH, SoundSource.NEUTRAL, 0.5F, 0.4F / (level.getRandom().nextFloat() * 0.4F + 0.8F));
 				level.levelEvent(null, 1003, player.blockPosition(), 0);
 				if (!player.getAbilities().instabuild) {

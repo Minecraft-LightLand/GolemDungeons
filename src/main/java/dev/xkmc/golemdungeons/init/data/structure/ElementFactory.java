@@ -18,8 +18,22 @@ public interface ElementFactory {
 
 	static ElementFactory fatBox(int xz) {
 		return (id, list) -> new GDCustomPiece(
-				id, list, StructureTemplatePool.Projection.RIGID, TerrainAdjustment.BEARD_BOX,
-				xz);
+				id, list, StructureTemplatePool.Projection.RIGID, TerrainAdjustment.BEARD_BOX, xz, 0);
+	}
+
+	static ElementFactory thin() {
+		return (id, list) -> new GDCustomPiece(
+				id, list, StructureTemplatePool.Projection.RIGID, TerrainAdjustment.BEARD_THIN, 0, 0);
+	}
+
+	static ElementFactory bury() {
+		return (id, list) -> new GDCustomPiece(
+				id, list, StructureTemplatePool.Projection.RIGID, TerrainAdjustment.BURY, 0, 0);
+	}
+
+	static ElementFactory thickBox(int height) {
+		return (id, list) -> new GDCustomPiece(
+				id, list, StructureTemplatePool.Projection.RIGID, TerrainAdjustment.BEARD_BOX, 0, height);
 	}
 
 	SinglePoolElement create(ResourceLocation id, Holder<StructureProcessorList> processors);

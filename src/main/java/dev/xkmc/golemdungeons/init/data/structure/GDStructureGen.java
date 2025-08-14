@@ -1,9 +1,7 @@
 package dev.xkmc.golemdungeons.init.data.structure;
 
-import com.mojang.datafixers.util.Pair;
 import dev.xkmc.golemdungeons.init.GolemDungeons;
 import dev.xkmc.golemdungeons.init.data.GDLootGen;
-import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
@@ -16,7 +14,6 @@ import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
@@ -28,8 +25,6 @@ import net.minecraft.world.level.levelgen.structure.StructureSpawnOverride;
 import net.minecraft.world.level.levelgen.structure.TerrainAdjustment;
 import net.minecraft.world.level.levelgen.structure.placement.RandomSpreadStructurePlacement;
 import net.minecraft.world.level.levelgen.structure.placement.RandomSpreadType;
-import net.minecraft.world.level.levelgen.structure.pools.StructurePoolElement;
-import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import net.minecraft.world.level.levelgen.structure.structures.JigsawStructure;
 import net.minecraft.world.level.levelgen.structure.templatesystem.*;
 import net.minecraft.world.level.levelgen.structure.templatesystem.rule.blockentity.AppendLoot;
@@ -68,18 +63,23 @@ public class GDStructureGen extends DatapackBuiltinEntriesProvider {
 	private static final List<GDStructure> STRUCTURES = new ArrayList<>();
 
 	static {
-		SCULK_FACTORY = new GDStructure(GolemDungeons.loc("sculk_factory"), 24, 8,
+		SCULK_FACTORY = new GDStructure(GolemDungeons.loc("sculk_factory"), 48, 16,
 				List.of(new ProtectedBlockProcessor(BlockTags.FEATURES_CANNOT_REPLACE)),
-				List.of(singlePiece("root").with(injectData(Blocks.CHEST, GDLootGen.SCULK_ROOT)),
-						singlePiece("heart").with(
+				List.of(singlePiece("root").custom(ElementFactory.thickBox(22))
+								.loot(injectData(Blocks.CHEST, GDLootGen.SCULK_ROOT)),
+						singlePiece("heart").custom(ElementFactory.thickBox(22)).loot(
 								injectData(Blocks.BARREL, GDLootGen.SCULK_HEART_BARREL),
 								injectData(Blocks.CHEST, GDLootGen.SCULK_HEART_CHEST)),
-						singlePiece("crane").with(injectData(Blocks.CHEST, GDLootGen.SCULK_CRANE)),
+						singlePiece("crane").custom(ElementFactory.fatBox(2))
+								.loot(injectData(Blocks.CHEST, GDLootGen.SCULK_CRANE)),
 						singlePiece("crane_arm"),
-						singlePiece("treasure"),
-						singlePiece("left_plaza"),
-						singlePiece("right_plaza"), singlePiece("right_open"),
-						singlePiece("sculpture"), singlePiece("pile"), singlePiece("side_path"),
+						singlePiece("treasure").custom(ElementFactory.thickBox(22)),
+						singlePiece("left_plaza").custom(ElementFactory.thickBox(22)),
+						singlePiece("right_plaza").custom(ElementFactory.thickBox(22)),
+						singlePiece("right_open").custom(ElementFactory.thickBox(22)),
+						singlePiece("sculpture").custom(ElementFactory.thickBox(22)),
+						singlePiece("pile").custom(ElementFactory.thickBox(22)),
+						singlePiece("side_path").custom(ElementFactory.thickBox(22)),
 						folder("pillar", "pillar_front_1", "pillar_front_2", "pillar_front_3",
 								"pillar_back_1", "pillar_back_2")
 								.custom(ElementFactory.fatBox(2))
@@ -89,25 +89,42 @@ public class GDStructureGen extends DatapackBuiltinEntriesProvider {
 		);
 
 
-		PIGLIN_FACTORY = new GDStructure(GolemDungeons.loc("piglin_factory"), 24, 8,
+		PIGLIN_FACTORY = new GDStructure(GolemDungeons.loc("piglin_factory"), 48, 16,
 				List.of(new ProtectedBlockProcessor(BlockTags.FEATURES_CANNOT_REPLACE)),
-				List.of(singlePiece("piglin_factory").with(injectData(Blocks.CHEST, GDLootGen.PIGLIN_CHEST))
+				List.of(singlePiece("piglin_factory").loot(injectData(Blocks.CHEST, GDLootGen.PIGLIN_CHEST))
 				), Map.of(),
 				Optional.empty(), ConstantHeight.of(VerticalAnchor.absolute(33)),
 				GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.BEARD_BOX
 		);
 
-		ABANDONED_FACTORY = new GDStructure(GolemDungeons.loc("abandoned_factory"), 24, 8,
+		ABANDONED_FACTORY = new GDStructure(GolemDungeons.loc("abandoned_factory"), 64, 24,
 				List.of(new ProtectedBlockProcessor(BlockTags.FEATURES_CANNOT_REPLACE)),
-				List.of(singlePiece("abandoned_factory").with(injectData(Blocks.CHEST, GDLootGen.PIGLIN_CHEST))//TODO
+				List.of(singlePiece("top").custom(ElementFactory.thin()),
+						singlePiece("garden").custom(ElementFactory.thin()),
+						singlePiece("pillar").custom(ElementFactory.thin()),
+						singlePiece("elevator").custom(ElementFactory.bury()),
+						singlePiece("elevator_base").custom(ElementFactory.bury()),
+						singlePiece("room").loot(
+								injectData(Blocks.CHEST, GDLootGen.FACTORY_ROOM_CHEST),
+								injectData(Blocks.BARREL, GDLootGen.FACTORY_ROOM_BARREL),
+								injectData(Blocks.SUSPICIOUS_GRAVEL, GDLootGen.FACTORY_ROOM_GRAVEL)
+						).custom(ElementFactory.bury()),
+						singlePiece("stair").custom(ElementFactory.bury()),
+						singlePiece("cross").custom(ElementFactory.bury()),
+						singlePiece("hall").custom(ElementFactory.bury()),
+						singlePiece("tway").custom(ElementFactory.bury()),
+						folder("end", "end0", "end1", "end2", "end3", "end4").loot(
+								injectData(Blocks.CHEST, GDLootGen.FACTORY_END_CHEST),
+								injectData(Blocks.SUSPICIOUS_GRAVEL, GDLootGen.FACTORY_END_GRAVEL)
+						).custom(ElementFactory.bury())
 				), Map.of(),
-				Optional.of(Heightmap.Types.WORLD_SURFACE_WG), ConstantHeight.of(VerticalAnchor.top()),
-				GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.BEARD_BOX
+				Optional.of(Heightmap.Types.WORLD_SURFACE_WG), ConstantHeight.of(VerticalAnchor.absolute(0)),
+				GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.BEARD_THIN
 		);
 
 		STRUCTURES.add(SCULK_FACTORY);
 		STRUCTURES.add(PIGLIN_FACTORY);
-		//TODO STRUCTURES.add(ABANDONED_FACTORY);
+		STRUCTURES.add(ABANDONED_FACTORY);
 	}
 
 	private static GDPieceData singlePiece(String str) {
@@ -127,13 +144,7 @@ public class GDStructureGen extends DatapackBuiltinEntriesProvider {
 					ctx.register(ResourceKey.create(Registries.PROCESSOR_LIST, e.id),
 							new StructureProcessorList(e.processors()));
 					for (var pool : e.pools) {
-						var poolId = e.id().withSuffix("/" + pool.id());
-						if (!pool.processors().isEmpty()) {
-							var merged = new ArrayList<>(e.processors());
-							merged.addAll(pool.processors());
-							ctx.register(ResourceKey.create(Registries.PROCESSOR_LIST, poolId),
-									new StructureProcessorList(merged));
-						}
+						pool.buildProcessors(ctx,e.id, e.processors());
 					}
 				}
 			})
@@ -144,16 +155,7 @@ public class GDStructureGen extends DatapackBuiltinEntriesProvider {
 					var base = ctx.lookup(Registries.PROCESSOR_LIST)
 							.getOrThrow(ResourceKey.create(Registries.PROCESSOR_LIST, e.id()));
 					for (var pool : e.pools) {
-						var poolId = e.id().withSuffix("/" + pool.id());
-						var processors = pool.processors().isEmpty() ? base :
-								ctx.lookup(Registries.PROCESSOR_LIST)
-										.getOrThrow(ResourceKey.create(Registries.PROCESSOR_LIST, poolId));
-						List<Pair<StructurePoolElement, Integer>> pieces = new ArrayList<>();
-						for (var elem : pool.pool()) {
-							pieces.add(Pair.of(pool.factory().create(e.id.withSuffix("/" + elem), processors), 1));
-						}
-						ctx.register(ResourceKey.create(Registries.TEMPLATE_POOL, poolId),
-								new StructureTemplatePool(empty, pieces));
+						pool.buildTemplate(ctx, e.id(), base, empty);
 					}
 				}
 			})
@@ -189,12 +191,6 @@ public class GDStructureGen extends DatapackBuiltinEntriesProvider {
 	private static ProcessorRule injectData(Block block, ResourceLocation table) {
 		return new ProcessorRule(new BlockMatchTest(block), AlwaysTrueTest.INSTANCE, PosAlwaysTrueTest.INSTANCE,
 				block.defaultBlockState(), new AppendLoot(table));
-	}
-
-	private static ProcessorRule injectData(Block block, Direction dir, ResourceLocation table) {
-		var state = block.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, dir);
-		return new ProcessorRule(new BlockStateMatchTest(state), AlwaysTrueTest.INSTANCE, PosAlwaysTrueTest.INSTANCE,
-				state, new AppendLoot(table));
 	}
 
 }

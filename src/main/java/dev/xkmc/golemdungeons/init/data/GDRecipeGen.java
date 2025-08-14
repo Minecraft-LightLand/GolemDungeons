@@ -5,6 +5,7 @@ import com.tterrag.registrate.util.DataIngredient;
 import dev.xkmc.golemdungeons.compat.cataclysm.data.CataclysmCompatData;
 import dev.xkmc.golemdungeons.init.reg.GDItems;
 import dev.xkmc.modulargolems.compat.materials.cataclysm.CataDispatch;
+import dev.xkmc.modulargolems.init.registrate.GolemItems;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
@@ -17,6 +18,15 @@ import java.util.function.BiFunction;
 public class GDRecipeGen {
 
 	public static void genRecipe(RegistrateRecipeProvider pvd) {
+
+		unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, GDItems.EYE_OF_ANCIENT_FACTORY.get())::unlockedBy, GolemItems.GOLEM_TEMPLATE.get())
+				.pattern(" A ").pattern("BEB").pattern(" C ")
+				.define('A', GolemItems.GOLEM_TEMPLATE)
+				.define('E', Items.ENDER_EYE)
+				.define('B', Items.COPPER_BLOCK)
+				.define('C', Items.OXIDIZED_COPPER)
+				.save(pvd);
+
 		unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, GDItems.EYE_OF_CRIMSON_FACTORY.get())::unlockedBy, GDItems.MEDAL_OF_CONQUEROR.get())
 				.pattern(" A ").pattern("BEB").pattern(" C ")
 				.define('A', GDItems.MEDAL_OF_CONQUEROR)
