@@ -1,5 +1,5 @@
 {
-  "parent": "golemdungeons:dungeons/defeat_abandoned_factory",
+  "parent": "golemdungeons:dungeons/summon_ender_guardian_golem",
   "conditions": [
     {
       "type": "forge:mod_loaded",

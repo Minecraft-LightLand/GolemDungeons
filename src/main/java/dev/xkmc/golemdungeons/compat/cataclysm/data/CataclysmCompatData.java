@@ -53,23 +53,23 @@ public class CataclysmCompatData {
 	}
 
 	public static void genAdv(RegistrateAdvancementProvider pvd, AdvancementGenerator.TabBuilder.Entry defeat) {
-		defeat.create("summon_harbinger_golem", GolemItems.HOLDER_GOLEM.get().withUniformMaterial(loc("witherite")),
-						CriterionBuilder.one(TrialSummonTrigger.ins(HarbingerGolemSpawn.ALL)),
-						"Harbinger's Revenge", "Summon Harbinger with Golem Reinforcement")
-				.add(new ModLoadedAdv(CataDispatch.MODID));
-		defeat.create("summon_monstrosity_golem", GolemItems.HOLDER_GOLEM.get().withUniformMaterial(ModularGolems.loc("netherite")),
-						CriterionBuilder.one(TrialSummonTrigger.ins(MonstrosityGolemSpawn.ALL)),
-						"Netherite Reinforcement", "Summon Netherite Monstrosity with Golem Reinforcement")
-				.add(new ModLoadedAdv(CataDispatch.MODID));
 		defeat.create("summon_ender_guardian_golem", GolemItems.HOLDER_GOLEM.get().withUniformMaterial(loc("ender_guardian")),
 						CriterionBuilder.one(TrialSummonTrigger.ins(EnderGuardianGolemSpawn.ALL)),
 						"Meknight of the End", "Summon Ender Guardian with Golem Reinforcement")
-				.add(new ModLoadedAdv(CataDispatch.MODID));
-		defeat.create("summon_scylla_golem", GolemItems.HOLDER_GOLEM.get().withUniformMaterial(loc("storm")),
+				.add(new ModLoadedAdv(CataDispatch.MODID))
+				.create("summon_scylla_golem", GolemItems.HOLDER_GOLEM.get().withUniformMaterial(loc("storm")),
 						CriterionBuilder.one(TrialSummonTrigger.ins(ScyllaGolemSpawn.ALL)),
 						"Heavenly Storm", "Summon Scylla with Golem Reinforcement")
-				.add(new ModLoadedAdv(CataDispatch.MODID));
-		defeat.create("summon_ignis_golem", GolemItems.HOLDER_GOLEM.get().withUniformMaterial(loc("ignitium")),
+				.add(new ModLoadedAdv(CataDispatch.MODID))
+				.create("summon_monstrosity_golem", GolemItems.HOLDER_GOLEM.get().withUniformMaterial(ModularGolems.loc("netherite")),
+						CriterionBuilder.one(TrialSummonTrigger.ins(MonstrosityGolemSpawn.ALL)),
+						"Netherite Reinforcement", "Summon Netherite Monstrosity with Golem Reinforcement")
+				.add(new ModLoadedAdv(CataDispatch.MODID))
+				.create("summon_harbinger_golem", GolemItems.HOLDER_GOLEM.get().withUniformMaterial(loc("witherite")),
+						CriterionBuilder.one(TrialSummonTrigger.ins(HarbingerGolemSpawn.ALL)),
+						"Harbinger's Revenge", "Summon Harbinger with Golem Reinforcement")
+				.add(new ModLoadedAdv(CataDispatch.MODID))
+				.create("summon_ignis_golem", GolemItems.HOLDER_GOLEM.get().withUniformMaterial(loc("ignitium")),
 						CriterionBuilder.one(TrialSummonTrigger.ins(IgnisGolemSpawn.ALL)),
 						"Resurgent Flames", "Summon Ignis with Golem Reinforcement")
 				.add(new ModLoadedAdv(CataDispatch.MODID));

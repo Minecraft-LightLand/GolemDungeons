@@ -9,7 +9,8 @@
 		"RaidMixin",
 		"WardenMixin",
 		"cataclysm.AltarOfFireBlockEntityMixin",
-		"cataclysm.HarbingerMixin"
+		"cataclysm.HarbingerMixin",
+		"twilightforest.FinalCastleMixin"
 	],
 	"client": [
 	],
