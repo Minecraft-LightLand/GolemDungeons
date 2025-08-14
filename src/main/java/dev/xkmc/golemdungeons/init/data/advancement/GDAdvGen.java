@@ -2,6 +2,7 @@ package dev.xkmc.golemdungeons.init.data.advancement;
 
 import com.tterrag.registrate.providers.RegistrateAdvancementProvider;
 import dev.xkmc.golemdungeons.compat.cataclysm.data.CataclysmCompatData;
+import dev.xkmc.golemdungeons.compat.twilightforest.data.TwilightCompatData;
 import dev.xkmc.golemdungeons.init.GolemDungeons;
 import dev.xkmc.golemdungeons.init.data.spawn.FactoryGolemSpawn;
 import dev.xkmc.golemdungeons.init.data.spawn.PiglinGolemSpawn;
@@ -11,6 +12,7 @@ import dev.xkmc.golemdungeons.init.reg.GDItems;
 import dev.xkmc.l2library.serial.advancements.AdvancementGenerator;
 import dev.xkmc.l2library.serial.advancements.CriterionBuilder;
 import dev.xkmc.modulargolems.compat.materials.cataclysm.CataDispatch;
+import dev.xkmc.modulargolems.compat.materials.twilightforest.TFDispatch;
 import net.minecraft.advancements.critereon.LocationPredicate;
 import net.minecraft.advancements.critereon.PlayerTrigger;
 import net.minecraftforge.fml.ModList;
@@ -44,6 +46,9 @@ public class GDAdvGen {
 
 		if (ModList.get().isLoaded(CataDispatch.MODID)) {
 			CataclysmCompatData.genAdv(pvd, defeat);
+		}
+		if (ModList.get().isLoaded(TFDispatch.MODID)) {
+			TwilightCompatData.genAdv(pvd, defeat);
 		}
 
 		root.build();

@@ -1,10 +1,14 @@
 {
+  "advancements.golemdungeons.advancements.dungeons.craft_fiery_giant_sword.description": "pɹoʍS ʇuɐı⅁ ʎɹǝıℲ ǝɥʇ ʇɟɐɹƆ",
+  "advancements.golemdungeons.advancements.dungeons.craft_fiery_giant_sword.title": "unpɹǝΛ ʇɥbıןıʍ⟘",
   "advancements.golemdungeons.advancements.dungeons.defeat_abandoned_factory.description": "ʎɹoʇɔɐℲ pǝuopuɐqⱯ ɟo ןɐıɹ⟘ ʇɐǝɟǝᗡ",
   "advancements.golemdungeons.advancements.dungeons.defeat_abandoned_factory.title": "ǝɹɐɟɹɐM ןɐɔıuɐɥɔǝW",
   "advancements.golemdungeons.advancements.dungeons.defeat_piglin_factory.description": "ʎɔɐbǝꞀ uıןbıԀ ɟo ןɐıɹ⟘ ʇɐǝɟǝᗡ",
   "advancements.golemdungeons.advancements.dungeons.defeat_piglin_factory.title": "ǝɯı⟘ uǝpןo⅁ ɟo ʎɔɐbǝꞀ",
   "advancements.golemdungeons.advancements.dungeons.defeat_sculk_factory.description": "uoıʇɐʇsǝɟuI ʞןnɔS ɟo ןɐıɹ⟘ ʇɐǝɟǝᗡ",
   "advancements.golemdungeons.advancements.dungeons.defeat_sculk_factory.title": "ʎʇıɯɐןɐƆ uǝppıH ǝɥ⟘",
+  "advancements.golemdungeons.advancements.dungeons.defeat_twilight_dungeon.description": "uoısɐʌuI ʇɥbıןıʍ⟘ ɟo ןɐıɹ⟘ ʇɐǝɟǝᗡ",
+  "advancements.golemdungeons.advancements.dungeons.defeat_twilight_dungeon.title": "uoısɐʌuI pǝןɐǝS ǝɥ⟘",
   "advancements.golemdungeons.advancements.dungeons.summon_ender_guardian_golem.description": "ʇuǝɯǝɔɹoɟuıǝᴚ ɯǝןo⅁ ɥʇıʍ uɐıpɹɐn⅁ ɹǝpuƎ uoɯɯnS",
   "advancements.golemdungeons.advancements.dungeons.summon_ender_guardian_golem.title": "puƎ ǝɥʇ ɟo ʇɥbıuʞǝW",
   "advancements.golemdungeons.advancements.dungeons.summon_harbinger_golem.description": "ʇuǝɯǝɔɹoɟuıǝᴚ ɯǝןo⅁ ɥʇıʍ ɹǝbuıqɹɐH uoɯɯnS",
@@ -27,6 +31,12 @@
   "item.golemdungeons.eye_of_crimson_factory": "ʎɹoʇɔɐℲ uosɯıɹƆ ɟo ǝʎƎ",
   "item.golemdungeons.eye_of_sculk_factory": "ʎɹoʇɔɐℲ ʞןnɔS ɟo ǝʎƎ",
   "item.golemdungeons.flame_sword": "pɹoʍS ǝɯɐןℲ",
+  "item.golemdungeons.giant_fiery_ingot": "ʇobuI ʎɹǝıℲ ʇuɐı⅁",
+  "item.golemdungeons.giant_fiery_sword": "pɹoʍS ʎɹǝıℲ ʇuɐı⅁",
+  "item.golemdungeons.giant_ironwood_ingot": "ʇobuI pooʍuoɹI ʇuɐı⅁",
+  "item.golemdungeons.giant_ironwood_sword": "pɹoʍS pooʍuoɹI ʇuɐı⅁",
+  "item.golemdungeons.giant_knightmetal_ingot": "ʇobuI ןɐʇǝɯʇɥbıuʞ ʇuɐı⅁",
+  "item.golemdungeons.giant_knightmetal_sword": "pɹoʍS ןɐʇǝɯʇɥbıuʞ ʇuɐı⅁",
   "item.golemdungeons.hostile_summon_wand": "puɐM uoɯɯnS ǝןıʇsoH",
   "item.golemdungeons.medal_of_conqueror": "ɹoɹǝnbuoƆ ɟO ןɐpǝW",
   "item.golemdungeons.samurai_golem_chestplate": "ǝʇɐןdʇsǝɥƆ ɯǝןo⅁ ıɐɹnɯɐS",
@@ -65,6 +75,8 @@
   "trial.golemdungeons.illagers_creation": "suoıʇɐǝɹƆ ,sɹǝbɐןןI",
   "trial.golemdungeons.piglin_legacy": "ʎɔɐbǝꞀ uıןbıԀ",
   "trial.golemdungeons.sculk_infestation": "uoıʇɐʇsǝɟuI ʞןnɔS",
+  "trial.twilightforest.twilight_invasion": "uoısɐʌuI ʇɥbıןıʍ⟘",
   "trial_selector.cataclysm": "sʇuǝɯǝɔɹoɟuıǝᴚ ɯsʎןɔɐʇɐƆ",
-  "trial_selector.golemdungeons": "suoǝbunᗡ ɯǝןo⅁"
+  "trial_selector.golemdungeons": "suoǝbunᗡ ɯǝןo⅁",
+  "trial_selector.twilightforest": "uoısɐʌuI ʇɥbıןıʍ⟘"
 }

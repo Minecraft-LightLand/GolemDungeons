@@ -1,10 +1,14 @@
 {
+  "advancements.golemdungeons.advancements.dungeons.craft_fiery_giant_sword.description": "Craft the Fiery Giant Sword",
+  "advancements.golemdungeons.advancements.dungeons.craft_fiery_giant_sword.title": "Twilight Verdun",
   "advancements.golemdungeons.advancements.dungeons.defeat_abandoned_factory.description": "Defeat Trial of Abandoned Factory",
   "advancements.golemdungeons.advancements.dungeons.defeat_abandoned_factory.title": "Mechanical Warfare",
   "advancements.golemdungeons.advancements.dungeons.defeat_piglin_factory.description": "Defeat Trial of Piglin Legacy",
   "advancements.golemdungeons.advancements.dungeons.defeat_piglin_factory.title": "Legacy of Golden Time",
   "advancements.golemdungeons.advancements.dungeons.defeat_sculk_factory.description": "Defeat Trial of Sculk Infestation",
   "advancements.golemdungeons.advancements.dungeons.defeat_sculk_factory.title": "The Hidden Calamity",
+  "advancements.golemdungeons.advancements.dungeons.defeat_twilight_dungeon.description": "Defeat Trial of Twilight Invasion",
+  "advancements.golemdungeons.advancements.dungeons.defeat_twilight_dungeon.title": "The Sealed Invasion",
   "advancements.golemdungeons.advancements.dungeons.summon_ender_guardian_golem.description": "Summon Ender Guardian with Golem Reinforcement",
   "advancements.golemdungeons.advancements.dungeons.summon_ender_guardian_golem.title": "Meknight of the End",
   "advancements.golemdungeons.advancements.dungeons.summon_harbinger_golem.description": "Summon Harbinger with Golem Reinforcement",
@@ -27,6 +31,12 @@
   "item.golemdungeons.eye_of_crimson_factory": "Eye of Crimson Factory",
   "item.golemdungeons.eye_of_sculk_factory": "Eye of Sculk Factory",
   "item.golemdungeons.flame_sword": "Flame Sword",
+  "item.golemdungeons.giant_fiery_ingot": "Giant Fiery Ingot",
+  "item.golemdungeons.giant_fiery_sword": "Giant Fiery Sword",
+  "item.golemdungeons.giant_ironwood_ingot": "Giant Ironwood Ingot",
+  "item.golemdungeons.giant_ironwood_sword": "Giant Ironwood Sword",
+  "item.golemdungeons.giant_knightmetal_ingot": "Giant Knightmetal Ingot",
+  "item.golemdungeons.giant_knightmetal_sword": "Giant Knightmetal Sword",
   "item.golemdungeons.hostile_summon_wand": "Hostile Summon Wand",
   "item.golemdungeons.medal_of_conqueror": "Medal Of Conqueror",
   "item.golemdungeons.samurai_golem_chestplate": "Samurai Golem Chestplate",
@@ -65,6 +75,8 @@
   "trial.golemdungeons.illagers_creation": "Illagers' Creations",
   "trial.golemdungeons.piglin_legacy": "Piglin Legacy",
   "trial.golemdungeons.sculk_infestation": "Sculk Infestation",
+  "trial.twilightforest.twilight_invasion": "Twilight Invasion",
   "trial_selector.cataclysm": "Cataclysm Reinforcements",
-  "trial_selector.golemdungeons": "Golem Dungeons"
+  "trial_selector.golemdungeons": "Golem Dungeons",
+  "trial_selector.twilightforest": "Twilight Invasion"
 }

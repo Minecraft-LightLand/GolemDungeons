@@ -1,0 +1,44 @@
+{
+  "parent": "golemdungeons:dungeons/defeat_twilight_dungeon",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "twilightforest"
+    }
+  ],
+  "criteria": {
+    "0": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "golemdungeons:giant_fiery_sword"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.golemdungeons.advancements.dungeons.craft_fiery_giant_sword.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "golemdungeons:giant_fiery_sword"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.golemdungeons.advancements.dungeons.craft_fiery_giant_sword.title"
+    }
+  },
+  "requirements": [
+    [
+      "0"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

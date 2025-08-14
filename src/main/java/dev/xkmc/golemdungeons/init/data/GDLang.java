@@ -2,12 +2,14 @@ package dev.xkmc.golemdungeons.init.data;
 
 import com.tterrag.registrate.providers.RegistrateLangProvider;
 import dev.xkmc.golemdungeons.compat.cataclysm.data.CataclysmCompatData;
+import dev.xkmc.golemdungeons.compat.twilightforest.data.TwilightCompatData;
 import dev.xkmc.golemdungeons.init.GolemDungeons;
 import dev.xkmc.golemdungeons.init.data.spawn.FactoryGolemSpawn;
 import dev.xkmc.golemdungeons.init.data.spawn.IllagerGolemSpawn;
 import dev.xkmc.golemdungeons.init.data.spawn.PiglinGolemSpawn;
 import dev.xkmc.golemdungeons.init.data.spawn.SculkGolemSpawn;
 import dev.xkmc.modulargolems.compat.materials.cataclysm.CataDispatch;
+import dev.xkmc.modulargolems.compat.materials.twilightforest.TFDispatch;
 import dev.xkmc.modulargolems.init.ModularGolems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
@@ -92,6 +94,9 @@ public enum GDLang {
 
 		if (ModList.get().isLoaded(CataDispatch.MODID)) {
 			CataclysmCompatData.genLang(pvd);
+		}
+		if (ModList.get().isLoaded(TFDispatch.MODID)) {
+			TwilightCompatData.genLang(pvd);
 		}
 
 	}

@@ -4,6 +4,7 @@ import com.tterrag.registrate.util.entry.BlockEntityEntry;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import com.tterrag.registrate.util.entry.RegistryEntry;
+import dev.xkmc.golemdungeons.compat.twilightforest.TwilightGDRegistry;
 import dev.xkmc.golemdungeons.content.client.GDModelPaths;
 import dev.xkmc.golemdungeons.content.equipments.AncientForge;
 import dev.xkmc.golemdungeons.content.equipments.FlameSword;
@@ -19,6 +20,7 @@ import dev.xkmc.golemdungeons.init.data.structure.GDStructureGen;
 import dev.xkmc.l2itemselector.init.data.L2ISTagGen;
 import dev.xkmc.l2modularblock.BlockProxy;
 import dev.xkmc.l2modularblock.DelegateBlock;
+import dev.xkmc.modulargolems.compat.materials.twilightforest.TFDispatch;
 import dev.xkmc.modulargolems.content.item.equipments.MetalGolemArmorItem;
 import dev.xkmc.modulargolems.init.material.VanillaGolemWeaponMaterial;
 import net.minecraft.tags.BlockTags;
@@ -26,6 +28,7 @@ import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
+import net.minecraftforge.fml.ModList;
 
 import static dev.xkmc.golemdungeons.init.GolemDungeons.REGISTRATE;
 
@@ -115,6 +118,11 @@ public class GDItems {
 				.validBlock(SPAWNER)
 				.renderer(() -> GolemTrialRenderer::new)
 				.register();
+
+		if (ModList.get().isLoaded(TFDispatch.MODID)) {
+			TwilightGDRegistry.register();
+		}
+
 	}
 
 	public static void register() {

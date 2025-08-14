@@ -1,6 +1,7 @@
 {
 	"itemGroup.l2library.golem_dungeons": "傀儡地牢",
 	"block.golemdungeons.golem_spawner": "傀儡试炼核心",
+	"item.golemdungeons.eye_of_ancient_factory": "锈铜之眼",
 	"item.golemdungeons.eye_of_crimson_factory": "鎏金之眼",
 	"item.golemdungeons.eye_of_sculk_factory": "回响之眼",
 	"item.golemdungeons.medal_of_conqueror": "征服者奖章",
@@ -12,6 +13,12 @@
 	"item.golemdungeons.samurai_golem_chestplate": "武士护甲",
 	"item.golemdungeons.samurai_golem_helmet": "武士头盔",
 	"item.golemdungeons.samurai_golem_shinguard": "武士护腿",
+	"item.golemdungeons.giant_fiery_ingot": "巨人炽铁锭",
+	"item.golemdungeons.giant_fiery_sword": "巨人炽铁剑",
+	"item.golemdungeons.giant_ironwood_ingot": "巨人铁木锭",
+	"item.golemdungeons.giant_ironwood_sword": "巨人铁木剑",
+	"item.golemdungeons.giant_knightmetal_ingot": "巨人骑士锭",
+	"item.golemdungeons.giant_knightmetal_sword": "巨人骑士剑",,
 	"modulargolems.bar.charging": "充能中",
 	"modulargolems.bar.progress": "剩余%s个",
 	"modulargolems.bar.summoning": "召唤中",
@@ -35,6 +42,7 @@
 	"modulargolems.tooltip.wand.trial": "右键傀儡试炼核心设置试炼阵营",
 	"trial_selector.golemdungeons": "傀儡地牢",
 	"trial_selector.cataclysm": "灾变增援",
+	"trial.twilightforest.twilight_invasion": "暮色侵略",
 	"trial.golemdungeons.factory_remnant": "废弃工厂",
 	"trial.golemdungeons.illagers_creation": "灾厄造物",
 	"trial.golemdungeons.piglin_legacy": "猪灵旧部",
@@ -44,6 +52,7 @@
 	"trial.cataclysm.heavenly_storm": "天水风暴",
 	"trial.cataclysm.meknight_of_the_end": "末地行军",
 	"trial.cataclysm.resurgent_flame": "重燃之焰",
+	"trial_selector.twilightforest": "暮色侵略",
 	"advancements.golemdungeons.advancements.dungeons.visit_abandoned_factory.description": "访问废弃傀儡工厂",
 	"advancements.golemdungeons.advancements.dungeons.visit_abandoned_factory.title": "历史的痕迹",
 	"advancements.golemdungeons.advancements.dungeons.visit_piglin_factory.description": "访问猪灵的傀儡工厂",
@@ -65,5 +74,9 @@
 	"advancements.golemdungeons.advancements.dungeons.summon_monstrosity_golem.description": "召唤带有傀儡增援的下界合金巨兽",
 	"advancements.golemdungeons.advancements.dungeons.summon_monstrosity_golem.title": "下界合金增援",
 	"advancements.golemdungeons.advancements.dungeons.summon_scylla_golem.description": "召唤带有傀儡增援的斯库拉",
-	"advancements.golemdungeons.advancements.dungeons.summon_scylla_golem.title": "天水风暴"
+	"advancements.golemdungeons.advancements.dungeons.summon_scylla_golem.title": "天水风暴",
+	"advancements.golemdungeons.advancements.dungeons.craft_fiery_giant_sword.description": "合成巨人炽铁剑",
+	"advancements.golemdungeons.advancements.dungeons.craft_fiery_giant_sword.title": "暮色的凡尔登绞肉机",
+	"advancements.golemdungeons.advancements.dungeons.defeat_twilight_dungeon.description": "战胜暮色侵略试炼",
+	"advancements.golemdungeons.advancements.dungeons.defeat_twilight_dungeon.title": "被封印的侵略者"
 }
