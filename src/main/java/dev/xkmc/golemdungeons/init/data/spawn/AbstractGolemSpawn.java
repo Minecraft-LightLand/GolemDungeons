@@ -35,4 +35,13 @@ public class AbstractGolemSpawn {
 				.ban(GolemItems.HUMANOID_ARMS.get());
 	}
 
+	public static SpawnConfig.GolemMaterialEntry atkOnly(int weight) {
+		return new SpawnConfig.GolemMaterialEntry(weight)
+				.ban(GolemItems.GOLEM_BODY.get())
+				.ban(GolemItems.GOLEM_LEGS.get())
+				.ban(GolemItems.HUMANOID_BODY.get())
+				.ban(GolemItems.HUMANOID_LEGS.get())
+				.ban(GolemItems.DOG_LEGS.get());
+	}
+
 }

@@ -1,4 +1,4 @@
-package dev.xkmc.golemdungeons.compat.twilightforest;
+package dev.xkmc.golemdungeons.compat.twilightforest.structure;
 
 import dev.xkmc.golemdungeons.init.reg.GDItems;
 import net.minecraft.core.BlockPos;

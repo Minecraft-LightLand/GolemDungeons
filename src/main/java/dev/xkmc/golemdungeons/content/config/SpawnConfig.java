@@ -163,9 +163,9 @@ public class SpawnConfig extends BaseConfig {
 	) {
 		ArrayList<IUpgradeItem> ans = new ArrayList<>();
 		for (var e : upgrades) {
-			if (e instanceof UpgradeItem item && fitsOn(mats, ans, holder, item)) {
-				ans.add(item);
-			}
+			if (e instanceof UpgradeItem item && !fitsOn(mats, ans, holder, item))
+				continue;
+			ans.add(e);
 		}
 		return ans;
 	}

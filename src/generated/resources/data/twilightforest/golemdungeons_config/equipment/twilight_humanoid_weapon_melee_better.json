@@ -1,0 +1,80 @@
+{
+  "items": {
+    "MAINHAND": [
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 30,
+        "stack": {
+          "item": "twilightforest:fiery_sword",
+          "nbt": "{Damage:0}"
+        },
+        "weight": 200
+      },
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 30,
+        "stack": {
+          "item": "twilightforest:knightmetal_sword",
+          "nbt": "{Damage:0}"
+        },
+        "weight": 100
+      },
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 30,
+        "stack": {
+          "item": "twilightforest:knightmetal_axe",
+          "nbt": "{Damage:0}"
+        },
+        "weight": 100
+      },
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 30,
+        "stack": {
+          "item": "twilightforest:steeleaf_sword",
+          "nbt": "{Damage:0}"
+        },
+        "weight": 100
+      },
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 30,
+        "stack": {
+          "item": "twilightforest:steeleaf_axe",
+          "nbt": "{Damage:0}"
+        },
+        "weight": 100
+      },
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 30,
+        "stack": {
+          "item": "twilightforest:ice_sword",
+          "nbt": "{Damage:0}"
+        },
+        "weight": 200
+      },
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 30,
+        "stack": {
+          "item": "twilightforest:diamond_minotaur_axe",
+          "nbt": "{Damage:0}"
+        },
+        "weight": 200
+      }
+    ],
+    "OFFHAND": [
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 30,
+        "stack": {
+          "item": "twilightforest:knightmetal_shield",
+          "nbt": "{Damage:0}"
+        },
+        "weight": 100
+      }
+    ]
+  }
+}

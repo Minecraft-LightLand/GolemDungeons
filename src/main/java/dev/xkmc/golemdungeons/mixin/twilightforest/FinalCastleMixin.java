@@ -1,7 +1,7 @@
 package dev.xkmc.golemdungeons.mixin.twilightforest;
 
-import dev.xkmc.golemdungeons.compat.twilightforest.FinalCastleModifier;
-import dev.xkmc.golemdungeons.compat.twilightforest.PosMapper;
+import dev.xkmc.golemdungeons.compat.twilightforest.structure.FinalCastleModifier;
+import dev.xkmc.golemdungeons.compat.twilightforest.structure.PosMapper;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
