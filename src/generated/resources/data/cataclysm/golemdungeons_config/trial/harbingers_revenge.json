@@ -1,24 +1,21 @@
 {
+  "generateChest": false,
   "list": [
     [
       {
-        "max": 1,
-        "min": 1,
+        "num": 1,
         "target": "cataclysm:witherite_large"
       },
       {
-        "max": 1,
-        "min": 1,
+        "num": 1,
         "target": "cataclysm:witherite_humanoid_shredder"
       },
       {
-        "max": 1,
-        "min": 1,
+        "num": 1,
         "target": "cataclysm:witherite_humanoid_cannon"
       },
       {
-        "max": 1,
-        "min": 1,
+        "num": 1,
         "target": "cataclysm:witherite_humanoid_laser"
       }
     ]

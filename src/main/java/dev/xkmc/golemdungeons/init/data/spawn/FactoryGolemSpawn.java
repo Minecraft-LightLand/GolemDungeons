@@ -5,7 +5,7 @@ import dev.xkmc.golemdungeons.content.config.SpawnConfig;
 import dev.xkmc.golemdungeons.content.config.TrialConfig;
 import dev.xkmc.golemdungeons.content.faction.DungeonFactionRegistry;
 import dev.xkmc.golemdungeons.init.GolemDungeons;
-import dev.xkmc.golemdungeons.init.data.GDLootGen;
+import dev.xkmc.golemdungeons.init.data.loot.GDLootGen;
 import dev.xkmc.golemdungeons.init.reg.GDItems;
 import dev.xkmc.l2library.serial.config.ConfigDataProvider;
 import dev.xkmc.modulargolems.init.ModularGolems;
@@ -79,7 +79,7 @@ public class FactoryGolemSpawn extends AbstractGolemSpawn {
 					.add(EquipmentSlot.MAINHAND, 50, getWeapon(VanillaGolemWeaponMaterial.IRON, GolemWeaponType.AXE), 20)
 					.add(EquipmentSlot.MAINHAND, 50, getWeapon(VanillaGolemWeaponMaterial.IRON, GolemWeaponType.SWORD), 20)
 					.add(EquipmentSlot.MAINHAND, 50, getWeapon(VanillaGolemWeaponMaterial.IRON, GolemWeaponType.SPEAR), 20)
-					.add(EquipmentSlot.MAINHAND, 50, GDItems.ANCIENT_FORGE.get(), 20, 2)
+					.add(EquipmentSlot.MAINHAND, 100, GDItems.ANCIENT_FORGE.get(), 20, 2)
 			);
 		}
 

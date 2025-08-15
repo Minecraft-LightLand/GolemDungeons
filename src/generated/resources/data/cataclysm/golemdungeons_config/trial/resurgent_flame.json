@@ -1,14 +1,13 @@
 {
+  "generateChest": false,
   "list": [
     [
       {
-        "max": 2,
-        "min": 2,
+        "num": 2,
         "target": "cataclysm:ignis_large"
       },
       {
-        "max": 2,
-        "min": 2,
+        "num": 2,
         "target": "cataclysm:ignis_humanoid"
       }
     ]

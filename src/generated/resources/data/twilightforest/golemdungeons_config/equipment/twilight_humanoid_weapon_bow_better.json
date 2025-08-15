@@ -2,7 +2,7 @@
   "items": {
     "MAINHAND": [
       {
-        "dropChance": 0.085,
+        "dropChance": 0.2,
         "enchantLevel": 30,
         "stack": {
           "item": "twilightforest:triple_bow",
@@ -11,7 +11,7 @@
         "weight": 100
       },
       {
-        "dropChance": 0.085,
+        "dropChance": 0.2,
         "enchantLevel": 30,
         "stack": {
           "item": "twilightforest:ice_bow",

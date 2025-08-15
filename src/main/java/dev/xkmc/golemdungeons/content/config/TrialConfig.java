@@ -27,6 +27,9 @@ public class TrialConfig extends BaseConfig {
 	@SerialClass.SerialField
 	public int triggerRange = 12, minY = -4, maxY = 6;
 
+	@SerialClass.SerialField
+	public boolean generateChest = false;
+
 	@Nullable
 	@SerialClass.SerialField
 	public ResourceLocation reward;
@@ -38,6 +41,11 @@ public class TrialConfig extends BaseConfig {
 
 	public TrialConfig setCost(int cost) {
 		spawnCost = cost;
+		return this;
+	}
+
+	public TrialConfig genChest() {
+		generateChest = true;
 		return this;
 	}
 
@@ -60,11 +68,7 @@ public class TrialConfig extends BaseConfig {
 		return diff.y > minY && diff.y < maxY;
 	}
 
-	public record WaveEntry(ResourceLocation target, int min, int max) {
-
-		public int roll(RandomSource random) {
-			return random.nextInt(min, max + 1);
-		}
+	public record WaveEntry(ResourceLocation target, int num) {
 
 	}
 

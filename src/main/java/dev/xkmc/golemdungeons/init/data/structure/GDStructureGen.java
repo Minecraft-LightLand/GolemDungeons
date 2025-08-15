@@ -1,7 +1,7 @@
 package dev.xkmc.golemdungeons.init.data.structure;
 
 import dev.xkmc.golemdungeons.init.GolemDungeons;
-import dev.xkmc.golemdungeons.init.data.GDLootGen;
+import dev.xkmc.golemdungeons.init.data.loot.GDLootGen;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;

@@ -14,6 +14,7 @@ import dev.xkmc.golemdungeons.events.GDAttackListener;
 import dev.xkmc.golemdungeons.init.data.*;
 import dev.xkmc.golemdungeons.init.data.advancement.GDAdvGen;
 import dev.xkmc.golemdungeons.init.data.advancement.GDTriggers;
+import dev.xkmc.golemdungeons.init.data.loot.GDLootGen;
 import dev.xkmc.golemdungeons.init.data.structure.GDBiomeTagsProvider;
 import dev.xkmc.golemdungeons.init.data.structure.GDStructureGen;
 import dev.xkmc.golemdungeons.init.data.structure.GDStructureTagsProvider;

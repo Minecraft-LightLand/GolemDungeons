@@ -27,7 +27,7 @@ public record CataBossEntry(ItemLike activator, ResourceLocation trial, Class<?>
 			for (var entry : waves) {
 				var target = GolemDungeons.SPAWN.getEntry(entry.target());
 				if (target == null) continue;
-				int n = entry.roll(sl.getRandom());
+				int n = entry.num();
 				for (int i = 0; i < n; i++) {
 					targets.add(target.summon(sl));
 				}
