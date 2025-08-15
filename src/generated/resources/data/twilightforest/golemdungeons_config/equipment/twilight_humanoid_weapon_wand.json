@@ -1,0 +1,35 @@
+{
+  "items": {
+    "MAINHAND": [
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 0,
+        "stack": {
+          "item": "twilightforest:twilight_scepter",
+          "nbt": "{Damage:0}"
+        },
+        "weight": 100
+      },
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 0,
+        "stack": {
+          "item": "twilightforest:lifedrain_scepter",
+          "nbt": "{Damage:0}"
+        },
+        "weight": 100
+      }
+    ],
+    "OFFHAND": [
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 30,
+        "stack": {
+          "item": "minecraft:shield",
+          "nbt": "{Damage:0}"
+        },
+        "weight": 100
+      }
+    ]
+  }
+}

@@ -25,6 +25,7 @@ public class TwilightGolemSpawn extends AbstractGolemSpawn {
 	public static final ResourceLocation ITEM_HUMANOID_ARMOR = loc("twilight_humanoid_armor");
 	public static final ResourceLocation ITEM_HUMANOID_MELEE = loc("twilight_humanoid_weapon_melee");
 	public static final ResourceLocation ITEM_HUMANOID_BOW = loc("twilight_humanoid_weapon_bow");
+	public static final ResourceLocation ITEM_HUMANOID_WAND = loc("twilight_humanoid_weapon_wand");
 
 	public static final ResourceLocation ITEM_HUMANOID_ARMOR_BETTER = loc("twilight_humanoid_armor_better");
 	public static final ResourceLocation ITEM_HUMANOID_MELEE_BETTER = loc("twilight_humanoid_weapon_melee_better");
@@ -122,6 +123,12 @@ public class TwilightGolemSpawn extends AbstractGolemSpawn {
 					.add(EquipmentSlot.OFFHAND, 100, Items.ARROW)
 			);
 
+			map.add(GolemDungeons.ITEMS, ITEM_HUMANOID_WAND, new EquipmentConfig()
+					.add(EquipmentSlot.MAINHAND, 100, TFItems.TWILIGHT_SCEPTER.get())
+					.add(EquipmentSlot.MAINHAND, 100, TFItems.LIFEDRAIN_SCEPTER.get())
+					.add(EquipmentSlot.OFFHAND, 100, Items.SHIELD, 30)
+			);
+
 		}
 
 		{
@@ -156,7 +163,8 @@ public class TwilightGolemSpawn extends AbstractGolemSpawn {
 							.add(100, ITEM_HUMANOID_ARMOR_BETTER))
 					.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_HUMANOID.get())
 							.add(100, ITEM_HUMANOID_MELEE_BETTER)
-							.add(100, ITEM_HUMANOID_BOW))
+							.add(50, ITEM_HUMANOID_BOW)
+							.add(50, ITEM_HUMANOID_WAND))
 			);
 
 			map.add(GolemDungeons.SPAWN, ALL, createGeneric().asTrialKey(ALL)
@@ -174,7 +182,8 @@ public class TwilightGolemSpawn extends AbstractGolemSpawn {
 					.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_HUMANOID.get())
 							.add(100, ITEM_HUMANOID_MELEE)
 							.add(100, ITEM_HUMANOID_MELEE_BETTER)
-							.add(200, ITEM_HUMANOID_BOW))
+							.add(150, ITEM_HUMANOID_BOW)
+							.add(50, ITEM_HUMANOID_WAND))
 			);
 
 

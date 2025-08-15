@@ -4,6 +4,7 @@ import com.tterrag.registrate.providers.DataGenContext;
 import com.tterrag.registrate.providers.RegistrateItemModelProvider;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import dev.xkmc.golemdungeons.compat.twilightforest.item.GiantFierySword;
+import dev.xkmc.golemdungeons.compat.twilightforest.item.GiantKnightmetalSword;
 import dev.xkmc.golemdungeons.init.GolemDungeons;
 import dev.xkmc.modulargolems.compat.materials.twilightforest.TFDispatch;
 import dev.xkmc.modulargolems.content.item.equipments.MetalGolemWeaponItem;
@@ -18,7 +19,8 @@ import net.minecraftforge.client.model.generators.loaders.SeparateTransformsMode
 public class TwilightGDRegistry {
 
 	public static final ItemEntry<Item> GIANT_IRONWOOD_INGOT, GIANT_KNIGHT_INGOT, GIANT_FIERY_INGOT;
-	public static final ItemEntry<MetalGolemWeaponItem> GIANT_IRONWOOD_SWORD, GIANT_KNIGHT_SWORD;
+	public static final ItemEntry<MetalGolemWeaponItem> GIANT_IRONWOOD_SWORD;
+	public static final ItemEntry<GiantKnightmetalSword> GIANT_KNIGHT_SWORD;
 	public static final ItemEntry<GiantFierySword> GIANT_FIERY_SWORD;
 
 	static {
@@ -47,7 +49,7 @@ public class TwilightGDRegistry {
 				.register();
 
 		GIANT_KNIGHT_SWORD = GolemDungeons.REGISTRATE.item("giant_knightmetal_sword", p ->
-						new MetalGolemWeaponItem(p, 10, 0.3, 3, 3))
+						new GiantKnightmetalSword(p, 10, 0.3, 3, 3))
 				.properties(p -> p.stacksTo(1))
 				.model((ctx, pvd) ->
 						giantToolModel(ctx, pvd, loc("knightmetal_sword")))

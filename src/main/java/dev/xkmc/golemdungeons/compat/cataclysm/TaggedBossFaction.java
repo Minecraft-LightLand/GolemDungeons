@@ -8,7 +8,6 @@ import net.minecraft.world.entity.EntityType;
 
 public class TaggedBossFaction extends DungeonFaction {
 
-
 	private final TagKey<EntityType<?>> tag;
 
 	public TaggedBossFaction(ResourceLocation id, TagKey<EntityType<?>> tag) {
