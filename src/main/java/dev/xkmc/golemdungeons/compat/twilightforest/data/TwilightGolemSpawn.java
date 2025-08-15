@@ -16,6 +16,7 @@ import dev.xkmc.modulargolems.init.registrate.GolemTypes;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.Potions;
 import twilightforest.init.TFItems;
 
 public class TwilightGolemSpawn extends AbstractGolemSpawn {
@@ -25,10 +26,11 @@ public class TwilightGolemSpawn extends AbstractGolemSpawn {
 	public static final ResourceLocation ITEM_HUMANOID_ARMOR = loc("twilight_humanoid_armor");
 	public static final ResourceLocation ITEM_HUMANOID_MELEE = loc("twilight_humanoid_weapon_melee");
 	public static final ResourceLocation ITEM_HUMANOID_BOW = loc("twilight_humanoid_weapon_bow");
-	public static final ResourceLocation ITEM_HUMANOID_WAND = loc("twilight_humanoid_weapon_wand");
 
 	public static final ResourceLocation ITEM_HUMANOID_ARMOR_BETTER = loc("twilight_humanoid_armor_better");
 	public static final ResourceLocation ITEM_HUMANOID_MELEE_BETTER = loc("twilight_humanoid_weapon_melee_better");
+	public static final ResourceLocation ITEM_HUMANOID_BOW_BETTER = loc("twilight_humanoid_weapon_bow_better");
+	public static final ResourceLocation ITEM_HUMANOID_WAND = loc("twilight_humanoid_weapon_wand");
 
 	public static final ResourceLocation LV1 = loc("twilight_lv1");
 	public static final ResourceLocation LV2 = loc("twilight_lv2");
@@ -117,10 +119,16 @@ public class TwilightGolemSpawn extends AbstractGolemSpawn {
 			);
 
 			map.add(GolemDungeons.ITEMS, ITEM_HUMANOID_BOW, new EquipmentConfig()
-					.add(EquipmentSlot.MAINHAND, 100, Items.BOW, 30)
+					.add(EquipmentSlot.MAINHAND, 200, Items.BOW, 30)
 					.add(EquipmentSlot.MAINHAND, 100, TFItems.TRIPLE_BOW.get(), 30)
 					.add(EquipmentSlot.MAINHAND, 100, TFItems.ICE_BOW.get(), 30)
 					.add(EquipmentSlot.OFFHAND, 100, Items.ARROW)
+			);
+
+			map.add(GolemDungeons.ITEMS, ITEM_HUMANOID_BOW_BETTER, new EquipmentConfig()
+					.add(EquipmentSlot.MAINHAND, 100, TFItems.TRIPLE_BOW.get(), 30)
+					.add(EquipmentSlot.MAINHAND, 100, TFItems.ICE_BOW.get(), 30)
+					.add(EquipmentSlot.OFFHAND, 100, tipped(Potions.STRONG_HARMING))
 			);
 
 			map.add(GolemDungeons.ITEMS, ITEM_HUMANOID_WAND, new EquipmentConfig()
@@ -163,7 +171,7 @@ public class TwilightGolemSpawn extends AbstractGolemSpawn {
 							.add(100, ITEM_HUMANOID_ARMOR_BETTER))
 					.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_HUMANOID.get())
 							.add(100, ITEM_HUMANOID_MELEE_BETTER)
-							.add(50, ITEM_HUMANOID_BOW)
+							.add(50, ITEM_HUMANOID_BOW_BETTER)
 							.add(50, ITEM_HUMANOID_WAND))
 			);
 
@@ -181,8 +189,9 @@ public class TwilightGolemSpawn extends AbstractGolemSpawn {
 							.add(100, ITEM_HUMANOID_ARMOR_BETTER))
 					.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_HUMANOID.get())
 							.add(100, ITEM_HUMANOID_MELEE)
+							.add(100, ITEM_HUMANOID_BOW)
 							.add(100, ITEM_HUMANOID_MELEE_BETTER)
-							.add(150, ITEM_HUMANOID_BOW)
+							.add(50, ITEM_HUMANOID_BOW_BETTER)
 							.add(50, ITEM_HUMANOID_WAND))
 			);
 

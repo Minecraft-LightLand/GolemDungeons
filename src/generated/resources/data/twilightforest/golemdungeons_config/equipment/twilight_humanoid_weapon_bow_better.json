@@ -5,15 +5,6 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "minecraft:bow",
-          "nbt": "{Damage:0}"
-        },
-        "weight": 200
-      },
-      {
-        "dropChance": 0.085,
-        "enchantLevel": 30,
-        "stack": {
           "item": "twilightforest:triple_bow",
           "nbt": "{Damage:0}"
         },
@@ -34,7 +25,8 @@
         "dropChance": 0.085,
         "enchantLevel": 0,
         "stack": {
-          "item": "minecraft:arrow"
+          "item": "minecraft:tipped_arrow",
+          "nbt": "{Potion:\"minecraft:strong_harming\"}"
         },
         "weight": 100
       }

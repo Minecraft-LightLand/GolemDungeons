@@ -39,12 +39,16 @@
           "weight": 100
         },
         {
+          "target": "twilightforest:twilight_humanoid_weapon_bow",
+          "weight": 100
+        },
+        {
           "target": "twilightforest:twilight_humanoid_weapon_melee_better",
           "weight": 100
         },
         {
-          "target": "twilightforest:twilight_humanoid_weapon_bow",
-          "weight": 150
+          "target": "twilightforest:twilight_humanoid_weapon_bow_better",
+          "weight": 50
         },
         {
           "target": "twilightforest:twilight_humanoid_weapon_wand",
