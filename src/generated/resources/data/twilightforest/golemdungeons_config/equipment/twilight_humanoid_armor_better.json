@@ -32,7 +32,7 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "twilightforest:naga_leggings",
+          "item": "twilightforest:naga_chestplate",
           "nbt": "{Damage:0}"
         },
         "weight": 100
@@ -94,15 +94,6 @@
           "nbt": "{Damage:0}"
         },
         "weight": 100
-      },
-      {
-        "dropChance": 0.085,
-        "enchantLevel": 30,
-        "stack": {
-          "item": "twilightforest:naga_chestplate",
-          "nbt": "{Damage:0}"
-        },
-        "weight": 100
       }
     ],
     "LEGS": [
@@ -129,6 +120,15 @@
         "enchantLevel": 30,
         "stack": {
           "item": "twilightforest:yeti_leggings",
+          "nbt": "{Damage:0}"
+        },
+        "weight": 100
+      },
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 30,
+        "stack": {
+          "item": "twilightforest:naga_leggings",
           "nbt": "{Damage:0}"
         },
         "weight": 100

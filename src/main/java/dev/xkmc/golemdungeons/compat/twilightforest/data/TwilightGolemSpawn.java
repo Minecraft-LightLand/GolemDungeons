@@ -92,8 +92,8 @@ public class TwilightGolemSpawn extends AbstractGolemSpawn {
 					.add(EquipmentSlot.LEGS, 100, TFItems.YETI_LEGGINGS.get(), 30)
 					.add(EquipmentSlot.FEET, 100, TFItems.YETI_BOOTS.get(), 30)
 
-					.add(EquipmentSlot.HEAD, 100, TFItems.NAGA_CHESTPLATE.get(), 30)
-					.add(EquipmentSlot.CHEST, 100, TFItems.NAGA_LEGGINGS.get(), 30)
+					.add(EquipmentSlot.CHEST, 100, TFItems.NAGA_CHESTPLATE.get(), 30)
+					.add(EquipmentSlot.LEGS, 100, TFItems.NAGA_LEGGINGS.get(), 30)
 			);
 
 			map.add(GolemDungeons.ITEMS, ITEM_HUMANOID_MELEE, new EquipmentConfig()
