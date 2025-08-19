@@ -97,6 +97,7 @@ public class GolemDungeons {
 		REGISTRATE.addDataGenerator(ProviderType.LOOT, GDLootGen::genLoot);
 		REGISTRATE.addDataGenerator(ProviderType.RECIPE, GDRecipeGen::genRecipe);
 		REGISTRATE.addDataGenerator(ProviderType.ADVANCEMENT, GDAdvGen::genAdv);
+		REGISTRATE.addDataGenerator(ProviderType.ITEM_TAGS, GDTagGen::genItemTag);
 
 		var gen = event.getGenerator();
 		var output = gen.getPackOutput();
@@ -107,6 +108,7 @@ public class GolemDungeons {
 		gen.addProvider(server, new GDConfigGen(gen));
 		gen.addProvider(server, reg);
 		gen.addProvider(server, new GDBiomeTagsProvider(output, pvd, helper));
+		gen.addProvider(server, new GDGLMGen(output));
 		gen.addProvider(server, new GDStructureTagsProvider(output, reg.getRegistryProvider(), helper));
 		new GDDamageTypes(output, pvd, helper).generate(server, gen);
 	}

@@ -1,18 +1,12 @@
 {
   "parent": "golemdungeons:dungeons/defeat_twilight_dungeon",
-  "conditions": [
-    {
-      "type": "forge:mod_loaded",
-      "modid": "twilightforest"
-    }
-  ],
   "criteria": {
     "0": {
       "conditions": {
         "items": [
           {
             "items": [
-              "golemdungeons:giant_knightmetal_pickaxe"
+              "golemdungeons:giant_upgrade"
             ]
           }
         ]
@@ -23,17 +17,16 @@
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "advancements.golemdungeons.advancements.dungeons.craft_giant_knightmetal_ingot.description"
+      "translate": "advancements.golemdungeons.advancements.dungeons.giant_upgrade.description"
     },
-    "frame": "goal",
+    "frame": "task",
     "hidden": false,
     "icon": {
-      "item": "golemdungeons:giant_knightmetal_pickaxe",
-      "nbt": "{Damage:0}"
+      "item": "golemdungeons:giant_upgrade"
     },
     "show_toast": true,
     "title": {
-      "translate": "advancements.golemdungeons.advancements.dungeons.craft_giant_knightmetal_ingot.title"
+      "translate": "advancements.golemdungeons.advancements.dungeons.giant_upgrade.title"
     }
   },
   "requirements": [

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "golemdungeons:item/upgrades/giant_upgrade",
+    "layer1": "modulargolems:item/purple_arrow"
+  }
+}

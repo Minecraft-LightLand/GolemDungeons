@@ -17,6 +17,7 @@ import dev.xkmc.l2library.serial.config.ConfigDataProvider;
 import dev.xkmc.l2library.serial.recipe.ConditionalRecipeWrapper;
 import dev.xkmc.l2library.util.data.LootTableTemplate;
 import dev.xkmc.modulargolems.compat.materials.twilightforest.TFDispatch;
+import dev.xkmc.modulargolems.init.registrate.GolemItems;
 import net.minecraft.Util;
 import net.minecraft.advancements.FrameType;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -71,9 +72,10 @@ public class TwilightCompatData {
 				.save(ConditionalRecipeWrapper.mod(pvd, TFDispatch.MODID));
 
 		GDRecipeGen.unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, TwilightGDRegistry.GIANT_FIERY_PICKAXE.get())::unlockedBy,
-						TwilightGDRegistry.GIANT_FIERY_INGOT.get()).pattern("III").pattern(" L ").pattern(" L ")
+						TwilightGDRegistry.GIANT_FIERY_INGOT.get()).pattern("III").pattern("SLS").pattern("SLS")
 				.define('I', TwilightGDRegistry.GIANT_FIERY_INGOT.get())
 				.define('L', TFBlocks.GIANT_OBSIDIAN.get())
+				.define('S', GDItems.FLAME_CORE.get())
 				.save(ConditionalRecipeWrapper.mod(pvd, TFDispatch.MODID));
 
 		GDRecipeGen.unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, TwilightGDRegistry.GIANT_IRONWOOD_SWORD.get())::unlockedBy,
@@ -89,10 +91,17 @@ public class TwilightCompatData {
 				.save(ConditionalRecipeWrapper.mod(pvd, TFDispatch.MODID));
 
 		GDRecipeGen.unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, TwilightGDRegistry.GIANT_FIERY_SWORD.get())::unlockedBy,
-						TwilightGDRegistry.GIANT_FIERY_INGOT.get()).pattern("SIS").pattern("SIS").pattern(" L ")
+						TwilightGDRegistry.GIANT_FIERY_INGOT.get()).pattern("SIS").pattern("SIS").pattern("SLS")
 				.define('I', TwilightGDRegistry.GIANT_FIERY_INGOT.get())
 				.define('L', Blocks.NETHERITE_BLOCK)
-				.define('S', GDItems.FLAME_SWORD.get())
+				.define('S', GDItems.FLAME_CORE.get())
+				.save(ConditionalRecipeWrapper.mod(pvd, TFDispatch.MODID));
+
+		GDRecipeGen.unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, TwilightGDRegistry.ITEM_GIANT.get())::unlockedBy,
+						TwilightGDRegistry.GIANT_FIERY_INGOT.get()).pattern("IBI").pattern("IEI").pattern("I I")
+				.define('I', TwilightGDRegistry.GIANT_IRONWOOD_INGOT.get())
+				.define('B', TFItems.MAGIC_BEANS.get())
+				.define('E', GolemItems.EMPTY_UPGRADE.get())
 				.save(ConditionalRecipeWrapper.mod(pvd, TFDispatch.MODID));
 
 	}
@@ -104,11 +113,14 @@ public class TwilightCompatData {
 	}
 
 	public static void genAdv(RegistrateAdvancementProvider pvd, AdvancementGenerator.TabBuilder.Entry defeat) {
-		defeat.create("defeat_twilight_dungeon", TFBlocks.DEADROCK.get().asItem(),
+		var tf = defeat.create("defeat_twilight_dungeon", TFBlocks.DEADROCK.get().asItem(),
 						CriterionBuilder.one(TrialCompleteTrigger.ins(TwilightGolemSpawn.ALL)),
 						"The Sealed Invasion", "Defeat Trial of Twilight Invasion in dungeons of the Final Castle")
-				.add(new ModLoadedAdv(TFDispatch.MODID))
-				.create("craft_giant_knightmetal_ingot", TwilightGDRegistry.GIANT_KNIGHT_INGOT.get(),
+				.add(new ModLoadedAdv(TFDispatch.MODID));
+		tf.create("giant_upgrade", TwilightGDRegistry.ITEM_GIANT.get(),
+				CriterionBuilder.item(TwilightGDRegistry.ITEM_GIANT.get()),
+				"Giant Golems", "Grind golem trials to collect materials and craft the Giant Upgrade");
+		tf.create("craft_giant_knightmetal_ingot", TwilightGDRegistry.GIANT_KNIGHTMETAL_PICKAXE.get(),
 						CriterionBuilder.item(TwilightGDRegistry.GIANT_KNIGHTMETAL_PICKAXE.get()),
 						"Blessing to Giant Miners", "Grind golem trials to collect materials and craft the Giant Knightmetal Pickaxe. Use it to mine Giant Obsidian!")
 				.type(FrameType.GOAL).add(new ModLoadedAdv(TFDispatch.MODID))
@@ -133,11 +145,14 @@ public class TwilightCompatData {
 								.add(ModLootItem.lootTableItem(TFItems.HYDRA_CHOP.get(), 2, 4))
 								.add(ModLootItem.lootTableItem(TFItems.MAZE_WAFER.get(), 16, 24))
 								.add(ModLootItem.lootTableItem(TFItems.EXPERIMENT_115.get(), 4, 8))
+								.add(ModLootItem.lootTableItem(TFItems.MAGIC_BEANS.get()))
 						)
 						.withPool(LootTableTemplate.getPool(1, 1)
 								.add(ModLootItem.lootTableItem(TFItems.MOONWORM_QUEEN.get()))
 								.add(ModLootItem.lootTableItem(TFItems.PEACOCK_FEATHER_FAN.get()))
 								.add(ModLootItem.lootTableItem(TFItems.ORE_MAGNET.get()))
+								.add(ModLootItem.lootTableItem(TFItems.CHARM_OF_KEEPING_3.get(), 2, 4))
+								.add(ModLootItem.lootTableItem(TFItems.CHARM_OF_LIFE_2.get(), 2, 4))
 						)
 						.withPool(LootTableTemplate.getPool(1, 1)
 								.add(ModLootItem.lootTableItem(TFItems.GLASS_SWORD.get()))

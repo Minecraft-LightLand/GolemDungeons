@@ -42,7 +42,7 @@ public class GDItems {
 	public static final ItemEntry<StructureEye> EYE_OF_SCULK_FACTORY;
 
 	public static final ItemEntry<TrialMedal> TRIAL_MEDAL;
-	public static final ItemEntry<Item> MEDAL_OF_CONQUEROR;
+	public static final ItemEntry<Item> MEDAL_OF_CONQUEROR, FLAME_CORE;
 
 	public static final ItemEntry<MetalGolemArmorItem> SAMURAI_HELMET, SAMURAI_CHESTPLATE, SAMURAI_SHINGUARD;
 
@@ -80,6 +80,10 @@ public class GDItems {
 				.register();
 
 		MEDAL_OF_CONQUEROR = REGISTRATE.item("medal_of_conqueror", Item::new)
+				.properties(p -> p.rarity(Rarity.RARE).stacksTo(16).fireResistant())
+				.register();
+
+		FLAME_CORE = REGISTRATE.item("flame_core", Item::new)
 				.properties(p -> p.rarity(Rarity.RARE).stacksTo(16).fireResistant())
 				.register();
 

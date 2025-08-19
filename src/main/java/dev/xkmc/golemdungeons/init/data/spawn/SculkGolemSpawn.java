@@ -7,6 +7,7 @@ import dev.xkmc.golemdungeons.content.faction.DungeonFactionRegistry;
 import dev.xkmc.golemdungeons.init.GolemDungeons;
 import dev.xkmc.golemdungeons.init.data.loot.GDLootGen;
 import dev.xkmc.golemdungeons.init.reg.GDItems;
+import dev.xkmc.golemdungeons.init.reg.GDModifiers;
 import dev.xkmc.l2library.serial.config.ConfigDataProvider;
 import dev.xkmc.modulargolems.init.ModularGolems;
 import dev.xkmc.modulargolems.init.material.GolemWeaponType;
@@ -180,8 +181,8 @@ public class SculkGolemSpawn extends AbstractGolemSpawn {
 		return new SpawnConfig(DungeonFactionRegistry.SCULK)
 				.mat(ModularGolems.loc("sculk"), 100)
 				.upgrade(GolemItems.ENCHANTED_GOLD.asItem(), 100)
-				.upgrade(GolemItems.DIAMOND.asItem(), 100)
 				.upgrade(GolemItems.NETHERITE.asItem(), 100)
+				.upgrade(GDModifiers.ITEM_RESISTANCE.asItem(), 100)
 				.upgradeChance(1, 1, 0.7, 0.7);
 	}
 

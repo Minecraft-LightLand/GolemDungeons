@@ -8,23 +8,23 @@
     }
   ],
   "key": {
+    "B": {
+      "item": "twilightforest:magic_beans"
+    },
+    "E": {
+      "item": "modulargolems:empty_upgrade"
+    },
     "I": {
-      "item": "golemdungeons:giant_fiery_ingot"
-    },
-    "L": {
-      "item": "twilightforest:giant_obsidian"
-    },
-    "S": {
-      "item": "golemdungeons:flame_core"
+      "item": "golemdungeons:giant_ironwood_ingot"
     }
   },
   "pattern": [
-    "III",
-    "SLS",
-    "SLS"
+    "IBI",
+    "IEI",
+    "I I"
   ],
   "result": {
-    "item": "golemdungeons:giant_fiery_pickaxe"
+    "item": "golemdungeons:giant_upgrade"
   },
   "show_notification": true
 }

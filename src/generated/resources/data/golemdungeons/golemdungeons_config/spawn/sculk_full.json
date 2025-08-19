@@ -80,11 +80,11 @@
       "weight": 100
     },
     {
-      "upgrade": "modulargolems:diamond",
+      "upgrade": "modulargolems:netherite",
       "weight": 100
     },
     {
-      "upgrade": "modulargolems:netherite",
+      "upgrade": "golemdungeons:resistance_upgrade",
       "weight": 100
     }
   ]
