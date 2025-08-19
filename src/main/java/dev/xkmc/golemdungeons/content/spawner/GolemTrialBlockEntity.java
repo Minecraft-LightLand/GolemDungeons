@@ -21,6 +21,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
@@ -242,7 +243,11 @@ public class GolemTrialBlockEntity extends BaseBlockEntity implements TickableBl
 				.withParameter(LootContextParams.ORIGIN, Vec3.atCenterOf(getBlockPos()))
 				.create(LootContextParamSets.CHEST);
 		List<ItemStack> list = loot.getRandomItems(params);
-		var be = level.getBlockEntity(getBlockPos().above());
+		var up = getBlockPos().above();
+		if (config.generateChest && level.getBlockState(up).isAir()) {
+			level.setBlockAndUpdate(up, Blocks.CHEST.defaultBlockState());
+		}
+		var be = level.getBlockEntity(up);
 		if (be != null) {
 			var opt = be.getCapability(ForgeCapabilities.ITEM_HANDLER).resolve();
 			if (opt.isPresent()) {

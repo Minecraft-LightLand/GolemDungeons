@@ -21,12 +21,8 @@ public class AbstractGolemSpawn {
 		return PotionUtils.setPotion(Items.TIPPED_ARROW.getDefaultInstance(), potion);
 	}
 
-	public static TrialConfig.WaveEntry of(ResourceLocation target, int min, int max) {
-		return new TrialConfig.WaveEntry(target, min, max);
-	}
-
 	public static TrialConfig.WaveEntry of(ResourceLocation target, int num) {
-		return of(target, num, num);
+		return new TrialConfig.WaveEntry(target, num);
 	}
 
 	public static SpawnConfig.GolemMaterialEntry noArm(int weight) {

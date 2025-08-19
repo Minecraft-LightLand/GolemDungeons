@@ -22,11 +22,10 @@ public class GDRecipeGen {
 	public static void genRecipe(RegistrateRecipeProvider pvd) {
 
 		unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, GDItems.EYE_OF_ANCIENT_FACTORY.get())::unlockedBy, GolemItems.GOLEM_TEMPLATE.get())
-				.pattern(" A ").pattern("BEB").pattern(" C ")
+				.pattern(" A ").pattern("BEB").pattern(" B ")
 				.define('A', GolemItems.GOLEM_TEMPLATE)
 				.define('E', Items.ENDER_EYE)
-				.define('B', Items.COPPER_BLOCK)
-				.define('C', Items.OXIDIZED_COPPER)
+				.define('B', Items.RAW_COPPER)
 				.save(pvd);
 
 		unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, GDItems.EYE_OF_CRIMSON_FACTORY.get())::unlockedBy, GDItems.MEDAL_OF_CONQUEROR.get())

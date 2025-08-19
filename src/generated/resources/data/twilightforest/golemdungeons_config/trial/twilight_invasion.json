@@ -1,55 +1,54 @@
 {
+  "generateChest": true,
   "list": [
     [
       {
-        "max": 1,
-        "min": 1,
+        "num": 1,
         "target": "twilightforest:twilight_lv1"
       }
     ],
     [
       {
-        "max": 4,
-        "min": 4,
+        "num": 4,
         "target": "twilightforest:twilight_lv1"
       }
     ],
     [
       {
-        "max": 6,
-        "min": 6,
-        "target": "twilightforest:twilight_lv1"
-      }
-    ],
-    [
-      {
-        "max": 4,
-        "min": 4,
+        "num": 4,
         "target": "twilightforest:twilight_lv1"
       },
       {
-        "max": 4,
-        "min": 4,
+        "num": 2,
         "target": "twilightforest:twilight_lv2"
       }
     ],
     [
       {
-        "max": 12,
-        "min": 12,
+        "num": 4,
+        "target": "twilightforest:twilight_lv1"
+      },
+      {
+        "num": 6,
         "target": "twilightforest:twilight_lv2"
       }
     ],
     [
       {
-        "max": 16,
-        "min": 16,
+        "num": 12,
+        "target": "twilightforest:twilight_lv2"
+      }
+    ],
+    [
+      {
+        "num": 16,
         "target": "twilightforest:twilight_lv2"
       }
     ]
   ],
   "maxY": 3,
   "minY": -1,
-  "spawnCost": 100,
+  "reward": "golemdungeons:trial_reward/twilight_invasion",
+  "spawnCost": 200,
   "triggerRange": 7
 }

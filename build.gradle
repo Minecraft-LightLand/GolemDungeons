@@ -262,6 +262,6 @@ modrinth {
     changelog = new File('./changelog.txt').text.split("\n\n")[0]
     dependencies {
         required.project "l2library"
-        required.project "modulargolems"
+        required.project "modular-golems"
     }
 }

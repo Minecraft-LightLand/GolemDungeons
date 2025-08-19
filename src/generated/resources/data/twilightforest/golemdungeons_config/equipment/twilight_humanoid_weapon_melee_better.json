@@ -47,7 +47,7 @@
         "weight": 100
       },
       {
-        "dropChance": 0.085,
+        "dropChance": 0.2,
         "enchantLevel": 30,
         "stack": {
           "item": "twilightforest:ice_sword",
@@ -56,7 +56,7 @@
         "weight": 200
       },
       {
-        "dropChance": 0.085,
+        "dropChance": 0.2,
         "enchantLevel": 30,
         "stack": {
           "item": "twilightforest:diamond_minotaur_axe",
@@ -67,7 +67,7 @@
     ],
     "OFFHAND": [
       {
-        "dropChance": 0.085,
+        "dropChance": 0.2,
         "enchantLevel": 30,
         "stack": {
           "item": "twilightforest:knightmetal_shield",

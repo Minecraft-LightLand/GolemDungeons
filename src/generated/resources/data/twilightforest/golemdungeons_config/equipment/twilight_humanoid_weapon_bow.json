@@ -8,10 +8,10 @@
           "item": "minecraft:bow",
           "nbt": "{Damage:0}"
         },
-        "weight": 100
+        "weight": 200
       },
       {
-        "dropChance": 0.085,
+        "dropChance": 0.2,
         "enchantLevel": 30,
         "stack": {
           "item": "twilightforest:triple_bow",
@@ -20,7 +20,7 @@
         "weight": 100
       },
       {
-        "dropChance": 0.085,
+        "dropChance": 0.2,
         "enchantLevel": 30,
         "stack": {
           "item": "twilightforest:ice_bow",

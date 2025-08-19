@@ -6,10 +6,7 @@
       "item": "modulargolems:metal_golem_template"
     },
     "B": {
-      "item": "minecraft:copper_block"
-    },
-    "C": {
-      "item": "minecraft:oxidized_copper"
+      "item": "minecraft:raw_copper"
     },
     "E": {
       "item": "minecraft:ender_eye"
@@ -18,7 +15,7 @@
   "pattern": [
     " A ",
     "BEB",
-    " C "
+    " B "
   ],
   "result": {
     "item": "golemdungeons:eye_of_ancient_factory"

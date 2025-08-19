@@ -30,7 +30,7 @@ public class TrialData {
 	private ResourceLocation id;
 
 	@SerialClass.SerialField
-	private int wave = 0, entryCount = 0, entryIndex = 0, toSummon = 0, mobIndex = 0;
+	private int wave = 0, entryCount = 0, entryIndex = 0, toSummon = 0, mobIndex = 0, totalMob = 0;
 
 	@SerialClass.SerialField
 	private long nextAction = 0;
@@ -84,7 +84,7 @@ public class TrialData {
 				entryIndex = 0;
 				return true;
 			}
-			toSummon = list.get(entryIndex).roll(level.getRandom());
+			toSummon = list.get(entryIndex).num();
 		}
 		var entry = list.get(entryIndex);
 		if (toSummon > 0) {
@@ -117,6 +117,10 @@ public class TrialData {
 		var entry = config.list.get(ind);
 		entryCount = entry.size();
 		entryIndex = -1;
+		totalMob = 0;
+		for (int i = 0; i < entryCount; i++) {
+			totalMob += entry.get(i).num();
+		}
 		mobIndex = 0;
 		totalHealth = 0;
 		nextAction = time + WAVE_DELAY;
@@ -157,8 +161,8 @@ public class TrialData {
 		} else if (entryCount > 0) {
 			// summoning
 			bar.setColor(BossEvent.BossBarColor.PURPLE);
-			bar.setMax(entryCount);
-			bar.setValue(entryIndex);
+			bar.setMax(totalMob);
+			bar.setValue(mobIndex - 1);
 			bar.setName(GDLang.fromTrial(id).append(GDLang.BAR_WAVE.get(wave)).append(GDLang.BAR_SUMMONING.get()));
 		} else if (totalHealth > 0) {
 			float hp = 0;

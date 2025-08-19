@@ -1,12 +1,14 @@
-package dev.xkmc.golemdungeons.init.data;
+package dev.xkmc.golemdungeons.init.data.loot;
 
 import com.tterrag.registrate.providers.loot.RegistrateLootTableProvider;
+import dev.xkmc.golemdungeons.compat.twilightforest.data.TwilightCompatData;
 import dev.xkmc.golemdungeons.init.GolemDungeons;
 import dev.xkmc.golemdungeons.init.data.spawn.FactoryGolemSpawn;
 import dev.xkmc.golemdungeons.init.data.spawn.PiglinGolemSpawn;
 import dev.xkmc.golemdungeons.init.data.spawn.SculkGolemSpawn;
 import dev.xkmc.golemdungeons.init.reg.GDItems;
 import dev.xkmc.l2library.util.data.LootTableTemplate;
+import dev.xkmc.modulargolems.compat.materials.twilightforest.TFDispatch;
 import dev.xkmc.modulargolems.init.registrate.GolemItems;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
@@ -14,6 +16,7 @@ import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
+import net.minecraftforge.fml.ModList;
 
 public class GDLootGen {
 
@@ -288,6 +291,10 @@ public class GDLootGen {
 									.add(LootItem.lootTableItem(Items.PITCHER_POD))
 							)
 			));
+		}
+
+		if (ModList.get().isLoaded(TFDispatch.MODID)) {
+			TwilightCompatData.genLoot(pvd);
 		}
 
 	}

@@ -1,156 +1,129 @@
 {
+  "generateChest": false,
   "list": [
     [
       {
-        "max": 1,
-        "min": 1,
+        "num": 1,
         "target": "golemdungeons:factory_large_1"
       }
     ],
     [
       {
-        "max": 1,
-        "min": 1,
+        "num": 1,
         "target": "golemdungeons:factory_large_1"
       },
       {
-        "max": 2,
-        "min": 2,
+        "num": 2,
         "target": "golemdungeons:factory_humanoid_basic"
       }
     ],
     [
       {
-        "max": 2,
-        "min": 2,
+        "num": 2,
         "target": "golemdungeons:factory_large_1"
       },
       {
-        "max": 1,
-        "min": 1,
+        "num": 1,
         "target": "golemdungeons:factory_humanoid_melee"
       },
       {
-        "max": 2,
-        "min": 2,
+        "num": 2,
         "target": "golemdungeons:factory_humanoid_ranged"
       }
     ],
     [
       {
-        "max": 1,
-        "min": 1,
+        "num": 1,
         "target": "golemdungeons:factory_large_1"
       },
       {
-        "max": 1,
-        "min": 1,
+        "num": 1,
         "target": "golemdungeons:factory_large_2"
       },
       {
-        "max": 1,
-        "min": 1,
+        "num": 1,
         "target": "golemdungeons:factory_humanoid_melee"
       },
       {
-        "max": 1,
-        "min": 1,
+        "num": 1,
         "target": "golemdungeons:factory_humanoid_ranged"
       },
       {
-        "max": 1,
-        "min": 1,
+        "num": 1,
         "target": "golemdungeons:factory_humanoid_tipped"
       }
     ],
     [
       {
-        "max": 3,
-        "min": 3,
+        "num": 3,
         "target": "golemdungeons:factory_large_2"
       },
       {
-        "max": 2,
-        "min": 2,
+        "num": 2,
         "target": "golemdungeons:factory_humanoid_melee"
       },
       {
-        "max": 2,
-        "min": 2,
+        "num": 2,
         "target": "golemdungeons:factory_humanoid_ranged"
       },
       {
-        "max": 2,
-        "min": 2,
+        "num": 2,
         "target": "golemdungeons:factory_humanoid_tipped"
       },
       {
-        "max": 1,
-        "min": 1,
+        "num": 1,
         "target": "golemdungeons:factory_humanoid_rocket"
       }
     ],
     [
       {
-        "max": 2,
-        "min": 2,
+        "num": 2,
         "target": "golemdungeons:factory_large_3"
       },
       {
-        "max": 2,
-        "min": 2,
+        "num": 2,
         "target": "golemdungeons:factory_humanoid_melee"
       },
       {
-        "max": 1,
-        "min": 1,
+        "num": 1,
         "target": "golemdungeons:factory_humanoid_ranged"
       },
       {
-        "max": 2,
-        "min": 2,
+        "num": 2,
         "target": "golemdungeons:factory_humanoid_tipped"
       },
       {
-        "max": 1,
-        "min": 1,
+        "num": 1,
         "target": "golemdungeons:factory_humanoid_rocket"
       },
       {
-        "max": 3,
-        "min": 3,
+        "num": 3,
         "target": "golemdungeons:factory_remnant"
       }
     ],
     [
       {
-        "max": 3,
-        "min": 3,
+        "num": 3,
         "target": "golemdungeons:factory_large_3"
       },
       {
-        "max": 2,
-        "min": 2,
+        "num": 2,
         "target": "golemdungeons:factory_humanoid_melee"
       },
       {
-        "max": 1,
-        "min": 1,
+        "num": 1,
         "target": "golemdungeons:factory_humanoid_ranged"
       },
       {
-        "max": 2,
-        "min": 2,
+        "num": 2,
         "target": "golemdungeons:factory_humanoid_tipped"
       },
       {
-        "max": 2,
-        "min": 2,
+        "num": 2,
         "target": "golemdungeons:factory_humanoid_rocket"
       },
       {
-        "max": 5,
-        "min": 5,
+        "num": 5,
         "target": "golemdungeons:factory_remnant"
       }
     ]

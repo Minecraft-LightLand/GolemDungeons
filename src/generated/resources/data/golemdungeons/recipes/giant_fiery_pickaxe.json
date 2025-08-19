@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "twilightforest"
+    }
+  ],
+  "key": {
+    "I": {
+      "item": "golemdungeons:giant_fiery_ingot"
+    },
+    "L": {
+      "item": "twilightforest:giant_obsidian"
+    }
+  },
+  "pattern": [
+    "III",
+    " L ",
+    " L "
+  ],
+  "result": {
+    "item": "golemdungeons:giant_fiery_pickaxe"
+  },
+  "show_notification": true
+}

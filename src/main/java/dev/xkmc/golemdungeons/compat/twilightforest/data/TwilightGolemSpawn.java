@@ -16,6 +16,7 @@ import dev.xkmc.modulargolems.init.registrate.GolemTypes;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.Potions;
 import twilightforest.init.TFItems;
 
 public class TwilightGolemSpawn extends AbstractGolemSpawn {
@@ -28,6 +29,8 @@ public class TwilightGolemSpawn extends AbstractGolemSpawn {
 
 	public static final ResourceLocation ITEM_HUMANOID_ARMOR_BETTER = loc("twilight_humanoid_armor_better");
 	public static final ResourceLocation ITEM_HUMANOID_MELEE_BETTER = loc("twilight_humanoid_weapon_melee_better");
+	public static final ResourceLocation ITEM_HUMANOID_BOW_BETTER = loc("twilight_humanoid_weapon_bow_better");
+	public static final ResourceLocation ITEM_HUMANOID_WAND = loc("twilight_humanoid_weapon_wand");
 
 	public static final ResourceLocation LV1 = loc("twilight_lv1");
 	public static final ResourceLocation LV2 = loc("twilight_lv2");
@@ -89,8 +92,8 @@ public class TwilightGolemSpawn extends AbstractGolemSpawn {
 					.add(EquipmentSlot.LEGS, 100, TFItems.YETI_LEGGINGS.get(), 30)
 					.add(EquipmentSlot.FEET, 100, TFItems.YETI_BOOTS.get(), 30)
 
-					.add(EquipmentSlot.HEAD, 100, TFItems.NAGA_CHESTPLATE.get(), 30)
-					.add(EquipmentSlot.CHEST, 100, TFItems.NAGA_LEGGINGS.get(), 30)
+					.add(EquipmentSlot.CHEST, 100, TFItems.NAGA_CHESTPLATE.get(), 30)
+					.add(EquipmentSlot.LEGS, 100, TFItems.NAGA_LEGGINGS.get(), 30)
 			);
 
 			map.add(GolemDungeons.ITEMS, ITEM_HUMANOID_MELEE, new EquipmentConfig()
@@ -110,16 +113,28 @@ public class TwilightGolemSpawn extends AbstractGolemSpawn {
 					.add(EquipmentSlot.MAINHAND, 100, TFItems.KNIGHTMETAL_AXE.get(), 30)
 					.add(EquipmentSlot.MAINHAND, 100, TFItems.STEELEAF_SWORD.get(), 30)
 					.add(EquipmentSlot.MAINHAND, 100, TFItems.STEELEAF_AXE.get(), 30)
-					.add(EquipmentSlot.MAINHAND, 200, TFItems.ICE_SWORD.get(), 30)
-					.add(EquipmentSlot.MAINHAND, 200, TFItems.DIAMOND_MINOTAUR_AXE.get(), 30)
-					.add(EquipmentSlot.OFFHAND, 100, TFItems.KNIGHTMETAL_SHIELD.get(), 30)
+					.add(EquipmentSlot.MAINHAND, 200, TFItems.ICE_SWORD.get(), 30, 0.2f)
+					.add(EquipmentSlot.MAINHAND, 200, TFItems.DIAMOND_MINOTAUR_AXE.get(), 30, 0.2f)
+					.add(EquipmentSlot.OFFHAND, 100, TFItems.KNIGHTMETAL_SHIELD.get(), 30, 0.2f)
 			);
 
 			map.add(GolemDungeons.ITEMS, ITEM_HUMANOID_BOW, new EquipmentConfig()
-					.add(EquipmentSlot.MAINHAND, 100, Items.BOW, 30)
-					.add(EquipmentSlot.MAINHAND, 100, TFItems.TRIPLE_BOW.get(), 30)
-					.add(EquipmentSlot.MAINHAND, 100, TFItems.ICE_BOW.get(), 30)
+					.add(EquipmentSlot.MAINHAND, 200, Items.BOW, 30)
+					.add(EquipmentSlot.MAINHAND, 100, TFItems.TRIPLE_BOW.get(), 30, 0.2f)
+					.add(EquipmentSlot.MAINHAND, 100, TFItems.ICE_BOW.get(), 30, 0.2f)
 					.add(EquipmentSlot.OFFHAND, 100, Items.ARROW)
+			);
+
+			map.add(GolemDungeons.ITEMS, ITEM_HUMANOID_BOW_BETTER, new EquipmentConfig()
+					.add(EquipmentSlot.MAINHAND, 100, TFItems.TRIPLE_BOW.get(), 30, 0.2f)
+					.add(EquipmentSlot.MAINHAND, 100, TFItems.ICE_BOW.get(), 30, 0.2f)
+					.add(EquipmentSlot.OFFHAND, 100, tipped(Potions.STRONG_HARMING))
+			);
+
+			map.add(GolemDungeons.ITEMS, ITEM_HUMANOID_WAND, new EquipmentConfig()
+					.add(EquipmentSlot.MAINHAND, 100, TFItems.TWILIGHT_SCEPTER.get(), 0, 0.2f)
+					.add(EquipmentSlot.MAINHAND, 100, TFItems.LIFEDRAIN_SCEPTER.get(), 0, 0.2f)
+					.add(EquipmentSlot.OFFHAND, 100, Items.SHIELD, 30)
 			);
 
 		}
@@ -156,7 +171,8 @@ public class TwilightGolemSpawn extends AbstractGolemSpawn {
 							.add(100, ITEM_HUMANOID_ARMOR_BETTER))
 					.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_HUMANOID.get())
 							.add(100, ITEM_HUMANOID_MELEE_BETTER)
-							.add(100, ITEM_HUMANOID_BOW))
+							.add(50, ITEM_HUMANOID_BOW_BETTER)
+							.add(50, ITEM_HUMANOID_WAND))
 			);
 
 			map.add(GolemDungeons.SPAWN, ALL, createGeneric().asTrialKey(ALL)
@@ -173,17 +189,20 @@ public class TwilightGolemSpawn extends AbstractGolemSpawn {
 							.add(100, ITEM_HUMANOID_ARMOR_BETTER))
 					.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_HUMANOID.get())
 							.add(100, ITEM_HUMANOID_MELEE)
+							.add(100, ITEM_HUMANOID_BOW)
 							.add(100, ITEM_HUMANOID_MELEE_BETTER)
-							.add(200, ITEM_HUMANOID_BOW))
+							.add(50, ITEM_HUMANOID_BOW_BETTER)
+							.add(50, ITEM_HUMANOID_WAND))
 			);
 
 
 			map.add(GolemDungeons.TRIAL, ALL, new TrialConfig()
-					.setCost(100).setTriggerRange(7, -1, 3)
+					.setCost(200).setTriggerRange(7, -1, 3)
+					.setReward(TwilightCompatData.REWARD).genChest()
 					.add(of(LV1, 1))
 					.add(of(LV1, 4))
-					.add(of(LV1, 6))
-					.add(of(LV1, 4), of(LV2, 4))
+					.add(of(LV1, 4), of(LV2, 2))
+					.add(of(LV1, 4), of(LV2, 6))
 					.add(of(LV2, 12))
 					.add(of(LV2, 16))
 			);

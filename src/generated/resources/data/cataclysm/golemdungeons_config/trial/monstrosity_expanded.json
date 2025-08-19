@@ -1,9 +1,9 @@
 {
+  "generateChest": false,
   "list": [
     [
       {
-        "max": 4,
-        "min": 4,
+        "num": 4,
         "target": "cataclysm:monstrosity_large"
       }
     ]

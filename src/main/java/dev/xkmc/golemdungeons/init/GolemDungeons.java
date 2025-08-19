@@ -4,6 +4,7 @@ import com.tterrag.registrate.providers.ProviderType;
 import dev.xkmc.golemdungeons.compat.cataclysm.CataclysmEventHandler;
 import dev.xkmc.golemdungeons.compat.cataclysm.CataclysmFactions;
 import dev.xkmc.golemdungeons.compat.cataclysm.CataclysmModEventHandler;
+import dev.xkmc.golemdungeons.compat.twilightforest.TwilightFactions;
 import dev.xkmc.golemdungeons.content.config.EquipmentConfig;
 import dev.xkmc.golemdungeons.content.config.SpawnConfig;
 import dev.xkmc.golemdungeons.content.config.TrialConfig;
@@ -13,6 +14,7 @@ import dev.xkmc.golemdungeons.events.GDAttackListener;
 import dev.xkmc.golemdungeons.init.data.*;
 import dev.xkmc.golemdungeons.init.data.advancement.GDAdvGen;
 import dev.xkmc.golemdungeons.init.data.advancement.GDTriggers;
+import dev.xkmc.golemdungeons.init.data.loot.GDLootGen;
 import dev.xkmc.golemdungeons.init.data.structure.GDBiomeTagsProvider;
 import dev.xkmc.golemdungeons.init.data.structure.GDStructureGen;
 import dev.xkmc.golemdungeons.init.data.structure.GDStructureTagsProvider;
@@ -24,6 +26,7 @@ import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.l2library.serial.config.ConfigTypeEntry;
 import dev.xkmc.l2library.serial.config.PacketHandlerWithConfig;
 import dev.xkmc.modulargolems.compat.materials.cataclysm.CataDispatch;
+import dev.xkmc.modulargolems.compat.materials.twilightforest.TFDispatch;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.data.event.GatherDataEvent;
@@ -80,6 +83,10 @@ public class GolemDungeons {
 			if (ModList.get().isLoaded(CataDispatch.MODID)) {
 				CataclysmFactions.register();
 				IItemSelector.register(new SummonWandSelector(CataDispatch.MODID));
+			}
+			if (ModList.get().isLoaded(TFDispatch.MODID)) {
+				TwilightFactions.register();
+				//IItemSelector.register(new SummonWandSelector(CataDispatch.MODID));
 			}
 		});
 	}

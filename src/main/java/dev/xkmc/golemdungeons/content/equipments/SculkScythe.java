@@ -13,6 +13,7 @@ import dev.xkmc.modulargolems.content.item.equipments.MetalGolemWeaponItem;
 import dev.xkmc.modulargolems.init.ModularGolems;
 import dev.xkmc.modulargolems.init.material.GolemWeaponType;
 import dev.xkmc.modulargolems.init.material.VanillaGolemWeaponMaterial;
+import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -20,11 +21,14 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
+import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ModelFile;
+import net.minecraftforge.client.model.generators.loaders.SeparateTransformsModelBuilder;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -74,9 +78,15 @@ public class SculkScythe extends MetalGolemWeaponItem implements ExtraAttackGole
 		return GolemDungeons.REGISTRATE.item(id, p -> new SculkScythe(material.modify(p.stacksTo(1)),
 						0, material.getDamage() * 0.05, 1, 2))
 				.model((ctx, pvd) -> pvd.getBuilder(ctx.getName())
-						.parent(new ModelFile.UncheckedModelFile(ModularGolems.loc(GolemWeaponType.AXE.model)))
-						.texture("layer0", pvd.modLoc("item/equipments/" + ctx.getName())))
-				.defaultLang().register();
+						.guiLight(BlockModel.GuiLight.FRONT)
+						.customLoader(SeparateTransformsModelBuilder::begin)
+						.base(new ItemModelBuilder(null, pvd.existingFileHelper)
+								.parent(new ModelFile.UncheckedModelFile(ModularGolems.loc(GolemWeaponType.AXE.model)))
+								.texture("layer0", pvd.modLoc("item/equipments/" + ctx.getName())))
+						.perspective(ItemDisplayContext.GUI, new ItemModelBuilder(null, pvd.existingFileHelper)
+								.parent(pvd.getExistingFile(pvd.mcLoc("item/generated")))
+								.texture("layer0", pvd.modLoc("item/equipments/" + ctx.getName() + "_icon")))
+				).defaultLang().register();
 	}
 
 }

@@ -8,6 +8,8 @@ import com.tterrag.registrate.util.entry.ItemEntry;
 import com.tterrag.registrate.util.entry.RegistryEntry;
 import com.tterrag.registrate.util.nullness.NonNullSupplier;
 import dev.xkmc.golemdungeons.compat.twilightforest.item.GiantFierySword;
+import dev.xkmc.golemdungeons.compat.twilightforest.item.GiantKnightmetalSword;
+import dev.xkmc.golemdungeons.compat.twilightforest.item.TFGiantTier;
 import dev.xkmc.golemdungeons.init.GolemDungeons;
 import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.modulargolems.compat.materials.twilightforest.TFDispatch;
@@ -23,6 +25,7 @@ import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.client.model.generators.loaders.SeparateTransformsModelBuilder;
+import twilightforest.item.GiantPickItem;
 import org.apache.commons.lang3.mutable.Mutable;
 import org.apache.commons.lang3.mutable.MutableObject;
 
@@ -32,7 +35,9 @@ import java.util.function.Supplier;
 public class TwilightGDRegistry {
 
 	public static final ItemEntry<Item> GIANT_IRONWOOD_INGOT, GIANT_KNIGHT_INGOT, GIANT_FIERY_INGOT;
-	public static final ItemEntry<MetalGolemWeaponItem> GIANT_IRONWOOD_SWORD, GIANT_KNIGHT_SWORD;
+	public static final ItemEntry<GiantPickItem> GIANT_IRONWOOD_PICKAXE, GIANT_KNIGHTMETAL_PICKAXE, GIANT_FIERY_PICKAXE;
+	public static final ItemEntry<MetalGolemWeaponItem> GIANT_IRONWOOD_SWORD;
+	public static final ItemEntry<GiantKnightmetalSword> GIANT_KNIGHT_SWORD;
 	public static final ItemEntry<GiantFierySword> GIANT_FIERY_SWORD;
 
 	public static final RegistryEntry<AttributeGolemModifier> GIANT;
@@ -56,7 +61,24 @@ public class TwilightGDRegistry {
 							giantIngotModel(ctx, pvd, loc("fiery_ingot")))
 					.register();
 
-			GIANT_IRONWOOD_SWORD = GolemDungeons.REGISTRATE.item("giant_ironwood_sword", p ->
+	GIANT_IRONWOOD_PICKAXE = GolemDungeons.REGISTRATE.item("giant_ironwood_pickaxe", p ->
+						new GiantPickItem(TFGiantTier.IRONWOOD, p))
+				.model((ctx, pvd) ->
+						giantToolModel(ctx, pvd, loc("ironwood_pickaxe")))
+				.register();
+
+		GIANT_KNIGHTMETAL_PICKAXE = GolemDungeons.REGISTRATE.item("giant_knightmetal_pickaxe", p ->
+						new GiantPickItem(TFGiantTier.KNIGHTMETAL, p))
+				.model((ctx, pvd) ->
+						giantToolModel(ctx, pvd, loc("knightmetal_pickaxe")))
+				.register();
+
+		GIANT_FIERY_PICKAXE = GolemDungeons.REGISTRATE.item("giant_fiery_pickaxe", p ->
+						new GiantPickItem(TFGiantTier.FIERY, p))
+				.properties(p -> p.fireResistant())
+				.model((ctx, pvd) ->
+						giantToolModel(ctx, pvd, loc("fiery_pickaxe")))
+				.register();		GIANT_IRONWOOD_SWORD = GolemDungeons.REGISTRATE.item("giant_ironwood_sword", p ->
 							new MetalGolemWeaponItem(p, 10, 0, 3, 3))
 					.properties(p -> p.stacksTo(1))
 					.model((ctx, pvd) ->
@@ -64,7 +86,7 @@ public class TwilightGDRegistry {
 					.register();
 
 			GIANT_KNIGHT_SWORD = GolemDungeons.REGISTRATE.item("giant_knightmetal_sword", p ->
-							new MetalGolemWeaponItem(p, 10, 0.3, 3, 3))
+							new GiantKnightmetalSword(p, 10, 0.3, 3, 3))
 					.properties(p -> p.stacksTo(1))
 					.model((ctx, pvd) ->
 							giantToolModel(ctx, pvd, loc("knightmetal_sword")))
