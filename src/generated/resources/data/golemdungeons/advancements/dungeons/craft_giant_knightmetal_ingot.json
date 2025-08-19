@@ -1,5 +1,5 @@
 {
-  "parent": "golemdungeons:dungeons/craft_giant_knightmetal_ingot",
+  "parent": "golemdungeons:dungeons/defeat_twilight_dungeon",
   "conditions": [
     {
       "type": "forge:mod_loaded",
@@ -12,7 +12,7 @@
         "items": [
           {
             "items": [
-              "golemdungeons:giant_fiery_sword"
+              "golemdungeons:giant_knightmetal_pickaxe"
             ]
           }
         ]
@@ -23,16 +23,16 @@
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "advancements.golemdungeons.advancements.dungeons.craft_fiery_giant_sword.description"
+      "translate": "advancements.golemdungeons.advancements.dungeons.craft_giant_knightmetal_ingot.description"
     },
-    "frame": "challenge",
+    "frame": "goal",
     "hidden": false,
     "icon": {
-      "item": "golemdungeons:giant_fiery_sword"
+      "item": "golemdungeons:giant_knightmetal_ingot"
     },
     "show_toast": true,
     "title": {
-      "translate": "advancements.golemdungeons.advancements.dungeons.craft_fiery_giant_sword.title"
+      "translate": "advancements.golemdungeons.advancements.dungeons.craft_giant_knightmetal_ingot.title"
     }
   },
   "requirements": [

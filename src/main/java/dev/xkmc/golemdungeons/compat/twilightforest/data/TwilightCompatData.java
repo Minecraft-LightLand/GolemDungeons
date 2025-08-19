@@ -18,6 +18,7 @@ import dev.xkmc.l2library.serial.recipe.ConditionalRecipeWrapper;
 import dev.xkmc.l2library.util.data.LootTableTemplate;
 import dev.xkmc.modulargolems.compat.materials.twilightforest.TFDispatch;
 import net.minecraft.Util;
+import net.minecraft.advancements.FrameType;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
@@ -56,6 +57,25 @@ public class TwilightCompatData {
 				.define('G', TFBlocks.GIANT_OBSIDIAN.get())
 				.save(ConditionalRecipeWrapper.mod(pvd, TFDispatch.MODID));
 
+
+		GDRecipeGen.unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, TwilightGDRegistry.GIANT_IRONWOOD_PICKAXE.get())::unlockedBy,
+						TwilightGDRegistry.GIANT_IRONWOOD_INGOT.get()).pattern("III").pattern(" L ").pattern(" L ")
+				.define('I', TwilightGDRegistry.GIANT_IRONWOOD_INGOT.get())
+				.define('L', TFBlocks.GIANT_LOG.get())
+				.save(ConditionalRecipeWrapper.mod(pvd, TFDispatch.MODID));
+
+		GDRecipeGen.unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, TwilightGDRegistry.GIANT_KNIGHTMETAL_PICKAXE.get())::unlockedBy,
+						TwilightGDRegistry.GIANT_KNIGHT_INGOT.get()).pattern("III").pattern(" L ").pattern(" L ")
+				.define('I', TwilightGDRegistry.GIANT_KNIGHT_INGOT.get())
+				.define('L', TFBlocks.GIANT_LOG.get())
+				.save(ConditionalRecipeWrapper.mod(pvd, TFDispatch.MODID));
+
+		GDRecipeGen.unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, TwilightGDRegistry.GIANT_FIERY_PICKAXE.get())::unlockedBy,
+						TwilightGDRegistry.GIANT_FIERY_INGOT.get()).pattern("III").pattern(" L ").pattern(" L ")
+				.define('I', TwilightGDRegistry.GIANT_FIERY_INGOT.get())
+				.define('L', TFBlocks.GIANT_OBSIDIAN.get())
+				.save(ConditionalRecipeWrapper.mod(pvd, TFDispatch.MODID));
+
 		GDRecipeGen.unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, TwilightGDRegistry.GIANT_IRONWOOD_SWORD.get())::unlockedBy,
 						TwilightGDRegistry.GIANT_IRONWOOD_INGOT.get()).pattern("I").pattern("I").pattern("L")
 				.define('I', TwilightGDRegistry.GIANT_IRONWOOD_INGOT.get())
@@ -88,10 +108,14 @@ public class TwilightCompatData {
 						CriterionBuilder.one(TrialCompleteTrigger.ins(TwilightGolemSpawn.ALL)),
 						"The Sealed Invasion", "Defeat Trial of Twilight Invasion in dungeons of the Final Castle")
 				.add(new ModLoadedAdv(TFDispatch.MODID))
+				.create("craft_giant_knightmetal_ingot", TwilightGDRegistry.GIANT_KNIGHT_INGOT.get(),
+						CriterionBuilder.item(TwilightGDRegistry.GIANT_KNIGHTMETAL_PICKAXE.get()),
+						"Blessing to Giant Miners", "Grind golem trials to collect materials and craft the Giant Knightmetal Pickaxe. Use it to mine Giant Obsidian!")
+				.type(FrameType.GOAL).add(new ModLoadedAdv(TFDispatch.MODID))
 				.create("craft_fiery_giant_sword", TwilightGDRegistry.GIANT_FIERY_SWORD.get(),
 						CriterionBuilder.item(TwilightGDRegistry.GIANT_FIERY_SWORD.get()),
-						"Grinder Warfare of Twilight", "Grind golem trials to collect materials and craft the Fiery Giant Sword")
-				.add(new ModLoadedAdv(TFDispatch.MODID));
+						"Grinder Warfare of Twilight", "Grind golem trials to collect materials and craft the Giant Fiery Sword")
+				.type(FrameType.CHALLENGE).add(new ModLoadedAdv(TFDispatch.MODID));
 	}
 
 	public static final ResourceLocation REWARD = GolemDungeons.loc("trial_reward/twilight_invasion");
