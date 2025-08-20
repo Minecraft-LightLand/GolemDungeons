@@ -5,6 +5,7 @@ import com.tterrag.registrate.providers.RegistrateItemModelProvider;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import com.tterrag.registrate.util.entry.RegistryEntry;
 import dev.xkmc.golemdungeons.compat.twilightforest.item.GiantFierySword;
+import dev.xkmc.golemdungeons.compat.twilightforest.item.GiantIngot;
 import dev.xkmc.golemdungeons.compat.twilightforest.item.GiantKnightmetalSword;
 import dev.xkmc.golemdungeons.compat.twilightforest.item.TFGiantTier;
 import dev.xkmc.golemdungeons.init.GolemDungeons;
@@ -25,7 +26,7 @@ import twilightforest.item.GiantPickItem;
 
 public class TwilightGDRegistry {
 
-	public static final ItemEntry<Item> GIANT_IRONWOOD_INGOT, GIANT_KNIGHT_INGOT, GIANT_FIERY_INGOT;
+	public static final ItemEntry<GiantIngot> GIANT_IRONWOOD_INGOT, GIANT_KNIGHT_INGOT, GIANT_FIERY_INGOT;
 	public static final ItemEntry<GiantPickItem> GIANT_IRONWOOD_PICKAXE, GIANT_KNIGHTMETAL_PICKAXE, GIANT_FIERY_PICKAXE;
 	public static final ItemEntry<MetalGolemWeaponItem> GIANT_IRONWOOD_SWORD;
 	public static final ItemEntry<GiantKnightmetalSword> GIANT_KNIGHT_SWORD;
@@ -36,17 +37,17 @@ public class TwilightGDRegistry {
 
 	static {
 		{
-			GIANT_IRONWOOD_INGOT = GolemDungeons.REGISTRATE.item("giant_ironwood_ingot", Item::new)
+			GIANT_IRONWOOD_INGOT = GolemDungeons.REGISTRATE.item("giant_ironwood_ingot", GiantIngot::new)
 					.model((ctx, pvd) ->
 							giantIngotModel(ctx, pvd, loc("ironwood_ingot")))
 					.register();
 
-			GIANT_KNIGHT_INGOT = GolemDungeons.REGISTRATE.item("giant_knightmetal_ingot", Item::new)
+			GIANT_KNIGHT_INGOT = GolemDungeons.REGISTRATE.item("giant_knightmetal_ingot", GiantIngot::new)
 					.model((ctx, pvd) ->
 							giantIngotModel(ctx, pvd, loc("knightmetal_ingot")))
 					.register();
 
-			GIANT_FIERY_INGOT = GolemDungeons.REGISTRATE.item("giant_fiery_ingot", Item::new)
+			GIANT_FIERY_INGOT = GolemDungeons.REGISTRATE.item("giant_fiery_ingot", GiantIngot::new)
 					.properties(p -> p.fireResistant())
 					.model((ctx, pvd) ->
 							giantIngotModel(ctx, pvd, loc("fiery_ingot")))
@@ -94,10 +95,10 @@ public class TwilightGDRegistry {
 
 		{
 			GIANT = GDModifiers.reg("giant", () -> new AttributeGolemModifier(1,
-					new AttributeGolemModifier.AttrEntry(GolemTypes.STAT_SPEED, () -> 4),
-					new AttributeGolemModifier.AttrEntry(GolemTypes.STAT_HEALTH_P, () -> 4),
-					new AttributeGolemModifier.AttrEntry(GolemTypes.STAT_SIZE_P, () -> 4),
-					new AttributeGolemModifier.AttrEntry(GolemTypes.STAT_RANGE, () -> 6)
+					new AttributeGolemModifier.AttrEntry(GolemTypes.STAT_SPEED, () -> 1),
+					new AttributeGolemModifier.AttrEntry(GolemTypes.STAT_HEALTH_P, () -> 3),
+					new AttributeGolemModifier.AttrEntry(GolemTypes.STAT_SIZE_P, () -> 3),
+					new AttributeGolemModifier.AttrEntry(GolemTypes.STAT_RANGE, () -> 3)
 			), null);
 
 			ITEM_GIANT = GDModifiers.regUpgradeImpl("giant_upgrade", () -> GIANT, 1, false, GolemDungeons.MODID).register();

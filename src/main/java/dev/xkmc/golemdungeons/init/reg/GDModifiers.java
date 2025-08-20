@@ -67,7 +67,7 @@ public class GDModifiers {
 				.tab(GolemItems.UPGRADES.getKey());
 	}
 
-	public void register() {
+	public static void register() {
 
 	}
 

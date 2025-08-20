@@ -11,10 +11,11 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
+import twilightforest.item.GiantItem;
 
 import java.util.List;
 
-public class GiantKnightmetalSword extends MetalGolemWeaponItem implements GolemCustomSourceWeapon {
+public class GiantKnightmetalSword extends MetalGolemWeaponItem implements GolemCustomSourceWeapon, GiantItem {
 
 	public GiantKnightmetalSword(Properties properties, int attackDamage, double percentAttack, float range, float sweep) {
 		super(properties, attackDamage, percentAttack, range, sweep);

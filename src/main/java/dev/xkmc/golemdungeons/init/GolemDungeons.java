@@ -19,6 +19,7 @@ import dev.xkmc.golemdungeons.init.data.structure.GDBiomeTagsProvider;
 import dev.xkmc.golemdungeons.init.data.structure.GDStructureGen;
 import dev.xkmc.golemdungeons.init.data.structure.GDStructureTagsProvider;
 import dev.xkmc.golemdungeons.init.reg.GDItems;
+import dev.xkmc.golemdungeons.init.reg.GDModifiers;
 import dev.xkmc.golemdungeons.init.reg.GDWorldGen;
 import dev.xkmc.l2damagetracker.contents.attack.AttackEventHandler;
 import dev.xkmc.l2itemselector.select.item.IItemSelector;
@@ -61,6 +62,7 @@ public class GolemDungeons {
 
 	public GolemDungeons() {
 		GDItems.register();
+		GDModifiers.register();
 		GDWorldGen.register();
 		GDTriggers.register();
 		GDConfig.init();
