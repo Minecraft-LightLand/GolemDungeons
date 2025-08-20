@@ -19,6 +19,14 @@ public class GolemTrialRenderer implements BlockEntityRenderer<GolemTrialBlockEn
 	}
 
 	@Override
+	public AABB getRenderBoundingBox(GolemTrialBlockEntity blockEntity) {
+		var player = Minecraft.getInstance().player;
+		if (player != null && player.getAbilities().instabuild)
+			return new AABB(blockEntity.getBlockPos()).inflate(48);
+		return new AABB(blockEntity.getBlockPos());
+	}
+
+	@Override
 	public boolean shouldRenderOffScreen(GolemTrialBlockEntity be) {
 		return true;
 	}
