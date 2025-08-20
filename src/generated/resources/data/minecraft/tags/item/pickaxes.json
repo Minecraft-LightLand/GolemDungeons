@@ -1,0 +1,16 @@
+{
+  "values": [
+    {
+      "id": "golemdungeons:giant_ironwood_pickaxe",
+      "required": false
+    },
+    {
+      "id": "golemdungeons:giant_knightmetal_pickaxe",
+      "required": false
+    },
+    {
+      "id": "golemdungeons:giant_fiery_pickaxe",
+      "required": false
+    }
+  ]
+}

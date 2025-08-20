@@ -15,11 +15,9 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.Level;
-import net.minecraftforge.client.model.generators.ItemModelBuilder;
-import net.minecraftforge.client.model.generators.ModelFile;
-import net.minecraftforge.client.model.generators.loaders.SeparateTransformsModelBuilder;
-import org.jetbrains.annotations.Nullable;
+import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
+import net.neoforged.neoforge.client.model.generators.loaders.SeparateTransformsModelBuilder;
 
 import java.util.List;
 
@@ -35,9 +33,9 @@ public class AncientForge extends MetalGolemWeaponItem implements GolemCustomSou
 	}
 
 	@Override
-	public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> list, TooltipFlag flag) {
+	public void appendHoverText(ItemStack stack, TooltipContext ctx, List<Component> list, TooltipFlag flag) {
 		list.add(GDLang.ANCIENT_FORGE_ATK.get());
-		super.appendHoverText(stack, level, list, flag);
+		super.appendHoverText(stack, ctx, list, flag);
 	}
 
 	public static ItemEntry<AncientForge> buildItem(String id, VanillaGolemWeaponMaterial material) {

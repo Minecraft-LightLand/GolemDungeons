@@ -5,8 +5,8 @@
         "dropChance": 0.085,
         "enchantLevel": 20,
         "stack": {
-          "item": "minecraft:chainmail_chestplate",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "minecraft:chainmail_chestplate"
         },
         "weight": 50
       }
@@ -16,8 +16,8 @@
         "dropChance": 0.085,
         "enchantLevel": 20,
         "stack": {
-          "item": "minecraft:chainmail_boots",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "minecraft:chainmail_boots"
         },
         "weight": 50
       }
@@ -27,8 +27,8 @@
         "dropChance": 0.085,
         "enchantLevel": 20,
         "stack": {
-          "item": "minecraft:chainmail_helmet",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "minecraft:chainmail_helmet"
         },
         "weight": 50
       }
@@ -38,8 +38,8 @@
         "dropChance": 0.085,
         "enchantLevel": 20,
         "stack": {
-          "item": "minecraft:chainmail_leggings",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "minecraft:chainmail_leggings"
         },
         "weight": 50
       }

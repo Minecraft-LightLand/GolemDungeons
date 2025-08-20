@@ -7,8 +7,9 @@ import dev.xkmc.modulargolems.content.item.card.PathRecordCard;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
-import twilightforest.init.TFDimensionSettings;
+import twilightforest.init.TFDimensionData;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FinalCastleModifier {
@@ -16,19 +17,19 @@ public class FinalCastleModifier {
 	public static void modifyDungeonRoom(WorldGenLevel level, BoundingBox box, BoundingBox room, PosMapper mapper) {
 		BlockPos pos = mapper.map((room.minX() + room.maxX()) / 2, room.minY(), (room.minZ() + room.maxZ()) / 2);
 		level.setBlock(pos, GDItems.SPAWNER.getDefaultState(), 3);
-		var id = TFDimensionSettings.TWILIGHT_LEVEL_STEM.location();
+		var id = TFDimensionData.TWILIGHT_LEVEL_STEM.location();
 		if (level.getBlockEntity(pos) instanceof GolemTrialBlockEntity be) {
 			be.setTrial(TwilightGolemSpawn.ALL);
-			be.setSummonPos(List.of(
-					new PathRecordCard.Pos(id, pos.offset(-6, 0, -6)),
-					new PathRecordCard.Pos(id, pos.offset(6, 0, 6)),
-					new PathRecordCard.Pos(id, pos.offset(-6, 0, 6)),
-					new PathRecordCard.Pos(id, pos.offset(6, 0, -6)),
-					new PathRecordCard.Pos(id, pos.offset(-6, 0, 0)),
-					new PathRecordCard.Pos(id, pos.offset(6, 0, 0)),
-					new PathRecordCard.Pos(id, pos.offset(0, 0, -6)),
-					new PathRecordCard.Pos(id, pos.offset(0, 0, 6))
-			));
+			be.setSummonPos(new PathRecordCard.Pos(id, new ArrayList<>(List.of(
+					pos.offset(-6, 0, -6),
+					pos.offset(6, 0, 6),
+					pos.offset(-6, 0, 6),
+					pos.offset(6, 0, -6),
+					pos.offset(-6, 0, 0),
+					pos.offset(6, 0, 0),
+					pos.offset(0, 0, -6),
+					pos.offset(0, 0, 6)
+			))));
 		}
 	}
 

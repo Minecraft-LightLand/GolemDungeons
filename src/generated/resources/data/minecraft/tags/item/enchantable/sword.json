@@ -1,0 +1,16 @@
+{
+  "values": [
+    {
+      "id": "golemdungeons:giant_ironwood_sword",
+      "required": false
+    },
+    {
+      "id": "golemdungeons:giant_knightmetal_sword",
+      "required": false
+    },
+    {
+      "id": "golemdungeons:giant_fiery_sword",
+      "required": false
+    }
+  ]
+}

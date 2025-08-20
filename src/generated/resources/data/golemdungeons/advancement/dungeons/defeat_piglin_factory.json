@@ -1,0 +1,29 @@
+{
+  "parent": "golemdungeons:dungeons/visit_piglin_factory",
+  "criteria": {
+    "0": {
+      "conditions": {
+        "trial": "golemdungeons:piglin_legacy"
+      },
+      "trigger": "modulargolems:trial_complete"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.golemdungeons.dungeons.defeat_piglin_factory.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "golemdungeons:flame_sword"
+    },
+    "title": {
+      "translate": "advancements.golemdungeons.dungeons.defeat_piglin_factory.title"
+    }
+  },
+  "requirements": [
+    [
+      "0"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

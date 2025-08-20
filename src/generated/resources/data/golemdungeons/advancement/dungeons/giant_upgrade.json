@@ -1,0 +1,33 @@
+{
+  "parent": "golemdungeons:dungeons/defeat_twilight_dungeon",
+  "criteria": {
+    "0": {
+      "conditions": {
+        "items": [
+          {
+            "items": "golemdungeons:giant_upgrade"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.golemdungeons.dungeons.giant_upgrade.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "golemdungeons:giant_upgrade"
+    },
+    "title": {
+      "translate": "advancements.golemdungeons.dungeons.giant_upgrade.title"
+    }
+  },
+  "requirements": [
+    [
+      "0"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

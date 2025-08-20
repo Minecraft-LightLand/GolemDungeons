@@ -3,7 +3,7 @@ package dev.xkmc.golemdungeons.content.spawner;
 import com.tterrag.registrate.providers.DataGenContext;
 import com.tterrag.registrate.providers.RegistrateBlockstateProvider;
 import dev.xkmc.golemdungeons.init.reg.GDItems;
-import dev.xkmc.l2modularblock.DelegateBlock;
+import dev.xkmc.l2modularblock.core.DelegateBlock;
 import dev.xkmc.l2modularblock.impl.BlockEntityBlockMethodImpl;
 import dev.xkmc.l2modularblock.mult.CreateBlockStateBlockMethod;
 import dev.xkmc.l2modularblock.mult.DefaultStateBlockMethod;

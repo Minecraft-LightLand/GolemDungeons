@@ -5,7 +5,8 @@
         "dropChance": 0.5,
         "enchantLevel": 30,
         "stack": {
-          "item": "golemdungeons:samurai_golem_chestplate"
+          "count": 1,
+          "id": "golemdungeons:samurai_golem_chestplate"
         },
         "weight": 100
       }
@@ -15,7 +16,8 @@
         "dropChance": 0.5,
         "enchantLevel": 30,
         "stack": {
-          "item": "golemdungeons:samurai_golem_helmet"
+          "count": 1,
+          "id": "golemdungeons:samurai_golem_helmet"
         },
         "weight": 100
       }
@@ -25,7 +27,8 @@
         "dropChance": 0.5,
         "enchantLevel": 30,
         "stack": {
-          "item": "golemdungeons:samurai_golem_shinguard"
+          "count": 1,
+          "id": "golemdungeons:samurai_golem_shinguard"
         },
         "weight": 100
       }

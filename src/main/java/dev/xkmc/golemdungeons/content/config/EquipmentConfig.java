@@ -1,9 +1,14 @@
 package dev.xkmc.golemdungeons.content.config;
 
-import dev.xkmc.l2library.serial.config.BaseConfig;
-import dev.xkmc.l2serial.serialization.SerialClass;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
+import dev.xkmc.l2core.serial.config.BaseConfig;
+import dev.xkmc.l2serial.serialization.marker.OnInject;
+import dev.xkmc.l2serial.serialization.marker.SerialClass;
+import dev.xkmc.l2serial.serialization.marker.SerialField;
+import it.unimi.dsi.fastutil.ints.IntList;
+import net.minecraft.core.RegistryAccess;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.tags.EnchantmentTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.random.SimpleWeightedRandomList;
@@ -14,23 +19,24 @@ import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.component.FireworkExplosion;
+import net.minecraft.world.item.component.Fireworks;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.ItemLike;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
 @SerialClass
 public class EquipmentConfig extends BaseConfig {
 
-	@SerialClass.SerialField
+	@SerialField
 	public final LinkedHashMap<EquipmentSlot, ArrayList<EquipmentEntry>> items = new LinkedHashMap<>();
 
 	EquipmentSetInfo cache;
 
-	@SerialClass.OnInject
+	@OnInject
 	public void onInject() {
 		cache = new EquipmentSetInfo(items);
 	}
@@ -82,30 +88,29 @@ public class EquipmentConfig extends BaseConfig {
 			this(weight, stack, level, 0.085f);
 		}
 
-		public ItemStack get(RandomSource r) {
+		public ItemStack get(RegistryAccess access, RandomSource r) {
 			if (stack.is(Items.FIREWORK_ROCKET)) {
 				int n = enchantLevel <= 1 ? 1 : r.nextInt(enchantLevel) + 1;
 				return getRocket(r, Mth.clamp(n, 1, 7));
 			}
 			var ans = stack.copy();
 			if (stack.isEnchantable() && enchantLevel > 0) {
-				EnchantmentHelper.enchantItem(r, stack, enchantLevel, true);
+				EnchantmentHelper.enchantItem(r, stack, enchantLevel, access,
+						access.registryOrThrow(Registries.ENCHANTMENT).getTag(EnchantmentTags.ON_RANDOM_LOOT));
 			}
 			return ans;
 		}
 
 		public static ItemStack getRocket(RandomSource r, int n) {
 			ItemStack ans = new ItemStack(Items.FIREWORK_ROCKET);
-			CompoundTag tag = ans.getOrCreateTagElement("Fireworks");
-			ListTag list = new ListTag();
+			var list = new ArrayList<FireworkExplosion>();
 			for (int i = 0; i < n; i++) {
-				CompoundTag comp = new CompoundTag();
-				comp.putIntArray("Colors", List.of(DyeColor.values()[r.nextInt(16)].getFireworkColor()));
-				comp.putByte("Type", (byte) 0);
-				list.add(comp);
+				list.add(new FireworkExplosion(FireworkExplosion.Shape.BURST,
+						IntList.of(DyeColor.values()[r.nextInt(16)].getFireworkColor()),
+						IntList.of(), false, false));
 			}
-			tag.putByte("Flight", (byte) 3);
-			tag.put("Explosions", list);
+			ans.set(DataComponents.FIREWORKS, new Fireworks(3, list));
+
 			return ans;
 		}
 
@@ -129,7 +134,7 @@ public class EquipmentConfig extends BaseConfig {
 			for (var slot : itemTable.entrySet()) {
 				var item = slot.getValue().getRandomValue(r);
 				if (item.isEmpty()) continue;
-				var stack = item.get().get(r);
+				var stack = item.get().get(e.registryAccess(), r);
 				e.setItemSlot(slot.getKey(), stack);
 				if (e instanceof Mob mob) {
 					mob.setDropChance(slot.getKey(), item.get().dropChance());

@@ -5,7 +5,8 @@
         "dropChance": 0.085,
         "enchantLevel": 0,
         "stack": {
-          "item": "cataclysm:the_incinerator"
+          "count": 1,
+          "id": "cataclysm:the_incinerator"
         },
         "weight": 50
       }
@@ -15,7 +16,8 @@
         "dropChance": 0.085,
         "enchantLevel": 0,
         "stack": {
-          "item": "cataclysm:bulwark_of_the_flame"
+          "count": 1,
+          "id": "cataclysm:bulwark_of_the_flame"
         },
         "weight": 50
       }

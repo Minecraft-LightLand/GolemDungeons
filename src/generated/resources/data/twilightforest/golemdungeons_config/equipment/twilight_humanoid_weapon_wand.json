@@ -5,8 +5,8 @@
         "dropChance": 0.2,
         "enchantLevel": 0,
         "stack": {
-          "item": "twilightforest:twilight_scepter",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "twilightforest:twilight_scepter"
         },
         "weight": 100
       },
@@ -14,8 +14,8 @@
         "dropChance": 0.2,
         "enchantLevel": 0,
         "stack": {
-          "item": "twilightforest:lifedrain_scepter",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "twilightforest:lifedrain_scepter"
         },
         "weight": 100
       }
@@ -25,8 +25,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "minecraft:shield",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "minecraft:shield"
         },
         "weight": 100
       }

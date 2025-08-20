@@ -5,7 +5,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "modulargolems:monstrosity_chestplate"
+          "count": 1,
+          "id": "modulargolems:monstrosity_chestplate"
         },
         "weight": 100
       }
@@ -15,7 +16,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "modulargolems:monstrosity_helmet"
+          "count": 1,
+          "id": "modulargolems:monstrosity_helmet"
         },
         "weight": 100
       }
@@ -25,7 +27,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "modulargolems:monstrosity_shinguard"
+          "count": 1,
+          "id": "modulargolems:monstrosity_shinguard"
         },
         "weight": 100
       }

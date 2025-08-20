@@ -4,16 +4,15 @@
       {
         "dropChance": 0.085,
         "enchantLevel": 0,
-        "stack": {
-          "item": "minecraft:air"
-        },
+        "stack": {},
         "weight": 100
       },
       {
         "dropChance": 0.085,
         "enchantLevel": 20,
         "stack": {
-          "item": "modulargolems:iron_golem_axe"
+          "count": 1,
+          "id": "modulargolems:iron_golem_axe"
         },
         "weight": 50
       },
@@ -21,7 +20,8 @@
         "dropChance": 0.085,
         "enchantLevel": 20,
         "stack": {
-          "item": "modulargolems:iron_golem_sword"
+          "count": 1,
+          "id": "modulargolems:iron_golem_sword"
         },
         "weight": 50
       },
@@ -29,7 +29,8 @@
         "dropChance": 0.085,
         "enchantLevel": 20,
         "stack": {
-          "item": "modulargolems:iron_golem_spear"
+          "count": 1,
+          "id": "modulargolems:iron_golem_spear"
         },
         "weight": 50
       }

@@ -25,11 +25,9 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.Level;
-import net.minecraftforge.client.model.generators.ItemModelBuilder;
-import net.minecraftforge.client.model.generators.ModelFile;
-import net.minecraftforge.client.model.generators.loaders.SeparateTransformsModelBuilder;
-import org.jetbrains.annotations.Nullable;
+import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
+import net.neoforged.neoforge.client.model.generators.loaders.SeparateTransformsModelBuilder;
 
 import java.util.HashMap;
 import java.util.List;
@@ -42,15 +40,15 @@ public class FlameSword extends MetalGolemWeaponItem implements ExtraAttackGolem
 	}
 
 	protected Double getDamage() {
-		return GDConfig.COMMON.flameSwordDamage.get();
+		return GDConfig.SERVER.flameSwordDamage.get();
 	}
 
 	@Override
-	public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> list, TooltipFlag flag) {
+	public void appendHoverText(ItemStack stack, TooltipContext ctx, List<Component> list, TooltipFlag flag) {
 		int perc = (int) Math.round(100 * getDamage());
 		list.add(GDLang.FLAME_SWORD_ATK.get(Component.literal(perc + "%")));
 		list.add(GDLang.FLAME_SWORD_LOOT.get());
-		super.appendHoverText(stack, level, list, flag);
+		super.appendHoverText(stack, ctx, list, flag);
 	}
 
 	@Override
@@ -59,7 +57,7 @@ public class FlameSword extends MetalGolemWeaponItem implements ExtraAttackGolem
 		Map<Item, Integer> drop = new HashMap<>();
 		for (GolemMaterial mat : self.getMaterials()) {
 			Item item = GolemMaterialConfig.get().getCraftIngredient(mat.id()).getItems()[0].getItem();
-			int count = (int) Math.round(mat.getPart().count * GDConfig.COMMON.flameSwordLoot.get());
+			int count = (int) Math.round(mat.getPart().count * GDConfig.SERVER.flameSwordLoot.get());
 			drop.compute(item, (e, old) -> (old == null ? 0 : old) + count);
 		}
 		drop.forEach((k, v) -> self.spawnAtLocation(new ItemStack(k, v)));

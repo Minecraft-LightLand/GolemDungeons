@@ -6,7 +6,7 @@ import dev.xkmc.golemdungeons.content.config.SpawnConfig;
 import dev.xkmc.golemdungeons.content.config.TrialConfig;
 import dev.xkmc.golemdungeons.init.GolemDungeons;
 import dev.xkmc.golemdungeons.init.data.spawn.AbstractGolemSpawn;
-import dev.xkmc.l2library.serial.config.ConfigDataProvider;
+import dev.xkmc.l2core.serial.config.ConfigDataProvider;
 import dev.xkmc.modulargolems.compat.materials.twilightforest.TFCompatRegistry;
 import dev.xkmc.modulargolems.compat.materials.twilightforest.TFDispatch;
 import dev.xkmc.modulargolems.init.material.GolemWeaponType;
@@ -259,7 +259,7 @@ public class TwilightGolemSpawn extends AbstractGolemSpawn {
 	}
 
 	private static ResourceLocation loc(String id) {
-		return new ResourceLocation(TFDispatch.MODID, id);
+		return  ResourceLocation.fromNamespaceAndPath(TFDispatch.MODID, id);
 	}
 
 }

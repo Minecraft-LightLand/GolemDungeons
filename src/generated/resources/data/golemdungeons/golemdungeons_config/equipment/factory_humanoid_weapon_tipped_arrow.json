@@ -5,8 +5,8 @@
         "dropChance": 0.085,
         "enchantLevel": 10,
         "stack": {
-          "item": "minecraft:bow",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "minecraft:bow"
         },
         "weight": 100
       },
@@ -14,8 +14,8 @@
         "dropChance": 0.085,
         "enchantLevel": 10,
         "stack": {
-          "item": "minecraft:crossbow",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "minecraft:crossbow"
         },
         "weight": 100
       }
@@ -25,8 +25,13 @@
         "dropChance": 0.085,
         "enchantLevel": 0,
         "stack": {
-          "item": "minecraft:tipped_arrow",
-          "nbt": "{Potion:\"minecraft:poison\"}"
+          "components": {
+            "minecraft:potion_contents": {
+              "potion": "minecraft:poison"
+            }
+          },
+          "count": 1,
+          "id": "minecraft:tipped_arrow"
         },
         "weight": 100
       },
@@ -34,8 +39,13 @@
         "dropChance": 0.085,
         "enchantLevel": 0,
         "stack": {
-          "item": "minecraft:tipped_arrow",
-          "nbt": "{Potion:\"minecraft:slowness\"}"
+          "components": {
+            "minecraft:potion_contents": {
+              "potion": "minecraft:slowness"
+            }
+          },
+          "count": 1,
+          "id": "minecraft:tipped_arrow"
         },
         "weight": 100
       },
@@ -43,8 +53,13 @@
         "dropChance": 0.085,
         "enchantLevel": 0,
         "stack": {
-          "item": "minecraft:tipped_arrow",
-          "nbt": "{Potion:\"minecraft:weakness\"}"
+          "components": {
+            "minecraft:potion_contents": {
+              "potion": "minecraft:weakness"
+            }
+          },
+          "count": 1,
+          "id": "minecraft:tipped_arrow"
         },
         "weight": 100
       },
@@ -52,8 +67,13 @@
         "dropChance": 0.085,
         "enchantLevel": 0,
         "stack": {
-          "item": "minecraft:tipped_arrow",
-          "nbt": "{Potion:\"minecraft:harming\"}"
+          "components": {
+            "minecraft:potion_contents": {
+              "potion": "minecraft:harming"
+            }
+          },
+          "count": 1,
+          "id": "minecraft:tipped_arrow"
         },
         "weight": 100
       }

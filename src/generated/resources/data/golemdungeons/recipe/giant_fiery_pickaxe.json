@@ -1,0 +1,30 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "twilightforest"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "item": "golemdungeons:giant_fiery_ingot"
+    },
+    "L": {
+      "item": "twilightforest:giant_obsidian"
+    },
+    "S": {
+      "item": "golemdungeons:flame_core"
+    }
+  },
+  "pattern": [
+    "III",
+    "SLS",
+    "SLS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "golemdungeons:giant_fiery_pickaxe"
+  }
+}

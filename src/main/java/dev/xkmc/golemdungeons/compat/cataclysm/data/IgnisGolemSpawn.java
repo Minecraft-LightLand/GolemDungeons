@@ -8,7 +8,7 @@ import dev.xkmc.golemdungeons.content.config.TrialConfig;
 import dev.xkmc.golemdungeons.init.GolemDungeons;
 import dev.xkmc.golemdungeons.init.data.spawn.AbstractGolemSpawn;
 import dev.xkmc.golemdungeons.init.data.spawn.PiglinGolemSpawn;
-import dev.xkmc.l2library.serial.config.ConfigDataProvider;
+import dev.xkmc.l2core.serial.config.ConfigDataProvider;
 import dev.xkmc.modulargolems.compat.materials.cataclysm.CataDispatch;
 import dev.xkmc.modulargolems.init.registrate.GolemItems;
 import dev.xkmc.modulargolems.init.registrate.GolemTypes;
@@ -99,7 +99,7 @@ public class IgnisGolemSpawn extends AbstractGolemSpawn {
 	}
 
 	private static ResourceLocation loc(String id) {
-		return new ResourceLocation(CataDispatch.MODID, id);
+		return ResourceLocation.fromNamespaceAndPath(CataDispatch.MODID, id);
 	}
 
 }

@@ -5,7 +5,7 @@ plugins {
     id 'eclipse'
     id 'idea'
     id 'maven-publish'
-    id 'net.neoforged.gradle.userdev' version '7.0.165'
+    id 'net.neoforged.gradle.userdev' version '7.0.192'
     id 'net.darkhax.curseforgegradle' version '[1.1.24,)'
     id "at.stnwtr.gradle-secrets-plugin" version "1.0.1"
     id "com.modrinth.minotaur" version "2.+"
@@ -51,8 +51,8 @@ runs {
         programArguments.addAll '--mod', project.mod_id,'--existing-mod', 'twilightforest', '--existing-mod', 'modulargolems', '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
     }
 }
-sourceSets.main.resources { srcDir 'src/generated/resources' }
 
+sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 dependencies {
     implementation "net.neoforged:neoforge:${neo_version}"
@@ -191,6 +191,7 @@ dependencies {
     implementation "dev.xkmc:l2damagetracker:${l2damagetracker_ver}"
     implementation "dev.xkmc:mob_weapon_api:${mob_weapon_api_ver}"
     implementation "dev.xkmc:l2library:${l2library_ver}-slim"
+    implementation "dev.xkmc:modulargolems:${modulargolems_ver}-slim"
 
     implementation "vazkii.patchouli:Patchouli:${patchouli_ver}"
 
@@ -216,11 +217,11 @@ dependencies {
 
 tasks.register('publishCurseForge', TaskPublishCurseForge) {
     apiToken = secrets.get("curseforge_token")
-    def mainFile = upload(project.curseforge_project, new File("./build/libs/${modid}-${ll_version}.jar"))
+    def mainFile = upload(project.curseforge_project, new File("./build/libs/${mod_id}-${mod_version}.jar"))
     mainFile.changelog = new File('./changelog.txt').text.split("\n\n\n")[0]
     mainFile.addEnvironment("Client", "Server")
-    mainFile.addGameVersion("1.20.1")
-    mainFile.addModLoader("Forge", "NeoForge")
+    mainFile.addGameVersion("1.21.1")
+    mainFile.addModLoader("NeoForge")
     mainFile.addRequirement("l2library", "modulargolems")
     mainFile.releaseType = "release"
     disableVersionDetection()
@@ -229,12 +230,12 @@ tasks.register('publishCurseForge', TaskPublishCurseForge) {
 modrinth {
     token = secrets.get("modrinth_token")
     projectId = project.modrinth_project
-    versionName = "Golem Dungoens ${project.ll_version}"
-    versionNumber = project.ll_version
+    versionName = "Golem Dungoens ${project.mod_version}"
+    versionNumber = project.mod_version
     versionType = "release"
-    uploadFile = new File("./build/libs/${modid}-${ll_version}.jar")
-    gameVersions = ["1.20.1"]
-    loaders = ["forge", "neoforge"]
+    uploadFile = new File("./build/libs/${mod_id}-${mod_version}.jar")
+    gameVersions = ["1.21.1"]
+    loaders = ["neoforge"]
     changelog = new File('./changelog.txt').text.split("\n\n")[0]
     dependencies {
         required.project "l2library"

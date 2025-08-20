@@ -8,7 +8,7 @@ import net.minecraft.resources.ResourceLocation;
 public class TwilightFactions {
 
 	public static final HostileFaction DEFAULT = HostileGolemRegistry.register(
-			new TwilightFaction(new ResourceLocation(TFDispatch.MODID, "default")));
+			new TwilightFaction(ResourceLocation.fromNamespaceAndPath(TFDispatch.MODID, "default")));
 
 	public static void register() {
 	}

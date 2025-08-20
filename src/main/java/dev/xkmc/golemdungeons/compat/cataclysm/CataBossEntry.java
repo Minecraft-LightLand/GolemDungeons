@@ -20,7 +20,7 @@ public record CataBossEntry(ItemLike activator, ResourceLocation trial, Class<?>
 		var config = GolemDungeons.TRIAL.getEntry(trial);
 		if (config == null) return;
 		for (var e : sl.getPlayers(e -> config.isInRange(e, pos))) {
-			GDTriggers.SUMMON.trigger(e, trial);
+			GDTriggers.SUMMON.get().trigger(e, trial);
 		}
 		List<LivingEntity> targets = new ArrayList<>();
 		for (var waves : config.list) {

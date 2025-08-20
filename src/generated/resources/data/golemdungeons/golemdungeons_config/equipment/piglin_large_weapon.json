@@ -5,7 +5,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "modulargolems:netherite_golem_axe"
+          "count": 1,
+          "id": "modulargolems:netherite_golem_axe"
         },
         "weight": 50
       },
@@ -13,7 +14,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "modulargolems:netherite_golem_sword"
+          "count": 1,
+          "id": "modulargolems:netherite_golem_sword"
         },
         "weight": 50
       },
@@ -21,7 +23,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "modulargolems:netherite_golem_spear"
+          "count": 1,
+          "id": "modulargolems:netherite_golem_spear"
         },
         "weight": 50
       },
@@ -29,7 +32,8 @@
         "dropChance": 2.0,
         "enchantLevel": 30,
         "stack": {
-          "item": "golemdungeons:flame_sword"
+          "count": 1,
+          "id": "golemdungeons:flame_sword"
         },
         "weight": 50
       }

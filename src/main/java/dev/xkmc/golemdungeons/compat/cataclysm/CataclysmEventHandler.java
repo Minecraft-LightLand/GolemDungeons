@@ -15,10 +15,10 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.entity.EntityTypeTest;
-import net.minecraftforge.event.entity.EntityJoinLevelEvent;
-import net.minecraftforge.event.entity.player.ItemTooltipEvent;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
+import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 
 public class CataclysmEventHandler {
 
@@ -26,7 +26,7 @@ public class CataclysmEventHandler {
 	public static void onItemUse(PlayerInteractEvent.RightClickBlock event) {
 		if (event.getLevel().getBlockEntity(event.getPos()) instanceof Boss_Respawn_Spawner_Block_Entity be &&
 				event.getItemStack().is(GDItems.TRIAL_MEDAL.get())) {
-			var requirement = be.getItem(0);
+			var requirement = be.getTheItem();
 			for (var e : CataclysmFactions.BOSSES) {
 				if (requirement.is(e.activator().asItem())) {
 					if (event.getLevel() instanceof ServerLevel sl) {
@@ -60,8 +60,7 @@ public class CataclysmEventHandler {
 	public static void onTooltip(ItemTooltipEvent event) {
 		ItemStack stack = event.getItemStack();
 		if (stack.is(ModItems.BURNING_ASHES.get())) {
-			var tag = stack.getTag();
-			if (tag != null && tag.contains("GolemMedal")) {
+			if (GDItems.MEDAL.get(stack) != null) {
 				event.getToolTip().add(GDLang.OFFERING_CATA.get(
 						ModBlocks.ALTAR_OF_FIRE.get().asItem().getDefaultInstance().getHoverName(),
 						Component.translatable(ModEntities.IGNIS.get().getDescriptionId()).withStyle(ChatFormatting.GOLD)

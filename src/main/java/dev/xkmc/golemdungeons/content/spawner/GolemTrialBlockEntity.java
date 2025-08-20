@@ -4,14 +4,18 @@ import dev.xkmc.golemdungeons.content.config.TrialConfig;
 import dev.xkmc.golemdungeons.init.GolemDungeons;
 import dev.xkmc.golemdungeons.init.data.GDLang;
 import dev.xkmc.golemdungeons.init.data.advancement.GDTriggers;
-import dev.xkmc.l2library.base.tile.BaseBlockEntity;
-import dev.xkmc.l2modularblock.BlockProxy;
+import dev.xkmc.l2core.base.tile.BaseBlockEntity;
+import dev.xkmc.l2modularblock.core.BlockTemplates;
 import dev.xkmc.l2modularblock.tile_api.TickableBlockEntity;
-import dev.xkmc.l2serial.serialization.SerialClass;
+import dev.xkmc.l2serial.serialization.marker.SerialClass;
+import dev.xkmc.l2serial.serialization.marker.SerialField;
 import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
 import dev.xkmc.modulargolems.content.item.card.PathRecordCard;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.bossevents.CustomBossEvent;
 import net.minecraft.server.level.ServerLevel;
@@ -28,11 +32,10 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
-import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
-import net.minecraftforge.common.util.FakePlayer;
-import net.minecraftforge.items.ItemHandlerHelper;
+import net.neoforged.neoforge.capabilities.Capabilities;
+import net.neoforged.neoforge.common.util.FakePlayer;
+import net.neoforged.neoforge.items.ItemHandlerHelper;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -45,20 +48,20 @@ import static dev.xkmc.golemdungeons.content.spawner.GolemTrialBlock.State.*;
 @SerialClass
 public class GolemTrialBlockEntity extends BaseBlockEntity implements TickableBlockEntity, TrialTicker {
 
-	@SerialClass.SerialField
+	@SerialField
 	private final List<BlockPos> targets = new ArrayList<>();
 
-	@SerialClass.SerialField
+	@SerialField
 	private final List<UUID> trialPlayer = new ArrayList<>();
 
-	@SerialClass.SerialField
+	@SerialField
 	private final TrialData data = new TrialData();
 
 	@Nullable
-	@SerialClass.SerialField
+	@SerialField
 	public ResourceLocation trial = null;
 
-	@SerialClass.SerialField
+	@SerialField
 	private long lastCost, lastTime;
 
 	@Nullable
@@ -77,9 +80,9 @@ public class GolemTrialBlockEntity extends BaseBlockEntity implements TickableBl
 	}
 
 
-	public void setSummonPos(List<PathRecordCard.Pos> list) {
+	public void setSummonPos(PathRecordCard.Pos list) {
 		var self = getBlockPos();
-		var dir = getBlockState().getValue(BlockProxy.HORIZONTAL_FACING);
+		var dir = getBlockState().getValue(BlockTemplates.HORIZONTAL_FACING);
 		var rot = switch (dir) {
 			case WEST -> Rotation.CLOCKWISE_90;
 			case EAST -> Rotation.COUNTERCLOCKWISE_90;
@@ -87,9 +90,9 @@ public class GolemTrialBlockEntity extends BaseBlockEntity implements TickableBl
 			default -> Rotation.NONE;
 		};
 		targets.clear();
-		for (var e : list) {
-			if (e.pos().distSqr(self) > 48 * 48) continue;
-			var diff = e.pos().subtract(self).rotate(rot);
+		for (var e : list.pos()) {
+			if (e.distSqr(self) > 48 * 48) continue;
+			var diff = e.subtract(self).rotate(rot);
 			targets.add(diff);
 		}
 		sync();
@@ -98,7 +101,7 @@ public class GolemTrialBlockEntity extends BaseBlockEntity implements TickableBl
 
 	public List<BlockPos> getTargets() {
 		var self = getBlockPos();
-		var dir = getBlockState().getValue(BlockProxy.HORIZONTAL_FACING);
+		var dir = getBlockState().getValue(BlockTemplates.HORIZONTAL_FACING);
 		var rot = switch (dir) {
 			case WEST -> Rotation.COUNTERCLOCKWISE_90;
 			case EAST -> Rotation.CLOCKWISE_90;
@@ -233,12 +236,13 @@ public class GolemTrialBlockEntity extends BaseBlockEntity implements TickableBl
 		for (var id : trialPlayer) {
 			var pl = level.getPlayerByUUID(id);
 			if (pl instanceof ServerPlayer sp) {
-				GDTriggers.COMPLETE.trigger(sp, config.getID());
+				GDTriggers.COMPLETE.get().trigger(sp, config.getID());
 			}
 		}
 		level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(STATE, VICTORY));
 		if (config.reward == null) return;
-		var loot = level.getServer().getLootData().getLootTable(config.reward);
+		var loot = level.getServer().reloadableRegistries()
+				.getLootTable(ResourceKey.create(Registries.LOOT_TABLE, config.reward));
 		var params = new LootParams.Builder(level)
 				.withParameter(LootContextParams.ORIGIN, Vec3.atCenterOf(getBlockPos()))
 				.create(LootContextParamSets.CHEST);
@@ -247,20 +251,16 @@ public class GolemTrialBlockEntity extends BaseBlockEntity implements TickableBl
 		if (config.generateChest && level.getBlockState(up).isAir()) {
 			level.setBlockAndUpdate(up, Blocks.CHEST.defaultBlockState());
 		}
-		var be = level.getBlockEntity(up);
-		if (be != null) {
-			var opt = be.getCapability(ForgeCapabilities.ITEM_HANDLER).resolve();
-			if (opt.isPresent()) {
-				var ans = new ArrayList<ItemStack>();
-				var cap = opt.get();
-				for (var stack : list) {
-					var remain = ItemHandlerHelper.insertItem(cap, stack, false);
-					if (!remain.isEmpty()) {
-						ans.add(remain);
-					}
+		var cap = level.getCapability(Capabilities.ItemHandler.BLOCK, up, Direction.DOWN);
+		if (cap != null) {
+			var ans = new ArrayList<ItemStack>();
+			for (var stack : list) {
+				var remain = ItemHandlerHelper.insertItem(cap, stack, false);
+				if (!remain.isEmpty()) {
+					ans.add(remain);
 				}
-				list = ans;
 			}
+			list = ans;
 		}
 		for (var stack : list) Block.popResource(level, getBlockPos().above(), stack);
 	}
@@ -268,7 +268,7 @@ public class GolemTrialBlockEntity extends BaseBlockEntity implements TickableBl
 	@Override
 	public void configureEntity(LivingEntity e, int index) {
 		var self = getBlockPos();
-		var dir = getBlockState().getValue(BlockProxy.HORIZONTAL_FACING);
+		var dir = getBlockState().getValue(BlockTemplates.HORIZONTAL_FACING);
 		var rot = switch (dir) {
 			case WEST -> Rotation.COUNTERCLOCKWISE_90;
 			case EAST -> Rotation.CLOCKWISE_90;
@@ -342,11 +342,6 @@ public class GolemTrialBlockEntity extends BaseBlockEntity implements TickableBl
 			}
 		}
 		return ans;
-	}
-
-	@Override
-	public AABB getRenderBoundingBox() {
-		return super.getRenderBoundingBox().inflate(48);
 	}
 
 }

@@ -1,0 +1,34 @@
+{
+  "parent": "golemdungeons:dungeons/defeat_piglin_factory",
+  "criteria": {
+    "0": {
+      "conditions": {
+        "items": [
+          {
+            "items": "golemdungeons:reforge_upgrade"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.golemdungeons.dungeons.reforge_upgrade.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "golemdungeons:reforge_upgrade"
+    },
+    "title": {
+      "translate": "advancements.golemdungeons.dungeons.reforge_upgrade.title"
+    }
+  },
+  "requirements": [
+    [
+      "0"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

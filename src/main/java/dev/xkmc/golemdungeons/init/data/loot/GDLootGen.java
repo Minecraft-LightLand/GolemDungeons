@@ -7,39 +7,45 @@ import dev.xkmc.golemdungeons.init.data.spawn.FactoryGolemSpawn;
 import dev.xkmc.golemdungeons.init.data.spawn.PiglinGolemSpawn;
 import dev.xkmc.golemdungeons.init.data.spawn.SculkGolemSpawn;
 import dev.xkmc.golemdungeons.init.reg.GDItems;
-import dev.xkmc.l2library.util.data.LootTableTemplate;
+import dev.xkmc.l2core.serial.loot.LootTableTemplate;
 import dev.xkmc.modulargolems.compat.materials.twilightforest.TFDispatch;
 import dev.xkmc.modulargolems.init.registrate.GolemItems;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
-import net.minecraftforge.fml.ModList;
+import net.neoforged.fml.ModList;
 
 public class GDLootGen {
 
-	public static final ResourceLocation FACTORY = FactoryGolemSpawn.FACTORY_ALL.withPrefix("trial_reward/");
-	public static final ResourceLocation PIGLIN = PiglinGolemSpawn.PIGLIN_ALL.withPrefix("trial_reward/");
-	public static final ResourceLocation SCULK = SculkGolemSpawn.SCULK_ALL.withPrefix("trial_reward/");
+	public static final ResourceKey<LootTable> FACTORY = ResourceKey.create(Registries.LOOT_TABLE, FactoryGolemSpawn.FACTORY_ALL.withPrefix("trial_reward/"));
+	public static final ResourceKey<LootTable> PIGLIN = ResourceKey.create(Registries.LOOT_TABLE, PiglinGolemSpawn.PIGLIN_ALL.withPrefix("trial_reward/"));
+	public static final ResourceKey<LootTable> SCULK = ResourceKey.create(Registries.LOOT_TABLE, SculkGolemSpawn.SCULK_ALL.withPrefix("trial_reward/"));
 
+	public static final ResourceKey<LootTable> SCULK_ROOT = loc("sculk_factory/root");
+	public static final ResourceKey<LootTable> SCULK_CRANE = loc("sculk_factory/crane");
+	public static final ResourceKey<LootTable> SCULK_HEART_CHEST = loc("sculk_factory/heart_chest");
+	public static final ResourceKey<LootTable> SCULK_HEART_BARREL = loc("sculk_factory/heart_barrel");
 
-	public static final ResourceLocation SCULK_ROOT = GolemDungeons.loc("sculk_factory/root");
-	public static final ResourceLocation SCULK_CRANE = GolemDungeons.loc("sculk_factory/crane");
-	public static final ResourceLocation SCULK_HEART_CHEST = GolemDungeons.loc("sculk_factory/heart_chest");
-	public static final ResourceLocation SCULK_HEART_BARREL = GolemDungeons.loc("sculk_factory/heart_barrel");
+	public static final ResourceKey<LootTable> PIGLIN_CHEST = loc("piglin_factory/root");
 
-	public static final ResourceLocation PIGLIN_CHEST = GolemDungeons.loc("piglin_factory/root");
+	public static final ResourceKey<LootTable> FACTORY_ROOM_CHEST = loc("abandoned_factory/room_chest");
+	public static final ResourceKey<LootTable> FACTORY_ROOM_BARREL = loc("abandoned_factory/room_barrel");
+	public static final ResourceKey<LootTable> FACTORY_ROOM_GRAVEL = loc("abandoned_factory/room_gravel");
+	public static final ResourceKey<LootTable> FACTORY_END_CHEST = loc("abandoned_factory/end_chest");
+	public static final ResourceKey<LootTable> FACTORY_END_GRAVEL = loc("abandoned_factory/end_gravel");
 
-	public static final ResourceLocation FACTORY_ROOM_CHEST = GolemDungeons.loc("abandoned_factory/room_chest");
-	public static final ResourceLocation FACTORY_ROOM_BARREL = GolemDungeons.loc("abandoned_factory/room_barrel");
-	public static final ResourceLocation FACTORY_ROOM_GRAVEL = GolemDungeons.loc("abandoned_factory/room_gravel");
-	public static final ResourceLocation FACTORY_END_CHEST = GolemDungeons.loc("abandoned_factory/end_chest");
-	public static final ResourceLocation FACTORY_END_GRAVEL = GolemDungeons.loc("abandoned_factory/end_gravel");
+	public static ResourceKey<LootTable> loc(String id) {
+		return ResourceKey.create(Registries.LOOT_TABLE, GolemDungeons.loc(id));
+	}
 
+	@SuppressWarnings("deprecation")
 	public static void genLoot(RegistrateLootTableProvider pvd) {
 		{
+
 			pvd.addLootAction(LootContextParamSets.CHEST, sub -> sub.accept(FACTORY,
 					LootTable.lootTable()
 							.withPool(LootPool.lootPool()

@@ -1,0 +1,40 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "twilightforest"
+    }
+  ],
+  "parent": "golemdungeons:dungeons/craft_giant_knightmetal_ingot",
+  "criteria": {
+    "0": {
+      "conditions": {
+        "items": [
+          {
+            "items": "golemdungeons:giant_fiery_sword"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.golemdungeons.dungeons.craft_fiery_giant_sword.description"
+    },
+    "frame": "challenge",
+    "icon": {
+      "count": 1,
+      "id": "golemdungeons:giant_fiery_sword"
+    },
+    "title": {
+      "translate": "advancements.golemdungeons.dungeons.craft_fiery_giant_sword.title"
+    }
+  },
+  "requirements": [
+    [
+      "0"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

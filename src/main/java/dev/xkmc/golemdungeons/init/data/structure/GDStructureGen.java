@@ -1,11 +1,9 @@
 package dev.xkmc.golemdungeons.init.data.structure;
 
+import com.tterrag.registrate.providers.DataProviderInitializer;
 import dev.xkmc.golemdungeons.init.GolemDungeons;
 import dev.xkmc.golemdungeons.init.data.loot.GDLootGen;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
@@ -28,13 +26,17 @@ import net.minecraft.world.level.levelgen.structure.placement.RandomSpreadType;
 import net.minecraft.world.level.levelgen.structure.structures.JigsawStructure;
 import net.minecraft.world.level.levelgen.structure.templatesystem.*;
 import net.minecraft.world.level.levelgen.structure.templatesystem.rule.blockentity.AppendLoot;
-import net.minecraftforge.common.data.DatapackBuiltinEntriesProvider;
-import org.jetbrains.annotations.NotNull;
+import net.minecraft.world.level.storage.loot.LootTable;
 
-import java.util.*;
-import java.util.concurrent.CompletableFuture;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
-public class GDStructureGen extends DatapackBuiltinEntriesProvider {
+import static net.minecraft.world.level.levelgen.structure.structures.JigsawStructure.DEFAULT_DIMENSION_PADDING;
+import static net.minecraft.world.level.levelgen.structure.structures.JigsawStructure.DEFAULT_LIQUID_SETTINGS;
+
+public class GDStructureGen {
 
 	public record GDStructure(
 			ResourceLocation id, int spacing, int separation,
@@ -138,57 +140,51 @@ public class GDStructureGen extends DatapackBuiltinEntriesProvider {
 		return new GDPieceData(str, List.of(items));
 	}
 
-	private static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
-			.add(Registries.PROCESSOR_LIST, ctx -> {
-				for (var e : STRUCTURES) {
-					ctx.register(ResourceKey.create(Registries.PROCESSOR_LIST, e.id),
-							new StructureProcessorList(e.processors()));
-					for (var pool : e.pools) {
-						pool.buildProcessors(ctx,e.id, e.processors());
-					}
+	public static void add(DataProviderInitializer init) {
+		init.add(Registries.PROCESSOR_LIST, ctx -> {
+			for (var e : STRUCTURES) {
+				ctx.register(ResourceKey.create(Registries.PROCESSOR_LIST, e.id),
+						new StructureProcessorList(e.processors()));
+				for (var pool : e.pools) {
+					pool.buildProcessors(ctx, e.id, e.processors());
 				}
-			})
-			.add(Registries.TEMPLATE_POOL, ctx -> {
-				var empty = ctx.lookup(Registries.TEMPLATE_POOL)
-						.getOrThrow(ResourceKey.create(Registries.TEMPLATE_POOL, new ResourceLocation("empty")));
-				for (var e : STRUCTURES) {
-					var base = ctx.lookup(Registries.PROCESSOR_LIST)
-							.getOrThrow(ResourceKey.create(Registries.PROCESSOR_LIST, e.id()));
-					for (var pool : e.pools) {
-						pool.buildTemplate(ctx, e.id(), base, empty);
-					}
+			}
+		});
+		init.add(Registries.TEMPLATE_POOL, ctx -> {
+			var empty = ctx.lookup(Registries.TEMPLATE_POOL)
+					.getOrThrow(ResourceKey.create(Registries.TEMPLATE_POOL,
+							ResourceLocation.withDefaultNamespace("empty")));
+			for (var e : STRUCTURES) {
+				var base = ctx.lookup(Registries.PROCESSOR_LIST)
+						.getOrThrow(ResourceKey.create(Registries.PROCESSOR_LIST, e.id()));
+				for (var pool : e.pools) {
+					pool.buildTemplate(ctx, e.id(), base, empty);
 				}
-			})
-			.add(Registries.STRUCTURE, ctx -> {
-				for (var e : STRUCTURES) {
-					var biome = ctx.lookup(Registries.BIOME).getOrThrow(e.biomes());
-					var start = e.id().withSuffix("/" + e.pools.get(0).id());
-					var pool = ctx.lookup(Registries.TEMPLATE_POOL)
-							.getOrThrow(ResourceKey.create(Registries.TEMPLATE_POOL, start));
-					ctx.register(ResourceKey.create(Registries.STRUCTURE, e.id()), new JigsawStructure(
-							new Structure.StructureSettings(biome, e.spawns(), e.step(), e.beard()),
-							pool, Optional.empty(), 7, e.height(), false, e.heightMap(), 80)
-					);
-				}
-			})
-			.add(Registries.STRUCTURE_SET, ctx -> {
-				for (var e : STRUCTURES) {
-					var str = ctx.lookup(Registries.STRUCTURE).getOrThrow(ResourceKey.create(Registries.STRUCTURE, e.id));
-					ctx.register(ResourceKey.create(Registries.STRUCTURE_SET, e.id), new StructureSet(
-							str, new RandomSpreadStructurePlacement(e.spacing(), e.separation(), RandomSpreadType.LINEAR, e.id.hashCode() & 0x7fffffff)));
-				}
-			});
-
-	public GDStructureGen(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
-		super(output, registries, BUILDER, Set.of("minecraft", GolemDungeons.MODID));
+			}
+		});
+		init.add(Registries.STRUCTURE, ctx -> {
+			for (var e : STRUCTURES) {
+				var biome = ctx.lookup(Registries.BIOME).getOrThrow(e.biomes());
+				var start = e.id().withSuffix("/" + e.pools.get(0).id());
+				var pool = ctx.lookup(Registries.TEMPLATE_POOL)
+						.getOrThrow(ResourceKey.create(Registries.TEMPLATE_POOL, start));
+				ctx.register(ResourceKey.create(Registries.STRUCTURE, e.id()), new JigsawStructure(
+						new Structure.StructureSettings(biome, e.spawns(), e.step(), e.beard()),
+						pool, Optional.empty(), 7, e.height(), false, e.heightMap(),
+						80, List.of(), DEFAULT_DIMENSION_PADDING, LiquidSettings.IGNORE_WATERLOGGING)
+				);
+			}
+		});
+		init.add(Registries.STRUCTURE_SET, ctx -> {
+			for (var e : STRUCTURES) {
+				var str = ctx.lookup(Registries.STRUCTURE).getOrThrow(ResourceKey.create(Registries.STRUCTURE, e.id));
+				ctx.register(ResourceKey.create(Registries.STRUCTURE_SET, e.id), new StructureSet(
+						str, new RandomSpreadStructurePlacement(e.spacing(), e.separation(), RandomSpreadType.LINEAR, e.id.hashCode() & 0x7fffffff)));
+			}
+		});
 	}
 
-	@NotNull
-	public String getName() {
-		return "Golem Dungeons Data";
-	}
-
-	private static ProcessorRule injectData(Block block, ResourceLocation table) {
+	private static ProcessorRule injectData(Block block, ResourceKey<LootTable> table) {
 		return new ProcessorRule(new BlockMatchTest(block), AlwaysTrueTest.INSTANCE, PosAlwaysTrueTest.INSTANCE,
 				block.defaultBlockState(), new AppendLoot(table));
 	}

@@ -6,7 +6,7 @@ import dev.xkmc.golemdungeons.content.config.TrialConfig;
 import dev.xkmc.golemdungeons.content.faction.DungeonFactionRegistry;
 import dev.xkmc.golemdungeons.init.GolemDungeons;
 import dev.xkmc.golemdungeons.init.reg.GDItems;
-import dev.xkmc.l2library.serial.config.ConfigDataProvider;
+import dev.xkmc.l2core.serial.config.ConfigDataProvider;
 import dev.xkmc.modulargolems.init.ModularGolems;
 import dev.xkmc.modulargolems.init.material.GolemWeaponType;
 import dev.xkmc.modulargolems.init.material.VanillaGolemWeaponMaterial;

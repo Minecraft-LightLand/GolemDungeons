@@ -5,12 +5,12 @@ import dev.xkmc.golemdungeons.init.GolemDungeons;
 import dev.xkmc.modulargolems.content.item.card.PathRecordCard;
 import dev.xkmc.modulargolems.init.registrate.GolemItems;
 import net.minecraft.world.InteractionResult;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.minecraftforge.eventbus.api.EventPriority;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.bus.api.EventPriority;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 
-@Mod.EventBusSubscriber(modid = GolemDungeons.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
+@EventBusSubscriber(modid = GolemDungeons.MODID, bus = EventBusSubscriber.Bus.GAME)
 public class GolemItemPriorityHandler {
 
 	@SubscribeEvent(priority = EventPriority.HIGHEST)
@@ -18,8 +18,11 @@ public class GolemItemPriorityHandler {
 		if (event.getItemStack().is(GolemItems.CARD_PATH.get()) &&
 				event.getLevel().getBlockEntity(event.getPos()) instanceof GolemTrialBlockEntity be) {
 			if (event.getEntity().getAbilities().instabuild) {
-				if (!event.getLevel().isClientSide())
-					be.setSummonPos(PathRecordCard.getList(event.getItemStack()));
+				if (!event.getLevel().isClientSide()) {
+					var pos = PathRecordCard.getList(event.getItemStack());
+					if (pos != null)
+						be.setSummonPos(pos);
+				}
 				event.setCanceled(true);
 				event.setCancellationResult(InteractionResult.SUCCESS);
 			}

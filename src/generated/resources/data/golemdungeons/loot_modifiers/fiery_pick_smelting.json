@@ -4,7 +4,7 @@
     {
       "condition": "minecraft:match_tool",
       "predicate": {
-        "tag": "golemdungeons:fiery_pick"
+        "items": "#golemdungeons:fiery_pick"
       }
     }
   ]

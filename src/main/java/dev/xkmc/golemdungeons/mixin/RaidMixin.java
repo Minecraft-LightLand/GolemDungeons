@@ -54,7 +54,7 @@ public abstract class RaidMixin {
 
 	@Inject(method = "spawnGroup", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/raid/Raid;updateBossbar()V"))
 	private void golemdungeons$raidGolems(BlockPos pos, CallbackInfo ci) {
-		if (!GDConfig.COMMON.enableRaidGolems.get()) return;
+		if (!GDConfig.SERVER.enableRaidGolems.get()) return;
 		int wave = groupsSpawned;
 		var data = GolemDungeons.TRIAL.getEntry(IllagerGolemSpawn.RAIDS);
 		if (data == null) return;

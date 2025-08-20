@@ -3,7 +3,6 @@ package dev.xkmc.golemdungeons.init.reg;
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.entry.ItemEntry;
-import com.tterrag.registrate.util.entry.RegistryEntry;
 import dev.xkmc.golemdungeons.compat.twilightforest.TwilightGDRegistry;
 import dev.xkmc.golemdungeons.content.client.GDModelPaths;
 import dev.xkmc.golemdungeons.content.equipments.AncientForge;
@@ -15,26 +14,32 @@ import dev.xkmc.golemdungeons.content.item.TrialMedal;
 import dev.xkmc.golemdungeons.content.spawner.GolemTrialBlock;
 import dev.xkmc.golemdungeons.content.spawner.GolemTrialBlockEntity;
 import dev.xkmc.golemdungeons.content.spawner.GolemTrialRenderer;
+import dev.xkmc.golemdungeons.init.GolemDungeons;
 import dev.xkmc.golemdungeons.init.data.GDLang;
 import dev.xkmc.golemdungeons.init.data.structure.GDStructureGen;
+import dev.xkmc.l2core.init.reg.registrate.SimpleEntry;
+import dev.xkmc.l2core.init.reg.simple.DCReg;
+import dev.xkmc.l2core.init.reg.simple.DCVal;
 import dev.xkmc.l2itemselector.init.data.L2ISTagGen;
-import dev.xkmc.l2modularblock.BlockProxy;
-import dev.xkmc.l2modularblock.DelegateBlock;
+import dev.xkmc.l2modularblock.core.BlockTemplates;
+import dev.xkmc.l2modularblock.core.DelegateBlock;
 import dev.xkmc.modulargolems.compat.materials.twilightforest.TFDispatch;
 import dev.xkmc.modulargolems.content.item.equipments.MetalGolemArmorItem;
 import dev.xkmc.modulargolems.init.material.VanillaGolemWeaponMaterial;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.Unit;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
-import net.minecraftforge.fml.ModList;
+import net.neoforged.fml.ModList;
 
 import static dev.xkmc.golemdungeons.init.GolemDungeons.REGISTRATE;
 
 public class GDItems {
 
-	public static final RegistryEntry<CreativeModeTab> TAB = REGISTRATE.buildL2CreativeTab(
+	public static final SimpleEntry<CreativeModeTab> TAB = REGISTRATE.buildL2CreativeTab(
 			"golem_dungeons", "Golem Dungeons", b -> b.icon(GDItems.SUMMON::asStack));
 
 	public static final ItemEntry<StructureEye> EYE_OF_ANCIENT_FACTORY;
@@ -54,6 +59,11 @@ public class GDItems {
 
 	public static final BlockEntry<DelegateBlock> SPAWNER;
 	public static final BlockEntityEntry<GolemTrialBlockEntity> BE_SPAWNER;
+
+	private static final DCReg DC = DCReg.of(GolemDungeons.REG);
+	public static final DCVal<Unit> MEDAL = DC.unit("medal");
+	public static final DCVal<String> MODID = DC.str("modid");
+	public static final DCVal<ResourceLocation> TRIAL = DC.loc("trial");
 
 	static {
 
@@ -111,7 +121,7 @@ public class GDItems {
 				.register();
 
 		SPAWNER = REGISTRATE.block("golem_spawner", p -> DelegateBlock.newBaseBlock(p,
-						BlockProxy.HORIZONTAL, new GolemTrialBlock(), GolemTrialBlock.TE))
+						BlockTemplates.HORIZONTAL, new GolemTrialBlock(), GolemTrialBlock.TE))
 				.properties(p -> p.noOcclusion().strength(50, 1200).requiresCorrectToolForDrops().noLootTable())
 				.blockstate(GolemTrialBlock::buildStates)
 				.simpleItem()

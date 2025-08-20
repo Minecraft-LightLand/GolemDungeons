@@ -5,8 +5,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "minecraft:crossbow",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "minecraft:crossbow"
         },
         "weight": 100
       }
@@ -16,8 +16,13 @@
         "dropChance": 0.085,
         "enchantLevel": 0,
         "stack": {
-          "item": "minecraft:tipped_arrow",
-          "nbt": "{Potion:\"minecraft:long_poison\"}"
+          "components": {
+            "minecraft:potion_contents": {
+              "potion": "minecraft:long_poison"
+            }
+          },
+          "count": 1,
+          "id": "minecraft:tipped_arrow"
         },
         "weight": 100
       },
@@ -25,8 +30,13 @@
         "dropChance": 0.085,
         "enchantLevel": 0,
         "stack": {
-          "item": "minecraft:tipped_arrow",
-          "nbt": "{Potion:\"minecraft:strong_slowness\"}"
+          "components": {
+            "minecraft:potion_contents": {
+              "potion": "minecraft:strong_slowness"
+            }
+          },
+          "count": 1,
+          "id": "minecraft:tipped_arrow"
         },
         "weight": 100
       },
@@ -34,8 +44,13 @@
         "dropChance": 0.085,
         "enchantLevel": 0,
         "stack": {
-          "item": "minecraft:tipped_arrow",
-          "nbt": "{Potion:\"minecraft:long_weakness\"}"
+          "components": {
+            "minecraft:potion_contents": {
+              "potion": "minecraft:long_weakness"
+            }
+          },
+          "count": 1,
+          "id": "minecraft:tipped_arrow"
         },
         "weight": 100
       },
@@ -43,8 +58,13 @@
         "dropChance": 0.085,
         "enchantLevel": 0,
         "stack": {
-          "item": "minecraft:tipped_arrow",
-          "nbt": "{Potion:\"minecraft:strong_harming\"}"
+          "components": {
+            "minecraft:potion_contents": {
+              "potion": "minecraft:strong_harming"
+            }
+          },
+          "count": 1,
+          "id": "minecraft:tipped_arrow"
         },
         "weight": 100
       }

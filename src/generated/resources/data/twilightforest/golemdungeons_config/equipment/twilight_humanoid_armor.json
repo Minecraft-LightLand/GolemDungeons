@@ -5,8 +5,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "twilightforest:knightmetal_chestplate",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "twilightforest:knightmetal_chestplate"
         },
         "weight": 100
       },
@@ -14,8 +14,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "twilightforest:ironwood_chestplate",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "twilightforest:ironwood_chestplate"
         },
         "weight": 100
       },
@@ -23,8 +23,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "twilightforest:steeleaf_chestplate",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "twilightforest:steeleaf_chestplate"
         },
         "weight": 100
       },
@@ -32,8 +32,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "twilightforest:arctic_chestplate",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "twilightforest:arctic_chestplate"
         },
         "weight": 100
       }
@@ -43,8 +43,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "twilightforest:knightmetal_boots",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "twilightforest:knightmetal_boots"
         },
         "weight": 100
       },
@@ -52,8 +52,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "twilightforest:ironwood_boots",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "twilightforest:ironwood_boots"
         },
         "weight": 100
       },
@@ -61,8 +61,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "twilightforest:steeleaf_boots",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "twilightforest:steeleaf_boots"
         },
         "weight": 100
       },
@@ -70,8 +70,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "twilightforest:arctic_boots",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "twilightforest:arctic_boots"
         },
         "weight": 100
       }
@@ -81,8 +81,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "twilightforest:knightmetal_helmet",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "twilightforest:knightmetal_helmet"
         },
         "weight": 100
       },
@@ -90,8 +90,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "twilightforest:ironwood_helmet",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "twilightforest:ironwood_helmet"
         },
         "weight": 100
       },
@@ -99,8 +99,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "twilightforest:steeleaf_helmet",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "twilightforest:steeleaf_helmet"
         },
         "weight": 100
       },
@@ -108,8 +108,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "twilightforest:arctic_helmet",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "twilightforest:arctic_helmet"
         },
         "weight": 100
       }
@@ -119,8 +119,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "twilightforest:knightmetal_leggings",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "twilightforest:knightmetal_leggings"
         },
         "weight": 100
       },
@@ -128,8 +128,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "twilightforest:ironwood_leggings",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "twilightforest:ironwood_leggings"
         },
         "weight": 100
       },
@@ -137,8 +137,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "twilightforest:steeleaf_leggings",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "twilightforest:steeleaf_leggings"
         },
         "weight": 100
       },
@@ -146,8 +146,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "twilightforest:arctic_leggings",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "twilightforest:arctic_leggings"
         },
         "weight": 100
       }

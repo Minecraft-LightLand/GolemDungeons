@@ -5,8 +5,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "minecraft:netherite_axe",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "minecraft:netherite_axe"
         },
         "weight": 100
       },
@@ -14,8 +14,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "minecraft:netherite_sword",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "minecraft:netherite_sword"
         },
         "weight": 100
       }
@@ -25,8 +25,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "minecraft:shield",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "minecraft:shield"
         },
         "weight": 100
       }

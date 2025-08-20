@@ -1,13 +1,15 @@
 package dev.xkmc.golemdungeons.content.config;
 
-import dev.xkmc.l2library.serial.config.BaseConfig;
-import dev.xkmc.l2library.serial.config.CollectType;
-import dev.xkmc.l2library.serial.config.ConfigCollect;
-import dev.xkmc.l2serial.serialization.SerialClass;
+import dev.xkmc.l2core.serial.config.BaseConfig;
+import dev.xkmc.l2core.serial.config.CollectType;
+import dev.xkmc.l2core.serial.config.ConfigCollect;
+import dev.xkmc.l2serial.serialization.marker.SerialClass;
+import dev.xkmc.l2serial.serialization.marker.SerialField;
 import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 
@@ -18,20 +20,20 @@ import java.util.List;
 public class TrialConfig extends BaseConfig {
 
 	@ConfigCollect(CollectType.COLLECT)
-	@SerialClass.SerialField
+	@SerialField
 	public final List<ArrayList<WaveEntry>> list = new ArrayList<>();
 
-	@SerialClass.SerialField
+	@SerialField
 	public int spawnCost = 1000;
 
-	@SerialClass.SerialField
+	@SerialField
 	public int triggerRange = 12, minY = -4, maxY = 6;
 
-	@SerialClass.SerialField
+	@SerialField
 	public boolean generateChest = false;
 
 	@Nullable
-	@SerialClass.SerialField
+	@SerialField
 	public ResourceLocation reward;
 
 	public TrialConfig add(WaveEntry... entries) {
@@ -56,8 +58,8 @@ public class TrialConfig extends BaseConfig {
 		return this;
 	}
 
-	public TrialConfig setReward(ResourceLocation loot) {
-		this.reward = loot;
+	public TrialConfig setReward(ResourceKey<LootTable> loot) {
+		this.reward = loot.location();
 		return this;
 	}
 

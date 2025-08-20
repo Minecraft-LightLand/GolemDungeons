@@ -15,52 +15,51 @@ import dev.xkmc.golemdungeons.init.data.*;
 import dev.xkmc.golemdungeons.init.data.advancement.GDAdvGen;
 import dev.xkmc.golemdungeons.init.data.advancement.GDTriggers;
 import dev.xkmc.golemdungeons.init.data.loot.GDLootGen;
-import dev.xkmc.golemdungeons.init.data.structure.GDBiomeTagsProvider;
 import dev.xkmc.golemdungeons.init.data.structure.GDStructureGen;
-import dev.xkmc.golemdungeons.init.data.structure.GDStructureTagsProvider;
 import dev.xkmc.golemdungeons.init.reg.GDItems;
 import dev.xkmc.golemdungeons.init.reg.GDModifiers;
 import dev.xkmc.golemdungeons.init.reg.GDWorldGen;
+import dev.xkmc.l2core.init.reg.registrate.L2Registrate;
+import dev.xkmc.l2core.init.reg.simple.Reg;
+import dev.xkmc.l2core.serial.config.ConfigTypeEntry;
+import dev.xkmc.l2core.serial.config.PacketHandlerWithConfig;
 import dev.xkmc.l2damagetracker.contents.attack.AttackEventHandler;
 import dev.xkmc.l2itemselector.select.item.IItemSelector;
-import dev.xkmc.l2library.base.L2Registrate;
-import dev.xkmc.l2library.serial.config.ConfigTypeEntry;
-import dev.xkmc.l2library.serial.config.PacketHandlerWithConfig;
 import dev.xkmc.modulargolems.compat.materials.cataclysm.CataDispatch;
 import dev.xkmc.modulargolems.compat.materials.twilightforest.TFDispatch;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.data.event.GatherDataEvent;
-import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
-import net.minecraftforge.eventbus.api.EventPriority;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModList;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.neoforged.bus.api.EventPriority;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.ModList;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.data.event.GatherDataEvent;
+import net.neoforged.neoforge.event.entity.EntityAttributeModificationEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(GolemDungeons.MODID)
-@Mod.EventBusSubscriber(modid = GolemDungeons.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = GolemDungeons.MODID, bus = EventBusSubscriber.Bus.MOD)
 public class GolemDungeons {
 
 	public static final String MODID = "golemdungeons";
 	public static final Logger LOGGER = LogManager.getLogger();
+	public static final Reg REG = new Reg(MODID);
 	public static final L2Registrate REGISTRATE = new L2Registrate(MODID);
-	public static final IEventBus MOD_BUS = FMLJavaModLoadingContext.get().getModEventBus();
 
 	public static final PacketHandlerWithConfig HANDLER = new PacketHandlerWithConfig(
-			new ResourceLocation(GolemDungeons.MODID, "main"), 1
+			GolemDungeons.MODID, 1
 	);
 
 	public static final ConfigTypeEntry<SpawnConfig> SPAWN = new ConfigTypeEntry<>(HANDLER, "spawn", SpawnConfig.class);
 	public static final ConfigTypeEntry<EquipmentConfig> ITEMS = new ConfigTypeEntry<>(HANDLER, "equipment", EquipmentConfig.class);
 	public static final ConfigTypeEntry<TrialConfig> TRIAL = new ConfigTypeEntry<>(HANDLER, "trial", TrialConfig.class);
 
-	public GolemDungeons() {
+	public GolemDungeons(IEventBus bus) {
 		GDItems.register();
 		GDModifiers.register();
 		GDWorldGen.register();
@@ -68,8 +67,8 @@ public class GolemDungeons {
 		GDConfig.init();
 		AttackEventHandler.register(3513, new GDAttackListener());
 		if (ModList.get().isLoaded(CataDispatch.MODID)) {
-			MinecraftForge.EVENT_BUS.register(CataclysmEventHandler.class);
-			FMLJavaModLoadingContext.get().getModEventBus().register(CataclysmModEventHandler.class);
+			NeoForge.EVENT_BUS.register(CataclysmEventHandler.class);
+			bus.register(CataclysmModEventHandler.class);
 		}
 	}
 
@@ -100,24 +99,24 @@ public class GolemDungeons {
 		REGISTRATE.addDataGenerator(ProviderType.RECIPE, GDRecipeGen::genRecipe);
 		REGISTRATE.addDataGenerator(ProviderType.ADVANCEMENT, GDAdvGen::genAdv);
 		REGISTRATE.addDataGenerator(ProviderType.ITEM_TAGS, GDTagGen::genItemTag);
-
+		REGISTRATE.addDataGenerator(GDTagGen.BIOME_TAG, GDTagGen::genBiomeTag);
+		REGISTRATE.addDataGenerator(GDTagGen.STRUCTURE_TAG, GDTagGen::genStructureTag);
+		var init = REGISTRATE.getDataGenInitializer();
+		GDStructureGen.add(init);
+		init.addDependency(ProviderType.RECIPE, ProviderType.DYNAMIC);
+		init.addDependency(ProviderType.ADVANCEMENT, ProviderType.DYNAMIC);
+		init.addDependency(GDTagGen.STRUCTURE_TAG, ProviderType.DYNAMIC);
+		new GDDamageTypes(REGISTRATE).generate();
 		var gen = event.getGenerator();
 		var output = gen.getPackOutput();
 		var pvd = event.getLookupProvider();
-		var helper = event.getExistingFileHelper();
 		var server = event.includeServer();
-		GDStructureGen reg = new GDStructureGen(output, pvd);
-		gen.addProvider(server, new GDConfigGen(gen));
-		gen.addProvider(server, reg);
-		gen.addProvider(server, new GDBiomeTagsProvider(output, pvd, helper));
-		gen.addProvider(server, new GDGLMGen(output));
-		gen.addProvider(server, new GDStructureTagsProvider(output, reg.getRegistryProvider(), helper));
-		new GDDamageTypes(output, pvd, helper).generate(server, gen);
+		gen.addProvider(server, new GDConfigGen(gen, pvd));
+		gen.addProvider(server, new GDGLMGen(output, pvd));
 	}
 
-
 	public static ResourceLocation loc(String id) {
-		return new ResourceLocation(MODID, id);
+		return ResourceLocation.fromNamespaceAndPath(MODID, id);
 	}
 
 }

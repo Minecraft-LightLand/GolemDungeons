@@ -1,0 +1,40 @@
+{
+  "values": [
+    {
+      "id": "golemdungeons:giant_ironwood_ingot",
+      "required": false
+    },
+    {
+      "id": "golemdungeons:giant_knightmetal_ingot",
+      "required": false
+    },
+    {
+      "id": "golemdungeons:giant_fiery_ingot",
+      "required": false
+    },
+    {
+      "id": "golemdungeons:giant_ironwood_pickaxe",
+      "required": false
+    },
+    {
+      "id": "golemdungeons:giant_knightmetal_pickaxe",
+      "required": false
+    },
+    {
+      "id": "golemdungeons:giant_fiery_pickaxe",
+      "required": false
+    },
+    {
+      "id": "golemdungeons:giant_ironwood_sword",
+      "required": false
+    },
+    {
+      "id": "golemdungeons:giant_knightmetal_sword",
+      "required": false
+    },
+    {
+      "id": "golemdungeons:giant_fiery_sword",
+      "required": false
+    }
+  ]
+}

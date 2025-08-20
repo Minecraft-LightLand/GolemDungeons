@@ -1,0 +1,25 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "cataclysm"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "cataclysm:burning_ashes"
+    },
+    {
+      "item": "golemdungeons:trial_medal"
+    }
+  ],
+  "result": {
+    "components": {
+      "golemdungeons:medal": {}
+    },
+    "count": 1,
+    "id": "cataclysm:burning_ashes"
+  }
+}

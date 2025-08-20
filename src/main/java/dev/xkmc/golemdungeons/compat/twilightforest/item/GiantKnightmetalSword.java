@@ -9,13 +9,10 @@ import dev.xkmc.modulargolems.content.item.equipments.MetalGolemWeaponItem;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.Level;
-import org.jetbrains.annotations.Nullable;
-import twilightforest.item.GiantItem;
 
 import java.util.List;
 
-public class GiantKnightmetalSword extends MetalGolemWeaponItem implements GolemCustomSourceWeapon, GiantItem {
+public class GiantKnightmetalSword extends MetalGolemWeaponItem implements GolemCustomSourceWeapon {
 
 	public GiantKnightmetalSword(Properties properties, int attackDamage, double percentAttack, float range, float sweep) {
 		super(properties, attackDamage, percentAttack, range, sweep);
@@ -27,9 +24,9 @@ public class GiantKnightmetalSword extends MetalGolemWeaponItem implements Golem
 	}
 
 	@Override
-	public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> list, TooltipFlag flag) {
+	public void appendHoverText(ItemStack stack, TooltipContext ctx, List<Component> list, TooltipFlag flag) {
 		list.add(GDLang.ANCIENT_FORGE_ATK.get());
-		super.appendHoverText(stack, level, list, flag);
+		super.appendHoverText(stack, ctx, list, flag);
 	}
 
 }

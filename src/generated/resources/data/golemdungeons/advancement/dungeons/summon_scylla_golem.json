@@ -1,0 +1,57 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "cataclysm"
+    }
+  ],
+  "parent": "golemdungeons:dungeons/summon_ender_guardian_golem",
+  "criteria": {
+    "0": {
+      "conditions": {
+        "trial": "cataclysm:heavenly_storm"
+      },
+      "trigger": "modulargolems:trial_summon"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.golemdungeons.dungeons.summon_scylla_golem.description"
+    },
+    "icon": {
+      "components": {
+        "modulargolems:golem_materials": {
+          "parts": [
+            {
+              "material": "cataclysm:storm",
+              "part": "modulargolems:metal_golem_arm"
+            },
+            {
+              "material": "cataclysm:storm",
+              "part": "modulargolems:metal_golem_body"
+            },
+            {
+              "material": "cataclysm:storm",
+              "part": "modulargolems:metal_golem_arm"
+            },
+            {
+              "material": "cataclysm:storm",
+              "part": "modulargolems:metal_golem_legs"
+            }
+          ]
+        }
+      },
+      "count": 1,
+      "id": "modulargolems:metal_golem_holder"
+    },
+    "title": {
+      "translate": "advancements.golemdungeons.dungeons.summon_scylla_golem.title"
+    }
+  },
+  "requirements": [
+    [
+      "0"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,29 @@
+{
+  "parent": "golemdungeons:dungeons/visit_abandoned_factory",
+  "criteria": {
+    "0": {
+      "conditions": {
+        "trial": "golemdungeons:factory_remnant"
+      },
+      "trigger": "modulargolems:trial_complete"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.golemdungeons.dungeons.defeat_abandoned_factory.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "golemdungeons:ancient_forge"
+    },
+    "title": {
+      "translate": "advancements.golemdungeons.dungeons.defeat_abandoned_factory.title"
+    }
+  },
+  "requirements": [
+    [
+      "0"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

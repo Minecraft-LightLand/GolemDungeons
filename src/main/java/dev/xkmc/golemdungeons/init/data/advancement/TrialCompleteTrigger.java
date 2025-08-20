@@ -1,8 +1,9 @@
 package dev.xkmc.golemdungeons.init.data.advancement;
 
-import dev.xkmc.l2library.serial.advancements.BaseCriterion;
-import dev.xkmc.l2library.serial.advancements.BaseCriterionInstance;
-import dev.xkmc.l2serial.serialization.SerialClass;
+import dev.xkmc.l2core.serial.advancements.BaseCriterion;
+import dev.xkmc.l2core.serial.advancements.BaseCriterionInstance;
+import dev.xkmc.l2serial.serialization.marker.SerialClass;
+import dev.xkmc.l2serial.serialization.marker.SerialField;
 import net.minecraft.advancements.critereon.ContextAwarePredicate;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
@@ -10,13 +11,13 @@ import net.minecraft.server.level.ServerPlayer;
 public class TrialCompleteTrigger extends BaseCriterion<TrialCompleteTrigger.Ins, TrialCompleteTrigger> {
 
 	public static Ins ins(ResourceLocation trial) {
-		Ins ans = new Ins(GDTriggers.COMPLETE.getId(), ContextAwarePredicate.ANY);
+		Ins ans = new Ins(GDTriggers.COMPLETE.get());
 		ans.trial = trial;
 		return ans;
 	}
 
-	public TrialCompleteTrigger(ResourceLocation id) {
-		super(id, Ins::new, Ins.class);
+	public TrialCompleteTrigger() {
+		super(Ins.class);
 	}
 
 	public void trigger(ServerPlayer player, ResourceLocation trial) {
@@ -26,11 +27,11 @@ public class TrialCompleteTrigger extends BaseCriterion<TrialCompleteTrigger.Ins
 	@SerialClass
 	public static class Ins extends BaseCriterionInstance<Ins, TrialCompleteTrigger> {
 
-		@SerialClass.SerialField
+		@SerialField
 		private ResourceLocation trial;
 
-		public Ins(ResourceLocation id, ContextAwarePredicate player) {
-			super(id, player);
+		protected Ins(TrialCompleteTrigger t) {
+			super(t);
 		}
 
 	}

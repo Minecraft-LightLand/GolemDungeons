@@ -5,7 +5,8 @@
         "dropChance": 0.085,
         "enchantLevel": 0,
         "stack": {
-          "item": "cataclysm:meat_shredder"
+          "count": 1,
+          "id": "cataclysm:meat_shredder"
         },
         "weight": 50
       }

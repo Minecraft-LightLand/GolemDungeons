@@ -5,7 +5,7 @@ import dev.xkmc.golemdungeons.init.GolemDungeons;
 import dev.xkmc.golemdungeons.init.data.GDConfig;
 import dev.xkmc.golemdungeons.init.data.GDDamageTypes;
 import dev.xkmc.golemdungeons.init.data.GDLang;
-import dev.xkmc.l2library.init.events.GeneralEventHandler;
+import dev.xkmc.l2core.events.SchedulerHandler;
 import dev.xkmc.modulargolems.content.entity.metalgolem.MetalGolemEntity;
 import dev.xkmc.modulargolems.content.entity.targeting.TargetManager;
 import dev.xkmc.modulargolems.content.item.equipments.ExtraAttackGolemWeapon;
@@ -24,12 +24,10 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
-import net.minecraftforge.client.model.generators.ItemModelBuilder;
-import net.minecraftforge.client.model.generators.ModelFile;
-import net.minecraftforge.client.model.generators.loaders.SeparateTransformsModelBuilder;
-import org.jetbrains.annotations.Nullable;
+import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
+import net.neoforged.neoforge.client.model.generators.loaders.SeparateTransformsModelBuilder;
 
 import java.util.List;
 
@@ -40,10 +38,10 @@ public class SculkScythe extends MetalGolemWeaponItem implements ExtraAttackGole
 	}
 
 	@Override
-	public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> list, TooltipFlag flag) {
-		int perc = (int) Math.round(100 * GDConfig.COMMON.sculkScytheDamage.get());
+	public void appendHoverText(ItemStack stack, TooltipContext ctx, List<Component> list, TooltipFlag flag) {
+		int perc = (int) Math.round(100 * GDConfig.SERVER.sculkScytheDamage.get());
 		list.add(GDLang.SCULK_SCYTHE_ATK.get(Component.literal(perc + "%")));
-		super.appendHoverText(stack, level, list, flag);
+		super.appendHoverText(stack, ctx, list, flag);
 	}
 
 	@Override
@@ -54,8 +52,8 @@ public class SculkScythe extends MetalGolemWeaponItem implements ExtraAttackGole
 			double z = target.getZ();
 			sl.sendParticles(ParticleTypes.SONIC_BOOM, x, y, z, 1, 0, 0, 0, 0);
 			long time = sl.getGameTime();
-			float damage = dmg * GDConfig.COMMON.sculkScytheDamage.get().floatValue();
-			GeneralEventHandler.schedulePersistent(() -> {
+			float damage = dmg * GDConfig.SERVER.sculkScytheDamage.get().floatValue();
+			SchedulerHandler.schedulePersistent(() -> {
 				if (sl.getGameTime() >= time + 8) {
 					var source = self.level().registryAccess().registryOrThrow(Registries.DAMAGE_TYPE)
 							.getHolderOrThrow(GDDamageTypes.ECHO);

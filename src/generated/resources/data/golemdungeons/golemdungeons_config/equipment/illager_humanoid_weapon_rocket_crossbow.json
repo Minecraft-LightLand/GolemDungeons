@@ -5,8 +5,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "minecraft:crossbow",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "minecraft:crossbow"
         },
         "weight": 100
       }
@@ -16,7 +16,8 @@
         "dropChance": 0.085,
         "enchantLevel": 10,
         "stack": {
-          "item": "minecraft:firework_rocket"
+          "count": 1,
+          "id": "minecraft:firework_rocket"
         },
         "weight": 100
       }

@@ -2,6 +2,7 @@ package dev.xkmc.golemdungeons.content.structure;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import dev.xkmc.golemdungeons.init.reg.GDWorldGen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
@@ -15,8 +16,8 @@ import java.util.List;
 
 public class GDRuleProcessor extends StructureProcessor {
 
-	public static final Codec<GDRuleProcessor> CODEC = ProcessorRule.CODEC.listOf().fieldOf("rules")
-			.xmap(GDRuleProcessor::new, e -> e.rules).codec();
+	public static final MapCodec<GDRuleProcessor> CODEC = ProcessorRule.CODEC.listOf().fieldOf("rules")
+			.xmap(GDRuleProcessor::new, e -> e.rules);
 
 	private final ImmutableList<ProcessorRule> rules;
 

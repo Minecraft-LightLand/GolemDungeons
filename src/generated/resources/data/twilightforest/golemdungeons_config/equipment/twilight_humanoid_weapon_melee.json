@@ -5,8 +5,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "twilightforest:knightmetal_sword",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "twilightforest:knightmetal_sword"
         },
         "weight": 100
       },
@@ -14,8 +14,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "twilightforest:knightmetal_axe",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "twilightforest:knightmetal_axe"
         },
         "weight": 100
       },
@@ -23,8 +23,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "twilightforest:ironwood_sword",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "twilightforest:ironwood_sword"
         },
         "weight": 100
       },
@@ -32,8 +32,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "twilightforest:ironwood_axe",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "twilightforest:ironwood_axe"
         },
         "weight": 100
       },
@@ -41,8 +41,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "twilightforest:steeleaf_sword",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "twilightforest:steeleaf_sword"
         },
         "weight": 100
       },
@@ -50,8 +50,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "twilightforest:steeleaf_axe",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "twilightforest:steeleaf_axe"
         },
         "weight": 100
       },
@@ -59,8 +59,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "twilightforest:gold_minotaur_axe",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "twilightforest:gold_minotaur_axe"
         },
         "weight": 100
       }
@@ -70,8 +70,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "minecraft:shield",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "minecraft:shield"
         },
         "weight": 100
       }

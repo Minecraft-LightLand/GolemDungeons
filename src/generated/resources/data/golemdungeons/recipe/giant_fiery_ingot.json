@@ -1,0 +1,30 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "twilightforest"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "twilightforest:fiery_block"
+    },
+    "G": {
+      "item": "twilightforest:giant_obsidian"
+    },
+    "I": {
+      "item": "twilightforest:fiery_ingot"
+    }
+  },
+  "pattern": [
+    "BIB",
+    "BGB",
+    "BBB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "golemdungeons:giant_fiery_ingot"
+  }
+}

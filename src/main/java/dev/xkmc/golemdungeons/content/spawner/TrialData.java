@@ -4,7 +4,8 @@ import dev.xkmc.golemdungeons.content.config.TrialConfig;
 import dev.xkmc.golemdungeons.init.GolemDungeons;
 import dev.xkmc.golemdungeons.init.data.GDLang;
 import dev.xkmc.golemdungeons.util.GolemUtils;
-import dev.xkmc.l2serial.serialization.SerialClass;
+import dev.xkmc.l2serial.serialization.marker.SerialClass;
+import dev.xkmc.l2serial.serialization.marker.SerialField;
 import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.bossevents.CustomBossEvent;
@@ -22,20 +23,20 @@ public class TrialData {
 
 	private static final int WAVE_DELAY = 40, SUMMON_DELAY = 10, COMPLETE_DELAY = 60;
 
-	@SerialClass.SerialField
+	@SerialField
 	private final List<UUID> trialGolems = new ArrayList<>();
 
 	@Nullable
-	@SerialClass.SerialField
+	@SerialField
 	private ResourceLocation id;
 
-	@SerialClass.SerialField
+	@SerialField
 	private int wave = 0, entryCount = 0, entryIndex = 0, toSummon = 0, mobIndex = 0, totalMob = 0;
 
-	@SerialClass.SerialField
+	@SerialField
 	private long nextAction = 0;
 
-	@SerialClass.SerialField
+	@SerialField
 	private float totalHealth = 0;
 
 	@Nullable

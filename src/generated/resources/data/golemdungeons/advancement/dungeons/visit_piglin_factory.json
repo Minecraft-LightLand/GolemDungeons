@@ -1,0 +1,39 @@
+{
+  "parent": "golemdungeons:dungeons/defeat_abandoned_factory",
+  "criteria": {
+    "0": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structures": "golemdungeons:piglin_factory"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.golemdungeons.dungeons.visit_piglin_factory.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "golemdungeons:eye_of_crimson_factory"
+    },
+    "title": {
+      "translate": "advancements.golemdungeons.dungeons.visit_piglin_factory.title"
+    }
+  },
+  "requirements": [
+    [
+      "0"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

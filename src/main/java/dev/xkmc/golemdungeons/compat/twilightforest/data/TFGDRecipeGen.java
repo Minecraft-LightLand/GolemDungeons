@@ -4,7 +4,7 @@ import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import dev.xkmc.golemdungeons.compat.twilightforest.TwilightGDRegistry;
 import dev.xkmc.golemdungeons.init.data.GDRecipeGen;
 import dev.xkmc.golemdungeons.init.reg.GDItems;
-import dev.xkmc.l2library.serial.recipe.ConditionalRecipeWrapper;
+import dev.xkmc.l2core.serial.recipe.ConditionalRecipeWrapper;
 import dev.xkmc.modulargolems.compat.materials.twilightforest.TFDispatch;
 import dev.xkmc.modulargolems.init.registrate.GolemItems;
 import net.minecraft.data.recipes.RecipeCategory;

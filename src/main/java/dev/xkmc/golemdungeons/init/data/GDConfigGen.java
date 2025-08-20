@@ -6,16 +6,19 @@ import dev.xkmc.golemdungeons.init.data.spawn.FactoryGolemSpawn;
 import dev.xkmc.golemdungeons.init.data.spawn.IllagerGolemSpawn;
 import dev.xkmc.golemdungeons.init.data.spawn.PiglinGolemSpawn;
 import dev.xkmc.golemdungeons.init.data.spawn.SculkGolemSpawn;
-import dev.xkmc.l2library.serial.config.ConfigDataProvider;
+import dev.xkmc.l2core.serial.config.ConfigDataProvider;
 import dev.xkmc.modulargolems.compat.materials.cataclysm.CataDispatch;
 import dev.xkmc.modulargolems.compat.materials.twilightforest.TFDispatch;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
-import net.minecraftforge.fml.ModList;
+import net.neoforged.fml.ModList;
+
+import java.util.concurrent.CompletableFuture;
 
 public class GDConfigGen extends ConfigDataProvider {
 
-	public GDConfigGen(DataGenerator generator) {
-		super(generator, "Golem Spawn Config");
+	public GDConfigGen(DataGenerator generator, CompletableFuture<HolderLookup.Provider> pvd) {
+		super(generator, pvd, "Golem Spawn Config");
 	}
 
 	public void add(ConfigDataProvider.Collector map) {

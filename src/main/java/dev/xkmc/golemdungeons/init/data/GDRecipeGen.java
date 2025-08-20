@@ -9,13 +9,14 @@ import dev.xkmc.golemdungeons.init.reg.GDModifiers;
 import dev.xkmc.modulargolems.compat.materials.cataclysm.CataDispatch;
 import dev.xkmc.modulargolems.compat.materials.twilightforest.TFDispatch;
 import dev.xkmc.modulargolems.init.registrate.GolemItems;
+import net.minecraft.advancements.Criterion;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraftforge.fml.ModList;
+import net.neoforged.fml.ModList;
 
 import java.util.function.BiFunction;
 
@@ -78,8 +79,8 @@ public class GDRecipeGen {
 
 	}
 
-	public static <T> T unlock(RegistrateRecipeProvider pvd, BiFunction<String, InventoryChangeTrigger.TriggerInstance, T> func, Item item) {
-		return func.apply("has_" + pvd.safeName(item), DataIngredient.items(item).getCritereon(pvd));
+	public static <T> T unlock(RegistrateRecipeProvider pvd, BiFunction<String, Criterion<InventoryChangeTrigger.TriggerInstance>, T> func, Item item) {
+		return func.apply("has_" + pvd.safeName(item), DataIngredient.items(item).getCriterion(pvd));
 	}
 
 

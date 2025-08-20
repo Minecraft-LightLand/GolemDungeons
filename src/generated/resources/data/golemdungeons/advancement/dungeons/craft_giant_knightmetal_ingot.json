@@ -1,0 +1,40 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "twilightforest"
+    }
+  ],
+  "parent": "golemdungeons:dungeons/defeat_twilight_dungeon",
+  "criteria": {
+    "0": {
+      "conditions": {
+        "items": [
+          {
+            "items": "golemdungeons:giant_knightmetal_pickaxe"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.golemdungeons.dungeons.craft_giant_knightmetal_ingot.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "golemdungeons:giant_knightmetal_pickaxe"
+    },
+    "title": {
+      "translate": "advancements.golemdungeons.dungeons.craft_giant_knightmetal_ingot.title"
+    }
+  },
+  "requirements": [
+    [
+      "0"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

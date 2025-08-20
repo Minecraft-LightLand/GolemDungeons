@@ -1,41 +1,41 @@
 package dev.xkmc.golemdungeons.content.faction;
 
+import dev.xkmc.l2serial.util.LazyFunction;
 import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Unit;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.monster.piglin.AbstractPiglin;
-import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.entity.BannerPattern;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BannerPatternLayers;
 import net.minecraft.world.level.block.entity.BannerPatterns;
-import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraftforge.common.util.Lazy;
+
+import java.util.List;
 
 public class PiglinFaction extends DungeonFaction {
 
-	private static final Lazy<ItemStack> BANNER = Lazy.of(() -> {
-		ItemStack stack = new ItemStack(Items.BLACK_BANNER);
-		CompoundTag comp = new CompoundTag();
-		ListTag list = new BannerPattern.Builder()
-				.addPattern(BannerPatterns.STRIPE_SMALL, DyeColor.YELLOW)
-				.addPattern(BannerPatterns.BRICKS, DyeColor.GRAY)
-				.addPattern(BannerPatterns.CURLY_BORDER, DyeColor.BLACK)
-				.addPattern(BannerPatterns.TRIANGLES_BOTTOM, DyeColor.RED)
-				.addPattern(BannerPatterns.TRIANGLES_BOTTOM, DyeColor.ORANGE)
-				.addPattern(BannerPatterns.TRIANGLES_TOP, DyeColor.ORANGE)
-				.addPattern(BannerPatterns.PIGLIN, DyeColor.RED)
-				.addPattern(BannerPatterns.GRADIENT_UP, DyeColor.ORANGE)
-				.addPattern(BannerPatterns.GRADIENT, DyeColor.ORANGE)
-				.addPattern(BannerPatterns.BORDER, DyeColor.BLACK)
-				.addPattern(BannerPatterns.PIGLIN, DyeColor.YELLOW)
-				.toListTag();
-		comp.put("Patterns", list);
-		BlockItem.setBlockEntityData(stack, BlockEntityType.BANNER, comp);
-		stack.hideTooltipPart(ItemStack.TooltipPart.ADDITIONAL);
+	private static final LazyFunction<Level, ItemStack> BANNER = LazyFunction.create(level -> {
+		var reg = level.registryAccess().lookupOrThrow(Registries.BANNER_PATTERN);
+		ItemStack stack = new ItemStack(Items.WHITE_BANNER);
+		stack.set(DataComponents.BANNER_PATTERNS, new BannerPatternLayers(List.of(
+				new BannerPatternLayers.Layer(reg.getOrThrow(BannerPatterns.STRIPE_SMALL), DyeColor.YELLOW),
+				new BannerPatternLayers.Layer(reg.getOrThrow(BannerPatterns.BRICKS), DyeColor.GRAY),
+				new BannerPatternLayers.Layer(reg.getOrThrow(BannerPatterns.CURLY_BORDER), DyeColor.BLACK),
+				new BannerPatternLayers.Layer(reg.getOrThrow(BannerPatterns.TRIANGLES_BOTTOM), DyeColor.RED),
+				new BannerPatternLayers.Layer(reg.getOrThrow(BannerPatterns.TRIANGLES_BOTTOM), DyeColor.ORANGE),
+				new BannerPatternLayers.Layer(reg.getOrThrow(BannerPatterns.TRIANGLES_TOP), DyeColor.ORANGE),
+				new BannerPatternLayers.Layer(reg.getOrThrow(BannerPatterns.PIGLIN), DyeColor.RED),
+				new BannerPatternLayers.Layer(reg.getOrThrow(BannerPatterns.GRADIENT_UP), DyeColor.ORANGE),
+				new BannerPatternLayers.Layer(reg.getOrThrow(BannerPatterns.GRADIENT), DyeColor.ORANGE),
+				new BannerPatternLayers.Layer(reg.getOrThrow(BannerPatterns.BORDER), DyeColor.BLACK),
+				new BannerPatternLayers.Layer(reg.getOrThrow(BannerPatterns.PIGLIN), DyeColor.YELLOW)
+		)));
+		stack.set(DataComponents.HIDE_ADDITIONAL_TOOLTIP, Unit.INSTANCE);
 		return stack;
 	});
 
@@ -45,7 +45,7 @@ public class PiglinFaction extends DungeonFaction {
 
 	@Override
 	public ItemStack getBanner(AbstractGolemEntity<?, ?> e, int col) {
-		return BANNER.get();
+		return BANNER.get(e.level());
 	}
 
 	@Override

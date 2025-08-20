@@ -34,7 +34,7 @@ public class SummonWandSelector extends IItemSelector {
 	}
 
 	@Override
-	public int getIndex(Player player) {
+	public int getIndex(Player player, ItemStack stack) {
 		var list = getAll(modid);
 		if (test(player.getMainHandItem()))
 			return list.indexOf(HostileSummonWand.getId(player.getMainHandItem()));
@@ -42,7 +42,7 @@ public class SummonWandSelector extends IItemSelector {
 	}
 
 	@Override
-	public List<ItemStack> getList() {
+	public List<ItemStack> getList(ItemStack stack) {
 		var all = GolemDungeons.SPAWN.getAll();
 		var ans = new ArrayList<ItemStack>();
 		for (var e : all) {

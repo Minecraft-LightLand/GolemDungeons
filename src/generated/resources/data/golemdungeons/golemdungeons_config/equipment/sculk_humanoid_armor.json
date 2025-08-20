@@ -5,8 +5,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "minecraft:diamond_chestplate",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "minecraft:diamond_chestplate"
         },
         "weight": 100
       }
@@ -16,8 +16,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "minecraft:diamond_boots",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "minecraft:diamond_boots"
         },
         "weight": 100
       }
@@ -27,8 +27,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "minecraft:diamond_helmet",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "minecraft:diamond_helmet"
         },
         "weight": 100
       }
@@ -38,8 +38,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "minecraft:diamond_leggings",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "minecraft:diamond_leggings"
         },
         "weight": 100
       }

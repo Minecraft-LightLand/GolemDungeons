@@ -5,8 +5,8 @@
         "dropChance": 0.085,
         "enchantLevel": 0,
         "stack": {
-          "item": "cataclysm:void_forge",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "cataclysm:void_forge"
         },
         "weight": 50
       }
@@ -16,7 +16,8 @@
         "dropChance": 0.085,
         "enchantLevel": 0,
         "stack": {
-          "item": "cataclysm:void_assault_shoulder_weapon"
+          "count": 1,
+          "id": "cataclysm:void_assault_shoulder_weapon"
         },
         "weight": 50
       }

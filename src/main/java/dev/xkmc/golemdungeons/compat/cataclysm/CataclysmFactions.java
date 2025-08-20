@@ -19,19 +19,19 @@ import java.util.List;
 public class CataclysmFactions {
 
 	public static final HostileFaction HARBINGER = HostileGolemRegistry.register(
-			new TaggedBossFaction(new ResourceLocation(CataDispatch.MODID, "harbinger"), ModTag.TEAM_THE_HARBINGER));
+			new TaggedBossFaction(loc("harbinger"), ModTag.TEAM_THE_HARBINGER));
 
 	public static final HostileFaction MONSTROSITY = HostileGolemRegistry.register(
-			new TaggedBossFaction(new ResourceLocation(CataDispatch.MODID, "monstrosity"), ModTag.TEAM_MONSTROSITY));
+			new TaggedBossFaction(loc("monstrosity"), ModTag.TEAM_MONSTROSITY));
 
 	public static final HostileFaction ENDER_GUARDIAN = HostileGolemRegistry.register(
-			new TaggedBossFaction(new ResourceLocation(CataDispatch.MODID, "ender_guardian"), ModTag.TEAM_ENDER_GUARDIAN));
+			new TaggedBossFaction(loc("ender_guardian"), ModTag.TEAM_ENDER_GUARDIAN));
 
 	public static final HostileFaction IGNIS = HostileGolemRegistry.register(
-			new TaggedBossFaction(new ResourceLocation(CataDispatch.MODID, "ignis"), ModTag.TEAM_IGNIS));
+			new TaggedBossFaction(loc("ignis"), ModTag.TEAM_IGNIS));
 
 	public static final HostileFaction SCYLLA = HostileGolemRegistry.register(
-			new TaggedBossFaction(new ResourceLocation(CataDispatch.MODID, "scylla"), ModTag.TEAM_SCYLLA));
+			new TaggedBossFaction(loc("scylla"), ModTag.TEAM_SCYLLA));
 
 	public static CataBossEntry ENTRY_IGNIS;
 
@@ -49,5 +49,10 @@ public class CataclysmFactions {
 		BOSSES.add(new CataBossEntry(ModItems.STORM_EYE::get, ScyllaGolemSpawn.ALL,
 				Scylla_Entity.class, CataclysmFactions.SCYLLA));
 	}
+
+	private static ResourceLocation loc(String id) {
+		return ResourceLocation.fromNamespaceAndPath(CataDispatch.MODID, id);
+	}
+
 
 }

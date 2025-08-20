@@ -1,0 +1,38 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "cataclysm"
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "golemdungeons:burning_ashes_with_medal"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_trial_medal": {
+      "conditions": {
+        "items": [
+          {
+            "items": "golemdungeons:trial_medal"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_trial_medal"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "golemdungeons:burning_ashes_with_medal"
+    ]
+  }
+}

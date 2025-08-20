@@ -5,11 +5,13 @@ import dev.xkmc.golemdungeons.content.config.TrialConfig;
 import dev.xkmc.modulargolems.init.material.GolemWeaponType;
 import dev.xkmc.modulargolems.init.material.VanillaGolemWeaponMaterial;
 import dev.xkmc.modulargolems.init.registrate.GolemItems;
+import net.minecraft.core.Holder;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potion;
-import net.minecraft.world.item.alchemy.PotionUtils;
+import net.minecraft.world.item.alchemy.PotionContents;
 
 public class AbstractGolemSpawn {
 
@@ -17,8 +19,10 @@ public class AbstractGolemSpawn {
 		return GolemItems.METALGOLEM_WEAPON[type.ordinal()][mat.ordinal()].asStack();
 	}
 
-	public static ItemStack tipped(Potion potion) {
-		return PotionUtils.setPotion(Items.TIPPED_ARROW.getDefaultInstance(), potion);
+	public static ItemStack tipped(Holder<Potion> potion) {
+		var ans = Items.TIPPED_ARROW.getDefaultInstance();
+		ans.set(DataComponents.POTION_CONTENTS, new PotionContents(potion));
+		return ans;
 	}
 
 	public static TrialConfig.WaveEntry of(ResourceLocation target, int num) {

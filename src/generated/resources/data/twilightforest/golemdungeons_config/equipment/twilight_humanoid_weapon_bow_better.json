@@ -5,8 +5,8 @@
         "dropChance": 0.2,
         "enchantLevel": 30,
         "stack": {
-          "item": "twilightforest:triple_bow",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "twilightforest:triple_bow"
         },
         "weight": 100
       },
@@ -14,8 +14,8 @@
         "dropChance": 0.2,
         "enchantLevel": 30,
         "stack": {
-          "item": "twilightforest:ice_bow",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "twilightforest:ice_bow"
         },
         "weight": 100
       }
@@ -25,8 +25,13 @@
         "dropChance": 0.085,
         "enchantLevel": 0,
         "stack": {
-          "item": "minecraft:tipped_arrow",
-          "nbt": "{Potion:\"minecraft:strong_harming\"}"
+          "components": {
+            "minecraft:potion_contents": {
+              "potion": "minecraft:strong_harming"
+            }
+          },
+          "count": 1,
+          "id": "minecraft:tipped_arrow"
         },
         "weight": 100
       }

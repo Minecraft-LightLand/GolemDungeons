@@ -5,7 +5,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "modulargolems:netherite_golem_axe"
+          "count": 1,
+          "id": "modulargolems:netherite_golem_axe"
         },
         "weight": 50
       },
@@ -13,8 +14,8 @@
         "dropChance": 0.085,
         "enchantLevel": 0,
         "stack": {
-          "item": "cataclysm:infernal_forge",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "cataclysm:infernal_forge"
         },
         "weight": 50
       }

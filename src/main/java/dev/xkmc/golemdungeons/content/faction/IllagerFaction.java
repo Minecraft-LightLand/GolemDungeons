@@ -1,7 +1,9 @@
 package dev.xkmc.golemdungeons.content.faction;
 
 import dev.xkmc.golemdungeons.init.reg.GDItems;
+import dev.xkmc.l2serial.util.LazyFunction;
 import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.world.entity.Entity;
@@ -10,11 +12,12 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.raid.Raid;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.common.util.Lazy;
+import net.minecraft.world.level.Level;
 
 public class IllagerFaction extends DungeonFaction {
 
-	private static final Lazy<ItemStack> BANNER = Lazy.of(Raid::getLeaderBannerInstance);
+	private static final LazyFunction<Level, ItemStack> BANNER = LazyFunction.create(level ->
+			Raid.getLeaderBannerInstance(level.registryAccess().lookupOrThrow(Registries.BANNER_PATTERN)));
 
 	public IllagerFaction(ResourceLocation id) {
 		super(id);
@@ -24,7 +27,7 @@ public class IllagerFaction extends DungeonFaction {
 	public ItemStack getBanner(AbstractGolemEntity<?, ?> e, int col) {
 		if (e.getItemBySlot(EquipmentSlot.CHEST).is(GDItems.SAMURAI_CHESTPLATE.get()))
 			return ItemStack.EMPTY;
-		return BANNER.get();
+		return BANNER.get(e.level());
 	}
 
 	@Override

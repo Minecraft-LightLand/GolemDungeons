@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "golemdungeons:medal_of_conqueror"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "R": {
+      "item": "minecraft:redstone_block"
+    }
+  },
+  "pattern": [
+    "DAD",
+    "ARA",
+    "DAD"
+  ],
+  "result": {
+    "count": 1,
+    "id": "golemdungeons:trial_medal"
+  }
+}

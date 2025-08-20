@@ -5,7 +5,8 @@
         "dropChance": 0.085,
         "enchantLevel": 0,
         "stack": {
-          "item": "cataclysm:astrape"
+          "count": 1,
+          "id": "cataclysm:astrape"
         },
         "weight": 50
       },
@@ -13,7 +14,8 @@
         "dropChance": 0.085,
         "enchantLevel": 0,
         "stack": {
-          "item": "cataclysm:ceraunus"
+          "count": 1,
+          "id": "cataclysm:ceraunus"
         },
         "weight": 50
       }

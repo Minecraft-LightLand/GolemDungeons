@@ -5,8 +5,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "twilightforest:fiery_chestplate",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "twilightforest:fiery_chestplate"
         },
         "weight": 100
       },
@@ -14,8 +14,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "twilightforest:knightmetal_chestplate",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "twilightforest:knightmetal_chestplate"
         },
         "weight": 100
       },
@@ -23,8 +23,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "twilightforest:yeti_chestplate",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "twilightforest:yeti_chestplate"
         },
         "weight": 100
       },
@@ -32,8 +32,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "twilightforest:naga_chestplate",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "twilightforest:naga_chestplate"
         },
         "weight": 100
       }
@@ -43,8 +43,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "twilightforest:fiery_boots",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "twilightforest:fiery_boots"
         },
         "weight": 100
       },
@@ -52,8 +52,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "twilightforest:knightmetal_boots",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "twilightforest:knightmetal_boots"
         },
         "weight": 100
       },
@@ -61,8 +61,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "twilightforest:yeti_boots",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "twilightforest:yeti_boots"
         },
         "weight": 100
       }
@@ -72,8 +72,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "twilightforest:fiery_helmet",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "twilightforest:fiery_helmet"
         },
         "weight": 100
       },
@@ -81,8 +81,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "twilightforest:knightmetal_helmet",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "twilightforest:knightmetal_helmet"
         },
         "weight": 100
       },
@@ -90,8 +90,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "twilightforest:yeti_helmet",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "twilightforest:yeti_helmet"
         },
         "weight": 100
       }
@@ -101,8 +101,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "twilightforest:fiery_leggings",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "twilightforest:fiery_leggings"
         },
         "weight": 100
       },
@@ -110,8 +110,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "twilightforest:knightmetal_leggings",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "twilightforest:knightmetal_leggings"
         },
         "weight": 100
       },
@@ -119,8 +119,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "twilightforest:yeti_leggings",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "twilightforest:yeti_leggings"
         },
         "weight": 100
       },
@@ -128,8 +128,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "twilightforest:naga_leggings",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "twilightforest:naga_leggings"
         },
         "weight": 100
       }

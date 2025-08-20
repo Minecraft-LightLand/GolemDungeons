@@ -1,0 +1,29 @@
+{
+  "parent": "golemdungeons:dungeons/visit_sculk_factory",
+  "criteria": {
+    "0": {
+      "conditions": {
+        "trial": "golemdungeons:sculk_infestation"
+      },
+      "trigger": "modulargolems:trial_complete"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.golemdungeons.dungeons.defeat_sculk_factory.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "golemdungeons:sculk_golem_scythe"
+    },
+    "title": {
+      "translate": "advancements.golemdungeons.dungeons.defeat_sculk_factory.title"
+    }
+  },
+  "requirements": [
+    [
+      "0"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -11,7 +11,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.fml.ModList;
+import net.neoforged.fml.ModList;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -39,7 +39,7 @@ public class TrialMedal extends Item {
 	}
 
 	@Override
-	public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> list, TooltipFlag flag) {
+	public void appendHoverText(ItemStack stack, TooltipContext ctx, List<Component> list, TooltipFlag flag) {
 		list.add(GDLang.TRIAL_MEDAL.get());
 		if (ModList.get().isLoaded(CataDispatch.MODID)) {
 			list.add(GDLang.TRIAL_MEDAL_CATA.get());

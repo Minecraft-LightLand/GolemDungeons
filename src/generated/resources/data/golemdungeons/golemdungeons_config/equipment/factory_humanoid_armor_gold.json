@@ -5,8 +5,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "minecraft:golden_chestplate",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "minecraft:golden_chestplate"
         },
         "weight": 50
       }
@@ -16,8 +16,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "minecraft:golden_boots",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "minecraft:golden_boots"
         },
         "weight": 50
       }
@@ -27,8 +27,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "minecraft:golden_helmet",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "minecraft:golden_helmet"
         },
         "weight": 50
       }
@@ -38,8 +38,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "minecraft:golden_leggings",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "minecraft:golden_leggings"
         },
         "weight": 50
       }

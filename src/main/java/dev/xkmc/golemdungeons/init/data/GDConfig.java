@@ -1,70 +1,49 @@
 package dev.xkmc.golemdungeons.init.data;
 
-import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.config.IConfigSpec;
-import net.minecraftforge.fml.config.ModConfig;
-import org.apache.commons.lang3.tuple.Pair;
+import dev.xkmc.golemdungeons.init.GolemDungeons;
+import dev.xkmc.l2core.util.ConfigInit;
+import net.neoforged.neoforge.common.ModConfigSpec;
 
 public class GDConfig {
 
-	public static class Client {
+	public static class Client extends ConfigInit {
 
-		Client(ForgeConfigSpec.Builder builder) {
+		Client(Builder builder) {
+			markL2();
 		}
 
 	}
 
-	public static class Common {
+	public static class Server extends ConfigInit {
 
-		public final ForgeConfigSpec.BooleanValue enableRaidGolems;
-		public final ForgeConfigSpec.DoubleValue flameSwordDamage;
-		public final ForgeConfigSpec.DoubleValue flameSwordLoot;
-		public final ForgeConfigSpec.DoubleValue sculkScytheDamage;
-		public final ForgeConfigSpec.DoubleValue fierySwordDamage;
+		public final ModConfigSpec.BooleanValue enableRaidGolems;
+		public final ModConfigSpec.DoubleValue flameSwordDamage;
+		public final ModConfigSpec.DoubleValue flameSwordLoot;
+		public final ModConfigSpec.DoubleValue sculkScytheDamage;
+		public final ModConfigSpec.DoubleValue fierySwordDamage;
 
-		Common(ForgeConfigSpec.Builder builder) {
-			enableRaidGolems = builder.comment("Enable adding hostile golems to raids")
+		Server(Builder builder) {
+			markL2();
+			enableRaidGolems = builder.text("Enable adding hostile golems to raids")
 					.define("enableRaidGolems", true);
 
-			flameSwordDamage = builder.comment("Flame sword extra damage as percentage original attack")
+			flameSwordDamage = builder.text("Flame sword extra damage as percentage original attack")
 					.defineInRange("flameSwordDamage", 0.25, 0, 10);
-			flameSwordLoot = builder.comment("Flame sword material loot as percentage of crafting cost")
+			flameSwordLoot = builder.text("Flame sword material loot as percentage of crafting cost")
 					.defineInRange("flameSwordLoot", 0.33, 0, 1);
-			sculkScytheDamage = builder.comment("Sculk Scythe extra damage as percentage original attack")
+			sculkScytheDamage = builder.text("Sculk Scythe extra damage as percentage original attack")
 					.defineInRange("sculkScytheDamage", 0.25, 0, 10);
 
-			fierySwordDamage = builder.comment("Giant Fiery sword extra damage as percentage original attack")
+			fierySwordDamage = builder.text("Giant Fiery sword extra damage as percentage original attack")
 					.defineInRange("fierySwordDamage", 1d, 0, 10);
 		}
 
 	}
 
-	public static final ForgeConfigSpec CLIENT_SPEC;
-	public static final Client CLIENT;
-
-	public static final ForgeConfigSpec COMMON_SPEC;
-	public static final Common COMMON;
-
-	static {
-		final Pair<Client, ForgeConfigSpec> client = new ForgeConfigSpec.Builder().configure(Client::new);
-		CLIENT_SPEC = client.getRight();
-		CLIENT = client.getLeft();
-
-		final Pair<Common, ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(Common::new);
-		COMMON_SPEC = specPair.getRight();
-		COMMON = specPair.getLeft();
-	}
+	public static final Client CLIENT = GolemDungeons.REGISTRATE.registerClient(Client::new);
+	public static final Server SERVER = GolemDungeons.REGISTRATE.registerSynced(Server::new);
 
 	public static void init() {
-		register(ModConfig.Type.CLIENT, CLIENT_SPEC);
-		register(ModConfig.Type.COMMON, COMMON_SPEC);
-	}
-
-	private static void register(ModConfig.Type type, IConfigSpec<?> spec) {
-		var mod = ModLoadingContext.get().getActiveContainer();
-		String path = "l2_configs/" + mod.getModId() + "-" + type.extension() + ".toml";
-		ModLoadingContext.get().registerConfig(type, spec, path);
 	}
 
 

@@ -2,6 +2,7 @@ package dev.xkmc.golemdungeons.content.structure;
 
 import com.mojang.datafixers.util.Either;
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import dev.xkmc.golemdungeons.init.reg.GDWorldGen;
 import net.minecraft.core.Holder;
@@ -9,7 +10,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.TerrainAdjustment;
-import net.minecraft.world.level.levelgen.structure.pools.SinglePoolElement;
 import net.minecraft.world.level.levelgen.structure.pools.StructurePoolElementType;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorList;
@@ -19,7 +19,7 @@ import java.util.Optional;
 
 public class GDCustomPiece extends GDSimplePiece {
 
-	public static final Codec<GDCustomPiece> CODEC = RecordCodecBuilder.create((i) -> i.group(
+	public static final MapCodec<GDCustomPiece> CODEC = RecordCodecBuilder.mapCodec((i) -> i.group(
 			templateCodec(),
 			processorsCodec(),
 			projectionCodec(),

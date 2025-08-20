@@ -1,16 +1,19 @@
 package dev.xkmc.golemdungeons.content.config;
 
 import dev.xkmc.golemdungeons.init.GolemDungeons;
-import dev.xkmc.l2library.serial.config.BaseConfig;
-import dev.xkmc.l2library.serial.config.CollectType;
-import dev.xkmc.l2library.serial.config.ConfigCollect;
-import dev.xkmc.l2serial.serialization.SerialClass;
+import dev.xkmc.l2core.serial.config.BaseConfig;
+import dev.xkmc.l2core.serial.config.CollectType;
+import dev.xkmc.l2core.serial.config.ConfigCollect;
+import dev.xkmc.l2serial.serialization.marker.OnInject;
+import dev.xkmc.l2serial.serialization.marker.SerialClass;
+import dev.xkmc.l2serial.serialization.marker.SerialField;
 import dev.xkmc.l2serial.util.Wrappers;
 import dev.xkmc.modulargolems.content.config.GolemMaterial;
 import dev.xkmc.modulargolems.content.core.GolemType;
 import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
 import dev.xkmc.modulargolems.content.entity.hostile.HostileFaction;
 import dev.xkmc.modulargolems.content.entity.hostile.HostileGolemRegistry;
+import dev.xkmc.modulargolems.content.item.data.GolemUpgrade;
 import dev.xkmc.modulargolems.content.item.golem.GolemHolder;
 import dev.xkmc.modulargolems.content.item.golem.GolemPart;
 import dev.xkmc.modulargolems.content.item.upgrade.IUpgradeItem;
@@ -37,30 +40,30 @@ public class SpawnConfig extends BaseConfig {
 
 	private static final double[] DEF_CHANCE = {1d, 0.5d, 0.5d, 0.5d};
 
-	@SerialClass.SerialField
+	@SerialField
 	public ResourceLocation faction = HostileGolemRegistry.DEFAULT.id;
 
 	@ConfigCollect(CollectType.MAP_OVERWRITE)
-	@SerialClass.SerialField
+	@SerialField
 	public final Map<EntityType<?>, GolemTypeEntry> types = new LinkedHashMap<>();
 
 	@ConfigCollect(CollectType.MAP_OVERWRITE)
-	@SerialClass.SerialField
+	@SerialField
 	public final Map<ResourceLocation, GolemMaterialEntry> materials = new LinkedHashMap<>();
 
 	@ConfigCollect(CollectType.COLLECT)
-	@SerialClass.SerialField
+	@SerialField
 	public final List<EquipmentGroup> equipments = new ArrayList<>();
 
 	@ConfigCollect(CollectType.COLLECT)
-	@SerialClass.SerialField
+	@SerialField
 	public final List<UpgradeEntry> upgrades = new ArrayList<>();
 
 	@Nullable
-	@SerialClass.SerialField
+	@SerialField
 	public ResourceLocation targetTrial = null;
 
-	@SerialClass.SerialField
+	@SerialField
 	public double[] upgradeChance;
 
 	private SimpleWeightedRandomList<GolemTypeInfo> typeTable;
@@ -68,7 +71,7 @@ public class SpawnConfig extends BaseConfig {
 	private SimpleWeightedRandomList<UpgradeEntry> upTable;
 	private List<EquipmentGroupInfo> equipmentTable;
 
-	@SerialClass.OnInject
+	@OnInject
 	public void onInject() {
 		if (upgradeChance == null) upgradeChance = DEF_CHANCE;
 		var typeList = SimpleWeightedRandomList.<GolemTypeInfo>builder();
@@ -145,28 +148,28 @@ public class SpawnConfig extends BaseConfig {
 	}
 
 	private boolean fitsOn(
-			ArrayList<GolemMaterial> mats, ArrayList<IUpgradeItem> upgrades,
+			ArrayList<GolemMaterial> mats, ArrayList<Item> upgrades,
 			GolemHolder<?, ?> holder, IUpgradeItem upgrade
 	) {
 		if (upgrade instanceof UpgradeItem item && !item.fitsOn(holder.getEntityType())) return false;
 		var copy = new ArrayList<>(upgrades);
-		copy.add(upgrade);
-		int remaining = holder.getRemaining(mats, copy);
+		copy.add((Item) upgrade);
+		int remaining = holder.getRemaining(mats, new GolemUpgrade(0, copy));
 		if (remaining < 0) return false;
-		var map = GolemMaterial.collectModifiers(mats, upgrades);
+		var map = GolemMaterial.collectModifiers(mats, new GolemUpgrade(0, upgrades));
 		for (var e : upgrade.get()) {
 			if (map.getOrDefault(e.mod(), 0) >= e.mod().maxLevel) return false;
 		}
 		return true;
 	}
 
-	private ArrayList<IUpgradeItem> validate(
-			ArrayList<GolemMaterial> mats, ArrayList<IUpgradeItem> upgrades,
+	private ArrayList<Item> validate(
+			ArrayList<GolemMaterial> mats, ArrayList<Item> upgrades,
 			GolemHolder<?, ?> holder
 	) {
-		ArrayList<IUpgradeItem> ans = new ArrayList<>();
+		ArrayList<Item> ans = new ArrayList<>();
 		for (var e : upgrades) {
-			if (!fitsOn(mats, ans, holder, e))
+			if (!fitsOn(mats, ans, holder, (IUpgradeItem) e))
 				continue;
 			ans.add(e);
 		}
@@ -175,7 +178,7 @@ public class SpawnConfig extends BaseConfig {
 
 	@Nullable
 	private AbstractGolemEntity<?, ?> createGolem(ServerLevel sl, GolemType<?, ?> golem, RandomSource r) {
-		var ups = new ArrayList<IUpgradeItem>();
+		var ups = new ArrayList<Item>();
 		var mats = new ArrayList<GolemMaterial>();
 		int max = golem.values().length;
 		for (var p : golem.values()) {
@@ -184,7 +187,7 @@ public class SpawnConfig extends BaseConfig {
 			mats.add(p.toItem().parseMaterial(mat.get()));
 			for (var b : materials.get(mat.get()).bonus) {
 				if (r.nextFloat() < b.chance && ups.size() < max && b.upgrade instanceof IUpgradeItem item)
-					ups.add(item);
+					ups.add((Item) item);
 			}
 		}
 		var holder = GolemType.getGolemHolder(golem);
@@ -195,13 +198,13 @@ public class SpawnConfig extends BaseConfig {
 			if (up.isPresent() && up.get().upgrade instanceof IUpgradeItem item) {
 				if (!fitsOn(mats, ups, holder, item))
 					continue;
-				ups.add(item);
+				ups.add((Item) item);
 			}
 		}
 		var e = golem.create(sl);
 		var fac = HostileGolemRegistry.getFaction(faction);
 		var uuid = (fac == null ? HostileGolemRegistry.DEFAULT : fac).uuid;
-		e.onCreate(mats, ups, uuid);
+		e.onCreate(mats, new GolemUpgrade(0, ups), uuid);
 		for (var goal : e.goalSelector.getAvailableGoals()) {
 			if (goal.getGoal() instanceof BaseRangedAttackGoal ranged) {
 				ranged.setInitialDelay(e.getRandom().nextInt(100));

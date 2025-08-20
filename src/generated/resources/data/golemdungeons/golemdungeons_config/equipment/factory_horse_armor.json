@@ -4,16 +4,15 @@
       {
         "dropChance": 0.085,
         "enchantLevel": 0,
-        "stack": {
-          "item": "minecraft:air"
-        },
+        "stack": {},
         "weight": 100
       },
       {
         "dropChance": 0.085,
         "enchantLevel": 0,
         "stack": {
-          "item": "minecraft:leather_horse_armor"
+          "count": 1,
+          "id": "minecraft:leather_horse_armor"
         },
         "weight": 30
       },
@@ -21,7 +20,8 @@
         "dropChance": 0.085,
         "enchantLevel": 0,
         "stack": {
-          "item": "minecraft:iron_horse_armor"
+          "count": 1,
+          "id": "minecraft:iron_horse_armor"
         },
         "weight": 40
       },
@@ -29,7 +29,8 @@
         "dropChance": 0.085,
         "enchantLevel": 0,
         "stack": {
-          "item": "minecraft:golden_horse_armor"
+          "count": 1,
+          "id": "minecraft:golden_horse_armor"
         },
         "weight": 30
       },
@@ -37,7 +38,8 @@
         "dropChance": 0.085,
         "enchantLevel": 0,
         "stack": {
-          "item": "minecraft:diamond_horse_armor"
+          "count": 1,
+          "id": "minecraft:diamond_horse_armor"
         },
         "weight": 20
       }

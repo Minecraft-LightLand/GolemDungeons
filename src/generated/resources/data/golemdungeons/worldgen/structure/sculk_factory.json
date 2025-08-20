@@ -1,6 +1,7 @@
 {
   "type": "minecraft:jigsaw",
   "biomes": "#golemdungeons:has_structure/sculk_factory",
+  "liquid_settings": "ignore_waterlogging",
   "max_distance_from_center": 80,
   "size": 7,
   "spawn_overrides": {},

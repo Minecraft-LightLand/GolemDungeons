@@ -4,7 +4,7 @@ import com.mojang.datafixers.util.Pair;
 import dev.xkmc.golemdungeons.content.structure.GDRuleProcessor;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.structure.pools.StructurePoolElement;
@@ -61,7 +61,7 @@ public class GDPieceData {
 		return factory;
 	}
 
-	public void buildProcessors(BootstapContext<StructureProcessorList> ctx, ResourceLocation sid, List<StructureProcessor> def) {
+	public void buildProcessors(BootstrapContext<StructureProcessorList> ctx, ResourceLocation sid, List<StructureProcessor> def) {
 		var poolId = sid.withSuffix("/" + id());
 		if (!processors().isEmpty()) {
 			var merged = new ArrayList<>(def);
@@ -71,7 +71,7 @@ public class GDPieceData {
 		}
 	}
 
-	public void buildTemplate(BootstapContext<StructureTemplatePool> ctx, ResourceLocation sid, Holder.Reference<StructureProcessorList> base, Holder.Reference<StructureTemplatePool> empty) {
+	public void buildTemplate(BootstrapContext<StructureTemplatePool> ctx, ResourceLocation sid, Holder.Reference<StructureProcessorList> base, Holder.Reference<StructureTemplatePool> empty) {
 		var poolId = sid.withSuffix("/" + id());
 		var processors = processors().isEmpty() ? base :
 				ctx.lookup(Registries.PROCESSOR_LIST)

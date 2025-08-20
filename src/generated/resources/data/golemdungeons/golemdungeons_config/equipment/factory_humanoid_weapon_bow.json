@@ -5,8 +5,8 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "minecraft:bow",
-          "nbt": "{Damage:0}"
+          "count": 1,
+          "id": "minecraft:bow"
         },
         "weight": 100
       }
@@ -16,7 +16,8 @@
         "dropChance": 0.085,
         "enchantLevel": 0,
         "stack": {
-          "item": "minecraft:arrow"
+          "count": 1,
+          "id": "minecraft:arrow"
         },
         "weight": 100
       }
