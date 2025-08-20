@@ -1,2 +1,5 @@
+2.0.2
+- Buff TF integration contents
+
 2.0.1
 - 1.21 release
