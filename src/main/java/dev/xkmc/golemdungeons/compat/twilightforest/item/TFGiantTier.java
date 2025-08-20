@@ -17,8 +17,8 @@ public class TFGiantTier {
 	public static final Tier KNIGHTMETAL;
 
 	static {
-		IRONWOOD = new SimpleTier(BlockTagGenerator.INCORRECT_FOR_IRONWOOD_TOOL, 2048, 6.5F, 2.0F, 25, () -> Ingredient.of(TwilightGDRegistry.GIANT_IRONWOOD_INGOT));
+		IRONWOOD = new SimpleTier(BlockTagGenerator.INCORRECT_FOR_IRONWOOD_TOOL, 4096, 6.5F, 2.0F, 25, () -> Ingredient.of(TwilightGDRegistry.GIANT_IRONWOOD_INGOT));
 		FIERY = new SimpleTier(BlockTagGenerator.INCORRECT_FOR_FIERY_TOOL, 8192, 9.0F, 4.0F, 10, () -> Ingredient.of(TwilightGDRegistry.GIANT_FIERY_INGOT));
-		KNIGHTMETAL = new SimpleTier(BlockTagGenerator.INCORRECT_FOR_KNIGHTMETAL_TOOL, 2048, 8.0F, 3.0F, 8, () -> Ingredient.of(TwilightGDRegistry.GIANT_KNIGHT_INGOT));
+		KNIGHTMETAL = new SimpleTier(BlockTagGenerator.INCORRECT_FOR_KNIGHTMETAL_TOOL, 4096, 8.0F, 3.0F, 8, () -> Ingredient.of(TwilightGDRegistry.GIANT_KNIGHT_INGOT));
 	}
 }

@@ -113,7 +113,7 @@ public class TwilightGDRegistry {
 					new AttributeGolemModifier.AttrEntry(GolemTypes.STAT_SPEED, () -> 1),
 					new AttributeGolemModifier.AttrEntry(GolemTypes.STAT_HEALTH_P, () -> 3),
 					new AttributeGolemModifier.AttrEntry(GolemTypes.STAT_SIZE_P, () -> 3),
-					new AttributeGolemModifier.AttrEntry(GolemTypes.STAT_RANGE, () -> 3)
+					new AttributeGolemModifier.AttrEntry(GolemTypes.STAT_RANGE, () -> 6)
 			), null);
 
 			ITEM_GIANT = GDModifiers.regUpgradeImpl("giant_upgrade", () -> GIANT, 1, false, GolemDungeons.MODID).register();
