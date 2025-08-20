@@ -10,6 +10,7 @@ import dev.xkmc.golemdungeons.init.data.spawn.SculkGolemSpawn;
 import dev.xkmc.golemdungeons.init.data.structure.GDStructureGen;
 import dev.xkmc.golemdungeons.init.reg.GDItems;
 import dev.xkmc.golemdungeons.init.reg.GDModifiers;
+import dev.xkmc.l2core.init.reg.ench.DataGenHolder;
 import dev.xkmc.l2core.serial.advancements.AdvancementGenerator;
 import dev.xkmc.l2core.serial.advancements.CriterionBuilder;
 import dev.xkmc.modulargolems.compat.materials.cataclysm.CataDispatch;
@@ -63,12 +64,12 @@ public class GDAdvGen {
 			TwilightCompatData.genAdv(pvd, defeat);
 		}
 
-		root.build();
+		root.finish();
 
 	}
 
 	private static CriterionBuilder visit(RegistrateAdvancementProvider pvd, ResourceKey<Structure> key) {
-		return CriterionBuilder.one(PlayerTrigger.TriggerInstance.located(LocationPredicate.Builder.inStructure(pvd.resolve(key))));
+		return CriterionBuilder.one(PlayerTrigger.TriggerInstance.located(LocationPredicate.Builder.inStructure(new DataGenHolder<>(key,null))));
 	}
 
 }

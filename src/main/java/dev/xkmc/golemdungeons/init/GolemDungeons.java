@@ -104,7 +104,6 @@ public class GolemDungeons {
 		var init = REGISTRATE.getDataGenInitializer();
 		GDStructureGen.add(init);
 		init.addDependency(ProviderType.RECIPE, ProviderType.DYNAMIC);
-		init.addDependency(ProviderType.ADVANCEMENT, ProviderType.DYNAMIC);
 		init.addDependency(GDTagGen.STRUCTURE_TAG, ProviderType.DYNAMIC);
 		new GDDamageTypes(REGISTRATE).generate();
 		var gen = event.getGenerator();
