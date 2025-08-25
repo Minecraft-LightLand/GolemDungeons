@@ -96,7 +96,7 @@ public class EquipmentConfig extends BaseConfig {
 			var ans = stack.copy();
 			if (stack.isEnchantable() && enchantLevel > 0) {
 				EnchantmentHelper.enchantItem(r, stack, enchantLevel, access,
-						access.registryOrThrow(Registries.ENCHANTMENT).getTag(EnchantmentTags.ON_RANDOM_LOOT));
+						access.registryOrThrow(Registries.ENCHANTMENT).getTag(EnchantmentTags.ON_MOB_SPAWN_EQUIPMENT));
 			}
 			return ans;
 		}
