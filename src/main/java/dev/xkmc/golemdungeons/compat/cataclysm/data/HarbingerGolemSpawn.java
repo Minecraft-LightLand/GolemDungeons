@@ -39,26 +39,26 @@ public class HarbingerGolemSpawn extends AbstractGolemSpawn {
 		// equipments
 		{
 			map.add(GolemDungeons.ITEMS, ITEM_LARGE_ARMOR, new EquipmentConfig()
-					.add(EquipmentSlot.HEAD, 100, CataCompatRegistry.HARBINGER_HELMET, 30)
-					.add(EquipmentSlot.CHEST, 100, CataCompatRegistry.HARBINGER_CHESTPLATE, 30)
-					.add(EquipmentSlot.LEGS, 100, CataCompatRegistry.HARBINGER_SHINGUARD, 30)
+					.add(EquipmentSlot.HEAD, 100, CataCompatRegistry.HARBINGER_HELMET, 30, 0.2f)
+					.add(EquipmentSlot.CHEST, 100, CataCompatRegistry.HARBINGER_CHESTPLATE, 30, 0.2f)
+					.add(EquipmentSlot.LEGS, 100, CataCompatRegistry.HARBINGER_SHINGUARD, 30, 0.2f)
 			);
 
 			map.add(GolemDungeons.ITEMS, ITEM_SHREDDER, new EquipmentConfig()
-					.add(EquipmentSlot.MAINHAND, 50, ModItems.MEAT_SHREDDER.get())
+					.add(EquipmentSlot.MAINHAND, 50, ModItems.MEAT_SHREDDER.get(), 0, 0.2f)
 			);
 
 			map.add(GolemDungeons.ITEMS, ITEM_CANNON, new EquipmentConfig()
-					.add(EquipmentSlot.MAINHAND, 50, ModItems.WITHER_ASSULT_SHOULDER_WEAPON.get())
+					.add(EquipmentSlot.MAINHAND, 50, ModItems.WITHER_ASSULT_SHOULDER_WEAPON.get(), 0, 0.2f)
 			);
 
 			map.add(GolemDungeons.ITEMS, ITEM_LASER, new EquipmentConfig()
-					.add(EquipmentSlot.MAINHAND, 50, ModItems.LASER_GATLING.get())
+					.add(EquipmentSlot.MAINHAND, 50, ModItems.LASER_GATLING.get(), 0, 0.2f)
 			);
 
 			map.add(GolemDungeons.ITEMS, ITEM_LARGE, new EquipmentConfig()
 					.add(EquipmentSlot.MAINHAND, 50, getWeapon(VanillaGolemWeaponMaterial.NETHERITE, GolemWeaponType.AXE), 30)
-					.add(EquipmentSlot.OFFHAND, 50, ModItems.VOID_ASSULT_SHOULDER_WEAPON.get())
+					.add(EquipmentSlot.OFFHAND, 50, ModItems.VOID_ASSULT_SHOULDER_WEAPON.get(), 0, 0.2f)
 			);
 
 			map.add(GolemDungeons.ITEMS, ITEM_HUMANOID_ARMOR, new EquipmentConfig()
