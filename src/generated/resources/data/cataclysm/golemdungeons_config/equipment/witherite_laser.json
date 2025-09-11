@@ -2,7 +2,7 @@
   "items": {
     "MAINHAND": [
       {
-        "dropChance": 0.085,
+        "dropChance": 0.2,
         "enchantLevel": 0,
         "stack": {
           "item": "cataclysm:laser_gatling",

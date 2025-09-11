@@ -63,6 +63,36 @@
             }
           ],
           "name": "twilightforest:naga_scale"
+        },
+        {
+          "type": "golemdungeons:mod_item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 4.0,
+                "min": 2.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "twilightforest:charm_of_keeping_3"
+        },
+        {
+          "type": "golemdungeons:mod_item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 4.0,
+                "min": 2.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "twilightforest:charm_of_life_2"
         }
       ],
       "rolls": 4.0
@@ -136,36 +166,6 @@
         {
           "type": "golemdungeons:mod_item",
           "name": "twilightforest:ore_magnet"
-        },
-        {
-          "type": "golemdungeons:mod_item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 4.0,
-                "min": 2.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "twilightforest:charm_of_keeping_3"
-        },
-        {
-          "type": "golemdungeons:mod_item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 4.0,
-                "min": 2.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "twilightforest:charm_of_life_2"
         }
       ],
       "rolls": 1.0

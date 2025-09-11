@@ -12,7 +12,7 @@
     ],
     "OFFHAND": [
       {
-        "dropChance": 0.085,
+        "dropChance": 0.2,
         "enchantLevel": 0,
         "stack": {
           "item": "cataclysm:void_assault_shoulder_weapon"

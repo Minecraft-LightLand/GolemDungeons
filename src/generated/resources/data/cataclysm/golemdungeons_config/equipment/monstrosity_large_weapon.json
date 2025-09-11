@@ -10,8 +10,8 @@
         "weight": 50
       },
       {
-        "dropChance": 0.085,
-        "enchantLevel": 0,
+        "dropChance": 0.5,
+        "enchantLevel": 30,
         "stack": {
           "item": "cataclysm:infernal_forge",
           "nbt": "{Damage:0}"

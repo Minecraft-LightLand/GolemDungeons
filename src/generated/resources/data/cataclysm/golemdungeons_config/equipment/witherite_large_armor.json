@@ -2,7 +2,7 @@
   "items": {
     "CHEST": [
       {
-        "dropChance": 0.085,
+        "dropChance": 0.2,
         "enchantLevel": 30,
         "stack": {
           "item": "modulargolems:harbinger_chestplate"
@@ -12,7 +12,7 @@
     ],
     "HEAD": [
       {
-        "dropChance": 0.085,
+        "dropChance": 0.2,
         "enchantLevel": 30,
         "stack": {
           "item": "modulargolems:harbinger_helmet"
@@ -22,7 +22,7 @@
     ],
     "LEGS": [
       {
-        "dropChance": 0.085,
+        "dropChance": 0.2,
         "enchantLevel": 30,
         "stack": {
           "item": "modulargolems:harbinger_shinguard"
