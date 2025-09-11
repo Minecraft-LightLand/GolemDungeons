@@ -1,3 +1,7 @@
+2.0.3
+- Fix potential mod conflict with mods changing how block entities are ticked
+- Increase cataclysm trials equipment drop rate
+
 2.0.2
 - Buff TF integration contents
 

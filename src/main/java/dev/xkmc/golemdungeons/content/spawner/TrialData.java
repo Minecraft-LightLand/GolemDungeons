@@ -77,7 +77,7 @@ public class TrialData {
 	private boolean tickSummon(TrialConfig config, TrialTicker be, ServerLevel level, long time) {
 		if (time < nextAction) return false;
 		var list = config.list.get(wave - 1);
-		if (toSummon == 0) {
+		if (toSummon == 0 || entryIndex < 0) {
 			entryIndex++;
 			if (entryIndex >= list.size()) { // wave complete
 				entryCount = 0;
@@ -118,6 +118,7 @@ public class TrialData {
 		var entry = config.list.get(ind);
 		entryCount = entry.size();
 		entryIndex = -1;
+		toSummon = 0;
 		totalMob = 0;
 		for (int i = 0; i < entryCount; i++) {
 			totalMob += entry.get(i).num();

@@ -27,8 +27,8 @@ public class EnderGuardianGolemSpawn extends AbstractGolemSpawn {
 		// equipments
 		{
 			map.add(GolemDungeons.ITEMS, ITEM_WEAPON, new EquipmentConfig()
-					.add(EquipmentSlot.MAINHAND, 50, ModItems.VOID_FORGE.get())
-					.add(EquipmentSlot.OFFHAND, 50, ModItems.VOID_ASSULT_SHOULDER_WEAPON.get())
+					.add(EquipmentSlot.MAINHAND, 50, ModItems.VOID_FORGE.get(), 0, 0.5f)
+					.add(EquipmentSlot.OFFHAND, 50, ModItems.VOID_ASSULT_SHOULDER_WEAPON.get(), 0, 0.5f)
 			);
 
 		}

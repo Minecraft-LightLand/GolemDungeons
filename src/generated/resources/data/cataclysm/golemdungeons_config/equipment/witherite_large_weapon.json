@@ -13,7 +13,7 @@
     ],
     "OFFHAND": [
       {
-        "dropChance": 0.085,
+        "dropChance": 0.2,
         "enchantLevel": 0,
         "stack": {
           "count": 1,

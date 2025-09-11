@@ -2,7 +2,7 @@
   "items": {
     "CHEST": [
       {
-        "dropChance": 0.085,
+        "dropChance": 0.2,
         "enchantLevel": 30,
         "stack": {
           "count": 1,
@@ -13,7 +13,7 @@
     ],
     "HEAD": [
       {
-        "dropChance": 0.085,
+        "dropChance": 0.2,
         "enchantLevel": 30,
         "stack": {
           "count": 1,
@@ -24,7 +24,7 @@
     ],
     "LEGS": [
       {
-        "dropChance": 0.085,
+        "dropChance": 0.2,
         "enchantLevel": 30,
         "stack": {
           "count": 1,

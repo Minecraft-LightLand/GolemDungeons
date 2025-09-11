@@ -30,19 +30,19 @@ public class IgnisGolemSpawn extends AbstractGolemSpawn {
 		// equipments
 		{
 			map.add(GolemDungeons.ITEMS, ITEM_LARGE_WEAPON, new EquipmentConfig()
-					.add(EquipmentSlot.MAINHAND, 50, ModItems.THE_INCINERATOR.get())
+					.add(EquipmentSlot.MAINHAND, 50, ModItems.THE_INCINERATOR.get(), 30, 0.5f)
 			);
 
 			map.add(GolemDungeons.ITEMS, ITEM_HUMANOID_WEAPON, new EquipmentConfig()
-					.add(EquipmentSlot.MAINHAND, 50, ModItems.THE_INCINERATOR.get())
-					.add(EquipmentSlot.OFFHAND, 50, ModItems.BULWARK_OF_THE_FLAME.get())
+					.add(EquipmentSlot.MAINHAND, 50, ModItems.THE_INCINERATOR.get(), 30, 0.2f)
+					.add(EquipmentSlot.OFFHAND, 50, ModItems.BULWARK_OF_THE_FLAME.get(), 30, 0.5f)
 			);
 
 			map.add(GolemDungeons.ITEMS, ITEM_HUMANOID_ARMOR, new EquipmentConfig()
-					.add(EquipmentSlot.HEAD, 50, ModItems.IGNITIUM_HELMET.get(), 30)
-					.add(EquipmentSlot.CHEST, 50, ModItems.IGNITIUM_CHESTPLATE.get(), 30)
-					.add(EquipmentSlot.LEGS, 50, ModItems.IGNITIUM_LEGGINGS.get(), 30)
-					.add(EquipmentSlot.FEET, 50, ModItems.IGNITIUM_BOOTS.get(), 30)
+					.add(EquipmentSlot.HEAD, 50, ModItems.IGNITIUM_HELMET.get(), 30, 0.2f)
+					.add(EquipmentSlot.CHEST, 50, ModItems.IGNITIUM_CHESTPLATE.get(), 30, 0.2f)
+					.add(EquipmentSlot.LEGS, 50, ModItems.IGNITIUM_LEGGINGS.get(), 30, 0.2f)
+					.add(EquipmentSlot.FEET, 50, ModItems.IGNITIUM_BOOTS.get(), 30, 0.2f)
 			);
 
 		}

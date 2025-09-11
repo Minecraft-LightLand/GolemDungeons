@@ -27,8 +27,8 @@ public class ScyllaGolemSpawn extends AbstractGolemSpawn {
 		// equipments
 		{
 			map.add(GolemDungeons.ITEMS, ITEM_WEAPON, new EquipmentConfig()
-					.add(EquipmentSlot.MAINHAND, 50, ModItems.ASTRAPE.get())
-					.add(EquipmentSlot.MAINHAND, 50, ModItems.CERAUNUS.get())
+					.add(EquipmentSlot.MAINHAND, 50, ModItems.ASTRAPE.get(), 30, 0.5f)
+					.add(EquipmentSlot.MAINHAND, 50, ModItems.CERAUNUS.get(), 30, 0.5f)
 			);
 
 		}

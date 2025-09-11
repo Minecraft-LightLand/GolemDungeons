@@ -30,14 +30,14 @@ public class MonstrosityGolemSpawn extends AbstractGolemSpawn {
 		// equipments
 		{
 			map.add(GolemDungeons.ITEMS, ITEM_LARGE_ARMOR, new EquipmentConfig()
-					.add(EquipmentSlot.HEAD, 100, CataCompatRegistry.MONSTROSITY_HELMET, 30)
-					.add(EquipmentSlot.CHEST, 100, CataCompatRegistry.MONSTROSITY_CHESTPLATE, 30)
-					.add(EquipmentSlot.LEGS, 100, CataCompatRegistry.MONSTROSITY_SHINGUARD, 30)
+					.add(EquipmentSlot.HEAD, 100, CataCompatRegistry.MONSTROSITY_HELMET, 30, 0.5f)
+					.add(EquipmentSlot.CHEST, 100, CataCompatRegistry.MONSTROSITY_CHESTPLATE, 30, 0.5f)
+					.add(EquipmentSlot.LEGS, 100, CataCompatRegistry.MONSTROSITY_SHINGUARD, 30, 0.5f)
 			);
 
 			map.add(GolemDungeons.ITEMS, ITEM_LARGE, new EquipmentConfig()
 					.add(EquipmentSlot.MAINHAND, 50, getWeapon(VanillaGolemWeaponMaterial.NETHERITE, GolemWeaponType.AXE), 30)
-					.add(EquipmentSlot.MAINHAND, 50, ModItems.INFERNAL_FORGE.get())
+					.add(EquipmentSlot.MAINHAND, 50, ModItems.INFERNAL_FORGE.get(), 0, 0.5f)
 			);
 
 		}

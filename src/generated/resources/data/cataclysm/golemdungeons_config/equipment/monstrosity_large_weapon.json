@@ -11,7 +11,7 @@
         "weight": 50
       },
       {
-        "dropChance": 0.085,
+        "dropChance": 0.5,
         "enchantLevel": 0,
         "stack": {
           "count": 1,
