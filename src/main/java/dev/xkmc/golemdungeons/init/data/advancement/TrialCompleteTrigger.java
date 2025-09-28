@@ -4,14 +4,13 @@ import dev.xkmc.l2core.serial.advancements.BaseCriterion;
 import dev.xkmc.l2core.serial.advancements.BaseCriterionInstance;
 import dev.xkmc.l2serial.serialization.marker.SerialClass;
 import dev.xkmc.l2serial.serialization.marker.SerialField;
-import net.minecraft.advancements.critereon.ContextAwarePredicate;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 
 public class TrialCompleteTrigger extends BaseCriterion<TrialCompleteTrigger.Ins, TrialCompleteTrigger> {
 
 	public static Ins ins(ResourceLocation trial) {
-		Ins ans = new Ins(GDTriggers.COMPLETE.get());
+		Ins ans = new Ins();
 		ans.trial = trial;
 		return ans;
 	}
@@ -30,8 +29,8 @@ public class TrialCompleteTrigger extends BaseCriterion<TrialCompleteTrigger.Ins
 		@SerialField
 		private ResourceLocation trial;
 
-		protected Ins(TrialCompleteTrigger t) {
-			super(t);
+		public Ins() {
+			super(GDTriggers.COMPLETE.get());
 		}
 
 	}

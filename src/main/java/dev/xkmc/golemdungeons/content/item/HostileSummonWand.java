@@ -4,6 +4,7 @@ import com.tterrag.registrate.util.CreativeModeTabModifier;
 import dev.xkmc.golemdungeons.content.spawner.GolemTrialBlockEntity;
 import dev.xkmc.golemdungeons.init.GolemDungeons;
 import dev.xkmc.golemdungeons.init.data.GDLang;
+import dev.xkmc.golemdungeons.init.data.spawn.FactoryGolemSpawn;
 import dev.xkmc.golemdungeons.init.reg.GDItems;
 import dev.xkmc.golemdungeons.util.GolemUtils;
 import net.minecraft.ChatFormatting;
@@ -31,8 +32,9 @@ public class HostileSummonWand extends Item {
 	public static ResourceLocation getId(ItemStack stack) {
 		var ans = GDItems.TRIAL.get(stack);
 		if (ans != null && GolemDungeons.SPAWN.getEntry(ans) != null) return ans;
-		return SummonWandSelector.getAll(getModid(stack)).get(0);
-
+		var list = SummonWandSelector.getAll(getModid(stack));
+		if (!list.isEmpty()) return list.getFirst();
+		return FactoryGolemSpawn.FACTORY_ALL;
 	}
 
 	public HostileSummonWand(Properties p) {

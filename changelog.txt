@@ -1,3 +1,8 @@
+2.0.4
+- add fallback for failed datapack loading to prevent crash
+- fix advancement
+- fix bad tag
+
 2.0.3
 - Fix potential mod conflict with mods changing how block entities are ticked
 - Increase cataclysm trials equipment drop rate

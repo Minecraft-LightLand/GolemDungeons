@@ -10,7 +10,7 @@ import net.minecraft.server.level.ServerPlayer;
 public class TrialSummonTrigger extends BaseCriterion<TrialSummonTrigger.Ins, TrialSummonTrigger> {
 
 	public static Ins ins(ResourceLocation trial) {
-		Ins ans = new Ins(GDTriggers.SUMMON.get());
+		Ins ans = new Ins();
 		ans.trial = trial;
 		return ans;
 	}
@@ -29,8 +29,8 @@ public class TrialSummonTrigger extends BaseCriterion<TrialSummonTrigger.Ins, Tr
 		@SerialField
 		private ResourceLocation trial;
 
-		protected Ins(TrialSummonTrigger t) {
-			super(t);
+		public Ins() {
+			super(GDTriggers.SUMMON.get());
 		}
 
 	}

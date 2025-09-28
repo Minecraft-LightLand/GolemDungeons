@@ -1,5 +1,8 @@
 {
   "values": [
-    "golemdungeons:giant_fiery_pickaxe"
+    {
+      "id": "golemdungeons:giant_fiery_pickaxe",
+      "required": false
+    }
   ]
 }

@@ -26,7 +26,7 @@ public class GDTagGen {
 
 	public static void genItemTag(RegistrateItemTagsProvider pvd) {
 		if (ModList.get().isLoaded(TFDispatch.MODID)) {
-			pvd.addTag(FIERY).add(TwilightGDRegistry.GIANT_FIERY_PICKAXE.get());
+			pvd.addTag(FIERY).addOptional(TwilightGDRegistry.GIANT_FIERY_PICKAXE.getId());
 		}
 	}
 
