@@ -28,6 +28,7 @@ import dev.xkmc.modulargolems.content.item.equipments.MetalGolemArmorItem;
 import dev.xkmc.modulargolems.init.material.VanillaGolemWeaponMaterial;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.util.Unit;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -104,15 +105,15 @@ public class GDItems {
 		SAMURAI_HELMET = REGISTRATE.item("samurai_golem_helmet", p -> new MetalGolemArmorItem(p.stacksTo(1),
 						ArmorItem.Type.HELMET, 9, 5, GDModelPaths.SAMURAI_HELMET))
 				.model((ctx, pvd) -> pvd.generated(ctx, pvd.modLoc("item/equipments/" + ctx.getName())))
-				.defaultLang().register();
+				.tag(ItemTags.HEAD_ARMOR_ENCHANTABLE).defaultLang().register();
 		SAMURAI_CHESTPLATE = REGISTRATE.item("samurai_golem_chestplate", p -> new MetalGolemArmorItem(p.stacksTo(1),
 						ArmorItem.Type.CHESTPLATE, 12, 5, GDModelPaths.SAMURAI_CHESTPLATE))
 				.model((ctx, pvd) -> pvd.generated(ctx, pvd.modLoc("item/equipments/" + ctx.getName())))
-				.defaultLang().register();
+				.tag(ItemTags.CHEST_ARMOR_ENCHANTABLE).defaultLang().register();
 		SAMURAI_SHINGUARD = REGISTRATE.item("samurai_golem_shinguard", p -> new MetalGolemArmorItem(p.stacksTo(1),
 						ArmorItem.Type.LEGGINGS, 7, 5, GDModelPaths.SAMURAI_LEGGING))
 				.model((ctx, pvd) -> pvd.generated(ctx, pvd.modLoc("item/equipments/" + ctx.getName())))
-				.defaultLang().register();
+				.tag(ItemTags.LEG_ARMOR_ENCHANTABLE).defaultLang().register();
 
 		SUMMON = REGISTRATE.item("hostile_summon_wand", HostileSummonWand::new)
 				.properties(p -> p.stacksTo(1).rarity(Rarity.EPIC))

@@ -1,3 +1,9 @@
+2.0.6
+- Fix Sculk Scythe not doing AOE damage
+
+2.0.5
+- Fix samurai armor enchantability
+
 2.0.4
 - add fallback for failed datapack loading to prevent crash
 - fix advancement

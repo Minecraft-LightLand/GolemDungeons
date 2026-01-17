@@ -61,7 +61,7 @@ public class SculkScythe extends MetalGolemWeaponItem implements ExtraAttackGole
 					var list = sl.getEntitiesOfClass(LivingEntity.class, aabb);
 					for (var e : list) {
 						if (TargetManager.predicateTarget(self, e) != null) {
-							le.hurt(new DamageSource(source, self), damage);
+							e.hurt(new DamageSource(source, self), damage);
 						}
 					}
 					return true;
