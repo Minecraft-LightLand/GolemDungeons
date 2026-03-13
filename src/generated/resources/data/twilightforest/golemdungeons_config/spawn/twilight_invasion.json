@@ -6,6 +6,10 @@
         {
           "target": "twilightforest:twilight_large_armor",
           "weight": 100
+        },
+        {
+          "target": "twilightforest:twilight_large_armor_better",
+          "weight": 100
         }
       ]
     },
@@ -14,6 +18,10 @@
       "sets": [
         {
           "target": "twilightforest:twilight_large_weapon",
+          "weight": 100
+        },
+        {
+          "target": "twilightforest:twilight_large_weapon_better",
           "weight": 100
         }
       ]

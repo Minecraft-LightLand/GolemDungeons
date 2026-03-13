@@ -1,0 +1,34 @@
+{
+  "items": {
+    "CHEST": [
+      {
+        "dropChance": 0.2,
+        "enchantLevel": 30,
+        "stack": {
+          "item": "modulargolems:ignis_chestplate"
+        },
+        "weight": 50
+      }
+    ],
+    "HEAD": [
+      {
+        "dropChance": 0.2,
+        "enchantLevel": 30,
+        "stack": {
+          "item": "modulargolems:ignis_helmet"
+        },
+        "weight": 50
+      }
+    ],
+    "LEGS": [
+      {
+        "dropChance": 0.2,
+        "enchantLevel": 30,
+        "stack": {
+          "item": "modulargolems:ignis_shinguard"
+        },
+        "weight": 50
+      }
+    ]
+  }
+}

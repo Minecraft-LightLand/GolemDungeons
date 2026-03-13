@@ -9,12 +9,13 @@ import dev.xkmc.golemdungeons.init.data.spawn.AbstractGolemSpawn;
 import dev.xkmc.l2library.serial.config.ConfigDataProvider;
 import dev.xkmc.modulargolems.compat.materials.twilightforest.TFCompatRegistry;
 import dev.xkmc.modulargolems.compat.materials.twilightforest.TFDispatch;
+import dev.xkmc.modulargolems.compat.materials.twilightforest.equipments.TFGolemWeaponMaterial;
 import dev.xkmc.modulargolems.init.material.GolemWeaponType;
-import dev.xkmc.modulargolems.init.material.VanillaGolemWeaponMaterial;
 import dev.xkmc.modulargolems.init.registrate.GolemItems;
 import dev.xkmc.modulargolems.init.registrate.GolemTypes;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
 import twilightforest.init.TFItems;
@@ -22,7 +23,9 @@ import twilightforest.init.TFItems;
 public class TwilightGolemSpawn extends AbstractGolemSpawn {
 
 	public static final ResourceLocation ITEM_LARGE_ARMOR = loc("twilight_large_armor");
+	public static final ResourceLocation ITEM_LARGE_ARMOR_BETTER = loc("twilight_large_armor_better");
 	public static final ResourceLocation ITEM_LARGE_WEAPON = loc("twilight_large_weapon");
+	public static final ResourceLocation ITEM_LARGE_WEAPON_BETTER = loc("twilight_large_weapon_better");
 	public static final ResourceLocation ITEM_HUMANOID_ARMOR = loc("twilight_humanoid_armor");
 	public static final ResourceLocation ITEM_HUMANOID_MELEE = loc("twilight_humanoid_weapon_melee");
 	public static final ResourceLocation ITEM_HUMANOID_BOW = loc("twilight_humanoid_weapon_bow");
@@ -44,12 +47,47 @@ public class TwilightGolemSpawn extends AbstractGolemSpawn {
 					.add(EquipmentSlot.HEAD, 100, GolemItems.WINDSPIRIT_HELMET, 30)
 					.add(EquipmentSlot.CHEST, 100, GolemItems.WINDSPIRIT_CHESTPLATE, 30)
 					.add(EquipmentSlot.LEGS, 100, GolemItems.WINDSPIRIT_SHINGUARD, 30)
+					.add(EquipmentSlot.FEET, 100, GolemItems.WINDSPIRIT_BOOTS, 30)
+					.add(EquipmentSlot.HEAD, 100, TFCompatRegistry.IRONWOOD_HELMET, 30)
+					.add(EquipmentSlot.CHEST, 100, TFCompatRegistry.IRONWOOD_CHESTPLATE, 30)
+					.add(EquipmentSlot.LEGS, 100, TFCompatRegistry.IRONWOOD_SHINGUARD, 30)
+					.add(EquipmentSlot.FEET, 100, TFCompatRegistry.IRONWOOD_BOOTS, 30)
+					.add(EquipmentSlot.HEAD, 50, TFCompatRegistry.KNIGHTMETAL_HELMET, 30)
+					.add(EquipmentSlot.CHEST, 50, TFCompatRegistry.KNIGHTMETAL_CHESTPLATE, 30)
+					.add(EquipmentSlot.LEGS, 50, TFCompatRegistry.KNIGHTMETAL_SHINGUARD, 30)
+					.add(EquipmentSlot.FEET, 50, TFCompatRegistry.KNIGHTMETAL_BOOTS, 30)
+			);
+
+			map.add(GolemDungeons.ITEMS, ITEM_LARGE_ARMOR_BETTER, new EquipmentConfig()
+					.add(EquipmentSlot.HEAD, 100, TFCompatRegistry.KNIGHTMETAL_HELMET, 30)
+					.add(EquipmentSlot.CHEST, 100, TFCompatRegistry.KNIGHTMETAL_CHESTPLATE, 30)
+					.add(EquipmentSlot.LEGS, 100, TFCompatRegistry.KNIGHTMETAL_SHINGUARD, 30)
+					.add(EquipmentSlot.FEET, 100, TFCompatRegistry.KNIGHTMETAL_BOOTS, 30)
+					.add(EquipmentSlot.HEAD, 100, TFCompatRegistry.FIERY_HELMET, 30)
+					.add(EquipmentSlot.CHEST, 100, TFCompatRegistry.FIERY_CHESTPLATE, 30)
+					.add(EquipmentSlot.LEGS, 100, TFCompatRegistry.FIERY_SHINGUARD, 30)
+					.add(EquipmentSlot.FEET, 100, TFCompatRegistry.FIERY_BOOTS, 30)
 			);
 
 			map.add(GolemDungeons.ITEMS, ITEM_LARGE_WEAPON, new EquipmentConfig()
-					.add(EquipmentSlot.MAINHAND, 50, getWeapon(VanillaGolemWeaponMaterial.DIAMOND, GolemWeaponType.AXE), 30)
-					.add(EquipmentSlot.MAINHAND, 50, getWeapon(VanillaGolemWeaponMaterial.DIAMOND, GolemWeaponType.SWORD), 30)
-					.add(EquipmentSlot.MAINHAND, 50, getWeapon(VanillaGolemWeaponMaterial.DIAMOND, GolemWeaponType.SPEAR), 30)
+					.add(EquipmentSlot.MAINHAND, 100, getTFWeapon(TFGolemWeaponMaterial.IRONWOOD, GolemWeaponType.AXE), 30)
+					.add(EquipmentSlot.MAINHAND, 100, getTFWeapon(TFGolemWeaponMaterial.IRONWOOD, GolemWeaponType.SWORD), 30)
+					.add(EquipmentSlot.MAINHAND, 100, getTFWeapon(TFGolemWeaponMaterial.IRONWOOD, GolemWeaponType.SPEAR), 30)
+					.add(EquipmentSlot.MAINHAND, 100, getTFWeapon(TFGolemWeaponMaterial.STEELEAF, GolemWeaponType.AXE), 30)
+					.add(EquipmentSlot.MAINHAND, 100, getTFWeapon(TFGolemWeaponMaterial.STEELEAF, GolemWeaponType.SWORD), 30)
+					.add(EquipmentSlot.MAINHAND, 100, getTFWeapon(TFGolemWeaponMaterial.STEELEAF, GolemWeaponType.SPEAR), 30)
+					.add(EquipmentSlot.MAINHAND, 50, getTFWeapon(TFGolemWeaponMaterial.KNIGHTMETAL, GolemWeaponType.AXE), 30)
+					.add(EquipmentSlot.MAINHAND, 50, getTFWeapon(TFGolemWeaponMaterial.KNIGHTMETAL, GolemWeaponType.SWORD), 30)
+					.add(EquipmentSlot.MAINHAND, 50, getTFWeapon(TFGolemWeaponMaterial.KNIGHTMETAL, GolemWeaponType.SPEAR), 30)
+			);
+
+			map.add(GolemDungeons.ITEMS, ITEM_LARGE_WEAPON_BETTER, new EquipmentConfig()
+					.add(EquipmentSlot.MAINHAND, 100, getTFWeapon(TFGolemWeaponMaterial.KNIGHTMETAL, GolemWeaponType.AXE), 30)
+					.add(EquipmentSlot.MAINHAND, 100, getTFWeapon(TFGolemWeaponMaterial.KNIGHTMETAL, GolemWeaponType.SWORD), 30)
+					.add(EquipmentSlot.MAINHAND, 100, getTFWeapon(TFGolemWeaponMaterial.KNIGHTMETAL, GolemWeaponType.SPEAR), 30)
+					.add(EquipmentSlot.MAINHAND, 100, getTFWeapon(TFGolemWeaponMaterial.FIERY, GolemWeaponType.AXE), 30)
+					.add(EquipmentSlot.MAINHAND, 100, getTFWeapon(TFGolemWeaponMaterial.FIERY, GolemWeaponType.SWORD), 30)
+					.add(EquipmentSlot.MAINHAND, 100, getTFWeapon(TFGolemWeaponMaterial.FIERY, GolemWeaponType.SPEAR), 30)
 			);
 
 			map.add(GolemDungeons.ITEMS, ITEM_HUMANOID_ARMOR, new EquipmentConfig()
@@ -164,9 +202,9 @@ public class TwilightGolemSpawn extends AbstractGolemSpawn {
 					.type(GolemTypes.TYPE_HUMANOID.get(), new SpawnConfig.GolemTypeEntry(50, 1)
 							.addMount(GolemTypes.ENTITY_DOG.get(), 100))
 					.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_GOLEM.get())
-							.add(100, ITEM_LARGE_ARMOR))
+							.add(100, ITEM_LARGE_ARMOR_BETTER))
 					.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_GOLEM.get())
-							.add(100, ITEM_LARGE_WEAPON))
+							.add(100, ITEM_LARGE_WEAPON_BETTER))
 					.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_HUMANOID.get())
 							.add(100, ITEM_HUMANOID_ARMOR_BETTER))
 					.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_HUMANOID.get())
@@ -181,9 +219,11 @@ public class TwilightGolemSpawn extends AbstractGolemSpawn {
 					.type(GolemTypes.TYPE_HUMANOID.get(), new SpawnConfig.GolemTypeEntry(50, 1)
 							.addMount(GolemTypes.ENTITY_DOG.get(), 100))
 					.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_GOLEM.get())
-							.add(100, ITEM_LARGE_ARMOR))
+							.add(100, ITEM_LARGE_ARMOR)
+							.add(100, ITEM_LARGE_ARMOR_BETTER))
 					.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_GOLEM.get())
-							.add(100, ITEM_LARGE_WEAPON))
+							.add(100, ITEM_LARGE_WEAPON)
+							.add(100, ITEM_LARGE_WEAPON_BETTER))
 					.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_HUMANOID.get())
 							.add(100, ITEM_HUMANOID_ARMOR)
 							.add(100, ITEM_HUMANOID_ARMOR_BETTER))
@@ -257,6 +297,12 @@ public class TwilightGolemSpawn extends AbstractGolemSpawn {
 				.mat(loc("knightmetal"), 100)
 				.mat(loc("fiery"), 100);
 	}
+
+
+	public static ItemStack getTFWeapon(TFGolemWeaponMaterial mat, GolemWeaponType type) {
+		return TFCompatRegistry.TF_GOLEM_WEAPON[type.ordinal()][mat.ordinal()].asStack();
+	}
+
 
 	private static ResourceLocation loc(String id) {
 		return new ResourceLocation(TFDispatch.MODID, id);

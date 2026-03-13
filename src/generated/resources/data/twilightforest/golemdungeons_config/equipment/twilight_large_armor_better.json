@@ -1,11 +1,11 @@
 {
   "items": {
-    "MAINHAND": [
+    "CHEST": [
       {
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "modulargolems:ironwood_golem_axe"
+          "item": "modulargolems:knightmetal_chestplate"
         },
         "weight": 100
       },
@@ -13,7 +13,17 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "modulargolems:ironwood_golem_sword"
+          "item": "modulargolems:fiery_chestplate"
+        },
+        "weight": 100
+      }
+    ],
+    "FEET": [
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 30,
+        "stack": {
+          "item": "modulargolems:knightmetal_boots"
         },
         "weight": 100
       },
@@ -21,7 +31,17 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "modulargolems:ironwood_golem_spear"
+          "item": "modulargolems:fiery_boots"
+        },
+        "weight": 100
+      }
+    ],
+    "HEAD": [
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 30,
+        "stack": {
+          "item": "modulargolems:knightmetal_helmet"
         },
         "weight": 100
       },
@@ -29,7 +49,17 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "modulargolems:steeleaf_golem_axe"
+          "item": "modulargolems:fiery_helmet"
+        },
+        "weight": 100
+      }
+    ],
+    "LEGS": [
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 30,
+        "stack": {
+          "item": "modulargolems:knightmetal_shinguard"
         },
         "weight": 100
       },
@@ -37,41 +67,9 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "modulargolems:steeleaf_golem_sword"
+          "item": "modulargolems:fiery_shinguard"
         },
         "weight": 100
-      },
-      {
-        "dropChance": 0.085,
-        "enchantLevel": 30,
-        "stack": {
-          "item": "modulargolems:steeleaf_golem_spear"
-        },
-        "weight": 100
-      },
-      {
-        "dropChance": 0.085,
-        "enchantLevel": 30,
-        "stack": {
-          "item": "modulargolems:knightmetal_golem_axe"
-        },
-        "weight": 50
-      },
-      {
-        "dropChance": 0.085,
-        "enchantLevel": 30,
-        "stack": {
-          "item": "modulargolems:knightmetal_golem_sword"
-        },
-        "weight": 50
-      },
-      {
-        "dropChance": 0.085,
-        "enchantLevel": 30,
-        "stack": {
-          "item": "modulargolems:knightmetal_golem_spear"
-        },
-        "weight": 50
       }
     ]
   }

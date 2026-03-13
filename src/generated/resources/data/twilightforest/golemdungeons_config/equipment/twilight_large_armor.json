@@ -8,6 +8,48 @@
           "item": "modulargolems:wind_spirit_chestplate"
         },
         "weight": 100
+      },
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 30,
+        "stack": {
+          "item": "modulargolems:ironwood_chestplate"
+        },
+        "weight": 100
+      },
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 30,
+        "stack": {
+          "item": "modulargolems:knightmetal_chestplate"
+        },
+        "weight": 50
+      }
+    ],
+    "FEET": [
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 30,
+        "stack": {
+          "item": "modulargolems:wind_spirit_boots"
+        },
+        "weight": 100
+      },
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 30,
+        "stack": {
+          "item": "modulargolems:ironwood_boots"
+        },
+        "weight": 100
+      },
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 30,
+        "stack": {
+          "item": "modulargolems:knightmetal_boots"
+        },
+        "weight": 50
       }
     ],
     "HEAD": [
@@ -18,6 +60,22 @@
           "item": "modulargolems:wind_spirit_helmet"
         },
         "weight": 100
+      },
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 30,
+        "stack": {
+          "item": "modulargolems:ironwood_helmet"
+        },
+        "weight": 100
+      },
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 30,
+        "stack": {
+          "item": "modulargolems:knightmetal_helmet"
+        },
+        "weight": 50
       }
     ],
     "LEGS": [
@@ -28,6 +86,22 @@
           "item": "modulargolems:wind_spirit_shinguard"
         },
         "weight": 100
+      },
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 30,
+        "stack": {
+          "item": "modulargolems:ironwood_shinguard"
+        },
+        "weight": 100
+      },
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 30,
+        "stack": {
+          "item": "modulargolems:knightmetal_shinguard"
+        },
+        "weight": 50
       }
     ]
   }
