@@ -32,18 +32,6 @@ public abstract class FinalCastleMixin extends TFStructureComponent {
 		if ((Object) getClass() == FinalCastleDungeonRoom31Component.class) {
 			FinalCastleModifier.modifyDungeonRoom(level, box, room, mapper);
 		}
-		if ((Object) getClass() == FinalCastleLargeTowerComponent.class) {
-			FinalCastleModifier.modifyArea1(level, box, room, mapper);
-		}
-		if ((Object) getClass() == FinalCastleBellTower21Component.class) {
-			FinalCastleModifier.modifyArea2(level, box, room, mapper);
-		}
-		if ((Object) getClass() == FinalCastleBossGazeboComponent.class) {
-			FinalCastleModifier.modifyBoss(level, box, room, mapper);
-		}
-		if ((Object) getClass() == FinalCastleDungeonForgeRoomComponent.class) {
-
-		}
 	}
 
 }

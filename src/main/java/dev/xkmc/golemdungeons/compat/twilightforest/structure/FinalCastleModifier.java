@@ -32,18 +32,4 @@ public class FinalCastleModifier {
 		}
 	}
 
-	public static void modifyArea1(WorldGenLevel level, BoundingBox box, BoundingBox room, PosMapper mapper) {
-		BlockPos pos = mapper.map(6, 1, 6);
-		//level.setBlock(pos, GDItems.SPAWNER.getDefaultState(), 3);
-	}
-
-	public static void modifyArea2(WorldGenLevel level, BoundingBox box, BoundingBox room, PosMapper mapper) {
-		BlockPos pos = mapper.map(7, 9, 8);
-		//level.setBlock(pos, GDItems.SPAWNER.getDefaultState(), 3);
-	}
-
-	public static void modifyBoss(WorldGenLevel level, BoundingBox box, BoundingBox room, PosMapper mapper) {
-
-	}
-
 }

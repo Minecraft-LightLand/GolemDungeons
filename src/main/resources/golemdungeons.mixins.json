@@ -10,7 +10,8 @@
 		"WardenMixin",
 		"cataclysm.AltarOfFireBlockEntityMixin",
 		"cataclysm.HarbingerMixin",
-		"twilightforest.FinalCastleMixin"
+		"twilightforest.FinalCastleMixin",
+		"twilightforest.StrongholdTrainingRoomComponentMixin"
 	],
 	"client": [
 	],

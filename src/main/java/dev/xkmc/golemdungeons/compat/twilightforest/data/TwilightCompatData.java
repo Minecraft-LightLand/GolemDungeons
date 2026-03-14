@@ -33,9 +33,10 @@ public class TwilightCompatData {
 	}
 
 	public static void genLang(RegistrateLangProvider pvd) {
-		pvd.add("trial_selector." + TFDispatch.MODID, "Twilight Invasion");
-
+		pvd.add("trial_selector." + TFDispatch.MODID, "Twilight Trials");
+		
 		pvd.add(Util.makeDescriptionId("trial", TwilightGolemSpawn.ALL), "Twilight Invasion");
+		pvd.add(Util.makeDescriptionId("trial", TwilightGolemSpawn.KNIGHT), "Stronghold Defender");
 	}
 
 	public static void genAdv(RegistrateAdvancementProvider pvd, AdvancementGenerator.TabBuilder.Entry defeat) {
@@ -57,8 +58,29 @@ public class TwilightCompatData {
 	}
 
 	public static final ResourceLocation REWARD = GolemDungeons.loc("trial_reward/twilight_invasion");
+	public static final ResourceLocation REWARD_KNIGHT = GolemDungeons.loc("trial_reward/stronghold_defender");
 
 	public static void genLoot(RegistrateLootTableProvider pvd) {
+		pvd.addLootAction(LootContextParamSets.CHEST, sub -> sub.accept(REWARD_KNIGHT,
+				LootTable.lootTable()
+						.withPool(LootTableTemplate.getPool(2, 1)
+								.add(ModLootItem.lootTableItem(TFItems.NAGA_SCALE.get(), 2, 4))
+								.add(ModLootItem.lootTableItem(TFItems.CHARM_OF_KEEPING_2.get(), 2, 4))
+								.add(ModLootItem.lootTableItem(TFItems.CHARM_OF_LIFE_1.get(), 2, 4))
+						)
+						.withPool(LootTableTemplate.getPool(1, 1)
+								.add(ModLootItem.lootTableItem(TFItems.MOONWORM_QUEEN.get()))
+								.add(ModLootItem.lootTableItem(TFItems.PEACOCK_FEATHER_FAN.get()))
+								.add(ModLootItem.lootTableItem(TFItems.ORE_MAGNET.get()))
+						)
+						.withPool(LootTableTemplate.getPool(1, 1)
+								.add(ModLootItem.lootTableItem(TFItems.LIFEDRAIN_SCEPTER.get()))
+								.add(ModLootItem.lootTableItem(TFItems.TWILIGHT_SCEPTER.get()))
+								.add(ModLootItem.lootTableItem(TFItems.FORTIFICATION_SCEPTER.get()))
+								.add(ModLootItem.lootTableItem(TFItems.ZOMBIE_SCEPTER.get()))
+						)
+		));
+
 		pvd.addLootAction(LootContextParamSets.CHEST, sub -> sub.accept(REWARD,
 				LootTable.lootTable()
 						.withPool(LootTableTemplate.getPool(4, 1)

@@ -37,6 +37,7 @@ public class TwilightGolemSpawn extends AbstractGolemSpawn {
 
 	public static final ResourceLocation LV1 = loc("twilight_lv1");
 	public static final ResourceLocation LV2 = loc("twilight_lv2");
+	public static final ResourceLocation KNIGHT = loc("stronghold_defender");
 	public static final ResourceLocation ALL = loc("twilight_invasion");
 
 	public static void add(ConfigDataProvider.Collector map) {
@@ -44,10 +45,6 @@ public class TwilightGolemSpawn extends AbstractGolemSpawn {
 		{
 
 			map.add(GolemDungeons.ITEMS, ITEM_LARGE_ARMOR, new EquipmentConfig()
-					.add(EquipmentSlot.HEAD, 100, GolemItems.WINDSPIRIT_HELMET, 30)
-					.add(EquipmentSlot.CHEST, 100, GolemItems.WINDSPIRIT_CHESTPLATE, 30)
-					.add(EquipmentSlot.LEGS, 100, GolemItems.WINDSPIRIT_SHINGUARD, 30)
-					.add(EquipmentSlot.FEET, 100, GolemItems.WINDSPIRIT_BOOTS, 30)
 					.add(EquipmentSlot.HEAD, 100, TFCompatRegistry.IRONWOOD_HELMET, 30)
 					.add(EquipmentSlot.CHEST, 100, TFCompatRegistry.IRONWOOD_CHESTPLATE, 30)
 					.add(EquipmentSlot.LEGS, 100, TFCompatRegistry.IRONWOOD_SHINGUARD, 30)
@@ -245,6 +242,15 @@ public class TwilightGolemSpawn extends AbstractGolemSpawn {
 					.add(of(LV1, 4), of(LV2, 6))
 					.add(of(LV2, 12))
 					.add(of(LV2, 16))
+			);
+
+			map.add(GolemDungeons.TRIAL, KNIGHT, new TrialConfig()
+					.setCost(200).setTriggerRange(7, -1, 5)
+					.setReward(TwilightCompatData.REWARD_KNIGHT).genChest()
+					.add(of(LV1, 1))
+					.add(of(LV1, 2))
+					.add(of(LV1, 4))
+					.add(of(LV1, 8))
 			);
 		}
 
