@@ -1,0 +1,34 @@
+{
+  "generateChest": true,
+  "list": [
+    [
+      {
+        "num": 1,
+        "target": "twilightforest:twilight_lv1"
+      }
+    ],
+    [
+      {
+        "num": 2,
+        "target": "twilightforest:twilight_lv1"
+      }
+    ],
+    [
+      {
+        "num": 4,
+        "target": "twilightforest:twilight_lv1"
+      }
+    ],
+    [
+      {
+        "num": 8,
+        "target": "twilightforest:twilight_lv1"
+      }
+    ]
+  ],
+  "maxY": 5,
+  "minY": -1,
+  "reward": "golemdungeons:trial_reward/stronghold_defender",
+  "spawnCost": 200,
+  "triggerRange": 7
+}

@@ -42,6 +42,7 @@ public class SculkGolemSpawn extends AbstractGolemSpawn {
 					.add(EquipmentSlot.HEAD, 100, GolemItems.WINDSPIRIT_HELMET, 30)
 					.add(EquipmentSlot.CHEST, 100, GolemItems.WINDSPIRIT_CHESTPLATE, 30)
 					.add(EquipmentSlot.LEGS, 100, GolemItems.WINDSPIRIT_SHINGUARD, 30)
+					.add(EquipmentSlot.FEET, 100, GolemItems.WINDSPIRIT_BOOTS, 30)
 			);
 
 			map.add(GolemDungeons.ITEMS, ITEM_LARGE_WEAPON, new EquipmentConfig()

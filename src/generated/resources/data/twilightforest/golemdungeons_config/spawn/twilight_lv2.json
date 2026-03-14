@@ -4,7 +4,7 @@
       "type": "modulargolems:metal_golem",
       "sets": [
         {
-          "target": "twilightforest:twilight_large_armor",
+          "target": "twilightforest:twilight_large_armor_better",
           "weight": 100
         }
       ]
@@ -13,7 +13,7 @@
       "type": "modulargolems:metal_golem",
       "sets": [
         {
-          "target": "twilightforest:twilight_large_weapon",
+          "target": "twilightforest:twilight_large_weapon_better",
           "weight": 100
         }
       ]

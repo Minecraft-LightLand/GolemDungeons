@@ -6,7 +6,61 @@
         "enchantLevel": 30,
         "stack": {
           "count": 1,
-          "id": "modulargolems:diamond_golem_axe"
+          "id": "modulargolems:ironwood_golem_axe"
+        },
+        "weight": 100
+      },
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 30,
+        "stack": {
+          "count": 1,
+          "id": "modulargolems:ironwood_golem_sword"
+        },
+        "weight": 100
+      },
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 30,
+        "stack": {
+          "count": 1,
+          "id": "modulargolems:ironwood_golem_spear"
+        },
+        "weight": 100
+      },
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 30,
+        "stack": {
+          "count": 1,
+          "id": "modulargolems:steeleaf_golem_axe"
+        },
+        "weight": 100
+      },
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 30,
+        "stack": {
+          "count": 1,
+          "id": "modulargolems:steeleaf_golem_sword"
+        },
+        "weight": 100
+      },
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 30,
+        "stack": {
+          "count": 1,
+          "id": "modulargolems:steeleaf_golem_spear"
+        },
+        "weight": 100
+      },
+      {
+        "dropChance": 0.085,
+        "enchantLevel": 30,
+        "stack": {
+          "count": 1,
+          "id": "modulargolems:knightmetal_golem_axe"
         },
         "weight": 50
       },
@@ -15,7 +69,7 @@
         "enchantLevel": 30,
         "stack": {
           "count": 1,
-          "id": "modulargolems:diamond_golem_sword"
+          "id": "modulargolems:knightmetal_golem_sword"
         },
         "weight": 50
       },
@@ -24,7 +78,7 @@
         "enchantLevel": 30,
         "stack": {
           "count": 1,
-          "id": "modulargolems:diamond_golem_spear"
+          "id": "modulargolems:knightmetal_golem_spear"
         },
         "weight": 50
       }

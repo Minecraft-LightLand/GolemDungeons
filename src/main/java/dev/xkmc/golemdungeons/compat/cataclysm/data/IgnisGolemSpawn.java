@@ -9,6 +9,7 @@ import dev.xkmc.golemdungeons.init.GolemDungeons;
 import dev.xkmc.golemdungeons.init.data.spawn.AbstractGolemSpawn;
 import dev.xkmc.golemdungeons.init.data.spawn.PiglinGolemSpawn;
 import dev.xkmc.l2core.serial.config.ConfigDataProvider;
+import dev.xkmc.modulargolems.compat.materials.cataclysm.CataCompatRegistry;
 import dev.xkmc.modulargolems.compat.materials.cataclysm.CataDispatch;
 import dev.xkmc.modulargolems.init.registrate.GolemItems;
 import dev.xkmc.modulargolems.init.registrate.GolemTypes;
@@ -18,6 +19,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 public class IgnisGolemSpawn extends AbstractGolemSpawn {
 
 	public static final ResourceLocation ITEM_LARGE_WEAPON = loc("ignis_large_weapon");
+	public static final ResourceLocation ITEM_LARGE_ARMOR = loc("ignis_large_armor");
 	public static final ResourceLocation ITEM_HUMANOID_WEAPON = loc("ignis_humanoid_weapon");
 	public static final ResourceLocation ITEM_HUMANOID_ARMOR = loc("ignis_humanoid_armor");
 
@@ -43,6 +45,12 @@ public class IgnisGolemSpawn extends AbstractGolemSpawn {
 					.add(EquipmentSlot.CHEST, 50, ModItems.IGNITIUM_CHESTPLATE.get(), 30, 0.2f)
 					.add(EquipmentSlot.LEGS, 50, ModItems.IGNITIUM_LEGGINGS.get(), 30, 0.2f)
 					.add(EquipmentSlot.FEET, 50, ModItems.IGNITIUM_BOOTS.get(), 30, 0.2f)
+			);
+
+			map.add(GolemDungeons.ITEMS, ITEM_LARGE_ARMOR, new EquipmentConfig()
+					.add(EquipmentSlot.HEAD, 50, CataCompatRegistry.IGNIS_HELMET.get(), 30, 0.2f)
+					.add(EquipmentSlot.CHEST, 50, CataCompatRegistry.IGNIS_CHESTPLATE.get(), 30, 0.2f)
+					.add(EquipmentSlot.LEGS, 50, CataCompatRegistry.IGNIS_SHINGUARD.get(), 30, 0.2f)
 			);
 
 		}
@@ -72,7 +80,7 @@ public class IgnisGolemSpawn extends AbstractGolemSpawn {
 					.type(GolemTypes.TYPE_HUMANOID.get(), new SpawnConfig.GolemTypeEntry(50, 1)
 							.addMount(GolemTypes.ENTITY_DOG.get(), 100))
 					.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_GOLEM.get())
-							.add(100, PiglinGolemSpawn.ITEM_LARGE_ARMOR))
+							.add(100, ITEM_LARGE_ARMOR))
 					.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_GOLEM.get())
 							.add(100, ITEM_LARGE_WEAPON))
 					.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_HUMANOID.get())
