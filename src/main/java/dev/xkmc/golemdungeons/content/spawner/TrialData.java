@@ -96,12 +96,13 @@ public class TrialData {
 				if (e != null) {
 					be.addCost(config.spawnCost, time);
 					be.configureEntity(e, mobIndex);
+					var pos = e.blockPosition();
 					for (var le : e.getSelfAndPassengers().toList()) {
 						if (le instanceof AbstractGolemEntity<?, ?> golem) {
 							totalHealth += golem.getMaxHealth();
 							trialGolems.add(golem.getUUID());
 							be.configureGolem(golem, mobIndex);
-							golem.setMode(GolemModes.GUARD.getID(), golem.blockPosition());
+							golem.setMode(GolemModes.GUARD.getID(), pos);
 						}
 					}
 					GolemUtils.recursiveAdd(level, e);

@@ -18,6 +18,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.Enchantments;
 
 public class PiglinGolemSpawn extends AbstractGolemSpawn {
 
@@ -54,13 +55,17 @@ public class PiglinGolemSpawn extends AbstractGolemSpawn {
 					.add(EquipmentSlot.MAINHAND, 50, GDItems.FLAME_SWORD.get(), 30, 2)
 			);
 
+			ItemStack bow = GolemItems.NETHERITE_BOW.asStack();
+			bow.enchant(Enchantments.POWER_ARROWS, 5);
+			bow.enchant(Enchantments.MULTISHOT, 1);
+
 			map.add(GolemDungeons.ITEMS, ITEM_LARGE_BOW, new EquipmentConfig()
-					.add(EquipmentSlot.MAINHAND, 100, GolemItems.NETHERITE_BOW.get(), 30)
+					.add(EquipmentSlot.MAINHAND, 100, bow)
 					.add(EquipmentSlot.OFFHAND, 100, Items.ARROW, 0)
 			);
 
 			map.add(GolemDungeons.ITEMS, ITEM_LARGE_SHOULDER, new EquipmentConfig()
-					.add(EquipmentSlot.MAINHAND, 100, GolemItems.NETHERITE_BOW.get(), 30)
+					.add(EquipmentSlot.MAINHAND, 100, bow)
 					.add(EquipmentSlot.OFFHAND, 100, Items.ARROW, 0)
 					.add(ExtraEquipmentSlot.LEFT_SHOULDER, new EquipmentConfig.EquipmentEntry(
 							100, ItemStack.EMPTY))
@@ -113,7 +118,7 @@ public class PiglinGolemSpawn extends AbstractGolemSpawn {
 							.add(100, ITEM_LARGE_WEAPON))
 			);
 
-			map.add(GolemDungeons.SPAWN, LARGE_BOW, createBase()
+			map.add(GolemDungeons.SPAWN, LARGE_BOW, createNetherite()
 					.type(GolemTypes.TYPE_GOLEM.get(), new SpawnConfig.GolemTypeEntry(50, 0))
 					.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_GOLEM.get())
 							.add(100, ITEM_LARGE_ARMOR))
@@ -121,7 +126,7 @@ public class PiglinGolemSpawn extends AbstractGolemSpawn {
 							.add(100, ITEM_LARGE_BOW))
 			);
 
-			map.add(GolemDungeons.SPAWN, LARGE_SHOULDER, createBase()
+			map.add(GolemDungeons.SPAWN, LARGE_SHOULDER, createNetherite()
 					.type(GolemTypes.TYPE_GOLEM.get(), new SpawnConfig.GolemTypeEntry(50, 0))
 					.equipments(new SpawnConfig.EquipmentGroup(GolemTypes.ENTITY_GOLEM.get())
 							.add(100, ITEM_LARGE_ARMOR))
@@ -204,6 +209,16 @@ public class PiglinGolemSpawn extends AbstractGolemSpawn {
 				.upgrade(GolemItems.ENCHANTED_GOLD.asItem(), 100)
 				.upgrade(GolemItems.DIAMOND.asItem(), 100)
 				.upgrade(GolemItems.NETHERITE.asItem(), 100)
+				.upgradeChance(1, 1, 0.7, 0.7);
+	}
+
+	private static SpawnConfig createNetherite() {
+		return new SpawnConfig(DungeonFactionRegistry.PIGLIN)
+				.mat(ModularGolems.loc("netherite"), new SpawnConfig.GolemMaterialEntry(100)
+						.add(GolemItems.SPEED.get(), 1))
+				.upgrade(GolemItems.ENCHANTED_GOLD.asItem(), 100)
+				.upgrade(GolemItems.NETHERITE.asItem(), 100)
+				.upgrade(GolemItems.SPEED.asItem(), 200)
 				.upgradeChance(1, 1, 0.7, 0.7);
 	}
 

@@ -4,9 +4,10 @@
     "MAINHAND": [
       {
         "dropChance": 0.085,
-        "enchantLevel": 30,
+        "enchantLevel": 0,
         "stack": {
-          "item": "modulargolems:netherite_mecha_bow"
+          "item": "modulargolems:netherite_mecha_bow",
+          "nbt": "{Enchantments:[{id:\"minecraft:power\",lvl:5s},{id:\"minecraft:multishot\",lvl:1s}]}"
         },
         "weight": 100
       }
