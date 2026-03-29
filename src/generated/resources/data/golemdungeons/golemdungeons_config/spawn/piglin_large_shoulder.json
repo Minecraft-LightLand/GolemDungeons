@@ -13,37 +13,7 @@
       "type": "modulargolems:metal_golem",
       "sets": [
         {
-          "target": "golemdungeons:piglin_large_weapon",
-          "weight": 150
-        },
-        {
-          "target": "golemdungeons:piglin_large_weapon_bow",
-          "weight": 100
-        },
-        {
           "target": "golemdungeons:piglin_large_weapon_shoulder",
-          "weight": 50
-        }
-      ]
-    },
-    {
-      "type": "modulargolems:humanoid_golem",
-      "sets": [
-        {
-          "target": "golemdungeons:piglin_humanoid_armor",
-          "weight": 100
-        }
-      ]
-    },
-    {
-      "type": "modulargolems:humanoid_golem",
-      "sets": [
-        {
-          "target": "golemdungeons:piglin_humanoid_weapon_melee",
-          "weight": 100
-        },
-        {
-          "target": "golemdungeons:piglin_humanoid_weapon_crossbow",
           "weight": 100
         }
       ]
@@ -89,14 +59,7 @@
       "weight": 100
     }
   },
-  "targetTrial": "golemdungeons:piglin_legacy",
   "types": {
-    "modulargolems:humanoid_golem": {
-      "bonus": [],
-      "mountChance": 0.0,
-      "mounts": [],
-      "weight": 50
-    },
     "modulargolems:metal_golem": {
       "bonus": [],
       "mountChance": 0.0,

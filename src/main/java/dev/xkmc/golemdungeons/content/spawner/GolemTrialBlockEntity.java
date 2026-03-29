@@ -35,9 +35,7 @@ import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.items.ItemHandlerHelper;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 import static dev.xkmc.golemdungeons.content.spawner.GolemTrialBlock.STATE;
 import static dev.xkmc.golemdungeons.content.spawner.GolemTrialBlock.State.*;
@@ -57,6 +55,9 @@ public class GolemTrialBlockEntity extends BaseBlockEntity implements TickableBl
 	@Nullable
 	@SerialClass.SerialField
 	public ResourceLocation trial = null;
+
+	@SerialClass.SerialField
+	public UUID barId = null;
 
 	@SerialClass.SerialField
 	private long lastCost, lastTime;
@@ -114,7 +115,10 @@ public class GolemTrialBlockEntity extends BaseBlockEntity implements TickableBl
 
 	@Override
 	public void tick() {
-		if (!(level instanceof ServerLevel sl)) return;
+		if (!(level instanceof ServerLevel sl)) {
+			BannerIds.update(this);
+			return;
+		}
 		long time = level.getGameTime();
 		if (!trialPlayer.isEmpty()) {
 			if (trial == null) {
@@ -134,10 +138,16 @@ public class GolemTrialBlockEntity extends BaseBlockEntity implements TickableBl
 			}
 			if (bar == null) {
 				bar = new CustomBossEvent(trial, GDLang.fromTrial(trial));
+				barId = bar.getId();
 				change = true;
 			}
 			if (change) {
-				List<ServerPlayer> players = new ArrayList<>();
+				Set<ServerPlayer> players = new LinkedHashSet<>();
+				for (var e : bar.getPlayers()) {
+					if (isValidTracked(e)) {
+						players.add(e);
+					}
+				}
 				for (var e : trialPlayer) {
 					if (level.getPlayerByUUID(e) instanceof ServerPlayer sp) {
 						players.add(sp);
@@ -170,6 +180,7 @@ public class GolemTrialBlockEntity extends BaseBlockEntity implements TickableBl
 				trialPlayer.add(e.getUUID());
 			}
 			bar = new CustomBossEvent(trial, GDLang.fromTrial(trial));
+			barId = bar.getId();
 			bar.setPlayers(players);
 			data.start(this, time, trial, config);
 			level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(STATE, ACTIVATED));
@@ -177,17 +188,21 @@ public class GolemTrialBlockEntity extends BaseBlockEntity implements TickableBl
 			setChanged();
 		} else if (time % 5 == 0) {
 			boolean added = false;
+			List<ServerPlayer> allPlayers = new ArrayList<>();
 			for (var pl : level.players()) {
+				if (pl instanceof ServerPlayer sp)
+					allPlayers.add(sp);
 				if (!isValidPlayer(pl)) continue;
 				if (trialPlayer.contains(pl.getUUID())) continue;
 				trialPlayer.add(pl.getUUID());
 				added = true;
 			}
 			if (added) {
-				List<ServerPlayer> players = new ArrayList<>();
-				if (bar == null)
+				if (bar == null) {
 					bar = new CustomBossEvent(trial, GDLang.fromTrial(trial));
-				bar.setPlayers(players);
+					barId = bar.getId();
+				}
+				bar.setPlayers(allPlayers);
 				setChanged();
 			}
 		}
@@ -224,6 +239,7 @@ public class GolemTrialBlockEntity extends BaseBlockEntity implements TickableBl
 		trialPlayer.clear();
 		if (bar != null) bar.removeAllPlayers();
 		bar = null;
+		barId = null;
 		sync();
 		setChanged();
 	}

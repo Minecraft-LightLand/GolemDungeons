@@ -6,8 +6,7 @@
         "dropChance": 0.085,
         "enchantLevel": 30,
         "stack": {
-          "item": "minecraft:bow",
-          "nbt": "{Damage:0}"
+          "item": "modulargolems:netherite_mecha_bow"
         },
         "weight": 100
       }

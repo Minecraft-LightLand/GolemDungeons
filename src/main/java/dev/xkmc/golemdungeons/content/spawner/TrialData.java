@@ -6,6 +6,7 @@ import dev.xkmc.golemdungeons.init.data.GDLang;
 import dev.xkmc.golemdungeons.util.GolemUtils;
 import dev.xkmc.l2serial.serialization.SerialClass;
 import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
+import dev.xkmc.modulargolems.content.entity.mode.GolemModes;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.bossevents.CustomBossEvent;
 import net.minecraft.server.level.ServerLevel;
@@ -100,6 +101,7 @@ public class TrialData {
 							totalHealth += golem.getMaxHealth();
 							trialGolems.add(golem.getUUID());
 							be.configureGolem(golem, mobIndex);
+							golem.setMode(GolemModes.GUARD.getID(), golem.blockPosition());
 						}
 					}
 					GolemUtils.recursiveAdd(level, e);
