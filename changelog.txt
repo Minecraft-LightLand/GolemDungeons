@@ -1,3 +1,7 @@
+1.0.6
+- Add shoulder weapons and bows to piglin factory trial
+- Fix material part exclusion datapack
+
 1.0.5
 - Use new Ignis / TF armors on trial golems
 - Add Knight Stronghold golem trial
