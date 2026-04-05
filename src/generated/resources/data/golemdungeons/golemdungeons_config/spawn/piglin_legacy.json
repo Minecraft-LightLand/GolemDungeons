@@ -14,7 +14,15 @@
       "sets": [
         {
           "target": "golemdungeons:piglin_large_weapon",
+          "weight": 150
+        },
+        {
+          "target": "golemdungeons:piglin_large_weapon_bow",
           "weight": 100
+        },
+        {
+          "target": "golemdungeons:piglin_large_weapon_shoulder",
+          "weight": 50
         }
       ]
     },

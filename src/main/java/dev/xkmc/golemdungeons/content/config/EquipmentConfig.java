@@ -1,9 +1,11 @@
 package dev.xkmc.golemdungeons.content.config;
 
+import dev.xkmc.l2core.init.reg.ench.EnchHelper;
 import dev.xkmc.l2core.serial.config.BaseConfig;
 import dev.xkmc.l2serial.serialization.marker.OnInject;
 import dev.xkmc.l2serial.serialization.marker.SerialClass;
 import dev.xkmc.l2serial.serialization.marker.SerialField;
+import dev.xkmc.modulargolems.content.entity.common.SweepGolemEntity;
 import it.unimi.dsi.fastutil.ints.IntList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.component.DataComponents;
@@ -22,6 +24,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.component.FireworkExplosion;
 import net.minecraft.world.item.component.Fireworks;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.ItemLike;
 
 import java.util.ArrayList;
@@ -34,15 +37,25 @@ public class EquipmentConfig extends BaseConfig {
 	@SerialField
 	public final LinkedHashMap<EquipmentSlot, ArrayList<EquipmentEntry>> items = new LinkedHashMap<>();
 
-	EquipmentSetInfo cache;
+	@SerialField
+	public final LinkedHashMap<ExtraEquipmentSlot, ArrayList<EquipmentEntry>> additional = new LinkedHashMap<>();
+
+	EquipmentSetInfo<EquipmentSlot> cache;
+	EquipmentSetInfo<ExtraEquipmentSlot> extraCache;
 
 	@OnInject
 	public void onInject() {
-		cache = new EquipmentSetInfo(items);
+		cache = new EquipmentSetInfo<>(EquipmentConfig::setEquipment, items);
+		extraCache = new EquipmentSetInfo<>(EquipmentConfig::setExtraEquipment, additional);
 	}
 
 	public EquipmentConfig add(EquipmentSlot slot, EquipmentEntry entry) {
 		items.computeIfAbsent(slot, k -> new ArrayList<>()).add(entry);
+		return this;
+	}
+
+	public EquipmentConfig add(ExtraEquipmentSlot slot, EquipmentEntry entry) {
+		additional.computeIfAbsent(slot, k -> new ArrayList<>()).add(entry);
 		return this;
 	}
 
@@ -116,11 +129,34 @@ public class EquipmentConfig extends BaseConfig {
 
 	}
 
-	public static class EquipmentSetInfo {
+	public interface Applicator<T> {
 
-		private final Map<EquipmentSlot, SimpleWeightedRandomList<EquipmentEntry>> itemTable = new LinkedHashMap<>();
+		void set(LivingEntity e, T key, EquipmentEntry item, ItemStack stack);
 
-		private EquipmentSetInfo(LinkedHashMap<EquipmentSlot, ArrayList<EquipmentEntry>> items) {
+	}
+
+	public static void setEquipment(LivingEntity e, EquipmentSlot slot, EquipmentEntry item, ItemStack stack) {
+		e.setItemSlot(slot, stack);
+		if (e instanceof Mob mob) {
+			mob.setDropChance(slot, item.dropChance());
+		}
+	}
+
+	public static void setExtraEquipment(LivingEntity e, ExtraEquipmentSlot slot, EquipmentEntry item, ItemStack stack) {
+		if (!(e instanceof SweepGolemEntity<?, ?> golem)) return;
+		if (e.getRandom().nextFloat() > item.dropChance() && EnchHelper.getLv(stack, Enchantments.VANISHING_CURSE) <= 0)
+			stack.enchant(e.registryAccess().holderOrThrow(Enchantments.VANISHING_CURSE), 1);
+		slot.set(golem, stack);
+	}
+
+
+	public static class EquipmentSetInfo<T> {
+
+		private final Map<T, SimpleWeightedRandomList<EquipmentEntry>> itemTable = new LinkedHashMap<>();
+		private final Applicator<T> applicator;
+
+		private EquipmentSetInfo(Applicator<T> applicator, LinkedHashMap<T, ArrayList<EquipmentEntry>> items) {
+			this.applicator = applicator;
 			for (var ent : items.entrySet()) {
 				var builder = SimpleWeightedRandomList.<EquipmentEntry>builder();
 				for (var e : ent.getValue())
@@ -135,10 +171,7 @@ public class EquipmentConfig extends BaseConfig {
 				var item = slot.getValue().getRandomValue(r);
 				if (item.isEmpty()) continue;
 				var stack = item.get().get(e.registryAccess(), r);
-				e.setItemSlot(slot.getKey(), stack);
-				if (e instanceof Mob mob) {
-					mob.setDropChance(slot.getKey(), item.get().dropChance());
-				}
+				applicator.set(e, slot.getKey(), item.get(), stack);
 			}
 		}
 	}

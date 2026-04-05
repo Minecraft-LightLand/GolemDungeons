@@ -84,7 +84,7 @@ public class SpawnConfig extends BaseConfig {
 			for (var part : item.getEntityType().values()) {
 				var matList = SimpleWeightedRandomList.<ResourceLocation>builder();
 				for (var ent : materials.entrySet()) {
-					if (ent.getValue().weight() > 0 && !ent.getValue().forbid.contains(item)) {
+					if (ent.getValue().weight() > 0 && !ent.getValue().forbid.contains(part.toItem())) {
 						matList.add(ent.getKey(), ent.getValue().weight());
 					}
 				}
@@ -221,6 +221,7 @@ public class SpawnConfig extends BaseConfig {
 			var data = GolemDungeons.ITEMS.getEntry(set.get());
 			if (data == null) continue;
 			data.cache.apply(e, r);
+			data.extraCache.apply(e, r);
 		}
 	}
 

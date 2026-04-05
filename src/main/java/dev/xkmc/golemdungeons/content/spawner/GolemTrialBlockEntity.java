@@ -38,9 +38,7 @@ import net.neoforged.neoforge.common.util.FakePlayer;
 import net.neoforged.neoforge.items.ItemHandlerHelper;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 import static dev.xkmc.golemdungeons.content.spawner.GolemTrialBlock.STATE;
 import static dev.xkmc.golemdungeons.content.spawner.GolemTrialBlock.State.*;
@@ -140,7 +138,12 @@ public class GolemTrialBlockEntity extends BaseBlockEntity implements TickableBl
 				change = true;
 			}
 			if (change) {
-				List<ServerPlayer> players = new ArrayList<>();
+				Set<ServerPlayer> players = new LinkedHashSet<>();
+				for (var e : bar.getPlayers()) {
+					if (isValidTracked(e)) {
+						players.add(e);
+					}
+				}
 				for (var e : trialPlayer) {
 					if (level.getPlayerByUUID(e) instanceof ServerPlayer sp) {
 						players.add(sp);
@@ -180,17 +183,20 @@ public class GolemTrialBlockEntity extends BaseBlockEntity implements TickableBl
 			setChanged();
 		} else if (time % 5 == 0) {
 			boolean added = false;
+			List<ServerPlayer> allPlayers = new ArrayList<>();
 			for (var pl : level.players()) {
+				if (pl instanceof ServerPlayer sp)
+					allPlayers.add(sp);
 				if (!isValidPlayer(pl)) continue;
 				if (trialPlayer.contains(pl.getUUID())) continue;
 				trialPlayer.add(pl.getUUID());
 				added = true;
 			}
 			if (added) {
-				List<ServerPlayer> players = new ArrayList<>();
-				if (bar == null)
+				if (bar == null) {
 					bar = new CustomBossEvent(trial, GDLang.fromTrial(trial));
-				bar.setPlayers(players);
+				}
+				bar.setPlayers(allPlayers);
 				setChanged();
 			}
 		}

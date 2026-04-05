@@ -4,10 +4,18 @@
     "MAINHAND": [
       {
         "dropChance": 0.085,
-        "enchantLevel": 30,
+        "enchantLevel": 0,
         "stack": {
+          "components": {
+            "minecraft:enchantments": {
+              "levels": {
+                "minecraft:multishot": 1,
+                "minecraft:power": 5
+              }
+            }
+          },
           "count": 1,
-          "id": "minecraft:crossbow"
+          "id": "modulargolems:netherite_mecha_bow"
         },
         "weight": 100
       }
