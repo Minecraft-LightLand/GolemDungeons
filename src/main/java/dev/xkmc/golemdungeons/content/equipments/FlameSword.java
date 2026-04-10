@@ -18,6 +18,7 @@ import dev.xkmc.modulargolems.init.material.VanillaGolemWeaponMaterial;
 import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -87,7 +88,9 @@ public class FlameSword extends MetalGolemWeaponItem implements ExtraAttackGolem
 						.perspective(ItemDisplayContext.GUI, new ItemModelBuilder(null, pvd.existingFileHelper)
 								.parent(pvd.getExistingFile(pvd.mcLoc("item/generated")))
 								.texture("layer0", pvd.modLoc("item/equipments/" + ctx.getName() + "_icon")))
-				).defaultLang().register();
+				)
+				.tag(ItemTags.SHARP_WEAPON_ENCHANTABLE)
+				.defaultLang().register();
 	}
 
 }

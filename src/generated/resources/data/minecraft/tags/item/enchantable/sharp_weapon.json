@@ -1,5 +1,7 @@
 {
   "values": [
+    "golemdungeons:flame_sword",
+    "golemdungeons:sculk_golem_scythe",
     {
       "id": "golemdungeons:giant_ironwood_sword",
       "required": false

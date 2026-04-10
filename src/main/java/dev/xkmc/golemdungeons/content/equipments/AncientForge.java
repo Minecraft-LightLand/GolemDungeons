@@ -12,6 +12,7 @@ import dev.xkmc.modulargolems.init.material.GolemWeaponType;
 import dev.xkmc.modulargolems.init.material.VanillaGolemWeaponMaterial;
 import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.network.chat.Component;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -50,7 +51,9 @@ public class AncientForge extends MetalGolemWeaponItem implements GolemCustomSou
 						.perspective(ItemDisplayContext.GUI, new ItemModelBuilder(null, pvd.existingFileHelper)
 								.parent(pvd.getExistingFile(pvd.mcLoc("item/generated")))
 								.texture("layer0", pvd.modLoc("item/equipments/" + ctx.getName() + "_icon")))
-				).defaultLang().register();
+				)
+				.tag(ItemTags.WEAPON_ENCHANTABLE)
+				.defaultLang().register();
 	}
 
 }

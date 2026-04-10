@@ -18,6 +18,7 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -84,7 +85,9 @@ public class SculkScythe extends MetalGolemWeaponItem implements ExtraAttackGole
 						.perspective(ItemDisplayContext.GUI, new ItemModelBuilder(null, pvd.existingFileHelper)
 								.parent(pvd.getExistingFile(pvd.mcLoc("item/generated")))
 								.texture("layer0", pvd.modLoc("item/equipments/" + ctx.getName() + "_icon")))
-				).defaultLang().register();
+				)
+				.tag(ItemTags.SHARP_WEAPON_ENCHANTABLE)
+				.defaultLang().register();
 	}
 
 }
