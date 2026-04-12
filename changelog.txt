@@ -1,3 +1,6 @@
+1.0.7
+- Structure Eyes no longer consume the item
+
 1.0.6
 - Add shoulder weapons and bows to piglin factory trial
 - Fix material part exclusion datapack

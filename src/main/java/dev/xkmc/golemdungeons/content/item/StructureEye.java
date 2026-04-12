@@ -1,10 +1,8 @@
 package dev.xkmc.golemdungeons.content.item;
 
-import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -49,16 +47,14 @@ public class StructureEye extends Item {
 				EyeOfEnder e = new EyeOfEnder(level, player.getX(), player.getY(0.5D), player.getZ());
 				e.setItem(stack);
 				e.signalTo(blockpos);
-				//e.surviveAfterDeath = true;
+				e.surviveAfterDeath = false;
 				level.gameEvent(GameEvent.PROJECTILE_SHOOT, e.position(), GameEvent.Context.of(player));
 				level.addFreshEntity(e);
 				level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ENDER_EYE_LAUNCH, SoundSource.NEUTRAL, 0.5F, 0.4F / (level.getRandom().nextFloat() * 0.4F + 0.8F));
 				level.levelEvent(null, 1003, player.blockPosition(), 0);
-				if (!player.getAbilities().instabuild) {
-					stack.shrink(1);
-				}
 				player.awardStat(Stats.ITEM_USED.get(this));
 				player.swing(hand, true);
+				player.getCooldowns().addCooldown(this, 20);
 				return InteractionResultHolder.success(stack);
 			}
 		}
