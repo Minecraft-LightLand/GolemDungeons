@@ -88,7 +88,7 @@ public class GolemDungeons {
 			}
 			if (ModList.get().isLoaded(TFDispatch.MODID)) {
 				TwilightFactions.register();
-				//IItemSelector.register(new SummonWandSelector(CataDispatch.MODID));
+				IItemSelector.register(new SummonWandSelector(TFDispatch.MODID));
 			}
 		});
 	}

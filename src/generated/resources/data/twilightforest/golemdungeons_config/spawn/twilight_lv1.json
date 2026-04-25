@@ -68,6 +68,7 @@
       "weight": 100
     }
   },
+  "targetTrial": "twilightforest:stronghold_defender",
   "types": {
     "modulargolems:humanoid_golem": {
       "bonus": [],

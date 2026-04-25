@@ -176,7 +176,7 @@ public class TwilightGolemSpawn extends AbstractGolemSpawn {
 
 		{
 
-			map.add(GolemDungeons.SPAWN, LV1, createLv1()
+			map.add(GolemDungeons.SPAWN, LV1, createLv1().asTrialKey(KNIGHT)
 					.upgradeChance(1, 0.7, 0.6, 0.5)
 					.type(GolemTypes.TYPE_GOLEM.get(), new SpawnConfig.GolemTypeEntry(50, 0))
 					.type(GolemTypes.TYPE_HUMANOID.get(), new SpawnConfig.GolemTypeEntry(50, 1)
