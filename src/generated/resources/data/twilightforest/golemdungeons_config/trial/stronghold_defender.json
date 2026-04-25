@@ -4,25 +4,25 @@
     [
       {
         "num": 1,
-        "target": "twilightforest:twilight_lv1"
+        "target": "twilightforest:stronghold_defender"
       }
     ],
     [
       {
         "num": 2,
-        "target": "twilightforest:twilight_lv1"
+        "target": "twilightforest:stronghold_defender"
       }
     ],
     [
       {
         "num": 4,
-        "target": "twilightforest:twilight_lv1"
+        "target": "twilightforest:stronghold_defender"
       }
     ],
     [
       {
         "num": 8,
-        "target": "twilightforest:twilight_lv1"
+        "target": "twilightforest:stronghold_defender"
       }
     ]
   ],

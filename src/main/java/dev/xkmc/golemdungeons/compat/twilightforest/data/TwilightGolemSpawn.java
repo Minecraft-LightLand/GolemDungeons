@@ -35,9 +35,8 @@ public class TwilightGolemSpawn extends AbstractGolemSpawn {
 	public static final ResourceLocation ITEM_HUMANOID_BOW_BETTER = loc("twilight_humanoid_weapon_bow_better");
 	public static final ResourceLocation ITEM_HUMANOID_WAND = loc("twilight_humanoid_weapon_wand");
 
-	public static final ResourceLocation LV1 = loc("twilight_lv1");
-	public static final ResourceLocation LV2 = loc("twilight_lv2");
 	public static final ResourceLocation KNIGHT = loc("stronghold_defender");
+	public static final ResourceLocation LV2 = loc("twilight_lv2");
 	public static final ResourceLocation ALL = loc("twilight_invasion");
 
 	public static void add(ConfigDataProvider.Collector map) {
@@ -176,7 +175,7 @@ public class TwilightGolemSpawn extends AbstractGolemSpawn {
 
 		{
 
-			map.add(GolemDungeons.SPAWN, LV1, createLv1().asTrialKey(KNIGHT)
+			map.add(GolemDungeons.SPAWN, KNIGHT, createLv1().asTrialKey(KNIGHT)
 					.upgradeChance(1, 0.7, 0.6, 0.5)
 					.type(GolemTypes.TYPE_GOLEM.get(), new SpawnConfig.GolemTypeEntry(50, 0))
 					.type(GolemTypes.TYPE_HUMANOID.get(), new SpawnConfig.GolemTypeEntry(50, 1)
@@ -236,10 +235,10 @@ public class TwilightGolemSpawn extends AbstractGolemSpawn {
 			map.add(GolemDungeons.TRIAL, ALL, new TrialConfig()
 					.setCost(200).setTriggerRange(7, -1, 3)
 					.setReward(TwilightCompatData.REWARD).genChest()
-					.add(of(LV1, 1))
-					.add(of(LV1, 4))
-					.add(of(LV1, 4), of(LV2, 2))
-					.add(of(LV1, 4), of(LV2, 6))
+					.add(of(KNIGHT, 1))
+					.add(of(KNIGHT, 4))
+					.add(of(KNIGHT, 4), of(LV2, 2))
+					.add(of(KNIGHT, 4), of(LV2, 6))
 					.add(of(LV2, 12))
 					.add(of(LV2, 16))
 			);
@@ -247,10 +246,10 @@ public class TwilightGolemSpawn extends AbstractGolemSpawn {
 			map.add(GolemDungeons.TRIAL, KNIGHT, new TrialConfig()
 					.setCost(200).setTriggerRange(7, -1, 5)
 					.setReward(TwilightCompatData.REWARD_KNIGHT).genChest()
-					.add(of(LV1, 1))
-					.add(of(LV1, 2))
-					.add(of(LV1, 4))
-					.add(of(LV1, 8))
+					.add(of(KNIGHT, 1))
+					.add(of(KNIGHT, 2))
+					.add(of(KNIGHT, 4))
+					.add(of(KNIGHT, 8))
 			);
 		}
 
